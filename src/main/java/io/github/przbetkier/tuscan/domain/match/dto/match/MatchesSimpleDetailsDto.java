@@ -1,26 +1,26 @@
-package io.github.przbetkier.tuscan.domain.match;
+package io.github.przbetkier.tuscan.domain.match.dto.match;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class MatchesSimpleDetails {
+public class MatchesSimpleDetailsDto {
 
-    private List<SimpleMatch> simpleMatchList;
+    private List<SimpleMatchDto> simpleMatchList;
     private Integer matchesCount;
 
     @JsonCreator
-    public MatchesSimpleDetails(@JsonProperty("items") List<SimpleMatch> simpleMatchList) {
+    public MatchesSimpleDetailsDto(@JsonProperty("items") List<SimpleMatchDto> simpleMatchList) {
         this.simpleMatchList = simpleMatchList;
         this.matchesCount = this.simpleMatchList.size();
     }
 
-    public List<SimpleMatch> getSimpleMatchList() {
+    public List<SimpleMatchDto> getSimpleMatchList() {
         return simpleMatchList;
     }
 
-    public void setSimpleMatchList(List<SimpleMatch> simpleMatchList) {
+    public void setSimpleMatchList(List<SimpleMatchDto> simpleMatchList) {
         this.simpleMatchList = simpleMatchList;
     }
 

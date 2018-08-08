@@ -1,5 +1,9 @@
 package io.github.przbetkier.tuscan.domain.match;
 
+import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse;
+import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
+import io.github.przbetkier.tuscan.domain.match.dto.match.MatchesSimpleDetailsDto;
+import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchStatsDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -19,13 +23,25 @@ public class MatchService {
         this.webClient = webClient;
     }
 
-    public MatchesSimpleDetails getMatches(String playerId, Integer offset, Integer from) {
+    public SimpleMatchesResponse getMatches(String playerId, Integer offset, Integer from) {
         return webClient
                 .method(GET)
                 .uri("/players/" + playerId + "/history?game=csgo&offset=" + offset + "&limit=" + MATCHES_LIMIT + "&from=" + from)
                 .retrieve()
-                .bodyToMono(MatchesSimpleDetails.class)
+                .bodyToMono(MatchesSimpleDetailsDto.class)
+                .map(SimpleMatchListMapper::map)
                 .doOnError(a -> logger.error("Something went wrong", a))
+                .block();
+    }
+
+    public MatchFullDetailsResponse getMatch(String matchId) {
+        return webClient
+                .method(GET)
+                .uri("/matches/" + matchId + "/stats")
+                .retrieve()
+                .bodyToMono(MatchStatsDto.class)
+                .map(MatchFullDetailsMapper::map)
+                .doOnError(a -> logger.error("Could not fetch match with id [{}]", matchId))
                 .block();
     }
 }

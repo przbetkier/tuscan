@@ -1,18 +1,18 @@
-package io.github.przbetkier.tuscan.domain.match;
+package io.github.przbetkier.tuscan.domain.match.dto.match;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SimpleMatch {
+public class SimpleMatchDto {
 
     private String matchId;
     private Integer startedAt;
     private Integer finishedAt;
 
     @JsonCreator
-    public SimpleMatch(@JsonProperty("match_id") String matchId,
-                       @JsonProperty("started_at") Integer startedAt,
-                       @JsonProperty("finished_at") Integer finishedAt) {
+    public SimpleMatchDto(@JsonProperty("match_id") String matchId,
+                          @JsonProperty("started_at") Integer startedAt,
+                          @JsonProperty("finished_at") Integer finishedAt) {
         this.matchId = matchId;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
