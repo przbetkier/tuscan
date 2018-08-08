@@ -1,0 +1,6 @@
+faceit:
+  timeout:
+    read: 1000
+    connect: 1000
+  url: 'https://open.faceit.com/data/v4'
+  api-key: '0114f4c1-868d-47b0-ae93-b463965d3684'
