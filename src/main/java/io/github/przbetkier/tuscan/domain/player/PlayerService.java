@@ -1,6 +1,7 @@
 package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
+import io.github.przbetkier.tuscan.domain.match.dto.player.PlayerDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
