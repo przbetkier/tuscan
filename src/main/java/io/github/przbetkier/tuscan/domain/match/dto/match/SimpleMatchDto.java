@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SimpleMatchDto {
 
     private String matchId;
-    private Integer startedAt;
-    private Integer finishedAt;
+    private long startedAt;
+    private long finishedAt;
 
     @JsonCreator
     public SimpleMatchDto(@JsonProperty("match_id") String matchId,
-                          @JsonProperty("started_at") Integer startedAt,
-                          @JsonProperty("finished_at") Integer finishedAt) {
+                          @JsonProperty("started_at") long startedAt,
+                          @JsonProperty("finished_at") long finishedAt) {
         this.matchId = matchId;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
@@ -26,7 +26,7 @@ public class SimpleMatchDto {
         this.matchId = matchId;
     }
 
-    public Integer getStartedAt() {
+    public long getStartedAt() {
         return startedAt;
     }
 
@@ -34,7 +34,7 @@ public class SimpleMatchDto {
         this.startedAt = startedAt;
     }
 
-    public Integer getFinishedAt() {
+    public long getFinishedAt() {
         return finishedAt;
     }
 
