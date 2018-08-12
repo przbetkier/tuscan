@@ -11,13 +11,16 @@ public class MatchFullDetailsResponse {
     private final String score;
     private final Integer roundsCount;
     private final List<Team> teams;
+    private final String winnerTeam;
 
-    public MatchFullDetailsResponse(String matchId, String map, String score, Integer roundsCount, List<Team> teams) {
+    public MatchFullDetailsResponse(String matchId, String map, String score, Integer roundsCount, List<Team> teams,
+                                    String winnerTeam) {
         this.matchId = matchId;
         this.map = map;
         this.score = score;
         this.roundsCount = roundsCount;
         this.teams = teams;
+        this.winnerTeam = winnerTeam;
     }
 
     public String getMatchId() {
@@ -40,5 +43,7 @@ public class MatchFullDetailsResponse {
         return teams;
     }
 
-
+    public String getWinnerTeam() {
+        return winnerTeam;
+    }
 }

@@ -32,7 +32,8 @@ class MatchFullDetailsMapper {
                 matchFullDetails.getRoundStatsDto().getMap(),
                 matchFullDetails.getRoundStatsDto().getScore(),
                 valueOf(matchFullDetails.getRoundStatsDto().getRoundsCount()),
-                asList(teamOne, teamTwo));
+                asList(teamOne, teamTwo),
+                matchFullDetails.getRoundStatsDto().getWinnerTeamId());
     }
 
     private static Player getPlayerFromPlayerDto(PlayerDto playerDto) {
