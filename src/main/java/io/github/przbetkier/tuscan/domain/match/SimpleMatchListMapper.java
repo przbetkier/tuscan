@@ -6,8 +6,8 @@ import io.github.przbetkier.tuscan.domain.match.dto.match.MatchesSimpleDetailsDt
 
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TimeZone;
 
 class SimpleMatchListMapper {
@@ -18,8 +18,8 @@ class SimpleMatchListMapper {
                 matchesDetails.getMatchesCount());
     }
 
-    private static Set<SimpleMatch> mapMatches(MatchesSimpleDetailsDto matchesSimpleDetailsDto) {
-        Set<SimpleMatch> matches = new HashSet<>();
+    private static List<SimpleMatch> mapMatches(MatchesSimpleDetailsDto matchesSimpleDetailsDto) {
+        List<SimpleMatch> matches = new ArrayList<>();
         matchesSimpleDetailsDto.getSimpleMatchList().forEach(
                 match -> matches.add(
                         new SimpleMatch(match.getMatchId(),

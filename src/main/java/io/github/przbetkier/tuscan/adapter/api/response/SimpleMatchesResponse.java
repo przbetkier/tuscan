@@ -2,19 +2,19 @@ package io.github.przbetkier.tuscan.adapter.api.response;
 
 import io.github.przbetkier.tuscan.adapter.api.response.dto.SimpleMatch;
 
-import java.util.Set;
+import java.util.List;
 
 public class SimpleMatchesResponse {
 
-    private Set<SimpleMatch> simpleMatchList;
+    private List<SimpleMatch> simpleMatchList;
     private Integer matchesCount;
 
-    public SimpleMatchesResponse(Set<SimpleMatch> simpleMatchList, Integer matchesCount) {
+    public SimpleMatchesResponse(List<SimpleMatch> simpleMatchList, Integer matchesCount) {
         this.simpleMatchList = simpleMatchList;
         this.matchesCount = matchesCount;
     }
 
-    public Set<SimpleMatch> getSimpleMatchList() {
+    public List<SimpleMatch> getSimpleMatchList() {
         return simpleMatchList;
     }
 
