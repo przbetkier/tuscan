@@ -6,4 +6,4 @@ faceit:
   api-key: '0114f4c1-868d-47b0-ae93-b463965d3684'
 
 server:
-  port: 8090
+  port: 8080

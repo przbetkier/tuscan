@@ -10,6 +10,6 @@ public class CacheManagerProperties {
 
     @Bean
     CacheManager cacheManager() {
-        return new ConcurrentMapCacheManager("player_details");
+        return new ConcurrentMapCacheManager("player_details", "simple_matches", "detailed_matches");
     }
 }

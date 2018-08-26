@@ -52,5 +52,9 @@ public class PlayerDetails {
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
+
+    public boolean hasCsgoGame() {
+        return this.getGames().getCsgo() != null;
+    }
 }
 

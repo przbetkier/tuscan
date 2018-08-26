@@ -2,9 +2,11 @@ package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 import io.github.przbetkier.tuscan.domain.match.dto.player.PlayerDetails;
+import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -24,6 +26,10 @@ class FaceitPlayerClient {
                 .method(HttpMethod.GET)
                 .uri("/players?nickname=" + nickname)
                 .retrieve()
+                .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
+                    logger.warn("Player [{}] could not be found on Faceit.", nickname);
+                    throw new PlayerNotFoundException("Player not found on Faceit!");
+                })
                 .bodyToMono(PlayerDetails.class)
                 .map(PlayerDetailsMapper::mapToPlayerDetailsResponse)
                 .doOnError(a -> logger.error("Something went wrong", a))

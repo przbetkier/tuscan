@@ -13,9 +13,17 @@ class PlayerDetailsMapper {
         return new PlayerDetailsResponse(
                 details.getPlayerId(),
                 details.getNickname(),
-                new GameDetails(
-                        details.getGames().getCsgo().getFaceitElo(),
-                        details.getGames().getCsgo().getLevel()),
+                mapToCsgoGameDetails(details),
                 details.getAvatarUrl());
+    }
+
+    private static GameDetails mapToCsgoGameDetails(PlayerDetails details) {
+        if (details.hasCsgoGame()) {
+            return new GameDetails(
+                    details.getGames().getCsgo().getFaceitElo(),
+                    details.getGames().getCsgo().getLevel());
+        } else {
+            return null;
+        }
     }
 }
