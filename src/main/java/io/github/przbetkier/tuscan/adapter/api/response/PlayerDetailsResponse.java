@@ -8,12 +8,14 @@ public class PlayerDetailsResponse {
     private final String nickname;
     private final GameDetails gameDetails;
     private final String avatarUrl;
+    private final String country;
 
-    public PlayerDetailsResponse(String playerId, String nickname, GameDetails gameDetails, String avatarUrl) {
+    public PlayerDetailsResponse(String playerId, String nickname, GameDetails gameDetails, String avatarUrl, String country) {
         this.playerId = playerId;
         this.nickname = nickname;
         this.gameDetails = gameDetails;
         this.avatarUrl = avatarUrl;
+        this.country = country;
     }
 
     public String getPlayerId() {
@@ -30,5 +32,9 @@ public class PlayerDetailsResponse {
 
     public String getAvatarUrl() {
         return avatarUrl;
+    }
+
+    public String getCountry() {
+        return country;
     }
 }

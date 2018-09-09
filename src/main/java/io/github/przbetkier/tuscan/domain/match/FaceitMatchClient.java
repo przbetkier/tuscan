@@ -24,6 +24,7 @@ class FaceitMatchClient {
     }
 
     SimpleMatchesResponse getMatches(String playerId, Integer from, Integer offset) {
+        from = 1410282903;
         return webClient
                 .method(GET)
                 .uri("/players/" + playerId + "/history?game=csgo&offset=" + offset + "&limit=" + MATCHES_LIMIT + "&from=" + from)
@@ -34,13 +35,13 @@ class FaceitMatchClient {
                 .block();
     }
 
-    MatchFullDetailsResponse getMatchDetails(String matchId) {
+    MatchFullDetailsResponse getMatchDetails(String matchId, String playerId) {
         return webClient
                 .method(GET)
                 .uri("/matches/" + matchId + "/stats")
                 .retrieve()
                 .bodyToMono(MatchStatsDto.class)
-                .map(MatchFullDetailsMapper::map)
+                .map(result -> MatchFullDetailsMapper.map(result, playerId))
                 .doOnError(a -> logger.error("Could not fetch match with id [{}]", matchId))
                 .block();
     }

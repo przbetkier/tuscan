@@ -9,16 +9,19 @@ public class PlayerDetails {
     private String nickname;
     private Games games;
     private String avatarUrl;
+    private String country;
 
     @JsonCreator
     public PlayerDetails(@JsonProperty("player_id") String playerId,
                          @JsonProperty("nickname") String nickname,
                          @JsonProperty("games") Games games,
-                         @JsonProperty("avatar") String avatarUrl) {
+                         @JsonProperty("avatar") String avatarUrl,
+                         @JsonProperty("country") String country) {
         this.playerId = playerId;
         this.nickname = nickname;
         this.games = games;
         this.avatarUrl = avatarUrl;
+        this.country = country;
     }
 
     public String getPlayerId() {
@@ -55,6 +58,14 @@ public class PlayerDetails {
 
     public boolean hasCsgoGame() {
         return this.getGames().getCsgo() != null;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
 

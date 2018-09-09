@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.adapter.api.response;
 
+import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team;
 
 import java.util.List;
@@ -12,15 +13,17 @@ public class MatchFullDetailsResponse {
     private final Integer roundsCount;
     private final List<Team> teams;
     private final String winnerTeam;
+    private final MatchResult result;
 
     public MatchFullDetailsResponse(String matchId, String map, String score, Integer roundsCount, List<Team> teams,
-                                    String winnerTeam) {
+                                    String winnerTeam, MatchResult result) {
         this.matchId = matchId;
         this.map = map;
         this.score = score;
         this.roundsCount = roundsCount;
         this.teams = teams;
         this.winnerTeam = winnerTeam;
+        this.result = result;
     }
 
     public String getMatchId() {
@@ -45,5 +48,9 @@ public class MatchFullDetailsResponse {
 
     public String getWinnerTeam() {
         return winnerTeam;
+    }
+
+    public MatchResult getResult() {
+        return result;
     }
 }

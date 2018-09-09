@@ -1,6 +1,7 @@
 package io.github.przbetkier.tuscan.domain.match;
 
 import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse;
+import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Player;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.PlayerStats;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team;
@@ -11,8 +12,11 @@ import io.github.przbetkier.tuscan.domain.match.dto.stats.PlayerDto;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import static io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult.LOSS;
+import static io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult.WIN;
 import static java.lang.Integer.valueOf;
 import static java.util.Arrays.asList;
 
@@ -21,7 +25,7 @@ class MatchFullDetailsMapper {
     private MatchFullDetailsMapper() {
     }
 
-    static MatchFullDetailsResponse map(MatchStatsDto matchStatsDto) {
+    static MatchFullDetailsResponse map(MatchStatsDto matchStatsDto, String playerId) {
         MatchFullDetailsDto matchFullDetails = matchStatsDto.getMatchFullDetails().get(0);
 
         Team teamOne = getTeam(matchStatsDto, 0, getPlayers(matchStatsDto, 0));
@@ -33,7 +37,8 @@ class MatchFullDetailsMapper {
                 matchFullDetails.getRoundStatsDto().getScore(),
                 valueOf(matchFullDetails.getRoundStatsDto().getRoundsCount()),
                 asList(teamOne, teamTwo),
-                matchFullDetails.getRoundStatsDto().getWinnerTeamId());
+                matchFullDetails.getRoundStatsDto().getWinnerTeamId(),
+                getResult(playerId, asList(teamOne, teamTwo), matchFullDetails.getRoundStatsDto().getWinnerTeamId()));
     }
 
     private static Player getPlayerFromPlayerDto(PlayerDto playerDto) {
@@ -63,5 +68,12 @@ class MatchFullDetailsMapper {
         matchStatsDto.getMatchFullDetails().get(0).getTeams().get(teamNumber).getPlayers().forEach(
                 playerDto -> players.add(getPlayerFromPlayerDto(playerDto)));
         return players;
+    }
+
+    private static MatchResult getResult(String playerId, List<Team> teams, String winnerTeam) {
+        Team winner = teams.stream().filter(t -> t.getTeamId().equals(winnerTeam)).findFirst().orElseThrow(RuntimeException::new);
+
+        return winner.getPlayers().stream()
+                .anyMatch(p -> p.getPlayerId().equals(playerId)) ? WIN : LOSS;
     }
 }
