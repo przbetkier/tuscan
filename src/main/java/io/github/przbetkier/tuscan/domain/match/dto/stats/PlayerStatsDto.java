@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PlayerStatsDto {
 
+    private String kills;
     private String assists;
     private String deaths;
     private String headshots;
@@ -17,7 +18,8 @@ public class PlayerStatsDto {
     private String tripleKills;
 
     @JsonCreator
-    public PlayerStatsDto(@JsonProperty("Assists") String assists,
+    public PlayerStatsDto(@JsonProperty("Kills") String kills,
+                          @JsonProperty("Assists") String assists,
                           @JsonProperty("Deaths") String deaths,
                           @JsonProperty("Headshot") String headshots,
                           @JsonProperty("Headshots %") String headshotPercentage,
@@ -27,6 +29,7 @@ public class PlayerStatsDto {
                           @JsonProperty("Penta Kills") String pentaKills,
                           @JsonProperty("Quadro Kills") String quadroKills,
                           @JsonProperty("Triple Kills") String tripleKills) {
+        this.kills = kills;
         this.assists = assists;
         this.deaths = deaths;
         this.headshots = headshots;
@@ -37,6 +40,14 @@ public class PlayerStatsDto {
         this.pentaKills = pentaKills;
         this.quadroKills = quadroKills;
         this.tripleKills = tripleKills;
+    }
+
+    public String getKills() {
+        return kills;
+    }
+
+    public void setKills(String kills) {
+        this.kills = kills;
     }
 
     public String getAssists() {

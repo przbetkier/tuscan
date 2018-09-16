@@ -44,6 +44,7 @@ class MatchFullDetailsMapper {
     private static Player getPlayerFromPlayerDto(PlayerDto playerDto) {
         return new Player(
                 playerDto.getPlayerId(), playerDto.getNickname(), new PlayerStats(
+                valueOf(playerDto.getPlayerStats().getKills()),
                 valueOf(playerDto.getPlayerStats().getAssists()),
                 valueOf(playerDto.getPlayerStats().getDeaths()),
                 valueOf(playerDto.getPlayerStats().getHeadshots()),

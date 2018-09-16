@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class PlayerStats {
 
+    private final Integer kills;
     private final Integer assists;
     private final Integer deaths;
     private final Integer headshots;
@@ -11,14 +12,19 @@ public class PlayerStats {
     private final BigDecimal kdRatio;
     private final BigDecimal krRatio;
 
-    public PlayerStats(Integer assists, Integer deaths, Integer headshots, Integer headshotPercentage,
+    public PlayerStats(Integer kills, Integer assists, Integer deaths, Integer headshots, Integer headshotPercentage,
                        BigDecimal kdRatio, BigDecimal krRatio) {
+        this.kills = kills;
         this.assists = assists;
         this.deaths = deaths;
         this.headshots = headshots;
         this.headshotPercentage = headshotPercentage;
         this.kdRatio = kdRatio;
         this.krRatio = krRatio;
+    }
+
+    public Integer getKills() {
+        return kills;
     }
 
     public Integer getAssists() {
