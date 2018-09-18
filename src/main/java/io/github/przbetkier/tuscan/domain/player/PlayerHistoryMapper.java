@@ -27,8 +27,16 @@ class PlayerHistoryMapper {
             MatchHistoryDto matchAfter = lastMatches.get(i);
             MatchHistoryDto matchBefore = lastMatches.get(i + 1);
 
-            Integer eloAfter = Integer.valueOf(matchAfter.getElo().replace(",", ""));
-            Integer eloBefore = Integer.valueOf(matchBefore.getElo().replace(",", ""));
+            Integer eloAfter;
+            Integer eloBefore;
+
+            if (matchAfter.getElo() != null && matchBefore.getElo() != null) {
+                eloAfter = Integer.valueOf(matchAfter.getElo().replace(",", ""));
+                eloBefore = Integer.valueOf(matchBefore.getElo().replace(",", ""));
+            } else {
+                eloAfter = 0;
+                eloBefore = 0;
+            }
 
             MatchHistory matchHistoryToAdd = new MatchHistory(
                     matchAfter.getMatchId(),
