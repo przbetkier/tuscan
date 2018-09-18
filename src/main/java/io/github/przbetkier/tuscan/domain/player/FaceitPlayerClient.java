@@ -2,11 +2,11 @@ package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
-import io.github.przbetkier.tuscan.domain.match.dto.player.PlayerDetails;
-import io.github.przbetkier.tuscan.domain.match.dto.player.stats.PlayerStats;
+import io.github.przbetkier.tuscan.domain.player.dto.stats.PlayerStats;
 import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -17,14 +17,14 @@ class FaceitPlayerClient {
 
     private final static Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
 
-    private final WebClient webClient;
+    private final WebClient faceitClient;
 
-    public FaceitPlayerClient(WebClient webClient) {
-        this.webClient = webClient;
+    public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient) {
+        this.faceitClient = faceitClient;
     }
 
     PlayerDetailsResponse getPlayerDetails(String nickname) {
-        return webClient
+        return faceitClient
                 .method(HttpMethod.GET)
                 .uri("/players?nickname=" + nickname)
                 .retrieve()
@@ -39,7 +39,7 @@ class FaceitPlayerClient {
     }
 
     PlayerCsgoStatsResponse getPlayerCsgoStats(String playerId) {
-        return webClient
+        return faceitClient
                 .method(HttpMethod.GET)
                 .uri("/players/" + playerId + "/stats/csgo")
                 .retrieve()
@@ -49,7 +49,7 @@ class FaceitPlayerClient {
                 })
                 .bodyToMono(PlayerStats.class)
                 .map(PlayerStatsMapper::map)
-                .doOnError(e -> logger.error("Could not map segments to player stats.", e))
+                .doOnError(e -> logger.error("Could not map segments to dto stats.", e))
                 .block();
     }
 }

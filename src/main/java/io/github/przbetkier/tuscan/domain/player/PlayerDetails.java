@@ -1,7 +1,8 @@
-package io.github.przbetkier.tuscan.domain.match.dto.player;
+package io.github.przbetkier.tuscan.domain.player;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.github.przbetkier.tuscan.domain.player.dto.Games;
 
 public class PlayerDetails {
 

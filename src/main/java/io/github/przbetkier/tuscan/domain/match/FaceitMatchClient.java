@@ -6,6 +6,7 @@ import io.github.przbetkier.tuscan.domain.match.dto.match.MatchesSimpleDetailsDt
 import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchStatsDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -19,7 +20,7 @@ class FaceitMatchClient {
 
     private final WebClient webClient;
 
-    public FaceitMatchClient(WebClient webClient) {
+    public FaceitMatchClient(@Qualifier("faceitClient") WebClient webClient) {
         this.webClient = webClient;
     }
 

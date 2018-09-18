@@ -3,9 +3,9 @@ package io.github.przbetkier.tuscan.domain.player;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MapStats;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.OverallStats;
+import io.github.przbetkier.tuscan.domain.player.dto.stats.*;
 import io.github.przbetkier.tuscan.domain.CsgoMap;
-import io.github.przbetkier.tuscan.domain.match.dto.player.stats.PlayerStats;
-import io.github.przbetkier.tuscan.domain.match.dto.player.stats.Segment;
+import io.github.przbetkier.tuscan.domain.player.dto.stats.Segment;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

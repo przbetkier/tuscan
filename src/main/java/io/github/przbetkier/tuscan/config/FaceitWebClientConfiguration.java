@@ -17,13 +17,22 @@ class FaceitWebClientConfiguration {
         this.faceitWebClientProperties = faceitWebClientProperties;
     }
 
-    @Bean
-    WebClient webClient() {
+    @Bean(name = "faceitClient")
+    WebClient faceitClient() {
         return WebClient
                 .builder()
                 .baseUrl(faceitWebClientProperties.getUrl())
                 .defaultHeader(ACCEPT, APPLICATION_JSON_VALUE)
                 .defaultHeader(AUTHORIZATION, "Bearer " + faceitWebClientProperties.getApiKey())
+                .build();
+    }
+
+    @Bean(name = "openFaceitClient")
+    WebClient openFaceitClient() {
+        return WebClient
+                .builder()
+                .baseUrl("https://api.faceit.com/stats/api/v1")
+                .defaultHeader(ACCEPT, APPLICATION_JSON_VALUE)
                 .build();
     }
 }
