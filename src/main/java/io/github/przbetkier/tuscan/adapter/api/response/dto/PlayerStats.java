@@ -11,9 +11,14 @@ public class PlayerStats {
     private final Integer headshotPercentage;
     private final BigDecimal kdRatio;
     private final BigDecimal krRatio;
+    private final Integer mvps;
+    private final Integer tripleKills;
+    private final Integer quadroKills;
+    private final Integer pentaKills;
 
     public PlayerStats(Integer kills, Integer assists, Integer deaths, Integer headshots, Integer headshotPercentage,
-                       BigDecimal kdRatio, BigDecimal krRatio) {
+                       BigDecimal kdRatio, BigDecimal krRatio, Integer mvps, Integer tripleKills, Integer quadroKills,
+                       Integer pentaKills) {
         this.kills = kills;
         this.assists = assists;
         this.deaths = deaths;
@@ -21,6 +26,10 @@ public class PlayerStats {
         this.headshotPercentage = headshotPercentage;
         this.kdRatio = kdRatio;
         this.krRatio = krRatio;
+        this.mvps = mvps;
+        this.tripleKills = tripleKills;
+        this.quadroKills = quadroKills;
+        this.pentaKills = pentaKills;
     }
 
     public Integer getKills() {
@@ -49,5 +58,21 @@ public class PlayerStats {
 
     public BigDecimal getKrRatio() {
         return krRatio;
+    }
+
+    public Integer getMvps() {
+        return mvps;
+    }
+
+    public Integer getTripleKills() {
+        return tripleKills;
+    }
+
+    public Integer getQuadroKills() {
+        return quadroKills;
+    }
+
+    public Integer getPentaKills() {
+        return pentaKills;
     }
 }

@@ -13,7 +13,7 @@ import java.util.TimeZone;
 
 class PlayerHistoryMapper {
 
-    private final static Integer MAX_MATCHES_COUNT = 26;
+    private final static Integer MAX_MATCHES_COUNT = 21;
 
     private PlayerHistoryMapper() {
     }

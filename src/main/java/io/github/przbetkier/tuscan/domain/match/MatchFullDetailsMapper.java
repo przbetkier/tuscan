@@ -50,8 +50,11 @@ class MatchFullDetailsMapper {
                 valueOf(playerDto.getPlayerStats().getHeadshots()),
                 valueOf(playerDto.getPlayerStats().getHeadshotPercentage()),
                 new BigDecimal(playerDto.getPlayerStats().getKdRatio()),
-                new BigDecimal(playerDto.getPlayerStats().getKrRatio())
-        ));
+                new BigDecimal(playerDto.getPlayerStats().getKrRatio()),
+                valueOf(playerDto.getPlayerStats().getMvps()),
+                valueOf(playerDto.getPlayerStats().getTripleKills()),
+                valueOf(playerDto.getPlayerStats().getQuadroKills()),
+                valueOf(playerDto.getPlayerStats().getPentaKills())));
     }
 
     private static Team getTeam(MatchStatsDto matchStatsDto, Integer teamNumber, Set<Player> players) {

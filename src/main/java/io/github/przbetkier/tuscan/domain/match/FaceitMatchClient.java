@@ -16,7 +16,7 @@ import static org.springframework.http.HttpMethod.GET;
 class FaceitMatchClient {
 
     private static final Logger logger = LoggerFactory.getLogger(FaceitMatchClient.class);
-    private final static Integer MATCHES_LIMIT = 25;
+    private final static Integer MATCHES_LIMIT = 20;
 
     private final WebClient webClient;
 
