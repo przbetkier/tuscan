@@ -17,7 +17,9 @@ class SamplePlayerStats {
                         "55",
                         matches,
                         kdRatio,
-                        "55"
+                        "55",
+                        2,
+                        9
                 ),
                 [new Segment(
                         BEST_SOLO, // BECAUSE OF KD
@@ -25,7 +27,8 @@ class SamplePlayerStats {
                                 "15",
                                 "1.95",
                                 "22"
-                        )
+                        ),
+                        "5v5"
                 ),
                  new Segment(
                          BEST_TEAM,  // BECAUSE OF WIN PERCENTAGE
@@ -33,7 +36,8 @@ class SamplePlayerStats {
                                  "15",
                                  "1.10",
                                  "99"
-                         )
+                         ),
+                         "5v5"
                  ),
                  new Segment(
                          "de_overpass",
@@ -41,7 +45,8 @@ class SamplePlayerStats {
                                  "15",
                                  "1.25",
                                  "11"
-                         )
+                         ),
+                         "5v5"
                  )]
         )
     }

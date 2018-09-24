@@ -16,8 +16,8 @@ class PlayerStatsMapperTest extends Specification {
         def result = PlayerStatsMapper.map(playerStats)
 
         then:
-        result.overallStats.highestTeamPerformanceOn.name == SamplePlayerStats.BEST_TEAM
-        result.overallStats.highestSoloPerformanceOn.name == SamplePlayerStats.BEST_SOLO
+        result.overallStats.performance.bestTeamPerformance.map.name == SamplePlayerStats.BEST_TEAM
+        result.overallStats.performance.bestSoloPerformance.map.name == SamplePlayerStats.BEST_SOLO
         result.overallStats.kdRatio == 1.40
         result.overallStats.matches == 1999
         result.mapStats.find({ it.csgoMap == CsgoMap.DE_MIRAGE }).kdRatio == playerStats.segments.find({it.name == "de_mirage"}).mapStatistics.kdRatio.toDouble()

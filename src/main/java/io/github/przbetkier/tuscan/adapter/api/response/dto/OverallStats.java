@@ -1,7 +1,5 @@
 package io.github.przbetkier.tuscan.adapter.api.response.dto;
 
-import io.github.przbetkier.tuscan.domain.CsgoMap;
-
 import java.math.BigDecimal;
 
 public class OverallStats {
@@ -10,17 +8,24 @@ public class OverallStats {
     private final BigDecimal kdRatio;
     private final Integer matches;
     private final Integer winPercentage;
-    private final CsgoMap highestSoloPerformanceOn;
-    private final CsgoMap highestTeamPerformanceOn;
+    private final Performance performance;
+    private final Integer currentWinStreak;
+    private final Integer longestWinStreak;
 
-    public OverallStats(BigDecimal headshotPercentage, BigDecimal kdRatio, Integer matches, Integer winPercentage,
-                        CsgoMap highestSoloPerformanceOn, CsgoMap highestTeamPerformanceOn) {
+    public OverallStats(BigDecimal headshotPercentage,
+                        BigDecimal kdRatio,
+                        Integer matches,
+                        Integer winPercentage,
+                        Performance performance,
+                        Integer currentWinStreak,
+                        Integer longestWinStreak) {
         this.headshotPercentage = headshotPercentage;
         this.kdRatio = kdRatio;
         this.matches = matches;
         this.winPercentage = winPercentage;
-        this.highestSoloPerformanceOn = highestSoloPerformanceOn;
-        this.highestTeamPerformanceOn = highestTeamPerformanceOn;
+        this.performance = performance;
+        this.currentWinStreak = currentWinStreak;
+        this.longestWinStreak = longestWinStreak;
     }
 
     public BigDecimal getHeadshotPercentage() {
@@ -39,11 +44,15 @@ public class OverallStats {
         return winPercentage;
     }
 
-    public CsgoMap getHighestSoloPerformanceOn() {
-        return highestSoloPerformanceOn;
+    public Performance getPerformance() {
+        return performance;
     }
 
-    public CsgoMap getHighestTeamPerformanceOn() {
-        return highestTeamPerformanceOn;
+    public Integer getCurrentWinStreak() {
+        return currentWinStreak;
+    }
+
+    public Integer getLongestWinStreak() {
+        return longestWinStreak;
     }
 }

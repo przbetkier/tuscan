@@ -46,8 +46,8 @@ class PlayerServiceTest extends Specification {
         result.overallStats.kdRatio == response.overallStats.kdRatio
         result.overallStats.winPercentage == response.overallStats.winPercentage
         result.overallStats.matches == response.overallStats.matches
-        result.overallStats.highestSoloPerformanceOn == response.overallStats.highestSoloPerformanceOn
-        result.overallStats.highestTeamPerformanceOn == response.overallStats.highestTeamPerformanceOn
+        result.overallStats.performance.bestSoloPerformance.map == response.overallStats.performance.bestSoloPerformance.map
+        result.overallStats.performance.bestTeamPerformance.map == response.overallStats.performance.bestTeamPerformance.map
     }
 
     def "should return player history"() {
