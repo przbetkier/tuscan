@@ -11,9 +11,10 @@ public class CacheEvictScheduler {
 
     private final static Logger logger = LoggerFactory.getLogger(CacheEvictScheduler.class);
 
-    @CacheEvict(allEntries = true, cacheNames = {"player_history", "simple_matches", "detailed_matches"})
-    @Scheduled(fixedDelay = 60000)
+    @CacheEvict(allEntries = true, cacheNames = {"player_history", "simple_matches", "detailed_matches",
+            "player_details", "player_csgo_stats"})
+    @Scheduled(fixedDelay = 120000)
     public void cacheEvict() {
-        logger.info("Evicting cache from all results...");
+        logger.info("Evicting cache from all results.");
     }
 }
