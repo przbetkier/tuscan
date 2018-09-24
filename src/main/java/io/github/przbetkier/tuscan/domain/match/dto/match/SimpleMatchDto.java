@@ -22,23 +22,11 @@ public class SimpleMatchDto {
         return matchId;
     }
 
-    public void setMatchId(String matchId) {
-        this.matchId = matchId;
-    }
-
     public long getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(Integer startedAt) {
-        this.startedAt = startedAt;
-    }
-
     public long getFinishedAt() {
         return finishedAt;
-    }
-
-    public void setFinishedAt(Integer finishedAt) {
-        this.finishedAt = finishedAt;
     }
 }

@@ -22,23 +22,11 @@ public class MatchHistoryDto {
         return elo;
     }
 
-    public void setElo(String elo) {
-        this.elo = elo;
-    }
-
     public String getMatchId() {
         return matchId;
     }
 
-    public void setMatchId(String matchId) {
-        this.matchId = matchId;
-    }
-
     public long getDate() {
         return date;
-    }
-
-    public void setDate(long date) {
-        this.date = date;
     }
 }

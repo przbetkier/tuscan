@@ -15,6 +15,9 @@ public class FaceitWebClientProperties {
     @NotEmpty
     private String url;
 
+    @NotEmpty
+    private String openUrl;
+
     @NotNull
     private Timeout timeout;
 
@@ -43,5 +46,13 @@ public class FaceitWebClientProperties {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public String getOpenUrl() {
+        return openUrl;
+    }
+
+    public void setOpenUrl(String openUrl) {
+        this.openUrl = openUrl;
     }
 }

@@ -25,31 +25,15 @@ public class Lifetime {
         return headshotPercentage;
     }
 
-    public void setHeadshotPercentage(String headshotPercentage) {
-        this.headshotPercentage = headshotPercentage;
-    }
-
     public String getMatches() {
         return matches;
-    }
-
-    public void setMatches(String matches) {
-        this.matches = matches;
     }
 
     public String getKdRatio() {
         return kdRatio;
     }
 
-    public void setKdRatio(String kdRatio) {
-        this.kdRatio = kdRatio;
-    }
-
     public String getWinRate() {
         return winRate;
-    }
-
-    public void setWinRate(String winRate) {
-        this.winRate = winRate;
     }
 }

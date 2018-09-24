@@ -22,23 +22,11 @@ public class MapStatistics {
         return matches;
     }
 
-    public void setMatches(String matches) {
-        this.matches = matches;
-    }
-
     public String getKdRatio() {
         return kdRatio;
     }
 
-    public void setKdRatio(String kdRatio) {
-        this.kdRatio = kdRatio;
-    }
-
     public String getWinPercentage() {
         return winPercentage;
-    }
-
-    public void setWinPercentage(String winPercentage) {
-        this.winPercentage = winPercentage;
     }
 }

@@ -46,87 +46,43 @@ public class PlayerStatsDto {
         return kills;
     }
 
-    public void setKills(String kills) {
-        this.kills = kills;
-    }
-
     public String getAssists() {
         return assists;
-    }
-
-    public void setAssists(String assists) {
-        this.assists = assists;
     }
 
     public String getDeaths() {
         return deaths;
     }
 
-    public void setDeaths(String deaths) {
-        this.deaths = deaths;
-    }
-
     public String getHeadshots() {
         return headshots;
-    }
-
-    public void setHeadshots(String headshots) {
-        this.headshots = headshots;
     }
 
     public String getHeadshotPercentage() {
         return headshotPercentage;
     }
 
-    public void setHeadshotPercentage(String headshotPercentage) {
-        this.headshotPercentage = headshotPercentage;
-    }
-
     public String getKdRatio() {
         return kdRatio;
-    }
-
-    public void setKdRatio(String kdRatio) {
-        this.kdRatio = kdRatio;
     }
 
     public String getKrRatio() {
         return krRatio;
     }
 
-    public void setKrRatio(String krRatio) {
-        this.krRatio = krRatio;
-    }
-
     public String getMvps() {
         return mvps;
-    }
-
-    public void setMvps(String mvps) {
-        this.mvps = mvps;
     }
 
     public String getPentaKills() {
         return pentaKills;
     }
 
-    public void setPentaKills(String pentaKills) {
-        this.pentaKills = pentaKills;
-    }
-
     public String getQuadroKills() {
         return quadroKills;
     }
 
-    public void setQuadroKills(String quadroKills) {
-        this.quadroKills = quadroKills;
-    }
-
     public String getTripleKills() {
         return tripleKills;
-    }
-
-    public void setTripleKills(String tripleKills) {
-        this.tripleKills = tripleKills;
     }
 }

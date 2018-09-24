@@ -20,15 +20,7 @@ public class MatchesSimpleDetailsDto {
         return simpleMatchList;
     }
 
-    public void setSimpleMatchList(List<SimpleMatchDto> simpleMatchList) {
-        this.simpleMatchList = simpleMatchList;
-    }
-
     public Integer getMatchesCount() {
         return matchesCount;
-    }
-
-    public void setMatchesCount(Integer matchesCount) {
-        this.matchesCount = matchesCount;
     }
 }

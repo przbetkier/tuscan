@@ -2,6 +2,7 @@ package io.github.przbetkier.tuscan.domain.match;
 
 import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
+import io.github.przbetkier.tuscan.config.properties.FaceitMatchesProperties;
 import io.github.przbetkier.tuscan.domain.match.dto.match.MatchesSimpleDetailsDto;
 import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchStatsDto;
 import org.slf4j.Logger;
@@ -19,16 +20,18 @@ class FaceitMatchClient {
     private final static Integer MATCHES_LIMIT = 20;
 
     private final WebClient webClient;
+    private final FaceitMatchesProperties properties;
 
-    public FaceitMatchClient(@Qualifier("faceitClient") WebClient webClient) {
+    public FaceitMatchClient(@Qualifier("faceitClient") WebClient webClient, FaceitMatchesProperties properties) {
         this.webClient = webClient;
+        this.properties = properties;
     }
 
-    SimpleMatchesResponse getMatches(String playerId, Integer from, Integer offset) {
-        from = 1410282903;
+    SimpleMatchesResponse getMatches(String playerId, Integer offset) {
+
         return webClient
                 .method(GET)
-                .uri("/players/" + playerId + "/history?game=csgo&offset=" + offset + "&limit=" + MATCHES_LIMIT + "&from=" + from)
+                .uri("/players/" + playerId + "/history?game=csgo&offset=" + offset + "&limit=" + MATCHES_LIMIT + "&from=" + properties.getCutoffDateTimestamp())
                 .retrieve()
                 .bodyToMono(MatchesSimpleDetailsDto.class)
                 .map(SimpleMatchListMapper::map)

@@ -21,15 +21,7 @@ public class PlayerStats {
         return lifetime;
     }
 
-    public void setLifetime(Lifetime lifetime) {
-        this.lifetime = lifetime;
-    }
-
     public List<Segment> getSegments() {
         return segments;
-    }
-
-    public void setSegments(List<Segment> segments) {
-        this.segments = segments;
     }
 }

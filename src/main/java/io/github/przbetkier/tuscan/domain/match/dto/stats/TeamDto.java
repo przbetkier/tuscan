@@ -24,23 +24,11 @@ public class TeamDto {
         return teamId;
     }
 
-    public void setTeamId(String teamId) {
-        this.teamId = teamId;
-    }
-
     public TeamStatsDto getTeamStats() {
         return teamStats;
     }
 
-    public void setTeamStats(TeamStatsDto teamStats) {
-        this.teamStats = teamStats;
-    }
-
     public List<PlayerDto> getPlayers() {
         return players;
-    }
-
-    public void setPlayers(List<PlayerDto> players) {
-        this.players = players;
     }
 }

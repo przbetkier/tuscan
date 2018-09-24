@@ -13,7 +13,8 @@ class PlayerDetailsMapper {
                 details.getPlayerId(),
                 details.getNickname(),
                 mapToCsgoGameDetails(details),
-                details.getAvatarUrl(), details.getCountry());
+                details.getAvatarUrl(),
+                details.getCountry());
     }
 
     private static GameDetails mapToCsgoGameDetails(PlayerDetails details) {

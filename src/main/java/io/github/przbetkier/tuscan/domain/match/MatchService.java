@@ -13,8 +13,8 @@ public class MatchService {
         this.faceitMatchClient = faceitMatchClient;
     }
 
-    public SimpleMatchesResponse getMatches(String playerId, Integer from, Integer offset) {
-        return faceitMatchClient.getMatches(playerId, from, offset);
+    public SimpleMatchesResponse getMatches(String playerId, Integer offset) {
+        return faceitMatchClient.getMatches(playerId, offset);
     }
 
     public MatchFullDetailsResponse getMatch(String matchId, String playerId) {

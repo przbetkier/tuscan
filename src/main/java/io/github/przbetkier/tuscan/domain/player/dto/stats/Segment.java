@@ -19,15 +19,7 @@ public class Segment {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public MapStatistics getMapStatistics() {
         return mapStatistics;
-    }
-
-    public void setMapStatistics(MapStatistics mapStatistics) {
-        this.mapStatistics = mapStatistics;
     }
 }

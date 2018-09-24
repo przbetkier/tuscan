@@ -24,23 +24,11 @@ public class MatchFullDetailsDto {
         return matchId;
     }
 
-    public void setMatchId(String matchId) {
-        this.matchId = matchId;
-    }
-
     public RoundStatsDto getRoundStatsDto() {
         return roundStatsDto;
     }
 
-    public void setRoundStatsDto(RoundStatsDto roundStatsDto) {
-        this.roundStatsDto = roundStatsDto;
-    }
-
     public List<TeamDto> getTeams() {
         return teams;
-    }
-
-    public void setTeams(List<TeamDto> teams) {
-        this.teams = teams;
     }
 }

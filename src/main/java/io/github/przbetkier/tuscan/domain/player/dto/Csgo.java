@@ -19,15 +19,7 @@ public class Csgo {
         return faceitElo;
     }
 
-    public void setFaceitElo(Integer faceitElo) {
-        this.faceitElo = faceitElo;
-    }
-
     public Integer getLevel() {
         return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
     }
 }

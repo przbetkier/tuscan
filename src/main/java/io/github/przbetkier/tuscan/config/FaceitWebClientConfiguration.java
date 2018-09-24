@@ -31,7 +31,7 @@ class FaceitWebClientConfiguration {
     WebClient openFaceitClient() {
         return WebClient
                 .builder()
-                .baseUrl("https://api.faceit.com/stats/api/v1")
+                .baseUrl(faceitWebClientProperties.getOpenUrl())
                 .defaultHeader(ACCEPT, APPLICATION_JSON_VALUE)
                 .build();
     }

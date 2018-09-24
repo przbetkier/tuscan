@@ -22,23 +22,11 @@ public class PlayerDto {
         return playerId;
     }
 
-    public void setPlayerId(String playerId) {
-        this.playerId = playerId;
-    }
-
     public String getNickname() {
         return nickname;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public PlayerStatsDto getPlayerStats() {
         return playerStats;
-    }
-
-    public void setPlayerStats(PlayerStatsDto playerStats) {
-        this.playerStats = playerStats;
     }
 }

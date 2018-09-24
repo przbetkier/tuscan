@@ -19,15 +19,7 @@ public class TeamStatsDto {
         return teamName;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
     public String getHeadshotAvg() {
         return headshotAvg;
-    }
-
-    public void setHeadshotAvg(String headshotAvg) {
-        this.headshotAvg = headshotAvg;
     }
 }

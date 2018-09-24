@@ -10,9 +10,16 @@ buildscript {
 	}
 }
 
+apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+
+ext {
+	versions = [
+			spock          : '1.0-groovy-2.4',
+	]
+}
 
 group = 'io.github.przbetkier'
 version = '0.0.1-SNAPSHOT'
@@ -28,5 +35,9 @@ dependencies {
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.3.RELEASE'
 	compile 'org.springframework.boot:spring-boot-starter-webflux'
 	compile 'org.projectreactor:reactor-spring:1.0.1.RELEASE'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile group: 'org.spockframework', name: 'spock-core', version: "$versions.spock"
+	testCompile group: 'org.spockframework', name: 'spock-spring', version: "$versions.spock"
+	testCompile group: 'cglib', name: 'cglib-nodep', version: '3.2.5'
 }

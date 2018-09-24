@@ -15,8 +15,4 @@ public class Games {
     public Csgo getCsgo() {
         return csgo;
     }
-
-    public void setCsgo(Csgo csgo) {
-        this.csgo = csgo;
-    }
 }

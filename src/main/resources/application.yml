@@ -1,8 +1,12 @@
+faceit-matches:
+  cutoff-date-timestamp: 1410282903
+
 faceit:
   timeout:
     read: 1000
     connect: 1000
   url: 'https://open.faceit.com/data/v4'
+  open-url: 'https://api.faceit.com/stats/api/v1'
   api-key: '0114f4c1-868d-47b0-ae93-b463965d3684'
 
 server:

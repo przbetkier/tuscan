@@ -17,8 +17,4 @@ public class MatchStatsDto {
     public List<MatchFullDetailsDto> getMatchFullDetails() {
         return matchFullDetails;
     }
-
-    public void setMatchFullDetails(List<MatchFullDetailsDto> matchFullDetails) {
-        this.matchFullDetails = matchFullDetails;
-    }
 }

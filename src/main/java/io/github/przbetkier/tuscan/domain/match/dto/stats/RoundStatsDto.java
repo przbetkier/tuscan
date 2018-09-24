@@ -33,23 +33,11 @@ public class RoundStatsDto {
         return roundsCount;
     }
 
-    public void setRoundsCount(String roundsCount) {
-        this.roundsCount = roundsCount;
-    }
-
     public String getScore() {
         return score;
     }
 
-    public void setScore(String score) {
-        this.score = score;
-    }
-
     public String getWinnerTeamId() {
         return winnerTeamId;
-    }
-
-    public void setWinnerTeamId(String winnerTeamId) {
-        this.winnerTeamId = winnerTeamId;
     }
 }

@@ -16,8 +16,4 @@ public class PlayerHistoryDto {
     public List<MatchHistoryDto> getMatchHistoryDtoList() {
         return matchHistoryDtoList;
     }
-
-    public void setMatchHistoryDtoList(List<MatchHistoryDto> matchHistoryDtoList) {
-        this.matchHistoryDtoList = matchHistoryDtoList;
-    }
 }
