@@ -4,6 +4,7 @@ import io.github.przbetkier.tuscan.common.SampleLatestProfile
 import io.github.przbetkier.tuscan.common.response.SamplePlayerCsgoStats
 import io.github.przbetkier.tuscan.common.response.SamplePlayerDetailsResponse
 import io.github.przbetkier.tuscan.common.supplier.LocalDateTimeSupplier
+import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfile
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileRepository
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileService
@@ -19,13 +20,16 @@ class LatestProfilesServiceTest extends Specification {
     LatestProfileRepository latestProfileRepository = Mock(LatestProfileRepository)
     FaceitPlayerClient faceitPlayerClient = Mock(FaceitPlayerClient)
     LocalDateTimeSupplier localDateTimeSupplier = Mock(LocalDateTimeSupplier)
+    LatestProfilesProperties latestProfilesProperties = Mock(LatestProfilesProperties)
 
     @Subject
     LatestProfileService latestProfileService =
-            new LatestProfileService(latestProfileRepository, faceitPlayerClient, localDateTimeSupplier)
+            new LatestProfileService(latestProfileRepository, faceitPlayerClient, localDateTimeSupplier, latestProfilesProperties)
 
     def "should save a player"() {
         given:
+        latestProfilesProperties.getMaxSize() >> 4
+
         def nickname = "player-1"
         latestProfileRepository.findById(nickname) >> Optional.empty()
         def details = SamplePlayerDetailsResponse.simple(nickname)
@@ -49,6 +53,8 @@ class LatestProfilesServiceTest extends Specification {
 
     def "should save a player update database"() {
         given:
+        latestProfilesProperties.getMaxSize() >> 4
+
         def nickname = "player-1"
         latestProfileRepository.findById(nickname) >> Optional.empty()
         def details = SamplePlayerDetailsResponse.simple(nickname)
@@ -73,11 +79,13 @@ class LatestProfilesServiceTest extends Specification {
 
     def "should only update a player in database"() {
         given:
+        latestProfilesProperties.getMaxSize() >> 4
+
         def nickname = "player-1"
         def savedProfile = SampleLatestProfile.simple(nickname)
 
         latestProfileRepository.findById(nickname) >> Optional.of(savedProfile)
-        latestProfileRepository.findAllByOrderByCreatedOnDesc() >> listOfPlayersPlayers(5)
+        latestProfileRepository.findAllByOrderByCreatedOnDesc() >> listOfPlayersPlayers(4)
 
         def now = LocalDateTime.of(2018, 9, 26, 23, 30)
         localDateTimeSupplier.get() >> now
@@ -93,6 +101,8 @@ class LatestProfilesServiceTest extends Specification {
 
     def "should save a player and trim the player profiles list in database"() {
         given:
+        latestProfilesProperties.getMaxSize() >> 4
+
         def nickname = "player-1"
         def savedProfile = SampleLatestProfile.simple(nickname)
 
@@ -113,6 +123,8 @@ class LatestProfilesServiceTest extends Specification {
 
     def "should not save a player and not update database"() {
         given:
+        latestProfilesProperties.getMaxSize() >> 4
+
         def nickname = "player-1"
         latestProfileRepository.findById(nickname) >> Optional.empty()
         faceitPlayerClient.getPlayerDetails(nickname) >> { throw new PlayerNotFoundException("player not found") }
@@ -127,7 +139,7 @@ class LatestProfilesServiceTest extends Specification {
         0 * latestProfileRepository.saveAll(_ as List<LatestProfile>)
     }
 
-    def static List<LatestProfile> listOfPlayersPlayers(int players) {
+    static List<LatestProfile> listOfPlayersPlayers(int players) {
         def list = []
         for (int i = 0; i < players; i++) {
             list.add(SamplePlayerCsgoStats.simple())
