@@ -3,7 +3,6 @@ package io.github.przbetkier.tuscan.domain.player;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MapStats;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.OverallStats;
-import io.github.przbetkier.tuscan.domain.CsgoMap;
 import io.github.przbetkier.tuscan.domain.player.dto.stats.PlayerStats;
 import io.github.przbetkier.tuscan.domain.player.dto.stats.Segment;
 
@@ -11,6 +10,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static io.github.przbetkier.tuscan.domain.CsgoMap.isInMapPool;
+import static io.github.przbetkier.tuscan.domain.CsgoMap.valueOf;
 
 class PlayerStatsMapper {
 
@@ -39,7 +41,7 @@ class PlayerStatsMapper {
     private static List<MapStats> mapToCsgoMapStats(PlayerStats playerStats) {
         List<MapStats> mapStats = new ArrayList<>();
         playerStats.getSegments().stream()
-                .filter(m -> m.getMode().equals("5v5"))
+                .filter(m -> m.getMode().equals("5v5") && isInMapPool(m.getName()))
                 .collect(Collectors.toList())
                 .forEach(segment -> mapStats.add(mapSegmentToMapStats(segment)));
         return PlayerPerformanceMapper.orderFromHighestKdRatio(mapStats);
@@ -47,7 +49,7 @@ class PlayerStatsMapper {
 
     private static MapStats mapSegmentToMapStats(Segment segment) {
         return new MapStats(
-                CsgoMap.valueOf(segment.getName().toUpperCase()),
+                valueOf(segment.getName().toUpperCase()),
                 new Integer(segment.getMapStatistics().getMatches().replace(",", "")),
                 new BigDecimal(segment.getMapStatistics().getKdRatio()),
                 new Integer(segment.getMapStatistics().getWinPercentage())
