@@ -57,11 +57,7 @@ public class LatestProfile {
         return kdRatio;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public void setKdRatio(BigDecimal kdRatio) {
-        this.kdRatio = kdRatio;
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
     }
 }

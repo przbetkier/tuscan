@@ -6,9 +6,10 @@ import io.github.przbetkier.tuscan.common.supplier.LocalDateTimeSupplier;
 import io.github.przbetkier.tuscan.domain.player.FaceitPlayerClient;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+
+import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.*;
 
 @Service
 public class LatestProfileService {
@@ -29,26 +30,18 @@ public class LatestProfileService {
         Optional<LatestProfile> profile = repository.findById(nickname);
 
         if (profile.isPresent()) {
-            repository.save(new LatestProfile(
-                    profile.get().getNickname(),
-                    profile.get().getAvatarUrl(),
-                    profile.get().getLevel(),
-                    profile.get().getElo(),
-                    profile.get().getKdRatio(),
-                    LocalDateTime.now()));
+            LatestProfile updatedProfile = mapAndUpdate(profile.get(), localDateTimeSupplier.get());
+            repository.save(updatedProfile);
         } else {
             PlayerDetailsResponse response = client.getPlayerDetails(nickname);
             PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId());
-            repository.save(new LatestProfile(
-                    response.getNickname(),
-                    response.getAvatarUrl(),
-                    response.getGameDetails().getLevel(),
-                    response.getGameDetails().getFaceitElo(),
-                    statsResponse.getOverallStats().getKdRatio(),
-                    LocalDateTime.now()
-            ));
+            LatestProfile newProfile = mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get());
+            repository.save(newProfile);
         }
+        trimProfiles();
+    }
 
+    private void trimProfiles() {
         List<LatestProfile> profiles = repository.findAllByOrderByCreatedOnDesc();
         if (profiles.size() > 5) {
             repository.deleteAll();
