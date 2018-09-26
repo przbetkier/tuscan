@@ -20,4 +20,13 @@ public enum CsgoMap {
     public String getName() {
         return name;
     }
+
+    public static boolean isInMapPool(String mapName) {
+        try {
+            CsgoMap.valueOf(mapName.toUpperCase());
+            return true;
+        } catch (IllegalArgumentException ex) {
+            return false;
+        }
+    }
 }

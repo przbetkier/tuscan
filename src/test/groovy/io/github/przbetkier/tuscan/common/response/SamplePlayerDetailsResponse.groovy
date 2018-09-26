@@ -8,10 +8,10 @@ class SamplePlayerDetailsResponse {
     public static ELO = 1251
     public static LEVEL = 4
 
-    static def simple() {
+    static def simple(String nickname = "player") {
         return new PlayerDetailsResponse(
                 "playerId-1",
-                "player",
+                nickname,
                 new GameDetails(
                         ELO,
                         LEVEL

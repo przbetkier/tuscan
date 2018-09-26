@@ -5,9 +5,12 @@ import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
 import io.github.przbetkier.tuscan.config.properties.FaceitMatchesProperties;
 import io.github.przbetkier.tuscan.domain.match.dto.match.MatchesSimpleDetailsDto;
 import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchStatsDto;
+import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException;
+import io.github.przbetkier.tuscan.exception.FaceitServerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -33,9 +36,13 @@ class FaceitMatchClient {
                 .method(GET)
                 .uri("/players/" + playerId + "/history?game=csgo&offset=" + offset + "&limit=" + MATCHES_LIMIT + "&from=" + properties.getCutoffDateTimestamp())
                 .retrieve()
+                .onStatus(HttpStatus::is5xxServerError, clientResponse -> {
+                    throw new FaceitServerException(
+                            String.format("Faceit server error while requesting %s player matches.", playerId)
+                    );
+                })
                 .bodyToMono(MatchesSimpleDetailsDto.class)
                 .map(SimpleMatchListMapper::map)
-                .doOnError(a -> logger.error("Something went wrong!", a))
                 .block();
     }
 
@@ -44,9 +51,16 @@ class FaceitMatchClient {
                 .method(GET)
                 .uri("/matches/" + matchId + "/stats")
                 .retrieve()
+                .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
+                    throw new MatchNotFoundException(String.format("Match %s could not be found!", matchId));
+                })
+                .onStatus(HttpStatus::is5xxServerError, clientResponse -> {
+                    throw new FaceitServerException(
+                            String.format("Faceit server error while requesting %s match details.", matchId)
+                    );
+                })
                 .bodyToMono(MatchStatsDto.class)
                 .map(result -> MatchFullDetailsMapper.map(result, playerId))
-                .doOnError(a -> logger.error("Could not fetch match with id [{}]", matchId))
                 .block();
     }
 }
