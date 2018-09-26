@@ -9,5 +9,8 @@ faceit:
   open-url: 'https://api.faceit.com/stats/api/v1'
   api-key: '0114f4c1-868d-47b0-ae93-b463965d3684'
 
+latest-profiles:
+  max-size: 4
+
 server:
   port: 8080

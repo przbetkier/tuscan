@@ -3,6 +3,7 @@ package io.github.przbetkier.tuscan.domain.latestProfiles;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 import io.github.przbetkier.tuscan.common.supplier.LocalDateTimeSupplier;
+import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties;
 import io.github.przbetkier.tuscan.domain.player.FaceitPlayerClient;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +18,16 @@ public class LatestProfileService {
     private final LatestProfileRepository repository;
     private final FaceitPlayerClient client;
     private final LocalDateTimeSupplier localDateTimeSupplier;
+    private final LatestProfilesProperties latestProfilesProperties;
 
     public LatestProfileService(LatestProfileRepository repository,
                                 FaceitPlayerClient client,
-                                LocalDateTimeSupplier localDateTimeSupplier) {
+                                LocalDateTimeSupplier localDateTimeSupplier,
+                                LatestProfilesProperties latestProfilesProperties) {
         this.repository = repository;
         this.client = client;
         this.localDateTimeSupplier = localDateTimeSupplier;
+        this.latestProfilesProperties = latestProfilesProperties;
     }
 
     public void save(String nickname) {
@@ -43,9 +47,9 @@ public class LatestProfileService {
 
     private void trimProfiles() {
         List<LatestProfile> profiles = repository.findAllByOrderByCreatedOnDesc();
-        if (profiles.size() > 5) {
+        if (profiles.size() > latestProfilesProperties.getMaxSize()) {
             repository.deleteAll();
-            repository.saveAll(profiles.subList(0, 4));
+            repository.saveAll(profiles.subList(0, latestProfilesProperties.getMaxSize()));
         }
     }
 }
