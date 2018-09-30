@@ -4,6 +4,7 @@ import io.github.przbetkier.tuscan.adapter.api.response.PlayerHistoryResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchHistory;
 import io.github.przbetkier.tuscan.domain.player.dto.MatchHistoryDto;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +50,9 @@ class PlayerHistoryMapper {
                     matchAfter.getMatchId(),
                     getLocalDateTimeFromTimestamp(matchAfter.getDate()),
                     eloAfter,
-                    eloAfter - eloBefore
-            );
+                    eloAfter - eloBefore,
+                    new BigDecimal(matchAfter.getKdRatio()),
+                    new Integer(matchAfter.getHsPercentage()));
             matchHistoryList.add(matchHistoryToAdd);
         }
 
@@ -61,7 +63,9 @@ class PlayerHistoryMapper {
                     firstMatch.getMatchId(),
                     getLocalDateTimeFromTimestamp(firstMatch.getDate()),
                     convertToElo(firstMatch.getElo()),
-                    convertToElo(firstMatch.getElo()) - STARTING_ELO_POINTS)
+                    convertToElo(firstMatch.getElo()) - STARTING_ELO_POINTS,
+                    new BigDecimal(firstMatch.getKdRatio()),
+                    new Integer(firstMatch.getHsPercentage()))
             );
         }
         return new PlayerHistoryResponse(matchHistoryList);
