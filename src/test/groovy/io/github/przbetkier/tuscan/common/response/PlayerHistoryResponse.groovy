@@ -13,19 +13,25 @@ class SamplePlayerHistoryResponse {
                         "match-1",
                         LocalDateTime.now(),
                         2000,
-                        20
+                        20,
+                        1.34,
+                        35
                 ),
                  new MatchHistory(
                          "match-2",
                          LocalDateTime.now(),
                          1080,
-                         17
+                         17,
+                         1.12,
+                         90
                  ),
                  new MatchHistory(
                          "match-3",
                          LocalDateTime.now(),
                          1063,
-                         10
+                         10,
+                         0.22,
+                         22
                  )]
         )
     }

@@ -69,7 +69,9 @@ class PlayerHistoryMapperTest extends Specification {
                     eloPoints,
                     "match-$i",
                     12345,
-                    "5v5"
+                    "5v5",
+                    "1.123",
+                    "80"
             )
             matchesList.add(match)
             if (elo) {
