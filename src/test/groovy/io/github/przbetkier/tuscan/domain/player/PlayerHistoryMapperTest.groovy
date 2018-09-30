@@ -11,11 +11,11 @@ class PlayerHistoryMapperTest extends Specification {
 
     def "should map dto with 50 matches to last 20 matches player history response"() {
         given:
-        def listOf50MatchesHistory = generate50MatchHistoryDto(1200)
+        def listOf50MatchesHistory = generateMatchHistoryDto(1200, 50)
         def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto)
+        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
 
         then:
         result.matchHistory.size() == 20
@@ -27,11 +27,11 @@ class PlayerHistoryMapperTest extends Specification {
 
     def "should map dto with 50 matches to last 20 without elo"() {
         given:
-        def listOf50MatchesHistory = generate50MatchHistoryDto(null)
+        def listOf50MatchesHistory = generateMatchHistoryDto(null, 50)
         def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto)
+        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
 
         then:
         result.matchHistory.size() == 20
@@ -40,7 +40,20 @@ class PlayerHistoryMapperTest extends Specification {
         }
     }
 
-    static generate50MatchHistoryDto(Integer elo) {
+    def "should map dto with less than 20 matches to last matches history"() {
+        given:
+        def matchesList = generateMatchHistoryDto(1025, 10)
+        def playerHistoryDto = new PlayerHistoryDto(matchesList)
+
+        when:
+        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
+
+        then:
+        result.matchHistory.size() == 10
+        result.matchHistory[matchesList.size() - 1].eloGain == 25
+    }
+
+    static generateMatchHistoryDto(Integer elo, int matches) {
         List<MatchHistoryDto> matchesList = new ArrayList<>()
 
         def eloPoints
@@ -51,11 +64,12 @@ class PlayerHistoryMapperTest extends Specification {
             eloPoints = null
         }
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < matches; i++) {
             def match = new MatchHistoryDto(
                     eloPoints,
                     "match-$i",
-                    12345
+                    12345,
+                    "5v5"
             )
             matchesList.add(match)
             if (elo) {

@@ -6,18 +6,18 @@ import spock.lang.Unroll
 class CsgoMapTest extends Specification {
 
     @Unroll
-    def "should return #result for map #mapName when checking active map pool"() {
+    def "should return #isInMapPool for map #mapName when checking active map pool"() {
         given:
         def name = mapName
 
         when:
-        def isInMapPool = CsgoMap.isInMapPool(name)
+        def result = CsgoMap.isInMapPool(name)
 
         then:
-        isInMapPool == result
+        result == isInMapPool
 
         where:
-        mapName       | result
+        mapName       | isInMapPool
         "de_inferno"  | true
         "de_mirage"   | true
         "de_cache"    | true
