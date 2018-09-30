@@ -8,14 +8,17 @@ public class MatchHistoryDto {
     private String elo;
     private String matchId;
     private long date;
+    private String mode;
 
     @JsonCreator
     public MatchHistoryDto(@JsonProperty("elo") String elo,
                            @JsonProperty("matchId") String matchId,
-                           @JsonProperty("date") long date) {
+                           @JsonProperty("date") long date,
+                           @JsonProperty("gameMode") String mode) {
         this.elo = elo;
         this.matchId = matchId;
         this.date = date;
+        this.mode = mode;
     }
 
     public String getElo() {
@@ -28,5 +31,13 @@ public class MatchHistoryDto {
 
     public long getDate() {
         return date;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public boolean hasElo() {
+        return getElo() != null;
     }
 }
