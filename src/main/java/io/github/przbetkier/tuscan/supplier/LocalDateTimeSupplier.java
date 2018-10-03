@@ -1,4 +1,4 @@
-package io.github.przbetkier.tuscan.common.supplier;
+package io.github.przbetkier.tuscan.supplier;
 
 import org.springframework.stereotype.Component;
 
