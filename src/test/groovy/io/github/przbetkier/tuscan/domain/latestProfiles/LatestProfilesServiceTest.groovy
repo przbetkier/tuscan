@@ -1,4 +1,4 @@
-package io.github.przbetkier.tuscan.domain
+package io.github.przbetkier.tuscan.domain.latestProfiles
 
 import io.github.przbetkier.tuscan.common.SampleLatestProfile
 import io.github.przbetkier.tuscan.common.response.SamplePlayerCsgoStats
