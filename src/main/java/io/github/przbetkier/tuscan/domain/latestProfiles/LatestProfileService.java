@@ -2,15 +2,16 @@ package io.github.przbetkier.tuscan.domain.latestProfiles;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
-import io.github.przbetkier.tuscan.common.supplier.LocalDateTimeSupplier;
 import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties;
 import io.github.przbetkier.tuscan.domain.player.FaceitPlayerClient;
+import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.*;
+import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.mapAndUpdate;
+import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.mapToNewFromResponses;
 
 @Service
 public class LatestProfileService {

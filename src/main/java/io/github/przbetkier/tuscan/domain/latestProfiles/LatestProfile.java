@@ -28,7 +28,8 @@ public class LatestProfile {
     public LatestProfile() {
     }
 
-    public LatestProfile(String nickname, String avatarUrl, Integer level, Integer elo, BigDecimal kdRatio, LocalDateTime createdOn) {
+    public LatestProfile(String nickname, String avatarUrl, Integer level, Integer elo, BigDecimal kdRatio,
+                         LocalDateTime createdOn) {
         this.nickname = nickname;
         this.avatarUrl = avatarUrl;
         this.level = level;

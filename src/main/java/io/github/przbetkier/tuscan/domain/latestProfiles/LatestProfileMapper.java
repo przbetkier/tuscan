@@ -5,12 +5,12 @@ import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 
 import java.time.LocalDateTime;
 
-public class LatestProfileMapper {
+class LatestProfileMapper {
 
     private LatestProfileMapper() {
     }
 
-    public static LatestProfile mapAndUpdate(LatestProfile profile, LocalDateTime dateTime) {
+    static LatestProfile mapAndUpdate(LatestProfile profile, LocalDateTime dateTime) {
         return new LatestProfile(
                 profile.getNickname(),
                 profile.getAvatarUrl(),
@@ -20,7 +20,7 @@ public class LatestProfileMapper {
                 dateTime);
     }
 
-    public static LatestProfile mapToNewFromResponses(PlayerDetailsResponse response, PlayerCsgoStatsResponse statsResponse, LocalDateTime dateTime) {
+    static LatestProfile mapToNewFromResponses(PlayerDetailsResponse response, PlayerCsgoStatsResponse statsResponse, LocalDateTime dateTime) {
         return new LatestProfile(
                 response.getNickname(),
                 response.getAvatarUrl(),
