@@ -1,0 +1,5 @@
+faceit:
+  url: 'http://localhost:10200'
+  open-url: 'http://localhost:10200'
+  api-key: 'api-key'
+
