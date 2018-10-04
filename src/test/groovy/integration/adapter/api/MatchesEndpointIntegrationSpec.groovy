@@ -21,9 +21,9 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
         then:
         response.statusCodeValue == 200
-        response.body.simpleMatchList[0].matchId == matchId
-        response.body.simpleMatchList[0].startedAt == '2018-10-01T10:00:00'
-        response.body.simpleMatchList[0].finishedAt == '2018-10-01T11:00:00'
+        response.body.simpleMatchList.get(0).matchId == matchId
+        response.body.simpleMatchList.get(0).startedAt == '2018-10-01T10:00:00'
+        response.body.simpleMatchList.get(0).finishedAt == '2018-10-01T11:00:00'
         response.body.matchesCount == 1
     }
 }
