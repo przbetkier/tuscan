@@ -3,6 +3,7 @@ package io.github.przbetkier.tuscan.domain.player
 import io.github.przbetkier.tuscan.common.response.SamplePlayerCsgoStats
 import io.github.przbetkier.tuscan.common.response.SamplePlayerDetailsResponse
 import io.github.przbetkier.tuscan.common.response.SamplePlayerHistoryResponse
+import org.springframework.core.task.TaskExecutor
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -10,9 +11,10 @@ class PlayerServiceTest extends Specification {
 
     FaceitPlayerClient faceitPlayerClient = Mock(FaceitPlayerClient)
     PlayerHistoryClient playerHistoryClient = Mock(PlayerHistoryClient)
+    TaskExecutor taskExecutor = Mock(TaskExecutor)
 
     @Subject
-    PlayerService playerService = new PlayerService(faceitPlayerClient, playerHistoryClient)
+    PlayerService playerService = new PlayerService(faceitPlayerClient, playerHistoryClient, taskExecutor)
 
     def "should return player details response"() {
         given:
