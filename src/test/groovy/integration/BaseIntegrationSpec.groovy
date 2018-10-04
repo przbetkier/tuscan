@@ -1,5 +1,6 @@
 package integration
 
+
 import integration.common.WireMockRunner
 import io.github.przbetkier.tuscan.TuscanApplication
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileRepository
@@ -9,6 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.ContextConfiguration
+import spock.lang.AutoCleanup
 import spock.lang.Specification
 
 @ContextConfiguration
@@ -23,6 +25,7 @@ class BaseIntegrationSpec extends Specification {
     @Autowired
     TestRestTemplate restTemplate
 
+    @AutoCleanup("deleteAll")
     @Autowired
     LatestProfileRepository latestProfileRepository
 
@@ -39,6 +42,5 @@ class BaseIntegrationSpec extends Specification {
 
     void cleanup() {
         WireMockRunner.cleanupAll()
-        latestProfileRepository.deleteAll()
     }
 }

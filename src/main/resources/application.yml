@@ -5,9 +5,6 @@ faceit:
   timeout:
     read: 1000
     connect: 1000
-  url: 'https://open.faceit.com/data/v4'
-  open-url: 'https://api.faceit.com/stats/api/v1'
-  api-key: ${FACEIT_API_KEY}
 
 latest-profiles:
   max-size: 4
