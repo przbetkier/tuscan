@@ -14,7 +14,8 @@ class SamplePlayerDetailsResponse {
                 nickname,
                 new GameDetails(
                         ELO,
-                        LEVEL
+                        LEVEL,
+                        "EU"
                 ),
                 "avatar-url",
                 "PL"
