@@ -20,6 +20,7 @@ class PlayerDetailsMapperTest extends Specification {
         result.country == playerDetails.country
         result.gameDetails.level == playerDetails.games.csgo.level
         result.gameDetails.faceitElo == playerDetails.games.csgo.faceitElo
+        result.gameDetails.region == playerDetails.games.csgo.region
     }
 
     def "should map player details without csgo game"() {

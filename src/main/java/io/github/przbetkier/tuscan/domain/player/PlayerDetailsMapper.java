@@ -21,7 +21,8 @@ class PlayerDetailsMapper {
         if (details.hasCsgoGame()) {
             return new GameDetails(
                     details.getGames().getCsgo().getFaceitElo(),
-                    details.getGames().getCsgo().getLevel());
+                    details.getGames().getCsgo().getLevel(),
+                    details.getGames().getCsgo().getRegion());
         } else {
             return null;
         }
