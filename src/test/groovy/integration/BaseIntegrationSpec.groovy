@@ -1,6 +1,6 @@
 package integration
 
-import integration.common.MongoIntegrationConfig
+
 import integration.common.WireMockRunner
 import io.github.przbetkier.tuscan.TuscanApplication
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileRepository
@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration
 import spock.lang.AutoCleanup
 import spock.lang.Specification
 
-@ContextConfiguration(classes = [MongoIntegrationConfig])
+@ContextConfiguration
 @SpringBootTest(
         classes = TuscanApplication,
         properties = "application.environment=integration",

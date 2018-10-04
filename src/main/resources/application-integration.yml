@@ -3,3 +3,4 @@ faceit:
   open-url: 'http://localhost:10200'
   api-key: 'api-key'
 
+spring.data.mongodb.port: 0

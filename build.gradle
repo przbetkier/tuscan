@@ -46,7 +46,7 @@ dependencies {
     testCompile group: 'org.spockframework', name: 'spock-spring', version: "$versions.spock"
     testCompile group: 'cglib', name: 'cglib-nodep', version: '3.2.5'
     testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '2.8.0'
-    testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "2.0.1"
+    testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "2.1.1"
 }
 
 test {
