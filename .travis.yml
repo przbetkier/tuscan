@@ -1,8 +1,8 @@
 language: java
 
 jdk:
- - oraclejdk8
+  - oraclejdk8
 
- script:
- ./gradlew test
- ./gradlew test -Dtest.profile=integration
+script:
+  - ./gradlew test
+  - ./gradlew test -Dtest.profile=integration
