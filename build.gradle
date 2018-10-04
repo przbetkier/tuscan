@@ -42,4 +42,13 @@ dependencies {
     testCompile group: 'org.spockframework', name: 'spock-core', version: "$versions.spock"
     testCompile group: 'org.spockframework', name: 'spock-spring', version: "$versions.spock"
     testCompile group: 'cglib', name: 'cglib-nodep', version: '3.2.5'
+    testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '2.8.0'
+}
+
+test {
+    if (System.properties['test.profile'] != 'integration') {
+        exclude '**/*integration*'
+    } else {
+        exclude '**/*io/*'
+    }
 }

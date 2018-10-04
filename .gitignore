@@ -26,3 +26,5 @@
 /.nb-gradle/
 
 src/main/java.
+
+application-local.yml
