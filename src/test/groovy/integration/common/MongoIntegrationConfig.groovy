@@ -13,7 +13,7 @@ class MongoIntegrationConfig {
 
     def static final DB_NAME = "InMemoryMongo"
 
-    @Bean(destroyMethod = "close")
+    @Bean(destroyMethod = 'close')
     MongoClient mongo() {
         MongodForTestsFactory
                 .with(Version.Main.V3_6)

@@ -11,7 +11,7 @@ public class MongoConfiguration {
     @Bean
     MongoClientOptions mongoClientOptions()  {
         return MongoClientOptions.builder()
-                .socketTimeout(1000)
+                .socketTimeout(2000)
                 .connectionsPerHost(50)
                 .writeConcern(WriteConcern.ACKNOWLEDGED)
                 .build();
