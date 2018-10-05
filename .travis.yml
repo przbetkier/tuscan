@@ -5,4 +5,4 @@ jdk:
 
 script:
   - ./gradlew test
-  - ./gradlew test -Dtest.profile=integration
+  - ./gradlew test -Dtest.profile=integration --info

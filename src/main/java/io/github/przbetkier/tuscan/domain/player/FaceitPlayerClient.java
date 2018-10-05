@@ -2,33 +2,44 @@ package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
+import io.github.przbetkier.tuscan.config.properties.FaceitWebClientProperties;
 import io.github.przbetkier.tuscan.domain.player.dto.Position;
 import io.github.przbetkier.tuscan.domain.player.dto.stats.PlayerStats;
 import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException;
 import io.github.przbetkier.tuscan.exception.FaceitServerException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.task.TaskExecutor;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
+
+import static org.springframework.http.HttpMethod.GET;
+import static reactor.core.scheduler.Schedulers.fromExecutor;
+import static reactor.retry.Retry.anyOf;
 
 @Component
 public class FaceitPlayerClient {
 
+    private final static Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
+
     private final WebClient faceitClient;
     private final TaskExecutor taskExecutor;
+    private final FaceitWebClientProperties properties;
 
-    public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient, TaskExecutor taskExecutor) {
+    public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient,
+                              TaskExecutor taskExecutor,
+                              FaceitWebClientProperties properties) {
         this.faceitClient = faceitClient;
         this.taskExecutor = taskExecutor;
+        this.properties = properties;
     }
 
     public PlayerDetailsResponse getPlayerDetails(String nickname) {
         return faceitClient
-                .method(HttpMethod.GET)
+                .method(GET)
                 .uri("/players?nickname=" + nickname)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(nickname))
@@ -40,7 +51,7 @@ public class FaceitPlayerClient {
 
     public PlayerCsgoStatsResponse getPlayerCsgoStats(String playerId) {
         return faceitClient
-                .method(HttpMethod.GET)
+                .method(GET)
                 .uri("/players/" + playerId + "/stats/csgo")
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
@@ -52,33 +63,38 @@ public class FaceitPlayerClient {
 
     Mono<Position> getPlayerPositionInRegion(String playerId, String region) {
         return faceitClient
-                .method(HttpMethod.GET)
+                .method(GET)
                 .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?limit=1")
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
-                .subscribeOn(Schedulers.fromExecutor(taskExecutor));
+                .retryWhen(anyOf(FaceitServerException.class)
+                        .retryMax(properties.getRetry().getMaxRetries())
+                        .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
+                .subscribeOn(fromExecutor(taskExecutor));
     }
 
     Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {
         return faceitClient
-                .method(HttpMethod.GET)
+                .method(GET)
                 .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?country=" + country + "&limit=1")
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
-                .subscribeOn(Schedulers.fromExecutor(taskExecutor));
+                .retryWhen(anyOf(FaceitServerException.class)
+                        .retryMax(properties.getRetry().getMaxRetries())
+                        .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
+                .subscribeOn(fromExecutor(taskExecutor));
     }
 
     private Mono<PlayerNotFoundException> throwClientException(String playerId) {
-        throw new PlayerNotFoundException(
-                String.format("Player %s could not be found on Faceit.", playerId));
+        throw new PlayerNotFoundException(String.format("Player %s could not be found on Faceit.", playerId));
     }
 
     private Mono<FaceitServerException> throwServerException() {
-        throw new FaceitServerException(
-                "Faceit server error while requesting %s player csgo stats.");
+        logger.warn("Faceit request failed [5xx error].");
+        throw new FaceitServerException("Faceit server error while requesting player csgo stats.");
     }
 }

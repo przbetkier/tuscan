@@ -38,7 +38,9 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.11.0'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
     compile 'org.springframework.boot:spring-boot-starter-webflux'
-    compile 'org.projectreactor:reactor-spring:1.0.1.RELEASE'
+    compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.0.RELEASE'
+    compile group: 'io.projectreactor.addons', name: 'reactor-extra', version: '3.2.0.RELEASE'
+
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: "${springBootVersion}"
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
