@@ -5,6 +5,7 @@ import integration.BaseIntegrationSpec
 import integration.common.stubs.PlayerPositionStubs
 
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
+import static com.github.tomakehurst.wiremock.client.WireMock.moreThan
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
 
 class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
@@ -40,7 +41,6 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
         then:
         response.statusCodeValue == 200
-        def expectedRequest = 4 // 2 * 1 fail + 2 * 1 success
-        WireMock.verify(expectedRequest, getRequestedFor(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)")))
+        WireMock.verify(moreThan(2), getRequestedFor(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)")))
     }
 }
