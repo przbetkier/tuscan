@@ -24,6 +24,9 @@ public class FaceitWebClientProperties {
     @NotEmpty
     private String apiKey;
 
+    @NotNull
+    private Retry retry;
+
     public String getUrl() {
         return url;
     }
@@ -54,5 +57,13 @@ public class FaceitWebClientProperties {
 
     public void setOpenUrl(String openUrl) {
         this.openUrl = openUrl;
+    }
+
+    public Retry getRetry() {
+        return retry;
+    }
+
+    public void setRetry(Retry retry) {
+        this.retry = retry;
     }
 }

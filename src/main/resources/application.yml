@@ -5,6 +5,10 @@ faceit:
   timeout:
     read: 1000
     connect: 1000
+  retry:
+    min-backoff: 300
+    max-backoff: 600
+    max-retries: 2
 
 latest-profiles:
   max-size: 4
