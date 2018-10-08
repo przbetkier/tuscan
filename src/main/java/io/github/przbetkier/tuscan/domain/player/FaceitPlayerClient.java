@@ -10,14 +10,13 @@ import io.github.przbetkier.tuscan.exception.FaceitServerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import static org.springframework.http.HttpMethod.GET;
-import static reactor.core.scheduler.Schedulers.fromExecutor;
+import static reactor.core.scheduler.Schedulers.parallel;
 import static reactor.retry.Retry.anyOf;
 
 @Component
@@ -26,14 +25,11 @@ public class FaceitPlayerClient {
     private final static Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
 
     private final WebClient faceitClient;
-    private final TaskExecutor taskExecutor;
     private final FaceitWebClientProperties properties;
 
     public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient,
-                              TaskExecutor taskExecutor,
                               FaceitWebClientProperties properties) {
         this.faceitClient = faceitClient;
-        this.taskExecutor = taskExecutor;
         this.properties = properties;
     }
 
@@ -72,7 +68,7 @@ public class FaceitPlayerClient {
                 .retryWhen(anyOf(FaceitServerException.class)
                         .retryMax(properties.getRetry().getMaxRetries())
                         .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
-                .subscribeOn(fromExecutor(taskExecutor));
+                .subscribeOn(parallel());
     }
 
     Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {
@@ -86,7 +82,7 @@ public class FaceitPlayerClient {
                 .retryWhen(anyOf(FaceitServerException.class)
                         .retryMax(properties.getRetry().getMaxRetries())
                         .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
-                .subscribeOn(fromExecutor(taskExecutor));
+                .subscribeOn(parallel());
     }
 
     private Mono<PlayerNotFoundException> throwClientException(String playerId) {
