@@ -7,10 +7,10 @@ import io.github.przbetkier.tuscan.adapter.api.response.PlayerPositionResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
+
+import static reactor.core.scheduler.Schedulers.parallel;
 
 @Service
 public class PlayerService {
@@ -19,13 +19,11 @@ public class PlayerService {
 
     private final FaceitPlayerClient faceitPlayerClient;
     private final PlayerHistoryClient playerHistoryClient;
-    private final TaskExecutor taskExecutor;
 
     public PlayerService(FaceitPlayerClient faceitPlayerClient,
-                         PlayerHistoryClient playerHistoryClient, TaskExecutor taskExecutor) {
+                         PlayerHistoryClient playerHistoryClient) {
         this.faceitPlayerClient = faceitPlayerClient;
         this.playerHistoryClient = playerHistoryClient;
-        this.taskExecutor = taskExecutor;
     }
 
     @Cacheable(value = "player_details", key = "#nickname")
@@ -48,6 +46,6 @@ public class PlayerService {
                 faceitPlayerClient.getPlayerPositionInCountry(playerId, region, country))
                 .map(t -> PlayerPositionMapper.map(playerId, t))
                 .doOnError(e -> logger.warn("Error occurred during fetching player position", e))
-                .subscribeOn(Schedulers.fromExecutor(taskExecutor));
+                .subscribeOn(parallel());
     }
 }
