@@ -1,12 +1,13 @@
 package io.github.przbetkier.tuscan.common
 
-import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchFullDetailsDto
-import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchStatsDto
-import io.github.przbetkier.tuscan.domain.match.dto.stats.PlayerDto
-import io.github.przbetkier.tuscan.domain.match.dto.stats.PlayerStatsDto
-import io.github.przbetkier.tuscan.domain.match.dto.stats.RoundStatsDto
-import io.github.przbetkier.tuscan.domain.match.dto.stats.TeamDto
-import io.github.przbetkier.tuscan.domain.match.dto.stats.TeamStatsDto
+import io.github.przbetkier.tuscan.client.match.MatchFullDetailsDto
+import io.github.przbetkier.tuscan.client.match.MatchStatsDto
+import io.github.przbetkier.tuscan.client.match.PlayerDto
+import io.github.przbetkier.tuscan.client.match.PlayerStatsDto
+import io.github.przbetkier.tuscan.client.match.RoundStatsDto
+import io.github.przbetkier.tuscan.client.match.TeamDto
+import io.github.przbetkier.tuscan.client.match.TeamStatsDto
+
 
 class SampleMatchStatsDto {
 
@@ -70,7 +71,6 @@ class SampleMatchStatsDto {
                                                                 "1"
                                                         )
                                                 )]
-
                                         )
                                 ]
                         )

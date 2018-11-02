@@ -1,8 +1,8 @@
-package io.github.przbetkier.tuscan.domain.player;
+package io.github.przbetkier.tuscan.client.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerHistoryResponse;
-import io.github.przbetkier.tuscan.domain.player.dto.PlayerHistoryDto;
 import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,7 +24,7 @@ public class PlayerHistoryClient {
         this.openFaceitClient = openFaceitClient;
     }
 
-    PlayerHistoryResponse getPlayerHistory(String playerId) {
+    public PlayerHistoryResponse getPlayerHistory(String playerId) {
         return openFaceitClient.method(HttpMethod.GET)
                 .uri("/stats/time/users/" + playerId + "/games/csgo")
                 .retrieve()

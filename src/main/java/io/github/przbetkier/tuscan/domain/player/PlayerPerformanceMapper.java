@@ -30,7 +30,7 @@ public class PlayerPerformanceMapper {
                 ));
     }
 
-    public static List<MapStats> orderFromHighestKdRatio(List<MapStats> mapStats) {
+    static List<MapStats> orderFromHighestKdRatio(List<MapStats> mapStats) {
         return mapStats.stream()
                 .sorted(Comparator.comparing(MapStats::getKdRatio).reversed())
                 .collect(Collectors.toList());

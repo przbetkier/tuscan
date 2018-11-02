@@ -2,13 +2,14 @@ package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.GameDetails;
+import io.github.przbetkier.tuscan.client.player.PlayerDetails;
 
-class PlayerDetailsMapper {
+public class PlayerDetailsMapper {
 
     private PlayerDetailsMapper() {
     }
 
-    static PlayerDetailsResponse mapToPlayerDetailsResponse(PlayerDetails details) {
+    public static PlayerDetailsResponse mapToPlayerDetailsResponse(PlayerDetails details) {
         return new PlayerDetailsResponse(
                 details.getPlayerId(),
                 details.getNickname(),

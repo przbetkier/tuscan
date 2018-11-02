@@ -8,6 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
+import io.github.przbetkier.tuscan.client.player.PlayerHistoryClient;
 import reactor.core.publisher.Mono;
 
 import static reactor.core.scheduler.Schedulers.parallel;

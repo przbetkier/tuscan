@@ -2,7 +2,7 @@ package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerHistoryResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchHistory;
-import io.github.przbetkier.tuscan.domain.player.dto.MatchHistoryDto;
+import io.github.przbetkier.tuscan.client.player.MatchHistoryDto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,7 +14,7 @@ import static java.time.Instant.ofEpochMilli;
 import static java.time.LocalDateTime.ofInstant;
 import static java.util.TimeZone.getDefault;
 
-class PlayerHistoryMapper {
+public class PlayerHistoryMapper {
 
     private final static Integer MAX_MATCHES_COUNT = 20;
     private final static Integer STARTING_ELO_POINTS = 1000;
@@ -22,7 +22,7 @@ class PlayerHistoryMapper {
     private PlayerHistoryMapper() {
     }
 
-    static PlayerHistoryResponse map(List<MatchHistoryDto> historyMatches) {
+    public static PlayerHistoryResponse map(List<MatchHistoryDto> historyMatches) {
 
         historyMatches = filterHistory(historyMatches);
 

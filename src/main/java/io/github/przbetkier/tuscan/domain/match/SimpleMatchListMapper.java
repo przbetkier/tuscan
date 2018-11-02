@@ -1,18 +1,18 @@
 package io.github.przbetkier.tuscan.domain.match;
 
-import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
-import io.github.przbetkier.tuscan.adapter.api.response.dto.SimpleMatch;
-import io.github.przbetkier.tuscan.domain.match.dto.match.MatchesSimpleDetailsDto;
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
-class SimpleMatchListMapper {
+import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
+import io.github.przbetkier.tuscan.adapter.api.response.dto.SimpleMatch;
+import io.github.przbetkier.tuscan.client.match.MatchesSimpleDetailsDto;
 
-    static SimpleMatchesResponse map(MatchesSimpleDetailsDto matchesDetails) {
+public class SimpleMatchListMapper {
+
+    public static SimpleMatchesResponse map(MatchesSimpleDetailsDto matchesDetails) {
         return new SimpleMatchesResponse(
                 mapMatches(matchesDetails),
                 matchesDetails.getMatchesCount());

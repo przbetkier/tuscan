@@ -5,7 +5,7 @@ import io.github.przbetkier.tuscan.common.response.SamplePlayerCsgoStats
 import io.github.przbetkier.tuscan.common.response.SamplePlayerDetailsResponse
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier
 import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties
-import io.github.przbetkier.tuscan.domain.player.FaceitPlayerClient
+import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient
 import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException
 import spock.lang.Specification
 import spock.lang.Subject

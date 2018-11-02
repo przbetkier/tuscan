@@ -1,4 +1,4 @@
-package io.github.przbetkier.tuscan.domain.player.dto;
+package io.github.przbetkier.tuscan.client.player;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
