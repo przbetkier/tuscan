@@ -1,7 +1,7 @@
 package io.github.przbetkier.tuscan.domain.player
 
-import io.github.przbetkier.tuscan.domain.player.dto.MatchHistoryDto
-import io.github.przbetkier.tuscan.domain.player.dto.PlayerHistoryDto
+import io.github.przbetkier.tuscan.client.player.MatchHistoryDto
+import io.github.przbetkier.tuscan.client.player.PlayerHistoryDto
 import spock.lang.Specification
 
 import java.time.Instant

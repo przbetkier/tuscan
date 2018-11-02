@@ -3,8 +3,8 @@ package io.github.przbetkier.tuscan.domain.player;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MapStats;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.OverallStats;
-import io.github.przbetkier.tuscan.domain.player.dto.stats.PlayerStats;
-import io.github.przbetkier.tuscan.domain.player.dto.stats.Segment;
+import io.github.przbetkier.tuscan.client.player.PlayerStats;
+import io.github.przbetkier.tuscan.client.player.Segment;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 import static io.github.przbetkier.tuscan.domain.CsgoMap.isInMapPool;
 import static io.github.przbetkier.tuscan.domain.CsgoMap.valueOf;
 
-class PlayerStatsMapper {
+public class PlayerStatsMapper {
 
     private PlayerStatsMapper() {
     }
 
-    static PlayerCsgoStatsResponse map(PlayerStats playerStats) {
+    public static PlayerCsgoStatsResponse map(PlayerStats playerStats) {
         List<MapStats> mapStats = mapToCsgoMapStats(playerStats);
         return new PlayerCsgoStatsResponse(
                 mapToOverallStats(playerStats, mapStats),

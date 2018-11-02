@@ -6,9 +6,9 @@ import io.github.przbetkier.tuscan.adapter.api.response.dto.Player;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.PlayerStats;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.TeamStats;
-import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchFullDetailsDto;
-import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchStatsDto;
-import io.github.przbetkier.tuscan.domain.match.dto.stats.PlayerDto;
+import io.github.przbetkier.tuscan.client.match.MatchFullDetailsDto;
+import io.github.przbetkier.tuscan.client.match.MatchStatsDto;
+import io.github.przbetkier.tuscan.client.match.PlayerDto;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -20,12 +20,12 @@ import static io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult.W
 import static java.lang.Integer.valueOf;
 import static java.util.Arrays.asList;
 
-class MatchFullDetailsMapper {
+public class MatchFullDetailsMapper {
 
     private MatchFullDetailsMapper() {
     }
 
-    static MatchFullDetailsResponse map(MatchStatsDto matchStatsDto, String playerId) {
+    public static MatchFullDetailsResponse map(MatchStatsDto matchStatsDto, String playerId) {
         MatchFullDetailsDto matchFullDetails = matchStatsDto.getMatchFullDetails().get(0);
 
         Team teamOne = getTeam(matchStatsDto, 0, getPlayers(matchStatsDto, 0));

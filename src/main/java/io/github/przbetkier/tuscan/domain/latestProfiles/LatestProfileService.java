@@ -3,7 +3,7 @@ package io.github.przbetkier.tuscan.domain.latestProfiles;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties;
-import io.github.przbetkier.tuscan.domain.player.FaceitPlayerClient;
+import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier;
 import org.springframework.stereotype.Service;
 

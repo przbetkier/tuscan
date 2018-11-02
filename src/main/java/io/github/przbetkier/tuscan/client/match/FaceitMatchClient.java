@@ -1,14 +1,13 @@
-package io.github.przbetkier.tuscan.domain.match;
+package io.github.przbetkier.tuscan.client.match;
 
 import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
 import io.github.przbetkier.tuscan.config.properties.FaceitMatchesProperties;
-import io.github.przbetkier.tuscan.domain.match.dto.match.MatchesSimpleDetailsDto;
-import io.github.przbetkier.tuscan.domain.match.dto.stats.MatchStatsDto;
-import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException;
+import io.github.przbetkier.tuscan.domain.match.MatchFullDetailsMapper;
+import io.github.przbetkier.tuscan.domain.match.MatchNotFoundException;
+import io.github.przbetkier.tuscan.domain.match.SimpleMatchListMapper;
 import io.github.przbetkier.tuscan.exception.FaceitServerException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -17,9 +16,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 import static org.springframework.http.HttpMethod.GET;
 
 @Component
-class FaceitMatchClient {
+public class FaceitMatchClient {
 
-    private static final Logger logger = LoggerFactory.getLogger(FaceitMatchClient.class);
     private final static Integer MATCHES_LIMIT = 20;
 
     private final WebClient webClient;
@@ -30,11 +28,18 @@ class FaceitMatchClient {
         this.properties = properties;
     }
 
-    SimpleMatchesResponse getMatches(String playerId, Integer offset) {
+    public SimpleMatchesResponse getMatches(String playerId, Integer offset) {
 
         return webClient
                 .method(GET)
-                .uri("/players/" + playerId + "/history?game=csgo&offset=" + offset + "&limit=" + MATCHES_LIMIT + "&from=" + properties.getCutoffDateTimestamp())
+                .uri("/players/"
+                        + playerId
+                        + "/history?game=csgo&offset="
+                        + offset
+                        + "&limit="
+                        + MATCHES_LIMIT
+                        + "&from="
+                        + properties.getCutoffDateTimestamp())
                 .retrieve()
                 .onStatus(HttpStatus::is5xxServerError, clientResponse -> {
                     throw new FaceitServerException(
@@ -46,7 +51,7 @@ class FaceitMatchClient {
                 .block();
     }
 
-    MatchFullDetailsResponse getMatchDetails(String matchId, String playerId) {
+    public MatchFullDetailsResponse getMatchDetails(String matchId, String playerId) {
         return webClient
                 .method(GET)
                 .uri("/matches/" + matchId + "/stats")

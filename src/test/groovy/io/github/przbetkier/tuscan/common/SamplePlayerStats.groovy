@@ -1,9 +1,9 @@
 package io.github.przbetkier.tuscan.common
 
-import io.github.przbetkier.tuscan.domain.player.dto.stats.Lifetime
-import io.github.przbetkier.tuscan.domain.player.dto.stats.MapStatistics
-import io.github.przbetkier.tuscan.domain.player.dto.stats.PlayerStats
-import io.github.przbetkier.tuscan.domain.player.dto.stats.Segment
+import io.github.przbetkier.tuscan.client.player.Lifetime
+import io.github.przbetkier.tuscan.client.player.MapStatistics
+import io.github.przbetkier.tuscan.client.player.PlayerStats
+import io.github.przbetkier.tuscan.client.player.Segment
 
 class SamplePlayerStats {
 

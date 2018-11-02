@@ -1,8 +1,8 @@
 package io.github.przbetkier.tuscan.common
 
-import io.github.przbetkier.tuscan.domain.player.PlayerDetails
-import io.github.przbetkier.tuscan.domain.player.dto.Csgo
-import io.github.przbetkier.tuscan.domain.player.dto.Games
+import io.github.przbetkier.tuscan.client.player.Csgo
+import io.github.przbetkier.tuscan.client.player.Games
+import io.github.przbetkier.tuscan.client.player.PlayerDetails
 
 class SamplePlayerDetails {
 
@@ -27,9 +27,7 @@ class SamplePlayerDetails {
         new PlayerDetails(
                 playerId,
                 "player",
-                new Games(
-                        null
-                ),
+                new Games(null),
                 "http://avatar-avatar.com/avatar",
                 "PL"
         )

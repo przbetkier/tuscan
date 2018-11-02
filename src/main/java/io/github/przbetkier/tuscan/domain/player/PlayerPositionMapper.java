@@ -1,7 +1,7 @@
 package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerPositionResponse;
-import io.github.przbetkier.tuscan.domain.player.dto.Position;
+import io.github.przbetkier.tuscan.client.player.Position;
 import reactor.util.function.Tuple2;
 
 public class PlayerPositionMapper {

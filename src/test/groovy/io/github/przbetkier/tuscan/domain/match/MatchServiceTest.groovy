@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.domain.match
 
+import io.github.przbetkier.tuscan.client.match.FaceitMatchClient
 import io.github.przbetkier.tuscan.common.response.SampleMatchFullDetailsResponse
 import io.github.przbetkier.tuscan.common.response.SampleMatchResponse
 import spock.lang.Specification

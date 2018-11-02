@@ -1,10 +1,10 @@
-package io.github.przbetkier.tuscan.domain.player;
+package io.github.przbetkier.tuscan.client.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 import io.github.przbetkier.tuscan.config.properties.FaceitWebClientProperties;
-import io.github.przbetkier.tuscan.domain.player.dto.Position;
-import io.github.przbetkier.tuscan.domain.player.dto.stats.PlayerStats;
+import io.github.przbetkier.tuscan.domain.player.PlayerDetailsMapper;
+import io.github.przbetkier.tuscan.domain.player.PlayerStatsMapper;
 import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException;
 import io.github.przbetkier.tuscan.exception.FaceitServerException;
 import org.slf4j.Logger;
@@ -57,7 +57,7 @@ public class FaceitPlayerClient {
                 .block();
     }
 
-    Mono<Position> getPlayerPositionInRegion(String playerId, String region) {
+    public Mono<Position> getPlayerPositionInRegion(String playerId, String region) {
         return faceitClient
                 .method(GET)
                 .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?limit=1")
@@ -71,7 +71,7 @@ public class FaceitPlayerClient {
                 .subscribeOn(parallel());
     }
 
-    Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {
+    public Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {
         return faceitClient
                 .method(GET)
                 .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?country=" + country + "&limit=1")

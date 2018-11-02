@@ -1,5 +1,7 @@
 package io.github.przbetkier.tuscan.domain.player
 
+import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient
+import io.github.przbetkier.tuscan.client.player.PlayerHistoryClient
 import io.github.przbetkier.tuscan.common.response.SamplePlayerCsgoStats
 import io.github.przbetkier.tuscan.common.response.SamplePlayerDetailsResponse
 import io.github.przbetkier.tuscan.common.response.SamplePlayerHistoryResponse
