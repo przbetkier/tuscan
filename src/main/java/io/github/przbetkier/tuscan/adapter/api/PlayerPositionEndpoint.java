@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-@CrossOrigin // FIXME: To config
 @RestController
 @RequestMapping("/faceit/player")
 public class PlayerPositionEndpoint {
