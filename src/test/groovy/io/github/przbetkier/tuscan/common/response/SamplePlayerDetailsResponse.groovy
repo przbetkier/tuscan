@@ -15,11 +15,11 @@ class SamplePlayerDetailsResponse {
                 new GameDetails(
                         ELO,
                         LEVEL,
-                        "EU"
+                        "EU",
+                        "2897328939"
                 ),
                 "avatar-url",
-                "PL",
-                "2897328939"
+                "PL"
         )
     }
 }

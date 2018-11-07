@@ -20,12 +20,12 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
         response.statusCodeValue == 200
         response.body.nickname == player.nickname
         response.body.playerId == player.playerId
-        response.body.steamId == player.games.csgo.steamId
+        response.body.gameDetails.steamId == player.games.csgo.steamId
     }
 
     def "should return not found status"() {
         given:
-        def player = SamplePlayerDetails.simple()
+        def player = SamplePlayerDetails.simple("playerId-1", "olofmeister")
         def nickname = player.nickname
         PlayerDetailsStubs.stubNotFoundResponse(nickname)
 

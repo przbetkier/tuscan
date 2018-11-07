@@ -15,8 +15,7 @@ public class PlayerDetailsMapper {
                 details.getNickname(),
                 mapToCsgoGameDetails(details),
                 details.getAvatarUrl(),
-                details.getCountry(),
-                details.getGames().getCsgo().getSteamId());
+                details.getCountry());
     }
 
     private static GameDetails mapToCsgoGameDetails(PlayerDetails details) {
@@ -24,7 +23,8 @@ public class PlayerDetailsMapper {
             return new GameDetails(
                     details.getGames().getCsgo().getFaceitElo(),
                     details.getGames().getCsgo().getLevel(),
-                    details.getGames().getCsgo().getRegion());
+                    details.getGames().getCsgo().getRegion(),
+                    details.getGames().getCsgo().getSteamId());
         } else {
             return null;
         }
