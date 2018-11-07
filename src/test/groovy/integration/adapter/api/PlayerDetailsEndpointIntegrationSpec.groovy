@@ -1,46 +1,38 @@
 package integration.adapter.api
 
-import com.github.tomakehurst.wiremock.client.WireMock
 import integration.BaseIntegrationSpec
-import integration.common.stubs.PlayerPositionStubs
-
-import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
-import static com.github.tomakehurst.wiremock.client.WireMock.moreThan
-import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
+import integration.common.stubs.PlayerDetailsStubs
+import io.github.przbetkier.tuscan.common.SamplePlayerDetails
 
 class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
-    def "should return player position with ok status"() {
+    def "should return player details"() {
         given:
-        def playerId = "playerId"
-        def region = "EU"
-        def country = "pl"
-        def position = 101
-        PlayerPositionStubs.stubSuccessfulApiResponse(playerId, position, region)
+        def playerId = "playerId-1"
+        def player = SamplePlayerDetails.simple(playerId)
+        def nickname = player.nickname
+        PlayerDetailsStubs.stubSuccessfulResponse(player)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/player/position?playerId=$playerId&region=$region&country=$country"), Map)
+        def response = restTemplate.getForEntity(localUrl("/faceit/players/details?nickname=$nickname"), Map)
 
         then:
         response.statusCodeValue == 200
-        response.body.playerId == playerId
-        response.body.positionInRegion == position
-        response.body.positionInCountry == position
+        response.body.nickname == player.nickname
+        response.body.playerId == player.playerId
+        response.body.steamId == player.games.csgo.steamId
     }
 
-    def "should retry when service unavailable and get player position"() {
+    def "should return not found status"() {
         given:
-        def playerId = "playerId"
-        def region = "EU"
-        def country = "pl"
-        def position = 101
-        PlayerPositionStubs.exceptionalThenSuccessful(playerId, position, region)
+        def player = SamplePlayerDetails.simple()
+        def nickname = player.nickname
+        PlayerDetailsStubs.stubNotFoundResponse(nickname)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/player/position?playerId=$playerId&region=$region&country=$country"), Map)
+        def response = restTemplate.getForEntity(localUrl("/faceit/players/details?nickname=$nickname"), Map)
 
         then:
-        response.statusCodeValue == 200
-        WireMock.verify(moreThan(2), getRequestedFor(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)")))
+        response.statusCodeValue == 404
     }
 }

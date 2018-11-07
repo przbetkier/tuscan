@@ -9,14 +9,16 @@ public class PlayerDetailsResponse {
     private final GameDetails gameDetails;
     private final String avatarUrl;
     private final String country;
+    private final String steamId;
 
     public PlayerDetailsResponse(String playerId, String nickname, GameDetails gameDetails, String avatarUrl,
-                                 String country) {
+            String country, String steamId) {
         this.playerId = playerId;
         this.nickname = nickname;
         this.gameDetails = gameDetails;
         this.avatarUrl = avatarUrl;
         this.country = country;
+        this.steamId = steamId;
     }
 
     public String getPlayerId() {
@@ -37,5 +39,9 @@ public class PlayerDetailsResponse {
 
     public String getCountry() {
         return country;
+    }
+
+    public String getSteamId() {
+        return steamId;
     }
 }

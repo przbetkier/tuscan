@@ -18,7 +18,8 @@ class SamplePlayerDetailsResponse {
                         "EU"
                 ),
                 "avatar-url",
-                "PL"
+                "PL",
+                "2897328939"
         )
     }
 }

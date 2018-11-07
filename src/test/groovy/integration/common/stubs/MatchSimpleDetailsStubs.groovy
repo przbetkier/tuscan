@@ -11,7 +11,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
-class MatchSimpleDetailsStub {
+class MatchSimpleDetailsStubs {
 
     static void stubSuccessfulResponse(LocalDateTime startedAt, LocalDateTime finishedAt, String matchId, String playerId) {
 

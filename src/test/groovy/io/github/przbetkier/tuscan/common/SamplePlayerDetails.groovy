@@ -16,7 +16,8 @@ class SamplePlayerDetails {
                 new Games(new Csgo(
                         ELO,
                         FACEIT_LEVEL,
-                        "EU"
+                        "EU",
+                        "10203040"
                 )),
                 "http://avatar-avatar.com/avatar",
                 "PL"
