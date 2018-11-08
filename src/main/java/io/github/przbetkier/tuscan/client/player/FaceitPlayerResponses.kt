@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class Csgo(
     @JsonProperty("faceit_elo") val faceitElo: Int?,
     @JsonProperty("skill_level") val level: Int?,
-    @JsonProperty("region") val region: String
+    @JsonProperty("region") val region: String,
+    @JsonProperty("game_player_id") val steamId: String
 )
 
 data class Games(
-    @JsonProperty("csgo") val csgo: Csgo?
-)
+    @JsonProperty("csgo") val csgo: Csgo?)
 
 data class Position(
     @JsonProperty("position") val position: String

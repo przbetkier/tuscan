@@ -4,7 +4,7 @@ import integration.BaseIntegrationSpec
 
 import java.time.LocalDateTime
 
-import static integration.common.stubs.MatchSimpleDetailsStub.stubSuccessfulResponse
+import static integration.common.stubs.MatchSimpleDetailsStubs.stubSuccessfulResponse
 
 class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
 

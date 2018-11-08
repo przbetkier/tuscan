@@ -9,14 +9,15 @@ class SamplePlayerDetails {
     public static Integer ELO = 1250
     public static Integer FACEIT_LEVEL = 4
 
-    static simple(String playerId = "playerId") {
+    static simple(String playerId = "playerId", String nickname = "player") {
         new PlayerDetails(
                 playerId,
-                "player",
+                nickname,
                 new Games(new Csgo(
                         ELO,
                         FACEIT_LEVEL,
-                        "EU"
+                        "EU",
+                        "10203040"
                 )),
                 "http://avatar-avatar.com/avatar",
                 "PL"

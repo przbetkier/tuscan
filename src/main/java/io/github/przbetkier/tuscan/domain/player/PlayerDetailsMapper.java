@@ -23,7 +23,8 @@ public class PlayerDetailsMapper {
             return new GameDetails(
                     details.getGames().getCsgo().getFaceitElo(),
                     details.getGames().getCsgo().getLevel(),
-                    details.getGames().getCsgo().getRegion());
+                    details.getGames().getCsgo().getRegion(),
+                    details.getGames().getCsgo().getSteamId());
         } else {
             return null;
         }

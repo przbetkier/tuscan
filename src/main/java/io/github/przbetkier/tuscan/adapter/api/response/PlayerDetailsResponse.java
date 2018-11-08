@@ -11,7 +11,7 @@ public class PlayerDetailsResponse {
     private final String country;
 
     public PlayerDetailsResponse(String playerId, String nickname, GameDetails gameDetails, String avatarUrl,
-                                 String country) {
+            String country) {
         this.playerId = playerId;
         this.nickname = nickname;
         this.gameDetails = gameDetails;
