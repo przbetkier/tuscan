@@ -21,6 +21,7 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
         response.body.nickname == player.nickname
         response.body.playerId == player.playerId
         response.body.gameDetails.steamId == player.games.csgo.steamId
+        response.body.membership == "FREE"
     }
 
     def "should return not found status"() {

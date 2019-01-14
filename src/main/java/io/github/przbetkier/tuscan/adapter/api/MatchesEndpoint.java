@@ -3,7 +3,6 @@ package io.github.przbetkier.tuscan.adapter.api;
 import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
 import io.github.przbetkier.tuscan.domain.match.MatchService;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

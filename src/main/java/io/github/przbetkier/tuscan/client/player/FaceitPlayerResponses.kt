@@ -47,7 +47,8 @@ data class PlayerDetails(
     @JsonProperty("nickname") val nickname: String,
     @JsonProperty("games") val games: Games,
     @JsonProperty("avatar") val avatarUrl: String,
-    @JsonProperty("country") val country: String
+    @JsonProperty("country") val country: String,
+    @JsonProperty("memberships") val memberships: List<String>
 ) {
 
     fun hasCsgoGame(): Boolean {

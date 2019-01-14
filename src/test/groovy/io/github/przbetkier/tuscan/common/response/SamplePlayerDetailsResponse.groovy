@@ -2,6 +2,7 @@ package io.github.przbetkier.tuscan.common.response
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.GameDetails
+import io.github.przbetkier.tuscan.client.player.Membership
 
 class SamplePlayerDetailsResponse {
 
@@ -19,7 +20,8 @@ class SamplePlayerDetailsResponse {
                         "2897328939"
                 ),
                 "avatar-url",
-                "PL"
+                "PL",
+                Membership.FREE
         )
     }
 }

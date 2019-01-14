@@ -1,6 +1,7 @@
 package io.github.przbetkier.tuscan.adapter.api.response;
 
 import io.github.przbetkier.tuscan.adapter.api.response.dto.GameDetails;
+import io.github.przbetkier.tuscan.client.player.Membership;
 
 public class PlayerDetailsResponse {
 
@@ -9,14 +10,16 @@ public class PlayerDetailsResponse {
     private final GameDetails gameDetails;
     private final String avatarUrl;
     private final String country;
+    private final Membership membership;
 
     public PlayerDetailsResponse(String playerId, String nickname, GameDetails gameDetails, String avatarUrl,
-            String country) {
+            String country, Membership membership) {
         this.playerId = playerId;
         this.nickname = nickname;
         this.gameDetails = gameDetails;
         this.avatarUrl = avatarUrl;
         this.country = country;
+        this.membership = membership;
     }
 
     public String getPlayerId() {
@@ -37,5 +40,9 @@ public class PlayerDetailsResponse {
 
     public String getCountry() {
         return country;
+    }
+
+    public Membership getMembership() {
+        return membership;
     }
 }
