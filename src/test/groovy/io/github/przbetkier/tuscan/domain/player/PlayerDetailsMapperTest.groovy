@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.domain.player
 
+import io.github.przbetkier.tuscan.client.player.Membership
 import io.github.przbetkier.tuscan.common.SamplePlayerDetails
 import spock.lang.Specification
 
@@ -21,6 +22,7 @@ class PlayerDetailsMapperTest extends Specification {
         result.gameDetails.level == playerDetails.games.csgo.level
         result.gameDetails.faceitElo == playerDetails.games.csgo.faceitElo
         result.gameDetails.region == playerDetails.games.csgo.region
+        result.membership == Membership.FREE
     }
 
     def "should map player details without csgo game"() {

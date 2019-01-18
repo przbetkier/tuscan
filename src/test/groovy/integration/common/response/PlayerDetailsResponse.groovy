@@ -51,7 +51,7 @@ class PlayerDetailsResponse {
             "steam_nickname": "playerId",
             "membership_type": "premium",
             "memberships": [
-                "premium"
+                "free"
         ],
             "faceit_url": "https://www.faceit.com/{lang}/players/$playerDetails.nickname"
         }"""

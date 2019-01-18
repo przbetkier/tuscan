@@ -20,7 +20,8 @@ class SamplePlayerDetails {
                         "10203040"
                 )),
                 "http://avatar-avatar.com/avatar",
-                "PL"
+                "PL",
+                ["FREE"]
         )
     }
 
@@ -30,7 +31,8 @@ class SamplePlayerDetails {
                 "player",
                 new Games(null),
                 "http://avatar-avatar.com/avatar",
-                "PL"
+                "PL",
+                ["FREE"]
         )
     }
 }

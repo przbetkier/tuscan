@@ -2,7 +2,6 @@ package io.github.przbetkier.tuscan.adapter.api;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerPositionResponse;
 import io.github.przbetkier.tuscan.domain.player.PlayerService;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,11 +11,11 @@ import reactor.core.scheduler.Schedulers;
 
 @RestController
 @RequestMapping("/faceit/player")
-public class PlayerPositionEndpoint {
+class PlayerPositionEndpoint {
 
     private final PlayerService playerService;
 
-    public PlayerPositionEndpoint(PlayerService playerService) {
+    PlayerPositionEndpoint(PlayerService playerService) {
         this.playerService = playerService;
     }
 
