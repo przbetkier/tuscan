@@ -5,8 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import static org.springframework.http.HttpHeaders.*;
-import static org.springframework.http.MediaType.*;
+import static org.springframework.http.HttpHeaders.ACCEPT;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Configuration
 class FaceitWebClientConfiguration {
@@ -19,8 +20,7 @@ class FaceitWebClientConfiguration {
 
     @Bean(name = "faceitClient")
     WebClient faceitClient() {
-        return WebClient
-                .builder()
+        return WebClient.builder()
                 .baseUrl(faceitWebClientProperties.getUrl())
                 .defaultHeader(ACCEPT, APPLICATION_JSON_VALUE)
                 .defaultHeader(AUTHORIZATION, "Bearer " + faceitWebClientProperties.getApiKey())
@@ -29,8 +29,7 @@ class FaceitWebClientConfiguration {
 
     @Bean(name = "openFaceitClient")
     WebClient openFaceitClient() {
-        return WebClient
-                .builder()
+        return WebClient.builder()
                 .baseUrl(faceitWebClientProperties.getOpenUrl())
                 .defaultHeader(ACCEPT, APPLICATION_JSON_VALUE)
                 .build();

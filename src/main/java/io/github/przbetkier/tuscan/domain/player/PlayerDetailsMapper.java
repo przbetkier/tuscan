@@ -11,22 +11,24 @@ public class PlayerDetailsMapper {
     }
 
     public static PlayerDetailsResponse mapToPlayerDetailsResponse(PlayerDetails details) {
-        return new PlayerDetailsResponse(
-                details.getPlayerId(),
-                details.getNickname(),
-                mapToCsgoGameDetails(details),
-                details.getAvatarUrl(),
-                details.getCountry(),
-                details.getMemberships().stream().findFirst().map(m -> Membership.valueOf(m.toUpperCase())).orElse(null));
+        return new PlayerDetailsResponse(details.getPlayerId(),
+                                         details.getNickname(),
+                                         mapToCsgoGameDetails(details),
+                                         details.getAvatarUrl(),
+                                         details.getCountry(),
+                                         details.getMemberships()
+                                                 .stream()
+                                                 .findFirst()
+                                                 .map(m -> Membership.valueOf(m.toUpperCase()))
+                                                 .orElse(null));
     }
 
     private static GameDetails mapToCsgoGameDetails(PlayerDetails details) {
         if (details.hasCsgoGame()) {
-            return new GameDetails(
-                    details.getGames().getCsgo().getFaceitElo(),
-                    details.getGames().getCsgo().getLevel(),
-                    details.getGames().getCsgo().getRegion(),
-                    details.getGames().getCsgo().getSteamId());
+            return new GameDetails(details.getGames().getCsgo().getFaceitElo(),
+                                   details.getGames().getCsgo().getLevel(),
+                                   details.getGames().getCsgo().getRegion(),
+                                   details.getGames().getCsgo().getSteamId());
         } else {
             return null;
         }

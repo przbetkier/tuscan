@@ -21,8 +21,7 @@ public class LatestProfileService {
     private final LocalDateTimeSupplier localDateTimeSupplier;
     private final LatestProfilesProperties latestProfilesProperties;
 
-    public LatestProfileService(LatestProfileRepository repository,
-                                FaceitPlayerClient client,
+    public LatestProfileService(LatestProfileRepository repository, FaceitPlayerClient client,
                                 LocalDateTimeSupplier localDateTimeSupplier,
                                 LatestProfilesProperties latestProfilesProperties) {
         this.repository = repository;

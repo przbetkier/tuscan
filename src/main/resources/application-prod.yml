@@ -1,6 +1,6 @@
 faceit:
   url: 'https://open.faceit.com/data/v4'
-  open-url: 'https://api.faceit.com/stats/api/v1'
+  open-url: 'https://api.faceit.com'
   api-key: ${FACEIT_API_KEY}
 
 spring:
