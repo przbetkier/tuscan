@@ -12,7 +12,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Collections;
 
-
 @Component
 public class FaceitSearchClient {
 

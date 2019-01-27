@@ -33,11 +33,15 @@ public class LatestProfileService {
     public void save(String nickname) {
         Optional<LatestProfile> profile = repository.findById(nickname);
 
-        profile.map(p -> repository.save(mapAndUpdate(p, localDateTimeSupplier.get()))).orElseGet(() -> {
+        if (profile.isPresent()) {
+            LatestProfile updatedProfile = mapAndUpdate(profile.get(), localDateTimeSupplier.get());
+            repository.save(updatedProfile);
+        } else {
             PlayerDetailsResponse response = client.getPlayerDetails(nickname);
             PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId());
-            return repository.save(mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get()));
-        });
+            LatestProfile newProfile = mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get());
+            repository.save(newProfile);
+        }
         trimProfiles();
     }
 
