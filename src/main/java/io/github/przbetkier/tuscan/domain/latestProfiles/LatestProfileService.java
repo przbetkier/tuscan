@@ -21,8 +21,7 @@ public class LatestProfileService {
     private final LocalDateTimeSupplier localDateTimeSupplier;
     private final LatestProfilesProperties latestProfilesProperties;
 
-    public LatestProfileService(LatestProfileRepository repository,
-                                FaceitPlayerClient client,
+    public LatestProfileService(LatestProfileRepository repository, FaceitPlayerClient client,
                                 LocalDateTimeSupplier localDateTimeSupplier,
                                 LatestProfilesProperties latestProfilesProperties) {
         this.repository = repository;
@@ -34,15 +33,11 @@ public class LatestProfileService {
     public void save(String nickname) {
         Optional<LatestProfile> profile = repository.findById(nickname);
 
-        if (profile.isPresent()) {
-            LatestProfile updatedProfile = mapAndUpdate(profile.get(), localDateTimeSupplier.get());
-            repository.save(updatedProfile);
-        } else {
+        profile.map(p -> repository.save(mapAndUpdate(p, localDateTimeSupplier.get()))).orElseGet(() -> {
             PlayerDetailsResponse response = client.getPlayerDetails(nickname);
             PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId());
-            LatestProfile newProfile = mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get());
-            repository.save(newProfile);
-        }
+            return repository.save(mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get()));
+        });
         trimProfiles();
     }
 

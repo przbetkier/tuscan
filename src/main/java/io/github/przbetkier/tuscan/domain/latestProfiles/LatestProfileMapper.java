@@ -11,23 +11,21 @@ class LatestProfileMapper {
     }
 
     static LatestProfile mapAndUpdate(LatestProfile profile, LocalDateTime dateTime) {
-        return new LatestProfile(
-                profile.getNickname(),
-                profile.getAvatarUrl(),
-                profile.getLevel(),
-                profile.getElo(),
-                profile.getKdRatio(),
-                dateTime);
+        return new LatestProfile(profile.getNickname(),
+                                 profile.getAvatarUrl(),
+                                 profile.getLevel(),
+                                 profile.getElo(),
+                                 profile.getKdRatio(),
+                                 dateTime);
     }
 
-    static LatestProfile mapToNewFromResponses(PlayerDetailsResponse response, PlayerCsgoStatsResponse statsResponse, LocalDateTime dateTime) {
-        return new LatestProfile(
-                response.getNickname(),
-                response.getAvatarUrl(),
-                response.getGameDetails().getLevel(),
-                response.getGameDetails().getFaceitElo(),
-                statsResponse.getOverallStats().getKdRatio(),
-                dateTime
-        );
+    static LatestProfile mapToNewFromResponses(PlayerDetailsResponse response, PlayerCsgoStatsResponse statsResponse,
+                                               LocalDateTime dateTime) {
+        return new LatestProfile(response.getNickname(),
+                                 response.getAvatarUrl(),
+                                 response.getGameDetails().getLevel(),
+                                 response.getGameDetails().getFaceitElo(),
+                                 statsResponse.getOverallStats().getKdRatio(),
+                                 dateTime);
     }
 }

@@ -26,7 +26,7 @@ public class PlayerHistoryClient {
 
     public PlayerHistoryResponse getPlayerHistory(String playerId) {
         return openFaceitClient.method(HttpMethod.GET)
-                .uri("/stats/time/users/" + playerId + "/games/csgo")
+                .uri("/stats/api/v1/stats/time/users/" + playerId + "/games/csgo")
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
                     logger.warn("Player [{}] could not be found on Faceit.", playerId);
@@ -34,9 +34,7 @@ public class PlayerHistoryClient {
                 })
                 .bodyToMono(PlayerHistoryDto.class)
                 .map(history -> map(history.getMatchHistoryDtoList()))
-                .doOnError(
-                        e -> logger.error("Could not map player history to response")
-                )
+                .doOnError(e -> logger.error("Could not map player history to response"))
                 .block();
     }
 }

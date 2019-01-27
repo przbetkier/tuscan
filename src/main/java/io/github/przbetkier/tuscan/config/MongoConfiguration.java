@@ -1,19 +1,20 @@
 package io.github.przbetkier.tuscan.config;
 
 import com.mongodb.MongoClientOptions;
-import com.mongodb.WriteConcern;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import static com.mongodb.WriteConcern.ACKNOWLEDGED;
 
 @Configuration
 public class MongoConfiguration {
 
     @Bean
-    MongoClientOptions mongoClientOptions()  {
+    MongoClientOptions mongoClientOptions() {
         return MongoClientOptions.builder()
                 .socketTimeout(2000)
                 .connectionsPerHost(50)
-                .writeConcern(WriteConcern.ACKNOWLEDGED)
+                .writeConcern(ACKNOWLEDGED)
                 .build();
     }
 }

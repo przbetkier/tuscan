@@ -1,0 +1,180 @@
+{
+  "payload": {
+    "offset": 0,
+    "limit": 3,
+    "teams": {
+      "results": [
+        {
+          "id": "9ec9c498-acd9-45eb-b0c2-baf0dd241a00",
+          "game": "csgo",
+          "name": "olofmeister",
+          "tag": "olofmeis",
+          "type": "premade",
+          "verified": false,
+          "members": [
+            {
+              "guid": "3443168b-dd7f-4576-aff3-bfdec49bb3c3",
+              "nickname": "olofmeiserq",
+              "avatar": "https://d50m6q67g4bn3.cloudfront.net/avatars/3443168b-dd7f-4576-aff3-bfdec49bb3c3_1512501446076",
+              "id": "3443168b-dd7f-4576-aff3-bfdec49bb3c3"
+            },
+            {
+              "guid": "9de37985-4afe-40ee-a029-4b7b1edba377",
+              "nickname": "reventon322",
+              "id": "9de37985-4afe-40ee-a029-4b7b1edba377"
+            }
+          ],
+          "guid": "9ec9c498-acd9-45eb-b0c2-baf0dd241a00"
+        },
+        {
+          "id": "81613940-4217-41bf-8e89-2a9bdffe351f",
+          "game": "csgo",
+          "name": "Olofymistery",
+          "tag": "Olofy",
+          "type": "premade",
+          "verified": false,
+          "members": [
+            {
+              "guid": "3c1eca62-53cd-4b02-8dfe-4e3085cef4a5",
+              "nickname": "olofmisterpl",
+              "avatar": "https://d50m6q67g4bn3.cloudfront.net/avatars/3c1eca62-53cd-4b02-8dfe-4e3085cef4a5_1456411026951",
+              "id": "3c1eca62-53cd-4b02-8dfe-4e3085cef4a5"
+            }
+          ],
+          "guid": "81613940-4217-41bf-8e89-2a9bdffe351f"
+        },
+        {
+          "id": "039033ba-fa24-424c-9947-d6ef404dab2f",
+          "game": "csgo",
+          "name": "Nikita",
+          "tag": "OLOF",
+          "type": "premade",
+          "verified": false,
+          "members": [
+            {
+              "guid": "093dc0a8-6c48-43f5-9955-8e5b764ab3bd",
+              "nickname": "olofmonsteer",
+              "id": "093dc0a8-6c48-43f5-9955-8e5b764ab3bd"
+            }
+          ],
+          "guid": "039033ba-fa24-424c-9947-d6ef404dab2f"
+        }
+      ],
+      "total_count": 257
+    },
+    "organizers": {
+      "results": [],
+      "total_count": 0
+    },
+    "tournaments": {
+      "results": [],
+      "total_count": 0
+    },
+    "players": {
+      "results": [
+        {
+          "guid": "5bd66077-e032-490f-96d8-3cacb05548fb",
+          "nickname": "olof",
+          "status": "AVAILABLE",
+          "games": [
+            {
+              "name": "csgo",
+              "skill_level": 4
+            }
+          ],
+          "country": "PL",
+          "avatar": "https://d50m6q67g4bn3.cloudfront.net/avatars/5bd66077-e032-490f-96d8-3cacb05548fb_1436287071684",
+          "verified": false,
+          "id": "5bd66077-e032-490f-96d8-3cacb05548fb"
+        },
+        {
+          "guid": "47946790-c6fa-49c6-a29c-8667ed9e656e",
+          "nickname": "olofmeister",
+          "status": "BUSY",
+          "games": [
+            {
+              "name": "csgo",
+              "skill_level": 10
+            }
+          ],
+          "country": "SE",
+          "avatar": "https://d50m6q67g4bn3.cloudfront.net/Pro_Player/fnatic_olofmaister.jpg",
+          "verified": true,
+          "id": "47946790-c6fa-49c6-a29c-8667ed9e656e"
+        },
+        {
+          "guid": "2549aa40-515a-43e9-a274-e4a1a4e554b2",
+          "nickname": "olof-_-",
+          "status": "AVAILABLE",
+          "games": [
+            {
+              "name": "csgo",
+              "skill_level": 3
+            }
+          ],
+          "country": "US",
+          "avatar": "https://cdn.faceit.com/avatars/2549aa40-515a-43e9-a274-e4a1a4e554b2_1538559029146.jpg",
+          "verified": false,
+          "id": "2549aa40-515a-43e9-a274-e4a1a4e554b2"
+        }
+      ],
+      "total_count": 1274
+    },
+    "hubs": {
+      "results": [
+        {
+          "membersCount": 1,
+          "id": "25b39bc8-45d7-4bd8-8617-69f8301451fb",
+          "name": "olofmanco xd",
+          "game": "csgo",
+          "region": "US",
+          "organizer": {
+            "id": "46f78760-4db4-4578-a04f-8de3c5dac1bc",
+            "type": "user",
+            "name": "olofmanco"
+          },
+          "minSkillLevel": 1,
+          "maxSkillLevel": 10,
+          "guid": "25b39bc8-45d7-4bd8-8617-69f8301451fb",
+          "join": "invite"
+        },
+        {
+          "membersCount": 1,
+          "id": "f6f8c007-b2fa-4a3b-9fbf-75c1534ec2b2",
+          "name": "olof",
+          "game": "csgo",
+          "region": "EU",
+          "organizer": {
+            "id": "3b7484be-f6ca-4cad-b832-7193f3c031ce",
+            "type": "user",
+            "name": "Qwz123"
+          },
+          "minSkillLevel": 1,
+          "maxSkillLevel": 10,
+          "guid": "f6f8c007-b2fa-4a3b-9fbf-75c1534ec2b2",
+          "join": "invite"
+        },
+        {
+          "membersCount": 1,
+          "id": "cd93dbfb-4dfe-4f29-b314-fd917be344e6",
+          "name": "OLOF",
+          "game": "csgo",
+          "region": "EU",
+          "organizer": {
+            "id": "d34f6c97-2803-4c49-bbb0-a673ca3e6b62",
+            "type": "user",
+            "name": "olofSay"
+          },
+          "minSkillLevel": 1,
+          "maxSkillLevel": 10,
+          "guid": "cd93dbfb-4dfe-4f29-b314-fd917be344e6",
+          "join": "invite"
+        }
+      ],
+      "total_count": 15
+    }
+  },
+  "time": 1548597196204,
+  "env": "prod",
+  "version": "2.18.1"
+}
