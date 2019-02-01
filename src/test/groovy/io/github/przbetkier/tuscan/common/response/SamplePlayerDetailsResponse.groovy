@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.common.response
 
+import io.github.przbetkier.tuscan.adapter.api.response.dto.BanInfo
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.GameDetails
 import io.github.przbetkier.tuscan.client.player.Membership
@@ -21,7 +22,8 @@ class SamplePlayerDetailsResponse {
                 ),
                 "avatar-url",
                 "PL",
-                Membership.FREE
+                Membership.FREE,
+                new BanInfo(false)
         )
     }
 }

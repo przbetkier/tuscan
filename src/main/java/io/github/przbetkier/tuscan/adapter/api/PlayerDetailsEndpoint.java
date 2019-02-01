@@ -23,7 +23,7 @@ class PlayerDetailsEndpoint {
         this.playerService = playerService;
     }
 
-    @GetMapping()
+    @GetMapping
     public PlayerDetailsResponse getPlayerDetails(@RequestParam String nickname) {
         logger.info("Player details requested for [{}].", nickname);
         return playerService.getPlayerDetails(nickname);

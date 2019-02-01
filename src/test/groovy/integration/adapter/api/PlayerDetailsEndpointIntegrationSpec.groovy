@@ -3,6 +3,10 @@ package integration.adapter.api
 import integration.BaseIntegrationSpec
 import integration.common.stubs.PlayerDetailsStubs
 import io.github.przbetkier.tuscan.common.SamplePlayerDetails
+import spock.lang.Unroll
+import spock.util.concurrent.PollingConditions
+
+import java.time.ZonedDateTime
 
 class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
@@ -36,4 +40,27 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
         then:
         response.statusCodeValue == 404
     }
+
+    @Unroll
+    def "should return active ban flag"() {
+        given:
+        def playerId = "playerId"
+        def player = SamplePlayerDetails.banned(playerId, banStartsAt)
+        PlayerDetailsStubs.stubSuccessfulResponse(player)
+
+        when:
+        def response = restTemplate.getForEntity(localUrl("/faceit/players/details?nickname=${player.nickname}"), Map)
+        def conditions = new PollingConditions()
+
+        then:
+        conditions.eventually {
+            response.body.ban.active == activeBan
+        }
+
+        where:
+        banStartsAt                       || activeBan
+        ZonedDateTime.now().minusHours(1) || true
+        ZonedDateTime.now().plusHours(1)  || false
+    }
+
 }
