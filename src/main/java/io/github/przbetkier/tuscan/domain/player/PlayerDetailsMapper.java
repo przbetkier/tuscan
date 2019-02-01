@@ -1,9 +1,14 @@
 package io.github.przbetkier.tuscan.domain.player;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
+import io.github.przbetkier.tuscan.adapter.api.response.dto.BanInfo;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.GameDetails;
+import io.github.przbetkier.tuscan.client.player.Ban;
 import io.github.przbetkier.tuscan.client.player.Membership;
 import io.github.przbetkier.tuscan.client.player.PlayerDetails;
+
+import java.time.ZonedDateTime;
+import java.util.List;
 
 public class PlayerDetailsMapper {
 
@@ -20,7 +25,9 @@ public class PlayerDetailsMapper {
                                                  .stream()
                                                  .findFirst()
                                                  .map(m -> Membership.valueOf(m.toUpperCase()))
-                                                 .orElse(null));
+                                                 .orElse(null),
+                                        mapBanInfo(details.getBans())
+                );
     }
 
     private static GameDetails mapToCsgoGameDetails(PlayerDetails details) {
@@ -33,4 +40,10 @@ public class PlayerDetailsMapper {
             return null;
         }
     }
+
+    private static BanInfo mapBanInfo(List<Ban> bans) {
+        boolean activeBan = bans.stream().anyMatch(ban -> ban.getStartsAt().isBefore(ZonedDateTime.now()));
+        return new BanInfo(activeBan);
+    }
+
 }
