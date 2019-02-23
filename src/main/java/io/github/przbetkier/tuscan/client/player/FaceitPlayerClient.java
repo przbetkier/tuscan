@@ -36,7 +36,7 @@ public class FaceitPlayerClient {
     public PlayerDetailsResponse getPlayerDetails(String nickname) {
         return faceitClient
                 .method(GET)
-                .uri("/players?nickname=" + nickname)
+                .uri("/players?nickname={nickname}", nickname)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(nickname))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
@@ -48,7 +48,7 @@ public class FaceitPlayerClient {
     public PlayerCsgoStatsResponse getPlayerCsgoStats(String playerId) {
         return faceitClient
                 .method(GET)
-                .uri("/players/" + playerId + "/stats/csgo")
+                .uri("/players/{playerId}/stats/csgo", playerId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
@@ -60,7 +60,7 @@ public class FaceitPlayerClient {
     public Mono<Position> getPlayerPositionInRegion(String playerId, String region) {
         return faceitClient
                 .method(GET)
-                .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?limit=1")
+                .uri("/rankings/games/csgo/regions/{region}/players/{playerId}?limit=1", region, playerId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
@@ -74,7 +74,7 @@ public class FaceitPlayerClient {
     public Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {
         return faceitClient
                 .method(GET)
-                .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?country=" + country + "&limit=1")
+                .uri("/rankings/games/csgo/regions/{region}/players/{playerId}?country={country}&limit=1", region, playerId, country)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())

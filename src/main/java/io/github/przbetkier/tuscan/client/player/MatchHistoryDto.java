@@ -14,11 +14,11 @@ public class MatchHistoryDto {
 
     @JsonCreator
     public MatchHistoryDto(@JsonProperty("elo") String elo,
-            @JsonProperty("matchId") String matchId,
-            @JsonProperty("date") long date,
-            @JsonProperty("gameMode") String mode,
-            @JsonProperty("c2") String kdRatio,
-            @JsonProperty("c4") String hsPercentage) {
+                           @JsonProperty("matchId") String matchId,
+                           @JsonProperty("date") long date,
+                           @JsonProperty("gameMode") String mode,
+                           @JsonProperty("c2") String kdRatio,
+                           @JsonProperty("c4") String hsPercentage) {
         this.elo = elo;
         this.matchId = matchId;
         this.date = date;

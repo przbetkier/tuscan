@@ -26,8 +26,7 @@ public class PlayerDetailsMapper {
                                                  .findFirst()
                                                  .map(m -> Membership.valueOf(m.toUpperCase()))
                                                  .orElse(null),
-                                        mapBanInfo(details.getBans())
-                );
+                                         mapBanInfo(details.getBans()));
     }
 
     private static GameDetails mapToCsgoGameDetails(PlayerDetails details) {

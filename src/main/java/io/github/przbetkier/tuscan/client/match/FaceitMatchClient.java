@@ -32,9 +32,7 @@ public class FaceitMatchClient {
 
         return webClient
                 .method(GET)
-                .uri("/players/"
-                        + playerId
-                        + "/history?game=csgo&offset="
+                .uri("/players/{playerId}/history?game=csgo&offset="
                         + offset
                         + "&limit="
                         + MATCHES_LIMIT
@@ -54,7 +52,7 @@ public class FaceitMatchClient {
     public MatchFullDetailsResponse getMatchDetails(String matchId, String playerId) {
         return webClient
                 .method(GET)
-                .uri("/matches/" + matchId + "/stats")
+                .uri("/matches/{matchId}/stats", matchId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
                     throw new MatchNotFoundException(String.format("Match %s could not be found!", matchId));
