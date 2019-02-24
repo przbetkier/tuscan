@@ -24,7 +24,7 @@ class PlayerSearchEndpointIntegrationSpec extends BaseIntegrationSpec {
                 aResponse()
                         .withStatus(200)
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
-                        .withBodyFile("query.json"))
+                        .withBodyFile("searchResponse.json"))
         )
 
         when:

@@ -23,7 +23,7 @@ class PlayerDetailsMapperTest extends Specification {
         result.gameDetails.faceitElo == playerDetails.games.csgo.faceitElo
         result.gameDetails.region == playerDetails.games.csgo.region
         result.membership == Membership.FREE
-        result.ban.active == false
+        !result.ban.active
     }
 
     def "should map player details without csgo game"() {

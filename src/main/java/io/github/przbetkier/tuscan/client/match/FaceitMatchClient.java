@@ -30,19 +30,18 @@ public class FaceitMatchClient {
 
     public SimpleMatchesResponse getMatches(String playerId, Integer offset) {
 
-        return webClient
-                .method(GET)
-                .uri("/players/{playerId}/history?game=csgo&offset="
-                        + offset
-                        + "&limit="
-                        + MATCHES_LIMIT
-                        + "&from="
-                        + properties.getCutoffDateTimestamp())
+        return webClient.method(GET)
+                .uri(uriBuilder -> uriBuilder.path("/players/{playerId}/history")
+                        .queryParam("game", "csgo")
+                        .queryParam("offset", offset)
+                        .queryParam("limit", MATCHES_LIMIT)
+                        .queryParam("from", properties.getCutoffDateTimestamp())
+                        .build(playerId))
                 .retrieve()
                 .onStatus(HttpStatus::is5xxServerError, clientResponse -> {
-                    throw new FaceitServerException(
-                            String.format("Faceit server error while requesting %s player matches.", playerId)
-                    );
+                    throw new FaceitServerException(String.format(
+                            "Faceit server error while requesting %s player matches.",
+                            playerId));
                 })
                 .bodyToMono(MatchesSimpleDetailsDto.class)
                 .map(SimpleMatchListMapper::map)
@@ -50,17 +49,16 @@ public class FaceitMatchClient {
     }
 
     public MatchFullDetailsResponse getMatchDetails(String matchId, String playerId) {
-        return webClient
-                .method(GET)
+        return webClient.method(GET)
                 .uri("/matches/{matchId}/stats", matchId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
                     throw new MatchNotFoundException(String.format("Match %s could not be found!", matchId));
                 })
                 .onStatus(HttpStatus::is5xxServerError, clientResponse -> {
-                    throw new FaceitServerException(
-                            String.format("Faceit server error while requesting %s match details.", matchId)
-                    );
+                    throw new FaceitServerException(String.format(
+                            "Faceit server error while requesting %s match details.",
+                            matchId));
                 })
                 .bodyToMono(MatchStatsDto.class)
                 .map(result -> MatchFullDetailsMapper.map(result, playerId))

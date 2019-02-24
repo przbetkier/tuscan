@@ -27,7 +27,10 @@ public class FaceitSearchClient {
     public PlayerSearchResponse getPlayers(String nickname) {
         if (!nickname.isEmpty()) {
             return openFaceitClient.method(HttpMethod.GET)
-                    .uri("/search/v1?limit=" + QUERY_RESULT_LIMIT + "&query=" + nickname)
+                    .uri(uriBuilder -> uriBuilder.path("/search/v1")
+                            .queryParam("limit", QUERY_RESULT_LIMIT)
+                            .queryParam("query", nickname)
+                            .build())
                     .retrieve()
                     .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
                         logger.warn("Error while searching for players with nickname: ", nickname);
