@@ -26,7 +26,7 @@ public class PlayerHistoryClient {
 
     public PlayerHistoryResponse getPlayerHistory(String playerId) {
         return openFaceitClient.method(HttpMethod.GET)
-                .uri("/stats/api/v1/stats/time/users/" + playerId + "/games/csgo")
+                .uri("/stats/api/v1/stats/time/users/{playerId}/games/csgo", playerId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
                     logger.warn("Player [{}] could not be found on Faceit.", playerId);

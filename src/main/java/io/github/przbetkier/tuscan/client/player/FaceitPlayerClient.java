@@ -27,16 +27,14 @@ public class FaceitPlayerClient {
     private final WebClient faceitClient;
     private final FaceitWebClientProperties properties;
 
-    public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient,
-                              FaceitWebClientProperties properties) {
+    public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient, FaceitWebClientProperties properties) {
         this.faceitClient = faceitClient;
         this.properties = properties;
     }
 
     public PlayerDetailsResponse getPlayerDetails(String nickname) {
-        return faceitClient
-                .method(GET)
-                .uri("/players?nickname=" + nickname)
+        return faceitClient.method(GET)
+                .uri(uriBuilder -> uriBuilder.path("/players").queryParam("nickname", nickname).build())
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(nickname))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
@@ -46,9 +44,8 @@ public class FaceitPlayerClient {
     }
 
     public PlayerCsgoStatsResponse getPlayerCsgoStats(String playerId) {
-        return faceitClient
-                .method(GET)
-                .uri("/players/" + playerId + "/stats/csgo")
+        return faceitClient.method(GET)
+                .uri("/players/{playerId}/stats/csgo", playerId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
@@ -58,30 +55,30 @@ public class FaceitPlayerClient {
     }
 
     public Mono<Position> getPlayerPositionInRegion(String playerId, String region) {
-        return faceitClient
-                .method(GET)
-                .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?limit=1")
+        return faceitClient.method(GET)
+                .uri("/rankings/games/csgo/regions/{region}/players/{playerId}?limit=1", region, playerId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
-                .retryWhen(anyOf(FaceitServerException.class)
-                        .retryMax(properties.getRetry().getMaxRetries())
-                        .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
+                .retryWhen(anyOf(FaceitServerException.class).retryMax(properties.getRetry().getMaxRetries())
+                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
                 .subscribeOn(parallel());
     }
 
     public Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {
-        return faceitClient
-                .method(GET)
-                .uri("/rankings/games/csgo/regions/" + region + "/players/" + playerId + "?country=" + country + "&limit=1")
+        return faceitClient.method(GET)
+                .uri(uriBuilder -> uriBuilder.path("/rankings/games/csgo/regions/{region}/players/{playerId}")
+                        .queryParam("country", country)
+                        .queryParam("limit", 1)
+                        .build(region, playerId))
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
                 .retryWhen(anyOf(FaceitServerException.class)
-                        .retryMax(properties.getRetry().getMaxRetries())
-                        .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
+                                   .retryMax(properties.getRetry().getMaxRetries())
+                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
                 .subscribeOn(parallel());
     }
 

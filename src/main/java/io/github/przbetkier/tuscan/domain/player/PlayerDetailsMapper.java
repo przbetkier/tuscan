@@ -26,19 +26,14 @@ public class PlayerDetailsMapper {
                                                  .findFirst()
                                                  .map(m -> Membership.valueOf(m.toUpperCase()))
                                                  .orElse(null),
-                                        mapBanInfo(details.getBans())
-                );
+                                         mapBanInfo(details.getBans()));
     }
 
     private static GameDetails mapToCsgoGameDetails(PlayerDetails details) {
-        if (details.hasCsgoGame()) {
-            return new GameDetails(details.getGames().getCsgo().getFaceitElo(),
-                                   details.getGames().getCsgo().getLevel(),
-                                   details.getGames().getCsgo().getRegion(),
-                                   details.getGames().getCsgo().getSteamId());
-        } else {
-            return null;
-        }
+        return details.hasCsgoGame() ? new GameDetails(details.getGames().getCsgo().getFaceitElo(),
+                                                       details.getGames().getCsgo().getLevel(),
+                                                       details.getGames().getCsgo().getRegion(),
+                                                       details.getGames().getCsgo().getSteamId()) : null;
     }
 
     private static BanInfo mapBanInfo(List<Ban> bans) {

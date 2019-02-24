@@ -16,5 +16,4 @@ public class ZonedDateTimeDeserializer extends JsonDeserializer<ZonedDateTime> {
     public ZonedDateTime deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         return ZonedDateTime.parse(p.getText(), pattern);
     }
-
 }
