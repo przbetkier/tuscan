@@ -81,4 +81,6 @@ test {
     } else {
         exclude '**/*io/*'
     }
+
+check.dependsOn jacocoTestReport
 }
