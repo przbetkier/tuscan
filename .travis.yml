@@ -6,3 +6,6 @@ jdk:
 script:
   - ./gradlew test
   - ./gradlew test -Dtest.profile=integration --info
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
