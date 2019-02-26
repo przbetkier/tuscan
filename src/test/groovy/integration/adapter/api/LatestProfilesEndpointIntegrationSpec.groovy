@@ -14,14 +14,14 @@ class LatestProfilesEndpointIntegrationSpec extends BaseIntegrationSpec {
         def response = restTemplate.getForEntity(localUrl("/tuscan-api/latest-profiles"), Map)
 
         then:
-        println(response)
         response.statusCodeValue == 200
+        response.body.latestProfiles.size == 4
     }
 
     static def generateLatestProfiles(int count) {
         def latestProfiles = []
         count.times {
-            latestProfiles.add(LatestProfileSample.simple())
+            latestProfiles.add(LatestProfileSample.simple("nickname-$it"))
         }
         return latestProfiles
     }

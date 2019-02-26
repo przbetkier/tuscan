@@ -6,9 +6,9 @@ import java.time.LocalDateTime
 
 class LatestProfileSample {
 
-    static def simple() {
+    static def simple(String nickname = "nickname") {
         return new LatestProfile(
-                "nickname",
+                nickname,
                 "http://avatar.url",
                 3,
                 1001,
