@@ -33,7 +33,13 @@ data class Lifetime(
 data class MapStatistics(
         @JsonProperty("Matches") val matches: String,
         @JsonProperty("Average K/D Ratio") val kdRatio: String,
-        @JsonProperty("Win Rate %") val winPercentage: String
+        @JsonProperty("Average Kills") val averageKills: String,
+        @JsonProperty("Average Headshots %") val hsPercentage: String,
+        @JsonProperty("Win Rate %") val winPercentage: String,
+        @JsonProperty("Wins") val wins: String,
+        @JsonProperty("Triple Kills") val tripleKills: String,
+        @JsonProperty("Quadro Kills") val quadroKills: String,
+        @JsonProperty("Penta Kills") val pentaKills: String
 )
 
 data class PlayerStats(

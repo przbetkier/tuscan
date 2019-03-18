@@ -26,7 +26,13 @@ class SamplePlayerStats {
                         new MapStatistics(
                                 "15",
                                 "1.95",
-                                "22"
+                                "22.3",
+                                "51",
+                                "33",
+                                "5",
+                                "3",
+                                "2",
+                                "1"
                         ),
                         "5v5"
                 ),
@@ -35,16 +41,28 @@ class SamplePlayerStats {
                          new MapStatistics(
                                  "15",
                                  "1.10",
-                                 "99"
+                                 "18.3",
+                                 "25",
+                                 "67",
+                                 "10",
+                                 "10",
+                                 "2",
+                                 "1"
                          ),
                          "5v5"
                  ),
                  new Segment(
                          "de_overpass",
                          new MapStatistics(
-                                 "15",
+                                 "400",
                                  "1.25",
-                                 "11"
+                                 "11.13",
+                                 "37",
+                                 "50",
+                                 "200",
+                                 "10",
+                                 "0",
+                                 "1"
                          ),
                          "5v5"
                  )]

@@ -16,7 +16,6 @@ class PlayerHistoryStubs {
                         .withStatus(200)
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
                         .withBodyFile("playerHistoryResponse.json"))
-
         )
     }
 }

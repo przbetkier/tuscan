@@ -31,8 +31,8 @@ public class PlayerStatsMapper {
         return new OverallStats(
                 new BigDecimal(playerStats.getLifetime().getHeadshotPercentage()),
                 new BigDecimal(playerStats.getLifetime().getKdRatio()),
-                new Integer(playerStats.getLifetime().getMatches().replace(",", "")),
-                new Integer(playerStats.getLifetime().getWinRate()),
+                format(playerStats.getLifetime().getMatches()),
+                Integer.valueOf(playerStats.getLifetime().getWinRate()),
                 PlayerPerformanceMapper.map(mapStats),
                 playerStats.getLifetime().getCurrentWinStreak(),
                 playerStats.getLifetime().getLongestWinStreak());
@@ -52,7 +52,16 @@ public class PlayerStatsMapper {
                 valueOf(segment.getName().toUpperCase()),
                 new Integer(segment.getMapStatistics().getMatches().replace(",", "")),
                 new BigDecimal(segment.getMapStatistics().getKdRatio()),
-                new Integer(segment.getMapStatistics().getWinPercentage())
-        );
+                format(segment.getMapStatistics().getWins()),
+                new Integer(segment.getMapStatistics().getWinPercentage()),
+                new Integer(segment.getMapStatistics().getHsPercentage()),
+                new BigDecimal(segment.getMapStatistics().getAverageKills()),
+                format(segment.getMapStatistics().getTripleKills()),
+                format(segment.getMapStatistics().getQuadroKills()),
+                format(segment.getMapStatistics().getPentaKills()));
+    }
+
+    private static Integer format(String number) {
+        return new Integer(number.replace(",", ""));
     }
 }
