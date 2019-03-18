@@ -41,19 +41,20 @@ class SamplePlayerCsgoStats {
                         CsgoMap.DE_NUKE,
                         3,
                         new BigDecimal(1.33),
-                        10
+                        15,
+                        10, 44, 14.1, 31, 5, 2
                 ),
                  new MapStats(
                          CsgoMap.DE_TRAIN,
                          3,
-                         new BigDecimal(1.11),
-                         90
+                         new BigDecimal(1.11), 100,
+                         90, 33, 15.5, 66, 1, 2
                  ),
                  new MapStats(
                          CsgoMap.DE_INFERNO,
                          3,
-                         new BigDecimal(0.99),
-                         50
+                         new BigDecimal(0.99), 5,
+                         50, 44, 11.33, 2, 1, 0
                  )]
         )
     }

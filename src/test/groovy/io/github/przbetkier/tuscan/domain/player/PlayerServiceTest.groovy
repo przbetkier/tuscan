@@ -26,12 +26,14 @@ class PlayerServiceTest extends Specification {
         def result = playerService.getPlayerDetails(nickname)
 
         then:
-        result.nickname == response.nickname
-        result.playerId == response.playerId
-        result.avatarUrl == response.avatarUrl
-        result.country == response.country
-        result.gameDetails.faceitElo == response.gameDetails.faceitElo
-        result.gameDetails.level == response.gameDetails.level
+        with(result) {
+            nickname == response.nickname
+            playerId == response.playerId
+            avatarUrl == response.avatarUrl
+            country == response.country
+            gameDetails.faceitElo == response.gameDetails.faceitElo
+            gameDetails.level == response.gameDetails.level
+        }
     }
 
     def "should return player csgo stats"() {
@@ -45,11 +47,23 @@ class PlayerServiceTest extends Specification {
         def result = playerService.getCsgoStats(playerId)
 
         then:
-        result.overallStats.kdRatio == response.overallStats.kdRatio
-        result.overallStats.winPercentage == response.overallStats.winPercentage
-        result.overallStats.matches == response.overallStats.matches
-        result.overallStats.performance.bestSoloPerformance.map == response.overallStats.performance.bestSoloPerformance.map
-        result.overallStats.performance.bestTeamPerformance.map == response.overallStats.performance.bestTeamPerformance.map
+        with(result) {
+            overallStats.kdRatio == response.overallStats.kdRatio
+            overallStats.winPercentage == response.overallStats.winPercentage
+            overallStats.matches == response.overallStats.matches
+            overallStats.performance.bestSoloPerformance.map == response.overallStats.performance.bestSoloPerformance.map
+            overallStats.performance.bestTeamPerformance.map == response.overallStats.performance.bestTeamPerformance.map
+            mapStats.each {
+                assert it.csgoMap != null
+                assert it.averageKills != null
+                assert it.hsPercentage != null
+                assert it.matches != null
+                assert it.wins != null
+                assert it.tripleKills != null
+                assert it.quadroKills != null
+                assert it.pentaKills != null
+            }
+        }
     }
 
     def "should return player history"() {

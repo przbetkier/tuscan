@@ -1,6 +1,5 @@
 package integration
 
-
 import integration.common.WireMockRunner
 import io.github.przbetkier.tuscan.TuscanApplication
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileRepository
