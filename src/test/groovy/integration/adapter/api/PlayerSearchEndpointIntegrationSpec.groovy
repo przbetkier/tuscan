@@ -1,7 +1,6 @@
 package integration.adapter.api
 
 import integration.BaseIntegrationSpec
-import io.github.przbetkier.tuscan.adapter.api.response.PlayerSearchResponse
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo

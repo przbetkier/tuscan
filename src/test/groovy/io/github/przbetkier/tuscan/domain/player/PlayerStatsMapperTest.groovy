@@ -1,8 +1,11 @@
 package io.github.przbetkier.tuscan.domain.player
 
-import io.github.przbetkier.tuscan.common.SamplePlayerStats
 import io.github.przbetkier.tuscan.domain.CsgoMap
 import spock.lang.Specification
+
+import static io.github.przbetkier.tuscan.common.SamplePlayerStats.getBEST_SOLO
+import static io.github.przbetkier.tuscan.common.SamplePlayerStats.getBEST_TEAM
+import static io.github.przbetkier.tuscan.common.SamplePlayerStats.simple
 
 class PlayerStatsMapperTest extends Specification {
 
@@ -10,16 +13,20 @@ class PlayerStatsMapperTest extends Specification {
         given:
         def kdRatio = "1.40"
         def matches = "1,999"
-        def playerStats = SamplePlayerStats.simple(kdRatio, matches)
+        def playerStats = simple(kdRatio, matches)
 
         when:
         def result = PlayerStatsMapper.map(playerStats)
 
         then:
-        result.overallStats.performance.bestTeamPerformance.map.name == SamplePlayerStats.BEST_TEAM
-        result.overallStats.performance.bestSoloPerformance.map.name == SamplePlayerStats.BEST_SOLO
-        result.overallStats.kdRatio == 1.40
-        result.overallStats.matches == 1999
-        result.mapStats.find({ it.csgoMap == CsgoMap.DE_MIRAGE }).kdRatio == playerStats.segments.find({it.name == "de_mirage"}).mapStatistics.kdRatio.toDouble()
+        with(result) {
+            overallStats.performance.bestTeamPerformance.map.name == BEST_TEAM
+            overallStats.performance.bestSoloPerformance.map.name == BEST_SOLO
+            overallStats.kdRatio == 1.40
+            overallStats.matches == 1999
+            mapStats.find({ it.csgoMap == CsgoMap.DE_MIRAGE }).kdRatio == playerStats.segments.find({
+                it.name == "de_mirage"
+            }).mapStatistics.kdRatio.toDouble()
+        }
     }
 }

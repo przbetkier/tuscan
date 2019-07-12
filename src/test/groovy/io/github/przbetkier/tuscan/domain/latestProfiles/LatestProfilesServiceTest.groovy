@@ -7,6 +7,7 @@ import io.github.przbetkier.tuscan.common.response.SamplePlayerDetailsResponse
 import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties
 import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier
+import reactor.core.publisher.Mono
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -30,10 +31,10 @@ class LatestProfilesServiceTest extends Specification {
         def nickname = "player-1"
         latestProfileRepository.findById(nickname) >> Optional.empty()
         def details = SamplePlayerDetailsResponse.simple(nickname)
-        faceitPlayerClient.getPlayerDetails(nickname) >> details
+        faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(details)
 
         def stats = SamplePlayerCsgoStats.simple()
-        faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> stats
+        faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> Mono.just(stats)
 
         latestProfileRepository.findAllByOrderByCreatedOnDesc() >> []
 
@@ -55,10 +56,10 @@ class LatestProfilesServiceTest extends Specification {
         def nickname = "player-1"
         latestProfileRepository.findById(nickname) >> Optional.empty()
         def details = SamplePlayerDetailsResponse.simple(nickname)
-        faceitPlayerClient.getPlayerDetails(nickname) >> details
+        faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(details)
 
         def stats = SamplePlayerCsgoStats.simple()
-        faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> stats
+        faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> Mono.just(stats)
 
         latestProfileRepository.findAllByOrderByCreatedOnDesc() >> listOfPlayersPlayers(4)
 

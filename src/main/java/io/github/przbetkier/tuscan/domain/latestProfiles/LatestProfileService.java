@@ -2,8 +2,8 @@ package io.github.przbetkier.tuscan.domain.latestProfiles;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
-import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties;
 import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
+import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties;
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +37,8 @@ public class LatestProfileService {
             LatestProfile updatedProfile = mapAndUpdate(profile.get(), localDateTimeSupplier.get());
             repository.save(updatedProfile);
         } else {
-            PlayerDetailsResponse response = client.getPlayerDetails(nickname);
-            PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId());
+            PlayerDetailsResponse response = client.getPlayerDetails(nickname).block();
+            PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId()).block();
             LatestProfile newProfile = mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get());
             repository.save(newProfile);
         }

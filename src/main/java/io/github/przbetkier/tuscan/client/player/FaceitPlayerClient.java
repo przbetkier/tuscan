@@ -22,7 +22,7 @@ import static reactor.retry.Retry.anyOf;
 @Component
 public class FaceitPlayerClient {
 
-    private final static Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
+    private static final Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
 
     private final WebClient faceitClient;
     private final FaceitWebClientProperties properties;
@@ -32,7 +32,7 @@ public class FaceitPlayerClient {
         this.properties = properties;
     }
 
-    public PlayerDetailsResponse getPlayerDetails(String nickname) {
+    public Mono<PlayerDetailsResponse> getPlayerDetails(String nickname) {
         return faceitClient.method(GET)
                 .uri(uriBuilder -> uriBuilder.path("/players").queryParam("nickname", nickname).build())
                 .retrieve()
@@ -40,18 +40,18 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(PlayerDetails.class)
                 .map(PlayerDetailsMapper::mapToPlayerDetailsResponse)
-                .block();
+                .doOnSuccess(a -> logger.info("Fetched {} player details!", nickname))
+                .subscribeOn(parallel());
     }
 
-    public PlayerCsgoStatsResponse getPlayerCsgoStats(String playerId) {
+    public Mono<PlayerCsgoStatsResponse> getPlayerCsgoStats(String playerId) {
         return faceitClient.method(GET)
                 .uri("/players/{playerId}/stats/csgo", playerId)
                 .retrieve()
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(PlayerStats.class)
-                .map(PlayerStatsMapper::map)
-                .block();
+                .map(PlayerStatsMapper::map);
     }
 
     public Mono<Position> getPlayerPositionInRegion(String playerId, String region) {
@@ -62,8 +62,7 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
                 .retryWhen(anyOf(FaceitServerException.class).retryMax(properties.getRetry().getMaxRetries())
-                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
-                .subscribeOn(parallel());
+                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()));
     }
 
     public Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {

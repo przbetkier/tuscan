@@ -5,6 +5,7 @@ import io.github.przbetkier.tuscan.client.player.PlayerHistoryClient
 import io.github.przbetkier.tuscan.common.response.SamplePlayerCsgoStats
 import io.github.przbetkier.tuscan.common.response.SamplePlayerDetailsResponse
 import io.github.przbetkier.tuscan.common.response.SamplePlayerHistoryResponse
+import reactor.core.publisher.Mono
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -20,10 +21,10 @@ class PlayerServiceTest extends Specification {
         given:
         def nickname = "player"
         def response = SamplePlayerDetailsResponse.simple()
-        faceitPlayerClient.getPlayerDetails(nickname) >> response
+        faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(response)
 
         when:
-        def result = playerService.getPlayerDetails(nickname)
+        def result = playerService.getPlayerDetails(nickname).block()
 
         then:
         with(result) {
@@ -41,10 +42,10 @@ class PlayerServiceTest extends Specification {
         def playerId = "playerId-1"
         def response = SamplePlayerCsgoStats.simple()
 
-        faceitPlayerClient.getPlayerCsgoStats(playerId) >> response
+        faceitPlayerClient.getPlayerCsgoStats(playerId) >> Mono.just(response)
 
         when:
-        def result = playerService.getCsgoStats(playerId)
+        def result = playerService.getCsgoStats(playerId).block()
 
         then:
         with(result) {

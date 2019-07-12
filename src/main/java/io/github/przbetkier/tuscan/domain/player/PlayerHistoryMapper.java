@@ -16,8 +16,8 @@ import static java.util.TimeZone.getDefault;
 
 public class PlayerHistoryMapper {
 
-    private final static Integer MAX_MATCHES_COUNT = 20;
-    private final static Integer STARTING_ELO_POINTS = 1000;
+    private static final Integer MAX_MATCHES_COUNT = 20;
+    private static final Integer STARTING_ELO_POINTS = 1000;
 
     private PlayerHistoryMapper() {
     }
@@ -32,6 +32,8 @@ public class PlayerHistoryMapper {
         List<MatchHistoryDto> lastMatches = getLast20MatchesFromHistory(historyMatches, historySize);
 
         for (int i = 0; i < lastMatches.size() - 1; i++) {
+            System.out.println("last matches size: " + lastMatches.size());
+            System.out.println("Match " + (i+1));
             MatchHistoryDto matchAfter = lastMatches.get(i);
             MatchHistoryDto matchBefore = lastMatches.get(i + 1);
 
@@ -40,7 +42,9 @@ public class PlayerHistoryMapper {
 
             if (matchAfter.hasElo() && matchBefore.hasElo()) {
                 eloAfter = convertToElo(matchAfter.getElo());
+                System.out.println(eloAfter);
                 eloBefore = convertToElo(matchBefore.getElo());
+                System.out.println(eloBefore);
             } else {
                 eloAfter = 0;
                 eloBefore = 0;
@@ -59,11 +63,22 @@ public class PlayerHistoryMapper {
         if (lastMatches.size() <= MAX_MATCHES_COUNT) {
             MatchHistoryDto firstMatch = historyMatches.get(historySize - 1);
 
+            Integer eloAfter;
+            Integer eloBefore;
+
+            if(firstMatch.hasElo()) {
+                eloAfter = convertToElo(firstMatch.getElo());
+                eloBefore = STARTING_ELO_POINTS;
+            } else {
+                eloAfter = STARTING_ELO_POINTS;
+                eloBefore = STARTING_ELO_POINTS;
+            }
+
             matchHistoryList.add(new MatchHistory(
                     firstMatch.getMatchId(),
                     getLocalDateTimeFromTimestamp(firstMatch.getDate()),
-                    convertToElo(firstMatch.getElo()),
-                    convertToElo(firstMatch.getElo()) - STARTING_ELO_POINTS,
+                    eloAfter,
+                    (eloAfter - eloBefore),
                     new BigDecimal(firstMatch.getKdRatio()),
                     new Integer(firstMatch.getHsPercentage()))
             );

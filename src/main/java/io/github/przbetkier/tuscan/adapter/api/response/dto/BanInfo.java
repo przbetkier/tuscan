@@ -1,6 +1,7 @@
 package io.github.przbetkier.tuscan.adapter.api.response.dto;
 
 public class BanInfo {
+
     private final boolean active;
 
     public BanInfo(boolean active) {

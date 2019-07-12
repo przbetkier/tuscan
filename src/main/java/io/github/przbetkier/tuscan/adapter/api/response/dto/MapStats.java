@@ -70,4 +70,31 @@ public class MapStats {
     public BigDecimal getAverageKills() {
         return averageKills;
     }
+
+    @Override
+    public String
+    toString() {
+        return "MapStats{"
+                + "csgoMap="
+                + csgoMap
+                + ", matches="
+                + matches
+                + ", kdRatio="
+                + kdRatio
+                + ", wins="
+                + wins
+                + ", winPercentage="
+                + winPercentage
+                + ", hsPercentage="
+                + hsPercentage
+                + ", averageKills="
+                + averageKills
+                + ", tripleKills="
+                + tripleKills
+                + ", quadroKills="
+                + quadroKills
+                + ", pentaKills="
+                + pentaKills
+                + '}';
+    }
 }

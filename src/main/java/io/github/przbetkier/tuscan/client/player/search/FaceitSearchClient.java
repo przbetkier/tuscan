@@ -15,8 +15,8 @@ import java.util.Collections;
 @Component
 public class FaceitSearchClient {
 
-    private final static Logger logger = LoggerFactory.getLogger(FaceitSearchClient.class);
-    private final static int QUERY_RESULT_LIMIT = 20;
+    private static final Logger logger = LoggerFactory.getLogger(FaceitSearchClient.class);
+    private static final int QUERY_RESULT_LIMIT = 20;
 
     private final WebClient openFaceitClient;
 
@@ -33,7 +33,7 @@ public class FaceitSearchClient {
                             .build())
                     .retrieve()
                     .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
-                        logger.warn("Error while searching for players with nickname: ", nickname);
+                        logger.warn("Error while searching for players with nickname: {}", nickname);
                         throw new PlayerNotFoundException("Player not found on Faceit!");
                     })
                     .bodyToMono(FaceitSearchDTO.class)

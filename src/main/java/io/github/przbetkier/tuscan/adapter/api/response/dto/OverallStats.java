@@ -12,13 +12,8 @@ public class OverallStats {
     private final Integer currentWinStreak;
     private final Integer longestWinStreak;
 
-    public OverallStats(BigDecimal headshotPercentage,
-                        BigDecimal kdRatio,
-                        Integer matches,
-                        Integer winPercentage,
-                        Performance performance,
-                        Integer currentWinStreak,
-                        Integer longestWinStreak) {
+    public OverallStats(BigDecimal headshotPercentage, BigDecimal kdRatio, Integer matches, Integer winPercentage,
+                        Performance performance, Integer currentWinStreak, Integer longestWinStreak) {
         this.headshotPercentage = headshotPercentage;
         this.kdRatio = kdRatio;
         this.matches = matches;
