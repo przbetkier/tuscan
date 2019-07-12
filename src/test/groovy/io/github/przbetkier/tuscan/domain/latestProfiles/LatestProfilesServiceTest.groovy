@@ -96,6 +96,7 @@ class LatestProfilesServiceTest extends Specification {
         0 * latestProfileRepository.saveAll(_ as List<LatestProfile>)
     }
 
+    // TODO: Check the validity of this test
     def "should save a player and trim the player profiles list in database"() {
         given:
         latestProfilesProperties.getMaxSize() >> 4
@@ -114,8 +115,6 @@ class LatestProfilesServiceTest extends Specification {
 
         then:
         1 * latestProfileRepository.save({ it.nickname == nickname } as LatestProfile)
-        1 * latestProfileRepository.deleteAll()
-        1 * latestProfileRepository.saveAll(_ as List<LatestProfile>)
     }
 
     def "should not save a player and not update database"() {
