@@ -14,9 +14,6 @@ faceit:
     max-backoff: 600
     max-retries: 2
 
-latest-profiles:
-  max-size: 4
-
 server:
   port: 8080
 
