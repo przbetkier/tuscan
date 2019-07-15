@@ -22,7 +22,7 @@ import static reactor.retry.Retry.anyOf;
 @Component
 public class FaceitPlayerClient {
 
-    private final static Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
+    private static final Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
 
     private final WebClient faceitClient;
     private final FaceitWebClientProperties properties;

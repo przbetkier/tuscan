@@ -12,6 +12,9 @@ import io.github.przbetkier.tuscan.client.match.MatchesSimpleDetailsDto;
 
 public class SimpleMatchListMapper {
 
+    private SimpleMatchListMapper() {
+    }
+
     public static SimpleMatchesResponse map(MatchesSimpleDetailsDto matchesDetails) {
         return new SimpleMatchesResponse(mapMatches(matchesDetails), matchesDetails.getMatchesCount());
     }

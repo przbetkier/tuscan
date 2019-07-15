@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/faceit/players/details")
 class PlayerDetailsEndpoint {
 
-    private final static Logger logger = LoggerFactory.getLogger(PlayerDetailsEndpoint.class);
+    private static final Logger logger = LoggerFactory.getLogger(PlayerDetailsEndpoint.class);
 
     private final PlayerService playerService;
 

@@ -16,8 +16,8 @@ import static java.util.TimeZone.getDefault;
 
 public class PlayerHistoryMapper {
 
-    private final static Integer MAX_MATCHES_COUNT = 20;
-    private final static Integer STARTING_ELO_POINTS = 1000;
+    private static final int STARTING_ELO_POINTS = 1000;
+    private static final int MAX_MATCHES_COUNT = 20;
 
     private PlayerHistoryMapper() {
     }
@@ -52,7 +52,7 @@ public class PlayerHistoryMapper {
                     eloAfter,
                     eloAfter - eloBefore,
                     new BigDecimal(matchAfter.getKdRatio()),
-                    new Integer(matchAfter.getHsPercentage()));
+                    Integer.parseInt(matchAfter.getHsPercentage()));
             matchHistoryList.add(matchHistoryToAdd);
         }
 
@@ -65,7 +65,7 @@ public class PlayerHistoryMapper {
                     convertToElo(firstMatch.getElo()),
                     convertToElo(firstMatch.getElo()) - STARTING_ELO_POINTS,
                     new BigDecimal(firstMatch.getKdRatio()),
-                    new Integer(firstMatch.getHsPercentage()))
+                    Integer.parseInt(firstMatch.getHsPercentage()))
             );
         }
         return new PlayerHistoryResponse(matchHistoryList);

@@ -18,7 +18,7 @@ import static org.springframework.http.HttpMethod.GET;
 @Component
 public class FaceitMatchClient {
 
-    private final static Integer MATCHES_LIMIT = 20;
+    private static final Integer MATCHES_LIMIT = 20;
 
     private final WebClient webClient;
     private final FaceitMatchesProperties properties;

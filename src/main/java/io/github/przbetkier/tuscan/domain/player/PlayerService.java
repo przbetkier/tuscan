@@ -18,7 +18,7 @@ import static reactor.core.scheduler.Schedulers.parallel;
 @Service
 public class PlayerService {
 
-    private final static Logger logger = LoggerFactory.getLogger(PlayerService.class);
+    private static final Logger logger = LoggerFactory.getLogger(PlayerService.class);
 
     private final FaceitPlayerClient faceitPlayerClient;
     private final PlayerHistoryClient playerHistoryClient;

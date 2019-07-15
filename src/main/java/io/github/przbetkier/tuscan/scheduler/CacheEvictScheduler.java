@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CacheEvictScheduler {
 
-    private final static Logger logger = LoggerFactory.getLogger(CacheEvictScheduler.class);
+    private static final Logger logger = LoggerFactory.getLogger(CacheEvictScheduler.class);
 
     @CacheEvict(allEntries = true, cacheNames = {"player_history", "simple_matches", "detailed_matches",
             "player_details", "player_csgo_stats"})
