@@ -19,7 +19,5 @@ latest-profiles:
 
 server:
   port: 8080
-  undertow:
-    io-threads: 16
 
 tuscan-frontend-url: 'https://tuscan.pro'

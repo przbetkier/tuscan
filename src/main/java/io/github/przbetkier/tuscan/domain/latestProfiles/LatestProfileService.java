@@ -2,13 +2,13 @@ package io.github.przbetkier.tuscan.domain.latestProfiles;
 
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
-import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties;
 import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.mapAndUpdate;
 import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.mapToNewFromResponses;
@@ -16,40 +16,40 @@ import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMap
 @Service
 public class LatestProfileService {
 
-    private final LatestProfileRepository repository;
+    private static final Logger logger = LoggerFactory.getLogger(LatestProfileService.class);
+
     private final FaceitPlayerClient client;
     private final LocalDateTimeSupplier localDateTimeSupplier;
-    private final LatestProfilesProperties latestProfilesProperties;
+    private final LatestProfileRepository latestProfileRepository;
 
-    public LatestProfileService(LatestProfileRepository repository, FaceitPlayerClient client,
-                                LocalDateTimeSupplier localDateTimeSupplier,
-                                LatestProfilesProperties latestProfilesProperties) {
-        this.repository = repository;
+    public LatestProfileService(FaceitPlayerClient client, LocalDateTimeSupplier localDateTimeSupplier,
+                                LatestProfileRepository latestProfileRepository) {
         this.client = client;
         this.localDateTimeSupplier = localDateTimeSupplier;
-        this.latestProfilesProperties = latestProfilesProperties;
+        this.latestProfileRepository = latestProfileRepository;
     }
 
-    public LatestProfile save(String nickname) {
-        Optional<LatestProfile> profile = repository.findById(nickname);
+    public Mono<LatestProfile> save(String nickname) {
 
-        if (profile.isPresent()) {
-            LatestProfile updatedProfile = mapAndUpdate(profile.get(), localDateTimeSupplier.get());
-            return repository.save(updatedProfile);
-        } else {
-            PlayerDetailsResponse response = client.getPlayerDetails(nickname);
-            PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId());
-            LatestProfile newProfile = mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get());
-            return repository.save(newProfile);
-        }
-//        trimProfiles();
+        return latestProfileRepository.findById(nickname).map(p -> {
+            logger.info("Player {} found in DB, fetching...", nickname);
+            LatestProfile updated = mapAndUpdate(p, localDateTimeSupplier.get());
+            return latestProfileRepository.save(updated);
+        }).switchIfEmpty(Mono.fromCallable(() -> {
+            LatestProfile profile = fetch(nickname);
+            return latestProfileRepository.save(profile);
+        })).flatMap(prof -> prof);
     }
 
-    private void trimProfiles() {
-        List<LatestProfile> profiles = repository.findAllByOrderByCreatedOnDesc();
-        if (profiles.size() > latestProfilesProperties.getMaxSize()) {
-            repository.deleteAll();
-            repository.saveAll(profiles.subList(0, latestProfilesProperties.getMaxSize()));
-        }
+    public Flux<LatestProfile> findLatestProfiles() {
+        return latestProfileRepository.findTop4ByOrderByCreatedOnDesc();
     }
+
+    private LatestProfile fetch(String nickname) {
+        PlayerDetailsResponse response = client.getPlayerDetails(nickname);
+        PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId());
+        return mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get());
+    }
+
+
 }

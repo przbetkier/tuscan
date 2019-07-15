@@ -29,13 +29,14 @@ apply plugin: 'jacoco'
 
 ext {
     versions = [
-            spock: '1.0-groovy-2.4'
+            spock: '1.2-groovy-2.5'
     ]
 }
 
 group = 'io.github.przbetkier'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 11
+targetCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -62,7 +63,7 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
 
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: "${springBootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: "${springBootVersion}"
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'org.spockframework', name: 'spock-core', version: "$versions.spock"
