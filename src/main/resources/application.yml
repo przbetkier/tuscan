@@ -1,3 +1,7 @@
+info.app.name: Tuscan Application
+info.app.description: Faceit CS:GO Player Stats Analyzer
+info.app.version: 1.0.0
+
 faceit-matches:
   cutoff-date-timestamp: 1410282903
 

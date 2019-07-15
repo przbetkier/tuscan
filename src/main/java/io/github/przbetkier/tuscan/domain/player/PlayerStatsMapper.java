@@ -50,11 +50,11 @@ public class PlayerStatsMapper {
     private static MapStats mapSegmentToMapStats(Segment segment) {
         return new MapStats(
                 valueOf(segment.getName().toUpperCase()),
-                new Integer(segment.getMapStatistics().getMatches().replace(",", "")),
+                Integer.parseInt(segment.getMapStatistics().getMatches().replace(",", "")),
                 new BigDecimal(segment.getMapStatistics().getKdRatio()),
                 format(segment.getMapStatistics().getWins()),
-                new Integer(segment.getMapStatistics().getWinPercentage()),
-                new Integer(segment.getMapStatistics().getHsPercentage()),
+                Integer.parseInt(segment.getMapStatistics().getWinPercentage()),
+                Integer.parseInt(segment.getMapStatistics().getHsPercentage()),
                 new BigDecimal(segment.getMapStatistics().getAverageKills()),
                 format(segment.getMapStatistics().getTripleKills()),
                 format(segment.getMapStatistics().getQuadroKills()),

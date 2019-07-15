@@ -17,8 +17,9 @@ public class MapStats {
     private final Integer quadroKills;
     private final Integer pentaKills;
 
-    public MapStats(CsgoMap csgoMap, Integer matches, BigDecimal kdRatio, Integer wins, Integer winPercentage, Integer hsPercentage,
-                    BigDecimal averageKills, Integer tripleKills, Integer quadroKills, Integer pentaKills) {
+    public MapStats(CsgoMap csgoMap, Integer matches, BigDecimal kdRatio, Integer wins, Integer winPercentage,
+                    Integer hsPercentage, BigDecimal averageKills, Integer tripleKills, Integer quadroKills,
+                    Integer pentaKills) {
         this.csgoMap = csgoMap;
         this.matches = matches;
         this.kdRatio = kdRatio;

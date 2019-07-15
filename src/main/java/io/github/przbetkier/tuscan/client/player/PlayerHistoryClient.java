@@ -16,7 +16,7 @@ import static io.github.przbetkier.tuscan.domain.player.PlayerHistoryMapper.map;
 @Component
 public class PlayerHistoryClient {
 
-    private final static Logger logger = LoggerFactory.getLogger(PlayerHistoryClient.class);
+    private static final Logger logger = LoggerFactory.getLogger(PlayerHistoryClient.class);
 
     private final WebClient openFaceitClient;
 
