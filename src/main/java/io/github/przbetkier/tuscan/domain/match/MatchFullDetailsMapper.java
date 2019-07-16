@@ -11,9 +11,9 @@ import io.github.przbetkier.tuscan.client.match.MatchStatsDto;
 import io.github.przbetkier.tuscan.client.match.PlayerDto;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult.LOSS;
 import static io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult.WIN;
@@ -68,10 +68,9 @@ public class MatchFullDetailsMapper {
     }
 
     private static Set<Player> getPlayers(MatchStatsDto matchStatsDto, Integer teamNumber) {
-        Set<Player> players = new HashSet<>();
-        matchStatsDto.getMatchFullDetails().get(0).getTeams().get(teamNumber).getPlayers().forEach(
-                playerDto -> players.add(getPlayerFromPlayerDto(playerDto)));
-        return players;
+        return matchStatsDto.getMatchFullDetails().get(0).getTeams().get(teamNumber).getPlayers().stream().map(
+                MatchFullDetailsMapper::getPlayerFromPlayerDto).collect(
+                Collectors.toSet());
     }
 
     private static MatchResult getResult(String playerId, List<Team> teams, String winnerTeam) {

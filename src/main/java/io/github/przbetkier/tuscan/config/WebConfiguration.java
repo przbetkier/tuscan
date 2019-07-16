@@ -12,15 +12,15 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
         configurer.setTaskExecutor(mvcTaskExecutor());
-        configurer.setDefaultTimeout(180_000);
+        configurer.setDefaultTimeout(120_000);
     }
 
     @Bean
     public ThreadPoolTaskExecutor mvcTaskExecutor() {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         taskExecutor.setThreadNamePrefix("mvc-task-");
-        taskExecutor.setCorePoolSize(2);
-        taskExecutor.setMaxPoolSize(10);
+        taskExecutor.setCorePoolSize(1);
+        taskExecutor.setMaxPoolSize(3);
         return taskExecutor;
     }
 }
