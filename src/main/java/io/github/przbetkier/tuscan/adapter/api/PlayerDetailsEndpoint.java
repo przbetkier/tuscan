@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.adapter.api;
 
+import io.github.przbetkier.tuscan.adapter.api.response.DetailedPlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 import io.github.przbetkier.tuscan.domain.player.PlayerService;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -22,6 +22,7 @@ import java.util.List;
 class PlayerDetailsEndpoint {
 
     private static final Logger logger = LoggerFactory.getLogger(PlayerDetailsEndpoint.class);
+    private static final String FACEIT_ORIGIN = "https://faceit.com";
 
     private final PlayerService playerService;
 
@@ -40,11 +41,10 @@ class PlayerDetailsEndpoint {
         return playerService.getCsgoStats(playerId);
     }
 
-    @CrossOrigin(origins = "https://faceit.com")
+    @CrossOrigin(origins = FACEIT_ORIGIN)
     @GetMapping("/csgo")
-    public Flux<PlayerCsgoStatsResponse> getMultiPlayerDetails(
-            @RequestParam(value = "nickname") String[] nicknames) {
-        List<String> nicknamesList = Arrays.asList(nicknames);
-        return playerService.getMultiPlayerDetails(nicknamesList);
+    public Flux<DetailedPlayerCsgoStatsResponse> getMultiPlayerDetails(
+            @RequestParam(value = "nickname") List<String> nicknames) {
+        return playerService.getMultiPlayerDetails(nicknames);
     }
 }

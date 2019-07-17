@@ -16,12 +16,13 @@ import static java.util.TimeZone.getDefault;
 
 public class PlayerHistoryMapper {
 
-    private static final Integer MAX_MATCHES_COUNT = 20;
-    private static final Integer STARTING_ELO_POINTS = 1000;
+    private static final int STARTING_ELO_POINTS = 1000;
+    private static final int MAX_MATCHES_COUNT = 20;
 
     private PlayerHistoryMapper() {
     }
 
+    // FIXME: This method MUST be refactored!
     public static PlayerHistoryResponse map(List<MatchHistoryDto> historyMatches) {
 
         historyMatches = filterHistory(historyMatches);
@@ -32,8 +33,6 @@ public class PlayerHistoryMapper {
         List<MatchHistoryDto> lastMatches = getLast20MatchesFromHistory(historyMatches, historySize);
 
         for (int i = 0; i < lastMatches.size() - 1; i++) {
-            System.out.println("last matches size: " + lastMatches.size());
-            System.out.println("Match " + (i+1));
             MatchHistoryDto matchAfter = lastMatches.get(i);
             MatchHistoryDto matchBefore = lastMatches.get(i + 1);
 
@@ -42,9 +41,7 @@ public class PlayerHistoryMapper {
 
             if (matchAfter.hasElo() && matchBefore.hasElo()) {
                 eloAfter = convertToElo(matchAfter.getElo());
-                System.out.println(eloAfter);
                 eloBefore = convertToElo(matchBefore.getElo());
-                System.out.println(eloBefore);
             } else {
                 eloAfter = 0;
                 eloBefore = 0;
@@ -56,7 +53,7 @@ public class PlayerHistoryMapper {
                     eloAfter,
                     eloAfter - eloBefore,
                     new BigDecimal(matchAfter.getKdRatio()),
-                    new Integer(matchAfter.getHsPercentage()));
+                    Integer.parseInt(matchAfter.getHsPercentage()));
             matchHistoryList.add(matchHistoryToAdd);
         }
 
@@ -80,7 +77,7 @@ public class PlayerHistoryMapper {
                     eloAfter,
                     (eloAfter - eloBefore),
                     new BigDecimal(firstMatch.getKdRatio()),
-                    new Integer(firstMatch.getHsPercentage()))
+                    Integer.parseInt(firstMatch.getHsPercentage()))
             );
         }
         return new PlayerHistoryResponse(matchHistoryList);
@@ -92,11 +89,9 @@ public class PlayerHistoryMapper {
 
     private static List<MatchHistoryDto> getLast20MatchesFromHistory(List<MatchHistoryDto> matches, int historySize) {
 
-        if (historySize > MAX_MATCHES_COUNT) {
-            return new ArrayList<>(matches.subList(0, MAX_MATCHES_COUNT + 1));
-        } else {
-            return new ArrayList<>(matches.subList(0, historySize));
-        }
+        return historySize > MAX_MATCHES_COUNT
+                ? matches.subList(0, MAX_MATCHES_COUNT + 1)
+                : matches.subList(0, historySize);
     }
 
     private static Integer convertToElo(String eloString) {

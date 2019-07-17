@@ -4,7 +4,6 @@ import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient
 import io.github.przbetkier.tuscan.common.SampleLatestProfile
 import io.github.przbetkier.tuscan.common.response.SamplePlayerCsgoStats
 import io.github.przbetkier.tuscan.common.response.SamplePlayerDetailsResponse
-import io.github.przbetkier.tuscan.config.properties.LatestProfilesProperties
 import io.github.przbetkier.tuscan.domain.player.exception.PlayerNotFoundException
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier
 import reactor.core.publisher.Mono
@@ -15,133 +14,62 @@ import java.time.LocalDateTime
 
 class LatestProfilesServiceTest extends Specification {
 
-    LatestProfileRepository latestProfileRepository = Mock(LatestProfileRepository)
     FaceitPlayerClient faceitPlayerClient = Mock(FaceitPlayerClient)
     LocalDateTimeSupplier localDateTimeSupplier = Mock(LocalDateTimeSupplier)
-    LatestProfilesProperties latestProfilesProperties = Mock(LatestProfilesProperties)
+    LatestProfileRepository latestProfileRepository = Mock(LatestProfileRepository)
 
     @Subject
     LatestProfileService latestProfileService =
-            new LatestProfileService(latestProfileRepository, faceitPlayerClient, localDateTimeSupplier, latestProfilesProperties)
+            new LatestProfileService(faceitPlayerClient, localDateTimeSupplier, latestProfileRepository)
 
-    def "should save a player"() {
+    def "should call faceit player client and save new player"() {
         given:
-        latestProfilesProperties.getMaxSize() >> 4
-
         def nickname = "player-1"
-        latestProfileRepository.findById(nickname) >> Optional.empty()
+        latestProfileRepository.findById(nickname) >> Mono.empty()
         def details = SamplePlayerDetailsResponse.simple(nickname)
-        faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(details)
-
         def stats = SamplePlayerCsgoStats.simple()
-        faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> Mono.just(stats)
-
-        latestProfileRepository.findAllByOrderByCreatedOnDesc() >> []
 
         def now = LocalDateTime.of(2018, 9, 26, 23, 30)
         localDateTimeSupplier.get() >> now
 
         when:
-        latestProfileService.save(nickname)
+        latestProfileService.save(nickname).block()
 
         then:
-        1 * latestProfileRepository.save(_ as LatestProfile)
-        0 * latestProfileRepository.deleteAll()
-    }
-
-    def "should save a player update database"() {
-        given:
-        latestProfilesProperties.getMaxSize() >> 4
-
-        def nickname = "player-1"
-        latestProfileRepository.findById(nickname) >> Optional.empty()
-        def details = SamplePlayerDetailsResponse.simple(nickname)
-        faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(details)
-
-        def stats = SamplePlayerCsgoStats.simple()
-        faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> Mono.just(stats)
-
-        latestProfileRepository.findAllByOrderByCreatedOnDesc() >> listOfPlayersPlayers(4)
-
-        def now = LocalDateTime.of(2018, 9, 26, 23, 30)
-        localDateTimeSupplier.get() >> now
-
-        when:
-        latestProfileService.save(nickname)
-
-        then:
-        1 * latestProfileRepository.save({ it.nickname == nickname } as LatestProfile)
-        0 * latestProfileRepository.deleteAll(_ as List<LatestProfile>)
-        0 * latestProfileRepository.saveAll(_ as List<LatestProfile>)
+        1 * latestProfileRepository.save(_) >> Mono.just(SampleLatestProfile.simple(nickname))
+        1 * faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(details)
+        1 * faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> Mono.just(stats)
     }
 
     def "should only update a player in database"() {
         given:
-        latestProfilesProperties.getMaxSize() >> 4
-
         def nickname = "player-1"
-        def savedProfile = SampleLatestProfile.simple(nickname)
+        def date = LocalDateTime.of(2018, 9, 26, 23, 30)
+        def savedProfile = SampleLatestProfile.simple(nickname, date)
 
-        latestProfileRepository.findById(nickname) >> Optional.of(savedProfile)
-        latestProfileRepository.findAllByOrderByCreatedOnDesc() >> listOfPlayersPlayers(4)
-
-        def now = LocalDateTime.of(2018, 9, 26, 23, 30)
-        localDateTimeSupplier.get() >> now
+        localDateTimeSupplier.get() >> date
+        latestProfileRepository.findById(savedProfile.nickname) >> Mono.just(savedProfile)
 
         when:
-        latestProfileService.save(nickname)
+        latestProfileService.save(nickname).block()
 
         then:
-        1 * latestProfileRepository.save({ it.nickname == nickname } as LatestProfile)
-        0 * latestProfileRepository.deleteAll()
-        0 * latestProfileRepository.saveAll(_ as List<LatestProfile>)
-    }
-
-    def "should save a player and trim the player profiles list in database"() {
-        given:
-        latestProfilesProperties.getMaxSize() >> 4
-
-        def nickname = "player-1"
-        def savedProfile = SampleLatestProfile.simple(nickname)
-
-        latestProfileRepository.findById(nickname) >> Optional.of(savedProfile)
-        latestProfileRepository.findAllByOrderByCreatedOnDesc() >> listOfPlayersPlayers(7)
-
-        def now = LocalDateTime.of(2018, 9, 26, 23, 30)
-        localDateTimeSupplier.get() >> now
-
-        when:
-        latestProfileService.save(nickname)
-
-        then:
-        1 * latestProfileRepository.save({ it.nickname == nickname } as LatestProfile)
-        1 * latestProfileRepository.deleteAll()
-        1 * latestProfileRepository.saveAll(_ as List<LatestProfile>)
+        1 * latestProfileRepository.save(_) >> Mono.just(savedProfile)
+        0 * faceitPlayerClient.getPlayerDetails(nickname)
+        0 * faceitPlayerClient.getPlayerCsgoStats(_ as String)
     }
 
     def "should not save a player and not update database"() {
         given:
-        latestProfilesProperties.getMaxSize() >> 4
-
         def nickname = "player-1"
-        latestProfileRepository.findById(nickname) >> Optional.empty()
+        latestProfileRepository.findById(nickname) >> Mono.empty()
         faceitPlayerClient.getPlayerDetails(nickname) >> { throw new PlayerNotFoundException("player not found") }
 
         when:
-        latestProfileService.save(nickname)
+        latestProfileService.save(nickname).block()
 
         then:
         thrown(PlayerNotFoundException)
         0 * latestProfileRepository.save(_ as LatestProfile)
-        0 * latestProfileRepository.deleteAll()
-        0 * latestProfileRepository.saveAll(_ as List<LatestProfile>)
-    }
-
-    static List<LatestProfile> listOfPlayersPlayers(int players) {
-        def list = []
-        for (int i = 0; i < players; i++) {
-            list.add(SamplePlayerCsgoStats.simple())
-        }
-        return list
     }
 }

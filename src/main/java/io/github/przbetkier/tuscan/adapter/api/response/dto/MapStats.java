@@ -17,8 +17,9 @@ public class MapStats {
     private final Integer quadroKills;
     private final Integer pentaKills;
 
-    public MapStats(CsgoMap csgoMap, Integer matches, BigDecimal kdRatio, Integer wins, Integer winPercentage, Integer hsPercentage,
-                    BigDecimal averageKills, Integer tripleKills, Integer quadroKills, Integer pentaKills) {
+    public MapStats(CsgoMap csgoMap, Integer matches, BigDecimal kdRatio, Integer wins, Integer winPercentage,
+                    Integer hsPercentage, BigDecimal averageKills, Integer tripleKills, Integer quadroKills,
+                    Integer pentaKills) {
         this.csgoMap = csgoMap;
         this.matches = matches;
         this.kdRatio = kdRatio;
@@ -69,32 +70,5 @@ public class MapStats {
 
     public BigDecimal getAverageKills() {
         return averageKills;
-    }
-
-    @Override
-    public String
-    toString() {
-        return "MapStats{"
-                + "csgoMap="
-                + csgoMap
-                + ", matches="
-                + matches
-                + ", kdRatio="
-                + kdRatio
-                + ", wins="
-                + wins
-                + ", winPercentage="
-                + winPercentage
-                + ", hsPercentage="
-                + hsPercentage
-                + ", averageKills="
-                + averageKills
-                + ", tripleKills="
-                + tripleKills
-                + ", quadroKills="
-                + quadroKills
-                + ", pentaKills="
-                + pentaKills
-                + '}';
     }
 }

@@ -16,7 +16,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import static org.springframework.http.HttpMethod.GET;
-import static reactor.core.scheduler.Schedulers.parallel;
 import static reactor.retry.Retry.anyOf;
 
 @Component
@@ -39,9 +38,7 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(nickname))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(PlayerDetails.class)
-                .map(PlayerDetailsMapper::mapToPlayerDetailsResponse)
-                .doOnSuccess(a -> logger.info("Fetched {} player details!", nickname))
-                .subscribeOn(parallel());
+                .map(PlayerDetailsMapper::mapToPlayerDetailsResponse);
     }
 
     public Mono<PlayerCsgoStatsResponse> getPlayerCsgoStats(String playerId) {
@@ -77,8 +74,7 @@ public class FaceitPlayerClient {
                 .bodyToMono(Position.class)
                 .retryWhen(anyOf(FaceitServerException.class)
                                    .retryMax(properties.getRetry().getMaxRetries())
-                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()))
-                .subscribeOn(parallel());
+                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()));
     }
 
     private Mono<PlayerNotFoundException> throwClientException(String playerId) {

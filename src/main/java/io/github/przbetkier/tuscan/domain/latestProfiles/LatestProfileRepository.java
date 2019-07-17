@@ -1,13 +1,12 @@
 package io.github.przbetkier.tuscan.domain.latestProfiles;
 
-
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 @Repository
-public interface LatestProfileRepository extends MongoRepository<LatestProfile, String> {
+public interface LatestProfileRepository extends ReactiveMongoRepository<LatestProfile, String> {
 
-    List<LatestProfile> findAllByOrderByCreatedOnDesc();
+    Flux<LatestProfile> findTop4ByOrderByCreatedOnDesc();
+
 }

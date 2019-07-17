@@ -1,3 +1,7 @@
+info.app.name: Tuscan Application
+info.app.description: Faceit CS:GO Player Stats Analyzer
+info.app.version: 1.0.0
+
 faceit-matches:
   cutoff-date-timestamp: 1410282903
 
@@ -9,9 +13,6 @@ faceit:
     min-backoff: 300
     max-backoff: 600
     max-retries: 2
-
-latest-profiles:
-  max-size: 4
 
 server:
   port: 8080

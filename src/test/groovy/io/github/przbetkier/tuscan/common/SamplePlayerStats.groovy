@@ -9,6 +9,8 @@ class SamplePlayerStats {
 
     static BEST_SOLO = "de_train"
     static BEST_TEAM = "de_mirage"
+    static WORST_SOLO = "de_mirage"
+    static WORST_TEAM = "de_train"
 
     static def simple(String kdRatio, String matches) {
 

@@ -10,6 +10,9 @@ public class PlayerCsgoStatsResponse {
     private OverallStats overallStats;
     private List<MapStats> mapStats;
 
+    public PlayerCsgoStatsResponse() {
+    }
+
     public PlayerCsgoStatsResponse(OverallStats overallStats, List<MapStats> mapStats) {
         this.overallStats = overallStats;
         this.mapStats = mapStats;
