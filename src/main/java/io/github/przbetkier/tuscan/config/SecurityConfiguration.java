@@ -22,6 +22,7 @@ public class SecurityConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/tuscan-api/plugin/**").allowedMethods("GET");
                 registry.addMapping("/**").allowedOrigins(tuscanFrontendUrl);
             }
         };
