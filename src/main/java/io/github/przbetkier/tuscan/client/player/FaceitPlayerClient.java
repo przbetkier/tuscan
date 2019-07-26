@@ -72,8 +72,7 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
-                .retryWhen(anyOf(FaceitServerException.class)
-                                   .retryMax(properties.getRetry().getMaxRetries())
+                .retryWhen(anyOf(FaceitServerException.class).retryMax(properties.getRetry().getMaxRetries())
                                    .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()));
     }
 
