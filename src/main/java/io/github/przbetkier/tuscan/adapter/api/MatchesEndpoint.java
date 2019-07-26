@@ -19,8 +19,7 @@ class MatchesEndpoint {
     }
 
     @GetMapping("/simple")
-    SimpleMatchesResponse getSimpleMatches(@RequestParam String playerId,
-                                           @RequestParam Integer offset) {
+    SimpleMatchesResponse getSimpleMatches(@RequestParam String playerId, @RequestParam Integer offset) {
         return matchService.getMatches(playerId, offset);
     }
 

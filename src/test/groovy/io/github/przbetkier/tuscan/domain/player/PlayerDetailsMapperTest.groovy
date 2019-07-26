@@ -1,37 +1,42 @@
 package io.github.przbetkier.tuscan.domain.player
 
-import io.github.przbetkier.tuscan.client.player.Membership
-import io.github.przbetkier.tuscan.common.SamplePlayerDetails
 import spock.lang.Specification
+
+import static io.github.przbetkier.tuscan.client.player.Membership.FREE
+import static io.github.przbetkier.tuscan.common.SamplePlayerDetails.simple
+import static io.github.przbetkier.tuscan.common.SamplePlayerDetails.withoutCsGoGame
+import static io.github.przbetkier.tuscan.domain.player.PlayerDetailsMapper.mapToPlayerDetailsResponse
 
 class PlayerDetailsMapperTest extends Specification {
 
     def "should map player details dto to player details response"() {
         given:
         def playerId = "playerId-1"
-        def playerDetails = SamplePlayerDetails.simple(playerId)
+        def playerDetails = simple(playerId)
 
         when:
-        def result = PlayerDetailsMapper.mapToPlayerDetailsResponse(playerDetails)
+        def result = mapToPlayerDetailsResponse(playerDetails)
 
         then:
-        result.playerId == playerDetails.playerId
-        result.nickname == playerDetails.nickname
-        result.avatarUrl == playerDetails.avatarUrl
-        result.country == playerDetails.country
-        result.gameDetails.level == playerDetails.games.csgo.level
-        result.gameDetails.faceitElo == playerDetails.games.csgo.faceitElo
-        result.gameDetails.region == playerDetails.games.csgo.region
-        result.membership == Membership.FREE
-        !result.ban.active
+        with(result) {
+            playerId == playerDetails.playerId
+            nickname == playerDetails.nickname
+            avatarUrl == playerDetails.avatarUrl
+            country == playerDetails.country
+            gameDetails.level == playerDetails.games.csgo.level
+            gameDetails.faceitElo == playerDetails.games.csgo.faceitElo
+            gameDetails.region == playerDetails.games.csgo.region
+            membership == FREE
+            !ban.active
+        }
     }
 
     def "should map player details without csgo game"() {
         given:
-        def playerDetails = SamplePlayerDetails.withoutCsGoGame()
+        def playerDetails = withoutCsGoGame()
 
         when:
-        def result = PlayerDetailsMapper.mapToPlayerDetailsResponse(playerDetails)
+        def result = mapToPlayerDetailsResponse(playerDetails)
 
         then:
         result.gameDetails == null

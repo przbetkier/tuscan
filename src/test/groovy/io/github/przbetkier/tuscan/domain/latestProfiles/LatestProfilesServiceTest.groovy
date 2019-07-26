@@ -16,17 +16,16 @@ class LatestProfilesServiceTest extends Specification {
 
     FaceitPlayerClient faceitPlayerClient = Mock(FaceitPlayerClient)
     LocalDateTimeSupplier localDateTimeSupplier = Mock(LocalDateTimeSupplier)
-    LatestProfileRepository latestProfileReactiveRepository = Mock(LatestProfileRepository)
+    LatestProfileRepository latestProfileRepository = Mock(LatestProfileRepository)
 
     @Subject
     LatestProfileService latestProfileService =
-            new LatestProfileService(faceitPlayerClient, localDateTimeSupplier, latestProfileReactiveRepository)
+            new LatestProfileService(faceitPlayerClient, localDateTimeSupplier, latestProfileRepository)
 
     def "should call faceit player client and save new player"() {
         given:
         def nickname = "player-1"
-        latestProfileReactiveRepository.findById(nickname) >> Mono.empty()
-
+        latestProfileRepository.findById(nickname) >> Mono.empty()
         def details = SamplePlayerDetailsResponse.simple(nickname)
         def stats = SamplePlayerCsgoStats.simple()
 
@@ -37,28 +36,25 @@ class LatestProfilesServiceTest extends Specification {
         latestProfileService.save(nickname).block()
 
         then:
-        1 * latestProfileReactiveRepository.save({ it.nickname == nickname } as LatestProfile)
-        1 * faceitPlayerClient.getPlayerDetails(nickname) >> details
-        1 * faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> stats
+        1 * latestProfileRepository.save(_) >> Mono.just(SampleLatestProfile.simple(nickname))
+        1 * faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(details)
+        1 * faceitPlayerClient.getPlayerCsgoStats(details.playerId) >> Mono.just(stats)
     }
 
     def "should only update a player in database"() {
         given:
         def nickname = "player-1"
-        def savedProfile = SampleLatestProfile.simple(nickname)
+        def date = LocalDateTime.of(2018, 9, 26, 23, 30)
+        def savedProfile = SampleLatestProfile.simple(nickname, date)
 
-        def updated = savedProfile
-
-        latestProfileReactiveRepository.findById(nickname) >> Mono.just(savedProfile)
-        def now = LocalDateTime.of(2018, 9, 26, 23, 30)
-        localDateTimeSupplier.get() >> now
-        updated.createdOn = now
+        localDateTimeSupplier.get() >> date
+        latestProfileRepository.findById(savedProfile.nickname) >> Mono.just(savedProfile)
 
         when:
         latestProfileService.save(nickname).block()
 
         then:
-        1 * latestProfileReactiveRepository.save({ it.nickname == nickname } as LatestProfile) >> Mono.just(updated)
+        1 * latestProfileRepository.save(_) >> Mono.just(savedProfile)
         0 * faceitPlayerClient.getPlayerDetails(nickname)
         0 * faceitPlayerClient.getPlayerCsgoStats(_ as String)
     }
@@ -66,7 +62,7 @@ class LatestProfilesServiceTest extends Specification {
     def "should not save a player and not update database"() {
         given:
         def nickname = "player-1"
-        latestProfileReactiveRepository.findById(nickname) >> Mono.empty()
+        latestProfileRepository.findById(nickname) >> Mono.empty()
         faceitPlayerClient.getPlayerDetails(nickname) >> { throw new PlayerNotFoundException("player not found") }
 
         when:
@@ -74,6 +70,6 @@ class LatestProfilesServiceTest extends Specification {
 
         then:
         thrown(PlayerNotFoundException)
-        0 * latestProfileReactiveRepository.save(_ as LatestProfile)
+        0 * latestProfileRepository.save(_ as LatestProfile)
     }
 }

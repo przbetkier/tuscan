@@ -17,6 +17,14 @@ class PlayerCsgoStatsStubs {
                         aResponse()
                                 .withStatus(200)
                                 .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
-                                .withBody(PlayerCsgoStatsResponse.successful())))
+                                .withBody(PlayerCsgoStatsResponse.simple(playerId))))
+    }
+
+    static def stubNotFound(String playerId) {
+        stubFor(get(urlEqualTo("/players/$playerId/stats/csgo"))
+                .willReturn(
+                        aResponse()
+                                .withStatus(404)
+                                .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)))
     }
 }

@@ -7,10 +7,8 @@ public class Performance {
     private final SoloPerformance worstSoloPerformance;
     private final TeamPerformance worstTeamPerformance;
 
-    public Performance(SoloPerformance bestSoloPerformance,
-                       TeamPerformance bestTeamPerformance,
-                       SoloPerformance worstSoloPerformance,
-                       TeamPerformance worstTeamPerformance) {
+    public Performance(SoloPerformance bestSoloPerformance, TeamPerformance bestTeamPerformance,
+                       SoloPerformance worstSoloPerformance, TeamPerformance worstTeamPerformance) {
         this.bestSoloPerformance = bestSoloPerformance;
         this.bestTeamPerformance = bestTeamPerformance;
         this.worstSoloPerformance = worstSoloPerformance;

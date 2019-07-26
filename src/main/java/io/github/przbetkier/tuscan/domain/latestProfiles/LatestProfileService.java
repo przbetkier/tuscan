@@ -1,11 +1,7 @@
 package io.github.przbetkier.tuscan.domain.latestProfiles;
 
-import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
-import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse;
 import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -15,8 +11,6 @@ import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMap
 
 @Service
 public class LatestProfileService {
-
-    private static final Logger logger = LoggerFactory.getLogger(LatestProfileService.class);
 
     private final FaceitPlayerClient client;
     private final LocalDateTimeSupplier localDateTimeSupplier;
@@ -29,27 +23,24 @@ public class LatestProfileService {
         this.latestProfileRepository = latestProfileRepository;
     }
 
-    public Mono<LatestProfile> save(String nickname) {
-
-        return latestProfileRepository.findById(nickname).map(p -> {
-            logger.info("Player {} found in DB, fetching...", nickname);
-            LatestProfile updated = mapAndUpdate(p, localDateTimeSupplier.get());
-            return latestProfileRepository.save(updated);
-        }).switchIfEmpty(Mono.fromCallable(() -> {
-            LatestProfile profile = fetch(nickname);
-            return latestProfileRepository.save(profile);
-        })).flatMap(prof -> prof);
-    }
-
     public Flux<LatestProfile> findLatestProfiles() {
         return latestProfileRepository.findTop4ByOrderByCreatedOnDesc();
     }
 
-    private LatestProfile fetch(String nickname) {
-        PlayerDetailsResponse response = client.getPlayerDetails(nickname);
-        PlayerCsgoStatsResponse statsResponse = client.getPlayerCsgoStats(response.getPlayerId());
-        return mapToNewFromResponses(response, statsResponse, localDateTimeSupplier.get());
+    private Mono<LatestProfile> getLatestProfile(String nickname) {
+        return latestProfileRepository.findById(nickname).switchIfEmpty(Mono.defer(() -> fetch(nickname)));
     }
 
+    public Mono<LatestProfile> save(String nickname) {
+        return getLatestProfile(nickname).map(p -> mapAndUpdate(p, localDateTimeSupplier.get()))
+                .flatMap(latestProfileRepository::save);
+    }
 
+    private Mono<LatestProfile> fetch(String nickname) {
+        return client.getPlayerDetails(nickname)
+                .flatMap(response -> client.getPlayerCsgoStats(response.getPlayerId())
+                        .map(statsResponse -> mapToNewFromResponses(response,
+                                                                    statsResponse,
+                                                                    localDateTimeSupplier.get())));
+    }
 }

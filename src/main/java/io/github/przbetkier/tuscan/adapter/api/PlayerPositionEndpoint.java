@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
 
 @RestController
 @RequestMapping("/faceit/player")
@@ -20,10 +19,8 @@ class PlayerPositionEndpoint {
     }
 
     @GetMapping("/position")
-    public Mono<PlayerPositionResponse> getPlayerPosition(@RequestParam String playerId,
-                                                          @RequestParam String region,
+    public Mono<PlayerPositionResponse> getPlayerPosition(@RequestParam String playerId, @RequestParam String region,
                                                           @RequestParam String country) {
-        return playerService.getPlayerPosition(playerId, region, country)
-                .subscribeOn(Schedulers.parallel());
+        return playerService.getPlayerPosition(playerId, region, country);
     }
 }

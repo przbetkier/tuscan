@@ -22,6 +22,7 @@ public class PlayerHistoryMapper {
     private PlayerHistoryMapper() {
     }
 
+    // FIXME: This method MUST be refactored!
     public static PlayerHistoryResponse map(List<MatchHistoryDto> historyMatches) {
 
         historyMatches = filterHistory(historyMatches);
@@ -59,11 +60,22 @@ public class PlayerHistoryMapper {
         if (lastMatches.size() <= MAX_MATCHES_COUNT) {
             MatchHistoryDto firstMatch = historyMatches.get(historySize - 1);
 
+            Integer eloAfter;
+            Integer eloBefore;
+
+            if(firstMatch.hasElo()) {
+                eloAfter = convertToElo(firstMatch.getElo());
+                eloBefore = STARTING_ELO_POINTS;
+            } else {
+                eloAfter = STARTING_ELO_POINTS;
+                eloBefore = STARTING_ELO_POINTS;
+            }
+
             matchHistoryList.add(new MatchHistory(
                     firstMatch.getMatchId(),
                     getLocalDateTimeFromTimestamp(firstMatch.getDate()),
-                    convertToElo(firstMatch.getElo()),
-                    convertToElo(firstMatch.getElo()) - STARTING_ELO_POINTS,
+                    eloAfter,
+                    (eloAfter - eloBefore),
                     new BigDecimal(firstMatch.getKdRatio()),
                     Integer.parseInt(firstMatch.getHsPercentage()))
             );
@@ -77,11 +89,9 @@ public class PlayerHistoryMapper {
 
     private static List<MatchHistoryDto> getLast20MatchesFromHistory(List<MatchHistoryDto> matches, int historySize) {
 
-        if (historySize > MAX_MATCHES_COUNT) {
-            return new ArrayList<>(matches.subList(0, MAX_MATCHES_COUNT + 1));
-        } else {
-            return new ArrayList<>(matches.subList(0, historySize));
-        }
+        return historySize > MAX_MATCHES_COUNT
+                ? matches.subList(0, MAX_MATCHES_COUNT + 1)
+                : matches.subList(0, historySize);
     }
 
     private static Integer convertToElo(String eloString) {

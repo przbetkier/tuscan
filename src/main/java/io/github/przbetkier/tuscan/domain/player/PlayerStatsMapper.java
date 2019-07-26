@@ -21,26 +21,23 @@ public class PlayerStatsMapper {
 
     public static PlayerCsgoStatsResponse map(PlayerStats playerStats) {
         List<MapStats> mapStats = mapToCsgoMapStats(playerStats);
-        return new PlayerCsgoStatsResponse(
-                mapToOverallStats(playerStats, mapStats),
-                mapStats
-        );
+        return new PlayerCsgoStatsResponse(mapToOverallStats(playerStats, mapStats), mapStats);
     }
 
     private static OverallStats mapToOverallStats(PlayerStats playerStats, List<MapStats> mapStats) {
-        return new OverallStats(
-                new BigDecimal(playerStats.getLifetime().getHeadshotPercentage()),
-                new BigDecimal(playerStats.getLifetime().getKdRatio()),
-                format(playerStats.getLifetime().getMatches()),
-                Integer.valueOf(playerStats.getLifetime().getWinRate()),
-                PlayerPerformanceMapper.map(mapStats),
-                playerStats.getLifetime().getCurrentWinStreak(),
-                playerStats.getLifetime().getLongestWinStreak());
+        return new OverallStats(new BigDecimal(playerStats.getLifetime().getHeadshotPercentage()),
+                                new BigDecimal(playerStats.getLifetime().getKdRatio()),
+                                format(playerStats.getLifetime().getMatches()),
+                                Integer.valueOf(playerStats.getLifetime().getWinRate()),
+                                PlayerPerformanceMapper.map(mapStats),
+                                playerStats.getLifetime().getCurrentWinStreak(),
+                                playerStats.getLifetime().getLongestWinStreak());
     }
 
     private static List<MapStats> mapToCsgoMapStats(PlayerStats playerStats) {
         List<MapStats> mapStats = new ArrayList<>();
-        playerStats.getSegments().stream()
+        playerStats.getSegments()
+                .stream()
                 .filter(m -> m.getMode().equals("5v5") && isInMapPool(m.getName()))
                 .collect(Collectors.toList())
                 .forEach(segment -> mapStats.add(mapSegmentToMapStats(segment)));
@@ -48,20 +45,19 @@ public class PlayerStatsMapper {
     }
 
     private static MapStats mapSegmentToMapStats(Segment segment) {
-        return new MapStats(
-                valueOf(segment.getName().toUpperCase()),
-                Integer.parseInt(segment.getMapStatistics().getMatches().replace(",", "")),
-                new BigDecimal(segment.getMapStatistics().getKdRatio()),
-                format(segment.getMapStatistics().getWins()),
-                Integer.parseInt(segment.getMapStatistics().getWinPercentage()),
-                Integer.parseInt(segment.getMapStatistics().getHsPercentage()),
-                new BigDecimal(segment.getMapStatistics().getAverageKills()),
-                format(segment.getMapStatistics().getTripleKills()),
-                format(segment.getMapStatistics().getQuadroKills()),
-                format(segment.getMapStatistics().getPentaKills()));
+        return new MapStats(valueOf(segment.getName().toUpperCase()),
+                            Integer.parseInt(segment.getMapStatistics().getMatches().replace(",", "")),
+                            new BigDecimal(segment.getMapStatistics().getKdRatio()),
+                            format(segment.getMapStatistics().getWins()),
+                            Integer.parseInt(segment.getMapStatistics().getWinPercentage()),
+                            Integer.parseInt(segment.getMapStatistics().getHsPercentage()),
+                            new BigDecimal(segment.getMapStatistics().getAverageKills()),
+                            format(segment.getMapStatistics().getTripleKills()),
+                            format(segment.getMapStatistics().getQuadroKills()),
+                            format(segment.getMapStatistics().getPentaKills()));
     }
 
     private static Integer format(String number) {
-        return new Integer(number.replace(",", ""));
+        return Integer.parseInt(number.replace(",", ""));
     }
 }
