@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/faceit/matches")
@@ -19,7 +20,7 @@ class MatchesEndpoint {
     }
 
     @GetMapping("/simple")
-    SimpleMatchesResponse getSimpleMatches(@RequestParam String playerId, @RequestParam Integer offset) {
+    Mono<SimpleMatchesResponse> getSimpleMatches(@RequestParam String playerId, @RequestParam Integer offset) {
         return matchService.getMatches(playerId, offset);
     }
 

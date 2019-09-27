@@ -18,6 +18,12 @@ data class MatchesSimpleDetailsDto(
     }
 }
 
+data class OpenMatchSimpleDetailsDto(
+        @JsonProperty("matchId") val id: String,
+        @JsonProperty("created_at") val startedAt: Long,
+        @JsonProperty("date") val finishedAt: Long
+)
+
 data class MatchFullDetailsDto(
     @JsonProperty("match_id") val matchId: String,
     @JsonProperty("round_stats") val roundStatsDto: RoundStatsDto,
