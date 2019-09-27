@@ -1,7 +1,8 @@
 package integration.common.response
 
 import java.time.LocalDateTime
-import java.time.ZoneId
+
+import static java.util.TimeZone.getTimeZone
 
 class MatchSimpleDetailsResponse {
 
@@ -156,6 +157,6 @@ class MatchSimpleDetailsResponse {
     }
 
     def static convertToTimestamp(LocalDateTime localDateTime) {
-        return localDateTime.atZone(ZoneId.systemDefault()).toEpochSecond()
+        return localDateTime.atZone(getTimeZone("UTC").toZoneId()).toEpochSecond()
     }
 }
