@@ -44,6 +44,6 @@ public class SimpleMatchListMapper {
     }
 
     private static LocalDateTime mapToLocalDate(long timestamp) {
-        return LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp), TimeZone.getDefault().toZoneId());
+        return LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp), TimeZone.getTimeZone("UTC").toZoneId());
     }
 }
