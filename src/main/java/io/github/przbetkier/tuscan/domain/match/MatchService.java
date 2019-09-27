@@ -17,7 +17,7 @@ public class MatchService {
 
     public Mono<SimpleMatchesResponse> getMatches(String playerId, Integer offset) {
         return faceitMatchClient.getMatches(playerId, offset)
-                .switchIfEmpty(Mono.defer(() -> faceitMatchClient.fallbackToV1Matches(playerId)));
+                .onErrorResume(e -> faceitMatchClient.fallbackToV1Matches(playerId));
     }
 
     public MatchFullDetailsResponse getMatch(String matchId, String playerId) {

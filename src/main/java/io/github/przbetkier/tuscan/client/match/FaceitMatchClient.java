@@ -48,13 +48,16 @@ public class FaceitMatchClient {
                         .queryParam("from", properties.getCutoffDateTimestamp())
                         .build(playerId))
                 .retrieve()
-                .onStatus(HttpStatus::is5xxServerError, clientResponse -> Mono.empty())
+                .onStatus(HttpStatus::is5xxServerError,
+                          clientResponse -> Mono.error(new FaceitServerException(String.format(
+                                  "Faceit server error while requesting %s player matches.",
+                                  playerId))))
                 .bodyToMono(MatchesSimpleDetailsDto.class)
                 .map(SimpleMatchListMapper::map);
     }
 
     public Mono<SimpleMatchesResponse> fallbackToV1Matches(String playerId) {
-        logger.warn("Fallback to v1 api for simple matches.");
+        logger.warn("Fallback to v1 API for simple matches.");
         return openFaceitClient.method(GET)
                 .uri(uriBuilder -> uriBuilder.path("/stats/api/v1/stats/time/users/{playerId}/games/csgo")
                         .queryParam("page", 0)
@@ -63,7 +66,7 @@ public class FaceitMatchClient {
                 .retrieve()
                 .onStatus(HttpStatus::is5xxServerError, clientResponse -> {
                     throw new FaceitServerException(String.format(
-                            "Faceit server error while requesting %s player matches.",
+                            "Faceit server error while requesting %s player matches [v1 API fallback].",
                             playerId));
                 })
                 .bodyToMono(new ParameterizedTypeReference<List<OpenMatchSimpleDetailsDto>>() {})

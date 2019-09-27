@@ -36,7 +36,7 @@ class MatchServiceTest extends Specification {
         def playerId = "playerId-1"
         def offset = 0
         def response = SampleMatchResponse.simple()
-        faceitMatchClient.getMatches(playerId, offset) >> Mono.empty()
+        faceitMatchClient.getMatches(playerId, offset) >> Mono.error(new RuntimeException())
 
         when:
         def matchesResponse = matchService.getMatches(playerId, offset).block()
