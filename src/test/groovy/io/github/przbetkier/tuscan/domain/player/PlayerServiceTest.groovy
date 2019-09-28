@@ -81,7 +81,7 @@ class PlayerServiceTest extends Specification {
         result.matchHistory.size() == response.matchHistory.size()
         for (match in result.matchHistory) {
             def comparedTo = response.matchHistory.find({ it.matchId == match.matchId })
-            match.eloGain == comparedTo.eloGain
+            match.eloDiff == comparedTo.eloDiff
             match.elo == comparedTo.elo
             match.date == comparedTo.date
         }
