@@ -8,16 +8,16 @@ public class MatchHistory {
     private final String matchId;
     private final LocalDateTime date;
     private final Integer elo;
-    private final Integer eloGain;
+    private final Integer eloDiff;
     private final BigDecimal kdRatio;
     private final Integer hsPercentage;
 
-    public MatchHistory(String matchId, LocalDateTime date, Integer elo, Integer eloGain, BigDecimal kdRatio,
+    public MatchHistory(String matchId, LocalDateTime date, Integer elo, Integer eloDiff, BigDecimal kdRatio,
                         Integer hsPercentage) {
         this.matchId = matchId;
         this.date = date;
         this.elo = elo;
-        this.eloGain = eloGain;
+        this.eloDiff = eloDiff;
         this.kdRatio = kdRatio;
         this.hsPercentage = hsPercentage;
     }
@@ -34,8 +34,8 @@ public class MatchHistory {
         return elo;
     }
 
-    public Integer getEloGain() {
-        return eloGain;
+    public Integer getEloDiff() {
+        return eloDiff;
     }
 
     public BigDecimal getKdRatio() {
