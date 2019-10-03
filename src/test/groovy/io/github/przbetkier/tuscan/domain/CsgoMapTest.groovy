@@ -21,13 +21,14 @@ class CsgoMapTest extends Specification {
         "de_inferno"  | true
         "de_mirage"   | true
         "de_cache"    | true
-        "de_cbble"    | true
         "de_train"    | true
         "de_dust2"    | true
-        "de_season"   | true
         "de_overpass" | true
         "de_nuke"     | true
+        "de_vertigo"  | true
+        "de_season"   | false
         "de_tuscan"   | false
+        "de_cbble"    | false
         "aim_map"     | false
         "cs_militia"  | false
     }
