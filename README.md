@@ -8,4 +8,4 @@
 ### Related projects:
 
 - [tuscan-frontend](https://github.com/przbetkier/tuscan-frontend) - Angular application presenting player data fetched from tuscan-service
-- tuscan-extension (TBA) - Google Chrome extension
+- [tuscan-extension](https://github.com/przbetkier/faceit-lobby-extension-chrome) - Google Chrome extension which helps during map picking on Faceit CS:GO matches.

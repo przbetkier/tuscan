@@ -82,6 +82,10 @@ jacocoTestReport {
     }
 }
 
+bootJar {
+    mainClassName = 'io.github.przbetkier.tuscan.TuscanApplication'
+}
+
 test {
     if (System.properties['test.profile'] != 'integration') {
         exclude '**/*integration*'
@@ -89,5 +93,5 @@ test {
         exclude '**/*io/*'
     }
 
-check.dependsOn jacocoTestReport
+    check.dependsOn jacocoTestReport
 }
