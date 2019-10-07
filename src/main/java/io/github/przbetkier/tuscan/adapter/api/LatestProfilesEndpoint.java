@@ -2,6 +2,7 @@ package io.github.przbetkier.tuscan.adapter.api;
 
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfile;
 import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileService;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import static org.springframework.http.MediaType.TEXT_EVENT_STREAM_VALUE;
 
 @RequestMapping("/tuscan-api/latest-profiles")
 @RestController
+@Timed("endpoint.latestProfiles")
 class LatestProfilesEndpoint {
 
     private final EmitterProcessor<ServerSentEvent<LatestProfile>> emitter;
