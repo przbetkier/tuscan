@@ -3,6 +3,7 @@ package io.github.przbetkier.tuscan.adapter.api;
 import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
 import io.github.przbetkier.tuscan.domain.match.MatchService;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/faceit/matches")
+@Timed("endpoint.matchesEndpoint")
 class MatchesEndpoint {
 
     private final MatchService matchService;

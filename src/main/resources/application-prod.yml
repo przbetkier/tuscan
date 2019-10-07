@@ -7,3 +7,15 @@ spring:
   data:
     mongodb:
       uri: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@cluster0-shard-00-00-9mebi.mongodb.net:27017,cluster0-shard-00-01-9mebi.mongodb.net:27017,cluster0-shard-00-02-9mebi.mongodb.net:27017/${DATABASE}?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin
+
+management:
+  metrics:
+    export:
+      graphite:
+        enabled: true
+        host: graphite
+        step: 5s
+        port: 2004
+    web:
+      server:
+        auto-time-requests: true
