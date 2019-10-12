@@ -11,7 +11,15 @@ import io.github.przbetkier.tuscan.client.match.TeamStatsDto
 
 class SampleMatchStatsDto {
 
+    static def zeroKdFirstPlayer(String playerId, String kills, String kdRatio) {
+        return create(playerId, kills, kdRatio)
+    }
+
     static def simple(String playerId) {
+        return create(playerId, '14', '4.0')
+    }
+
+    private static MatchStatsDto create(String playerId, String kills, String kdRatio) {
         return new MatchStatsDto(
                 [
                         new MatchFullDetailsDto(
@@ -33,12 +41,12 @@ class SampleMatchStatsDto {
                                                         "$playerId",
                                                         "player",
                                                         new PlayerStatsDto(
-                                                                "20",
+                                                                "$kills",
                                                                 "12",
                                                                 "10",
                                                                 "5",
                                                                 "44",
-                                                                "1.232",
+                                                                "$kdRatio",
                                                                 "0.92",
                                                                 "3",
                                                                 "0",

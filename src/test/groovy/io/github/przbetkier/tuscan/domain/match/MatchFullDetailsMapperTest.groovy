@@ -24,7 +24,7 @@ class MatchFullDetailsMapperTest extends Specification {
         result.roundsCount == stubDto.matchFullDetails[0].roundStatsDto.roundsCount.toInteger()
         result.winnerTeam == stubDto.matchFullDetails[0].roundStatsDto.winnerTeamId
         result.teams[0].players[0].nickname == stubDto.matchFullDetails[0].teams[0].players[0].nickname
-        with (result.teams[0].players[0].playerStats) {
+        with(result.teams[0].players[0].playerStats) {
             kills == firstPlayerStats.kills.toInteger()
             assists == firstPlayerStats.assists.toInteger()
             deaths == firstPlayerStats.deaths.toInteger()
@@ -41,6 +41,23 @@ class MatchFullDetailsMapperTest extends Specification {
         with(result.teams[0].teamStats) {
             headshotAvg == stubDto.matchFullDetails[0].teams[0].teamStats.headshotAvg.toBigDecimal()
             teamName == stubDto.matchFullDetails[0].teams[0].teamStats.teamName
+        }
+    }
+
+    def 'should map K/D with kills number when player has no deaths'() {
+        given:
+        def playerId = "playerId"
+        def inputKills = '5'
+        def inputKdRatio = '0.0'
+        def stubDto = SampleMatchStatsDto.zeroKdFirstPlayer(playerId, inputKills, inputKdRatio)
+
+        when:
+        def result = MatchFullDetailsMapper.map(stubDto, playerId)
+
+        then:
+        with(result.teams[0].players[0].playerStats) {
+            kdRatio == BigDecimal.valueOf(5.0)
+            kills == 5
         }
     }
 }
