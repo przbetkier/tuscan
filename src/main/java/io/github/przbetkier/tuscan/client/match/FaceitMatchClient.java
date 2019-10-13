@@ -53,6 +53,8 @@ public class FaceitMatchClient {
                                   "Faceit server error while requesting %s player matches.",
                                   playerId))))
                 .bodyToMono(MatchesSimpleDetailsDto.class)
+                .name("matches")
+                .metrics()
                 .map(SimpleMatchListMapper::map);
     }
 
@@ -70,6 +72,8 @@ public class FaceitMatchClient {
                             playerId));
                 })
                 .bodyToMono(new ParameterizedTypeReference<List<OpenMatchSimpleDetailsDto>>() {})
+                .name("matchesV1Fallback")
+                .metrics()
                 .map(SimpleMatchListMapper::mapForOpenApi);
     }
 
@@ -86,6 +90,8 @@ public class FaceitMatchClient {
                             matchId));
                 })
                 .bodyToMono(MatchStatsDto.class)
+                .name("matchDetails")
+                .metrics()
                 .map(result -> MatchFullDetailsMapper.map(result, playerId))
                 .block();
     }
