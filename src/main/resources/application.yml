@@ -16,3 +16,9 @@ faceit:
 
 server:
   port: 8080
+
+management:
+  metrics:
+    export:
+      graphite:
+        enabled: false
