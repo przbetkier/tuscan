@@ -78,7 +78,7 @@ dependencies {
 jacocoTestReport {
     reports {
         xml.enabled true
-        html.enabled false
+        html.enabled true
     }
 }
 
@@ -86,12 +86,6 @@ bootJar {
     mainClassName = 'io.github.przbetkier.tuscan.TuscanApplication'
 }
 
-test {
-    if (System.properties['test.profile'] != 'integration') {
-        exclude '**/*integration*'
-    } else {
-        exclude '**/*io/*'
-    }
-
-    check.dependsOn jacocoTestReport
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
 }
