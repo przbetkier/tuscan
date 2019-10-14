@@ -9,6 +9,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.util.Collections;
 
@@ -24,7 +25,7 @@ public class FaceitSearchClient {
         this.openFaceitClient = openFaceitClient;
     }
 
-    public PlayerSearchResponse getPlayers(String nickname) {
+    public Mono<PlayerSearchResponse> getPlayers(String nickname) {
         if (!nickname.isEmpty()) {
             return openFaceitClient.method(HttpMethod.GET)
                     .uri(uriBuilder -> uriBuilder.path("/search/v1")
@@ -37,11 +38,12 @@ public class FaceitSearchClient {
                         throw new PlayerNotFoundException("Player not found on Faceit!");
                     })
                     .bodyToMono(FaceitSearchDTO.class)
+                    .name("searchPlayer")
+                    .metrics()
                     .map(PlayerSearchMapper::map)
-                    .doOnError(e -> logger.error("Could not map searched players to response"))
-                    .block();
+                    .doOnError(e -> logger.error("Could not map searched players to response"));
         } else {
-            return new PlayerSearchResponse(Collections.emptyList());
+            return Mono.just(new PlayerSearchResponse(Collections.emptyList()));
         }
     }
 }

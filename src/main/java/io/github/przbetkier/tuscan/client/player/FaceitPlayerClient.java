@@ -38,6 +38,8 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(nickname))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(PlayerDetails.class)
+                .name("playerDetails")
+                .metrics()
                 .map(PlayerDetailsMapper::mapToPlayerDetailsResponse);
     }
 
@@ -48,6 +50,8 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(PlayerStats.class)
+                .name("csgoStats")
+                .metrics()
                 .map(PlayerStatsMapper::map);
     }
 
@@ -58,6 +62,8 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
+                .name("positionInRegion")
+                .metrics()
                 .retryWhen(anyOf(FaceitServerException.class).retryMax(properties.getRetry().getMaxRetries())
                                    .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()));
     }
@@ -72,6 +78,8 @@ public class FaceitPlayerClient {
                 .onStatus(HttpStatus::is4xxClientError, response -> throwClientException(playerId))
                 .onStatus(HttpStatus::is5xxServerError, response -> throwServerException())
                 .bodyToMono(Position.class)
+                .name("positionInCountry")
+                .metrics()
                 .retryWhen(anyOf(FaceitServerException.class).retryMax(properties.getRetry().getMaxRetries())
                                    .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()));
     }

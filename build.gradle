@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.6.RELEASE'
-        kotlinVersion = '1.3'
+        springBootVersion = '2.1.9.RELEASE'
+        kotlinVersion = '1.3.50'
     }
     repositories {
         mavenCentral()
@@ -14,9 +14,9 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.0'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.3.0'
-    id 'org.jetbrains.kotlin.plugin.allopen' version '1.3.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.50'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.3.50'
+    id 'org.jetbrains.kotlin.plugin.allopen' version '1.3.50'
 }
 
 apply plugin: 'groovy'
@@ -47,24 +47,25 @@ configurations {
 }
 
 dependencies {
+    // spring boot
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-undertow', version: "${springBootVersion}"
-    compile 'com.squareup.okhttp3:okhttp:3.11.0'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
-
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "${springBootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: "${springBootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: "${springBootVersion}"
 
-    compile 'org.springframework.boot:spring-boot-starter-webflux'
-    compile group: 'io.projectreactor', name: 'reactor-core', version: '3.2.0.RELEASE'
-    compile group: 'io.projectreactor.addons', name: 'reactor-extra', version: '3.2.0.RELEASE'
+    // other
+    compile group: 'io.micrometer', name: 'micrometer-registry-graphite', version: '1.3.0'
+    compile group: 'com.squareup.okhttp3', name:'okhttp', version: '3.11.0'
+    compile group: 'io.projectreactor', name: 'reactor-core', version: '3.3.0.RELEASE'
+    compile group: 'io.projectreactor.addons', name: 'reactor-extra', version: '3.3.0.RELEASE'
 
     // kotlin
     compile('com.fasterxml.jackson.module:jackson-module-kotlin')
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
 
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: "${springBootVersion}"
-    compile group: 'io.micrometer', name: 'micrometer-registry-graphite', version: '1.3.0'
-
+    // tests
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'org.spockframework', name: 'spock-core', version: "$versions.spock"
     testCompile group: 'org.spockframework', name: 'spock-spring', version: "$versions.spock"
@@ -72,13 +73,12 @@ dependencies {
     testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '2.8.0'
     testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "2.1.1"
     testCompile group: 'io.projectreactor', name: 'reactor-test', version: '3.2.10.RELEASE'
-
 }
 
 jacocoTestReport {
     reports {
         xml.enabled true
-        html.enabled false
+        html.enabled true
     }
 }
 
@@ -86,12 +86,6 @@ bootJar {
     mainClassName = 'io.github.przbetkier.tuscan.TuscanApplication'
 }
 
-test {
-    if (System.properties['test.profile'] != 'integration') {
-        exclude '**/*integration*'
-    } else {
-        exclude '**/*io/*'
-    }
-
-    check.dependsOn jacocoTestReport
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
 }
