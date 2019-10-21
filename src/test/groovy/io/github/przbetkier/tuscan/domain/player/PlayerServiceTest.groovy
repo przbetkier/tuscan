@@ -9,6 +9,9 @@ import reactor.core.publisher.Mono
 import spock.lang.Specification
 import spock.lang.Subject
 
+import static integration.common.MockedPlayer.NICKNAME
+import static integration.common.MockedPlayer.PLAYER_ID
+
 class PlayerServiceTest extends Specification {
 
     FaceitPlayerClient faceitPlayerClient = Mock(FaceitPlayerClient)
@@ -19,7 +22,7 @@ class PlayerServiceTest extends Specification {
 
     def "should return player details response"() {
         given:
-        def nickname = "player"
+        def nickname = NICKNAME
         def response = SamplePlayerDetailsResponse.simple()
         faceitPlayerClient.getPlayerDetails(nickname) >> Mono.just(response)
 
@@ -39,7 +42,7 @@ class PlayerServiceTest extends Specification {
 
     def "should return player csgo stats"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         def response = SamplePlayerCsgoStats.simple()
 
         faceitPlayerClient.getPlayerCsgoStats(playerId) >> Mono.just(response)
@@ -69,13 +72,13 @@ class PlayerServiceTest extends Specification {
 
     def "should return player history"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         def response = SamplePlayerHistoryResponse.simple()
 
-        playerHistoryClient.getPlayerHistory(playerId) >> response
+        playerHistoryClient.getPlayerHistory(playerId) >> Mono.just(response)
 
         when:
-        def result = playerService.getPlayerHistory(playerId)
+        def result = playerService.getPlayerHistory(playerId).block()
 
         then:
         result.matchHistory.size() == response.matchHistory.size()

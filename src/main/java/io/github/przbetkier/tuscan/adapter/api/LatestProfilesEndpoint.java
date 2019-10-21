@@ -1,7 +1,7 @@
 package io.github.przbetkier.tuscan.adapter.api;
 
-import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfile;
-import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileService;
+import io.github.przbetkier.tuscan.domain.profiles.LatestProfile;
+import io.github.przbetkier.tuscan.domain.profiles.LatestProfileService;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.GetMapping;

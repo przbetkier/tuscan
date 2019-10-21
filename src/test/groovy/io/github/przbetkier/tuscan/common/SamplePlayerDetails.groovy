@@ -7,12 +7,15 @@ import io.github.przbetkier.tuscan.client.player.PlayerDetails
 
 import java.time.ZonedDateTime
 
+import static integration.common.MockedPlayer.NICKNAME
+import static integration.common.MockedPlayer.PLAYER_ID
+
 class SamplePlayerDetails {
 
     public static Integer ELO = 1250
     public static Integer FACEIT_LEVEL = 4
 
-    static simple(String playerId = "playerId", String nickname = "player") {
+    static simple(String playerId = PLAYER_ID, String nickname = NICKNAME) {
         new PlayerDetails(
                 playerId,
                 nickname,
@@ -29,10 +32,10 @@ class SamplePlayerDetails {
         )
     }
 
-    static withoutCsGoGame(String playerId = "playerId") {
+    static withoutCsGoGame(String playerId = PLAYER_ID) {
         new PlayerDetails(
                 playerId,
-                "player",
+                NICKNAME,
                 new Games(null),
                 "http://avatar-avatar.com/avatar",
                 "PL",
@@ -41,10 +44,10 @@ class SamplePlayerDetails {
         )
     }
 
-    static banned(String playerId = "playerId", ZonedDateTime dateTime) {
+    static banned(String playerId = PLAYER_ID, ZonedDateTime dateTime) {
         new PlayerDetails(
                 playerId,
-                "player",
+                NICKNAME,
                 new Games(new Csgo(1, 1, "", "")),
                 "http://avatar-avatar.com/avatar",
                 "PL",

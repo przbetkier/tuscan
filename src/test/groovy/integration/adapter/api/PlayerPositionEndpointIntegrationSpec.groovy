@@ -7,12 +7,13 @@ import integration.common.stubs.PlayerPositionStubs
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
 import static com.github.tomakehurst.wiremock.client.WireMock.moreThan
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
+import static integration.common.MockedPlayer.PLAYER_ID
 
 class PlayerPositionEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return player position with ok status"() {
         given:
-        def playerId = "playerId"
+        def playerId = PLAYER_ID
         def region = "EU"
         def country = "pl"
         def position = 101
@@ -30,7 +31,7 @@ class PlayerPositionEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should retry when service unavailable and get player position"() {
         given:
-        def playerId = "playerId"
+        def playerId = PLAYER_ID
         def region = "EU"
         def country = "pl"
         def position = 101

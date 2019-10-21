@@ -7,6 +7,8 @@ import reactor.core.publisher.Mono
 import spock.lang.Specification
 import spock.lang.Subject
 
+import static integration.common.MockedPlayer.PLAYER_ID
+
 class MatchServiceTest extends Specification {
 
     FaceitMatchClient faceitMatchClient = Mock(FaceitMatchClient)
@@ -16,7 +18,7 @@ class MatchServiceTest extends Specification {
 
     def "should return a response with simple match list"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         def offset = 0
         def response = SampleMatchResponse.simple()
         faceitMatchClient.getMatches(playerId, offset) >> Mono.just(response)
@@ -33,7 +35,7 @@ class MatchServiceTest extends Specification {
 
     def "should fallback to v1 method and return simple matches when main method failed"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         def offset = 0
         def response = SampleMatchResponse.simple()
         faceitMatchClient.getMatches(playerId, offset) >> Mono.error(new RuntimeException())
@@ -49,7 +51,7 @@ class MatchServiceTest extends Specification {
 
     def "should return a response with match details"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         def matchId = "matchId-1"
         def response = SampleMatchFullDetailsResponse.simple()
         faceitMatchClient.getMatchDetails(matchId, playerId) >> response

@@ -1,4 +1,4 @@
-package io.github.przbetkier.tuscan.domain.latestProfiles;
+package io.github.przbetkier.tuscan.domain.profiles;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

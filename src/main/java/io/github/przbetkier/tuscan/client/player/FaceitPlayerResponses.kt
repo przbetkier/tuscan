@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import io.github.przbetkier.tuscan.infrastructure.ZonedDateTimeDeserializer
 import java.time.ZonedDateTime
 
-
 data class Csgo(
         @JsonProperty("faceit_elo") val faceitElo: Int?,
         @JsonProperty("skill_level") val level: Int?,

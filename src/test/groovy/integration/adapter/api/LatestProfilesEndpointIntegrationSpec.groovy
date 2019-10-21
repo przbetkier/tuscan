@@ -10,6 +10,8 @@ import org.springframework.http.HttpMethod
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.test.StepVerifier
 
+import static integration.common.MockedPlayer.NICKNAME
+import static integration.common.MockedPlayer.PLAYER_ID
 import static org.springframework.http.HttpHeaders.ACCEPT
 import static org.springframework.http.MediaType.TEXT_EVENT_STREAM_VALUE
 
@@ -44,7 +46,7 @@ class LatestProfilesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should receive 2 SSE with new latest searched profiles"() {
         given:
-        def player1 = SamplePlayerDetails.simple("playerId-1", "nickname-1")
+        def player1 = SamplePlayerDetails.simple(PLAYER_ID, NICKNAME)
         def entity1 = new HttpEntity(player1.nickname, null)
         PlayerDetailsStubs.stubSuccessfulResponse(player1)
         PlayerCsgoStatsStubs.stubSuccessfulResponse(player1.playerId)

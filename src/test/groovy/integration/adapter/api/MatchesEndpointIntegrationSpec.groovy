@@ -8,6 +8,7 @@ import java.time.LocalDateTime
 
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
+import static integration.common.MockedPlayer.PLAYER_ID
 import static integration.common.stubs.MatchSimpleDetailsStubs.stubFailedResponse
 import static integration.common.stubs.MatchSimpleDetailsStubs.stubSuccessfulResponse
 
@@ -15,7 +16,7 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return match list with ids and dates"() {
         given:
-        def playerId = UUID.randomUUID().toString()
+        def playerId = PLAYER_ID
         def matchId = UUID.randomUUID().toString()
         def startedAt = LocalDateTime.of(2018, 10, 1, 10, 0)
         def finishedAt = LocalDateTime.of(2018, 10, 1, 11, 0)
@@ -34,7 +35,7 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return match list with ids and dates even if main api is down"() {
         given:
-        def playerId = UUID.randomUUID().toString()
+        def playerId = PLAYER_ID
         stubFailedResponse(playerId)
         PlayerHistoryStubs.successful(playerId)
 

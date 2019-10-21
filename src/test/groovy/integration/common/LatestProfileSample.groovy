@@ -1,12 +1,14 @@
 package integration.common
 
-import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfile
+import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
 
 import java.time.LocalDateTime
 
+import static integration.common.MockedPlayer.NICKNAME
+
 class LatestProfileSample {
 
-    static def simple(String nickname = "nickname") {
+    static def simple(String nickname = NICKNAME) {
         return new LatestProfile(
                 nickname,
                 "http://avatar.url",

@@ -52,7 +52,7 @@ public class FaceitPlayerClient {
                 .bodyToMono(PlayerStats.class)
                 .name("csgoStats")
                 .metrics()
-                .map(PlayerStatsMapper::map);
+                .map(PlayerStatsMapper.Companion::map);
     }
 
     public Mono<Position> getPlayerPositionInRegion(String playerId, String region) {

@@ -42,7 +42,7 @@ public class PlayerService {
     }
 
     @Cacheable(value = "player_history", key = "#playerId")
-    public PlayerHistoryResponse getPlayerHistory(String playerId) {
+    public Mono<PlayerHistoryResponse> getPlayerHistory(String playerId) {
         return playerHistoryClient.getPlayerHistory(playerId);
     }
 

@@ -10,10 +10,10 @@ class MatchFullDetailsMapperTest extends Specification {
         given:
         def playerId = "playerId"
         def stubDto = SampleMatchStatsDto.simple(playerId)
-        def firstPlayerStats = stubDto.matchFullDetails[0].teams[0].players[0].playerStats
+        def firstPlayerStats = stubDto.matchFullDetails.first().teams.first().players.first().playerStats
 
         when:
-        def result = MatchFullDetailsMapper.map(stubDto, playerId)
+        def result = MatchFullDetailsMapper.@Companion.map(stubDto, playerId)
 
         then:
         noExceptionThrown()
@@ -52,7 +52,7 @@ class MatchFullDetailsMapperTest extends Specification {
         def stubDto = SampleMatchStatsDto.zeroKdFirstPlayer(playerId, inputKills, inputKdRatio)
 
         when:
-        def result = MatchFullDetailsMapper.map(stubDto, playerId)
+        def result = MatchFullDetailsMapper.@Companion.map(stubDto, playerId)
 
         then:
         with(result.teams[0].players[0].playerStats) {

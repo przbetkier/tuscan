@@ -3,11 +3,13 @@ package integration.adapter.api
 import integration.BaseIntegrationSpec
 import integration.common.stubs.PlayerHistoryStubs
 
+import static integration.common.MockedPlayer.PLAYER_ID
+
 class PlayerHistoryEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return player history"() {
         given:
-        String playerId = "playerId-1"
+        String playerId = PLAYER_ID
         PlayerHistoryStubs.successful(playerId)
 
         when:

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/faceit/player-history")
@@ -20,7 +21,7 @@ class PlayerHistoryEndpoint {
     }
 
     @GetMapping("/{playerId}")
-    PlayerHistoryResponse getPlayerHistory(@PathVariable String playerId) {
+    public Mono<PlayerHistoryResponse> getPlayerHistory(@PathVariable String playerId) {
         return playerService.getPlayerHistory(playerId);
     }
 }

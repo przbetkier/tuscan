@@ -1,13 +1,10 @@
-package io.github.przbetkier.tuscan.domain.latestProfiles;
+package io.github.przbetkier.tuscan.domain.profiles;
 
 import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
 import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.mapAndUpdate;
-import static io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfileMapper.mapToNewFromResponses;
 
 @Service
 public class LatestProfileService {
@@ -32,14 +29,14 @@ public class LatestProfileService {
     }
 
     public Mono<LatestProfile> save(String nickname) {
-        return getLatestProfile(nickname).map(p -> mapAndUpdate(p, localDateTimeSupplier.get()))
+        return getLatestProfile(nickname).map(p -> LatestProfileMapper.Companion.mapAndUpdate(p, localDateTimeSupplier.get()))
                 .flatMap(latestProfileRepository::save);
     }
 
     private Mono<LatestProfile> fetch(String nickname) {
         return client.getPlayerDetails(nickname)
                 .flatMap(response -> client.getPlayerCsgoStats(response.getPlayerId())
-                        .map(statsResponse -> mapToNewFromResponses(response,
+                        .map(statsResponse -> LatestProfileMapper.Companion.mapToNewFromResponses(response,
                                                                     statsResponse,
                                                                     localDateTimeSupplier.get())));
     }

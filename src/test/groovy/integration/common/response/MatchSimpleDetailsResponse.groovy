@@ -132,15 +132,7 @@ class MatchSimpleDetailsResponse {
                      },
                      "playing_players":[  
                         "a092d676-0835-4375-bd8d-54ffb5950185",
-                        "c39e55df-9bed-47fe-b877-e41705f6a652",
-                        "277259be-95bf-4d47-becb-2675bc713f5e",
-                        "3e71499c-3dd0-41b4-8af2-5b91820f231e",
-                        "1d94cafc-3df8-4e94-be20-a6c8c9c0bdae",
-                        "07683152-e406-455c-9442-ccfc8ec3dc7e",
-                        "046b7260-1f93-4993-8c69-14ad5624b440",
-                        "7acf2895-b5b7-4b03-80a6-057abdaafac6",
-                        "bba6b405-64a9-4e90-a317-19c2fbb62f39",
-                        "c72461ee-9c65-4000-956b-09b006529a58"
+                        "c39e55df-9bed-47fe-b877-e41705f6a652"
                      ],
                      "competition_id":"42e160fc-2651-4fa5-9a9b-829199e27adb",
                      "competition_name":"CS:GO 5v5",

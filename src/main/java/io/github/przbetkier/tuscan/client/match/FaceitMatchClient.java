@@ -92,7 +92,7 @@ public class FaceitMatchClient {
                 .bodyToMono(MatchStatsDto.class)
                 .name("matchDetails")
                 .metrics()
-                .map(result -> MatchFullDetailsMapper.map(result, playerId))
+                .map(result -> MatchFullDetailsMapper.Companion.map(result, playerId))
                 .block();
     }
 }

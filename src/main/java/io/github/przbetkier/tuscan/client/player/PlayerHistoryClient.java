@@ -10,6 +10,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import static io.github.przbetkier.tuscan.domain.player.PlayerHistoryMapper.map;
 
@@ -24,7 +25,7 @@ public class PlayerHistoryClient {
         this.openFaceitClient = openFaceitClient;
     }
 
-    public PlayerHistoryResponse getPlayerHistory(String playerId) {
+    public Mono<PlayerHistoryResponse> getPlayerHistory(String playerId) {
         return openFaceitClient.method(HttpMethod.GET)
                 .uri("/stats/api/v1/stats/time/users/{playerId}/games/csgo", playerId)
                 .retrieve()
@@ -33,8 +34,9 @@ public class PlayerHistoryClient {
                     throw new PlayerNotFoundException("Player not found on Faceit!");
                 })
                 .bodyToMono(PlayerHistoryDto.class)
+                .name("playerHistory")
+                .metrics()
                 .map(history -> map(history.getMatchHistoryDtoList()))
-                .doOnError(e -> logger.error("Could not map player history to response"))
-                .block();
+                .doOnError(e -> logger.error("Could not map player history to response"));
     }
 }
