@@ -30,22 +30,23 @@ public class PlayerService {
         this.playerHistoryClient = playerHistoryClient;
     }
 
-    @Cacheable(value = "player_details", key = "#nickname")
+    @Cacheable(value = "playerDetails", key = "{#nickname}")
     public Mono<PlayerDetailsResponse> getPlayerDetails(String nickname) {
         logger.info("Started FACEIT API request for {}", nickname);
         return faceitPlayerClient.getPlayerDetails(nickname);
     }
 
-    @Cacheable(value = "player_csgo_stats", key = "#playerId")
+    @Cacheable(value = "playerCsgoStats", key = "{#playerId}")
     public Mono<PlayerCsgoStatsResponse> getCsgoStats(String playerId) {
         return faceitPlayerClient.getPlayerCsgoStats(playerId);
     }
 
-    @Cacheable(value = "player_history", key = "#playerId")
+    @Cacheable(value = "playerHistory", key = "{#playerId}")
     public Mono<PlayerHistoryResponse> getPlayerHistory(String playerId) {
         return playerHistoryClient.getPlayerHistory(playerId);
     }
 
+    @Cacheable(value = "playerPosition", key = "{#playerId, #region, #country}")
     public Mono<PlayerPositionResponse> getPlayerPosition(String playerId, String region, String country) {
         return Mono.zip(faceitPlayerClient.getPlayerPositionInRegion(playerId, region),
                         faceitPlayerClient.getPlayerPositionInCountry(playerId, region, country))

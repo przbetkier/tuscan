@@ -22,3 +22,7 @@ management:
     export:
       graphite:
         enabled: false
+
+mongoClientProperties:
+  socketTimeout: 1000
+  connectionsPerHost: 100

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.web.server.LocalServerPort
+import org.springframework.cache.CacheManager
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.AutoCleanup
@@ -28,6 +29,9 @@ class BaseIntegrationSpec extends Specification {
     @Autowired
     LatestProfileRepository latestProfileRepository
 
+    @Autowired
+    CacheManager cacheManager;
+
     @LocalServerPort
     protected int port
 
@@ -40,6 +44,9 @@ class BaseIntegrationSpec extends Specification {
     }
 
     void cleanup() {
+        for (String name : cacheManager.getCacheNames()) {
+            cacheManager.getCache(name).clear()
+        }
         WireMockRunner.cleanupAll()
     }
 }
