@@ -76,17 +76,4 @@ class PlayerDetailsResponse {
             }]"""
 
     }
-
-    static def notFound() {
-        """{
-            "errors": [
-                {
-                    "message": "The resource was not found.",
-                    "code": "err_nf0",
-                    "http_status": 404,
-                    "parameters": []
-                }
-        ]
-        }"""
-    }
 }

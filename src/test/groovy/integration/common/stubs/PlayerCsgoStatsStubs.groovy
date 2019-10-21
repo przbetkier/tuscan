@@ -1,6 +1,5 @@
 package integration.common.stubs
 
-import integration.common.response.PlayerCsgoStatsResponse
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
 import static com.github.tomakehurst.wiremock.client.WireMock.get
@@ -17,7 +16,7 @@ class PlayerCsgoStatsStubs {
                         aResponse()
                                 .withStatus(200)
                                 .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
-                                .withBody(PlayerCsgoStatsResponse.simple(playerId))))
+                                .withBodyFile("playerCsgoStatsResponse.json")))
     }
 
     static def stubNotFound(String playerId) {

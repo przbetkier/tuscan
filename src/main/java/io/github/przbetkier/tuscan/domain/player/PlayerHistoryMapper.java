@@ -43,10 +43,8 @@ public class PlayerHistoryMapper {
                 index++;
             }
 
-            Integer eloAfterMatch;
             Integer eloBeforeMatch = matchBefore.hasElo() ? convertToElo(matchBefore.getElo()) : STARTING_ELO_POINTS;
-
-            eloAfterMatch = getEloAfterMatch(currentMatch, matchBefore);
+            Integer eloAfterMatch = getEloAfterMatch(currentMatch, matchBefore);
 
             MatchHistory matchHistoryToAdd = new MatchHistory(currentMatch.getMatchId(),
                                                               getLocalDateTimeFromTimestamp(currentMatch.getDate()),

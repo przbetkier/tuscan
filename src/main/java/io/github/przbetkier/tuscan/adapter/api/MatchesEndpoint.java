@@ -22,12 +22,12 @@ class MatchesEndpoint {
     }
 
     @GetMapping("/simple")
-    Mono<SimpleMatchesResponse> getSimpleMatches(@RequestParam String playerId, @RequestParam Integer offset) {
+    public Mono<SimpleMatchesResponse> getSimpleMatches(@RequestParam String playerId, @RequestParam Integer offset) {
         return matchService.getMatches(playerId, offset);
     }
 
     @GetMapping
-    MatchFullDetailsResponse getMatchFullDetails(@RequestParam String matchId, @RequestParam String playerId) {
+    public MatchFullDetailsResponse getMatchFullDetails(@RequestParam String matchId, @RequestParam String playerId) {
         return matchService.getMatch(matchId, playerId);
     }
 }

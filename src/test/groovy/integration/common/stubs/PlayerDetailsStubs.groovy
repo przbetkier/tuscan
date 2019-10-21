@@ -28,6 +28,6 @@ class PlayerDetailsStubs {
                 aResponse()
                         .withStatus(404)
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
-                        .withBody(PlayerDetailsResponse.notFound())))
+                        .withBodyFile("playerDetailsNotFound.json")))
     }
 }

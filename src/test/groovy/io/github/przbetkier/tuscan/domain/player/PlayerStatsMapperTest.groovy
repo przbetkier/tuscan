@@ -5,7 +5,6 @@ import io.github.przbetkier.tuscan.domain.CsgoMap
 import spock.lang.Specification
 
 import static io.github.przbetkier.tuscan.common.SamplePlayerStats.simple
-import static io.github.przbetkier.tuscan.domain.player.PlayerStatsMapper.map
 
 class PlayerStatsMapperTest extends Specification {
 
@@ -16,7 +15,7 @@ class PlayerStatsMapperTest extends Specification {
         def playerStats = simple(kdRatio, matches)
 
         when:
-        def result = map(playerStats)
+        def result = PlayerStatsMapper.@Companion.map(playerStats)
 
         then:
         with(result) {

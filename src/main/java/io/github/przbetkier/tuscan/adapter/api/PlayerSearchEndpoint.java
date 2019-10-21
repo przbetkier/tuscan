@@ -21,7 +21,7 @@ class PlayerSearchEndpoint {
     }
 
     @GetMapping
-    Mono<PlayerSearchResponse> search(@RequestParam String nickname) {
+    public Mono<PlayerSearchResponse> search(@RequestParam String nickname) {
         return faceitSearchClient.getPlayers(nickname);
     }
 }

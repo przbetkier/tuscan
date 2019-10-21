@@ -8,7 +8,6 @@ import io.github.przbetkier.tuscan.client.match.RoundStatsDto
 import io.github.przbetkier.tuscan.client.match.TeamDto
 import io.github.przbetkier.tuscan.client.match.TeamStatsDto
 
-
 class SampleMatchStatsDto {
 
     static def zeroKdFirstPlayer(String playerId, String kills, String kdRatio) {

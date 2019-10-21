@@ -2,6 +2,7 @@ package io.github.przbetkier.tuscan.domain.player
 
 import spock.lang.Specification
 
+import static integration.common.MockedPlayer.PLAYER_ID
 import static io.github.przbetkier.tuscan.client.player.Membership.FREE
 import static io.github.przbetkier.tuscan.common.SamplePlayerDetails.simple
 import static io.github.przbetkier.tuscan.common.SamplePlayerDetails.withoutCsGoGame
@@ -11,7 +12,7 @@ class PlayerDetailsMapperTest extends Specification {
 
     def "should map player details dto to player details response"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         def playerDetails = simple(playerId)
 
         when:

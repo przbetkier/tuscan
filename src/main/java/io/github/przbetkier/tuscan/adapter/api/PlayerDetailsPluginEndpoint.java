@@ -14,11 +14,11 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/tuscan-api/plugin/players/details")
 @Timed("endpoint.playerDetailsPlugin")
-public class PlayerDetailsPluginEndpoint {
+class PlayerDetailsPluginEndpoint {
 
     private final PlayerService playerService;
 
-    public PlayerDetailsPluginEndpoint(PlayerService playerService) {
+    PlayerDetailsPluginEndpoint(PlayerService playerService) {
         this.playerService = playerService;
     }
 

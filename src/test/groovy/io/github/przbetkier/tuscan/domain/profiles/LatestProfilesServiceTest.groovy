@@ -1,4 +1,4 @@
-package io.github.przbetkier.tuscan.domain.latestProfiles
+package io.github.przbetkier.tuscan.domain.profiles
 
 import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient
 import io.github.przbetkier.tuscan.common.SampleLatestProfile

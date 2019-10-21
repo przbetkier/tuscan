@@ -10,11 +10,14 @@ import spock.util.concurrent.PollingConditions
 
 import java.time.ZonedDateTime
 
+import static integration.common.MockedPlayer.NICKNAME
+import static integration.common.MockedPlayer.PLAYER_ID
+
 class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return player details"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         def player = SamplePlayerDetails.simple(playerId)
         def nickname = player.nickname
         PlayerDetailsStubs.stubSuccessfulResponse(player)
@@ -32,8 +35,7 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return not found status when player details could not be found"() {
         given:
-        def player = SamplePlayerDetails.simple("playerId-1", "olofmeister")
-        def nickname = player.nickname
+        def nickname = NICKNAME
         PlayerDetailsStubs.stubNotFoundResponse(nickname)
 
         when:
@@ -45,7 +47,7 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return player csgo details"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         PlayerCsgoStatsStubs.stubSuccessfulResponse(playerId)
 
         when:
@@ -59,7 +61,7 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return 404 status code when player csgo stats could not be found"() {
         given:
-        def playerId = "playerId-1"
+        def playerId = PLAYER_ID
         PlayerCsgoStatsStubs.stubNotFound(playerId)
 
         when:
@@ -72,7 +74,7 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
     @Unroll
     def "should return active ban flag"() {
         given:
-        def playerId = "playerId"
+        def playerId = PLAYER_ID
         def player = SamplePlayerDetails.banned(playerId, banStartsAt)
         PlayerDetailsStubs.stubSuccessfulResponse(player)
 

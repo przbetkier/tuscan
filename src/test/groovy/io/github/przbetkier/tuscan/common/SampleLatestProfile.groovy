@@ -1,12 +1,14 @@
 package io.github.przbetkier.tuscan.common
 
-import io.github.przbetkier.tuscan.domain.latestProfiles.LatestProfile
+import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
 
 import java.time.LocalDateTime
 
+import static integration.common.MockedPlayer.NICKNAME
+
 class SampleLatestProfile {
 
-    def static simple(String nickname = "player-1", date = LocalDateTime.now()) {
+    def static simple(String nickname = NICKNAME, date = LocalDateTime.now()) {
         return new LatestProfile(
                 nickname,
                 "https://avatar.url",
@@ -15,6 +17,5 @@ class SampleLatestProfile {
                 1.21,
                 date
         )
-
     }
 }
