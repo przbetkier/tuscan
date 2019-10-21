@@ -3,6 +3,7 @@ package io.github.przbetkier.tuscan.domain.match;
 import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
 import io.github.przbetkier.tuscan.client.match.FaceitMatchClient;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -20,6 +21,7 @@ public class MatchService {
                 .onErrorResume(e -> faceitMatchClient.fallbackToV1Matches(playerId));
     }
 
+    @Cacheable(value = "playerMatch", key = "{#playerId, #matchId}")
     public MatchFullDetailsResponse getMatch(String matchId, String playerId) {
         return faceitMatchClient.getMatchDetails(matchId, playerId);
     }
