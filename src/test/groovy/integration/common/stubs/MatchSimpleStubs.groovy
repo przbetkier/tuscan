@@ -16,20 +16,18 @@ class MatchSimpleStubs {
     static void stubSuccessfulResponse(LocalDateTime startedAt, LocalDateTime finishedAt, String matchId, String playerId) {
 
         stubFor(get(urlMatching("/players/$playerId/history(.*?)"))
-                .willReturn(
-                        aResponse()
-                                .withStatus(200)
-                                .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
-                                .withBody(MatchSimpleDetailsResponse.successfulResponse(startedAt, finishedAt, matchId))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
+                        .withBody(MatchSimpleDetailsResponse.successfulResponse(startedAt, finishedAt, matchId))
                 ))
     }
 
     static void stubFailedResponse(String playerId) {
 
         stubFor(get(urlMatching("/players/$playerId/history(.*?)"))
-                .willReturn(
-                        aResponse()
-                                .withStatus(503)
-                                .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)))
+                .willReturn(aResponse()
+                        .withStatus(503)
+                        .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)))
     }
 }

@@ -18,8 +18,10 @@ class SimpleMatchListMapperTest extends Specification {
                         new SimpleMatchDto("matchId-3", startedAt, finishedAt)
                 ]
         )
+
         when:
         def result = SimpleMatchListMapper.map(dto)
+
         then:
         result.matchesCount == dto.matchesCount
         result.simpleMatchList.size() == dto.matchesCount
@@ -41,6 +43,7 @@ class SimpleMatchListMapperTest extends Specification {
 
         when:
         def result = SimpleMatchListMapper.mapForOpenApi(matches)
+
         then:
         result.matchesCount == matches.size()
         result.simpleMatchList.size() == matches.size()

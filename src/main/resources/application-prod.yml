@@ -18,4 +18,6 @@ management:
         port: 2004
     web:
       server:
-        auto-time-requests: true
+        request:
+          autotime:
+            enabled: true
