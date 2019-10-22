@@ -15,8 +15,7 @@ class PlayerDetailsStubs {
     static def stubSuccessfulResponse(PlayerDetails playerDetails) {
         def nickname = playerDetails.nickname
         stubFor(get(urlEqualTo("/players?nickname=$nickname"))
-                .willReturn(
-                aResponse()
+                .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
                         .withBody(PlayerDetailsResponse.simple(playerDetails))))
@@ -24,8 +23,7 @@ class PlayerDetailsStubs {
 
     static def stubNotFoundResponse(String nickname) {
         stubFor(get(urlEqualTo("/players?nickname=$nickname"))
-                .willReturn(
-                aResponse()
+                .willReturn(aResponse()
                         .withStatus(404)
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
                         .withBodyFile("playerDetailsNotFound.json")))

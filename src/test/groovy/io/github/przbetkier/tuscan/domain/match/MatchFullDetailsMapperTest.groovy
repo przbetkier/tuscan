@@ -44,6 +44,18 @@ class MatchFullDetailsMapperTest extends Specification {
         }
     }
 
+    def "should return loss result when player did not play in winner team"() {
+        given:
+        def playerId = "playerId"
+        def stubDto = SampleMatchStatsDto.forPlayerWhoLost(playerId)
+
+        when:
+        def response = MatchFullDetailsMapper.@Companion.map(stubDto, playerId)
+
+        then:
+        response.result == MatchResult.LOSS
+    }
+
     def 'should map K/D with kills number when player has no deaths'() {
         given:
         def playerId = "playerId"

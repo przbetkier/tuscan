@@ -11,8 +11,7 @@ class PlayerHistoryStubs {
 
     static void successful(String playerId) {
         stubFor(get(urlPathEqualTo("/stats/api/v1/stats/time/users/$playerId/games/csgo"))
-                .willReturn(
-                aResponse()
+                .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
                         .withBodyFile("playerHistoryResponse.json"))

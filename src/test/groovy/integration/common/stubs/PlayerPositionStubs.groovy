@@ -15,10 +15,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 class PlayerPositionStubs {
 
     static def stubSuccessfulApiResponse(String playerId, int position, String region) {
-
         stubFor(get(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)"))
-                .willReturn(
-                aResponse()
+                .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
                         .withBody(PlayerPositionResponse.simplePosition(position))))
@@ -29,16 +27,14 @@ class PlayerPositionStubs {
         stubFor(get(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)"))
                 .inScenario(SCENARIO_NAME)
                 .whenScenarioStateIs(STARTED)
-                .willReturn(
-                aResponse()
+                .willReturn(aResponse()
                         .withStatus(INTERNAL_SERVER_ERROR.value()))
                 .willSetStateTo("service-unavailable"))
 
         stubFor(get(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)"))
                 .inScenario(SCENARIO_NAME)
                 .whenScenarioStateIs("service-unavailable")
-                .willReturn(
-                aResponse()
+                .willReturn(aResponse()
                         .withStatus(OK.value())
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
                         .withBody(PlayerPositionResponse.simplePosition(position))))

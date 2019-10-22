@@ -14,6 +14,7 @@ class PlayerPositionMapperTest extends Specification {
 
         when:
         def response = PlayerPositionMapper.map(playerId, new Tuple2<Position, Position>(regionPosition, countryPosition))
+
         then:
         response.playerId == playerId
         response.positionInRegion == 32119

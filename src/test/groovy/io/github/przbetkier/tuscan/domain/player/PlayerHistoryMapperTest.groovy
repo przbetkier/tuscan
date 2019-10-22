@@ -15,7 +15,7 @@ class PlayerHistoryMapperTest extends Specification {
         def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
+        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
 
         then:
         result.matchHistory.size() == 100
@@ -31,7 +31,7 @@ class PlayerHistoryMapperTest extends Specification {
         def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
+        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
 
         then:
         result.matchHistory.size() == 100
@@ -46,7 +46,7 @@ class PlayerHistoryMapperTest extends Specification {
         def playerHistoryDto = new PlayerHistoryDto(matchesList)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
+        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
 
         then:
         result.matchHistory.size() == 99
@@ -62,7 +62,7 @@ class PlayerHistoryMapperTest extends Specification {
         def playerHistoryDto = new PlayerHistoryDto(matchesList)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
+        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
 
         then:
         result.matchHistory.size() == 3
@@ -83,7 +83,7 @@ class PlayerHistoryMapperTest extends Specification {
         def playerHistoryDto = new PlayerHistoryDto(matchesList)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.getMatchHistoryDtoList())
+        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
 
         then:
         result.matchHistory.size() == 3
@@ -93,6 +93,18 @@ class PlayerHistoryMapperTest extends Specification {
         result.matchHistory[1].elo == 1050
         result.matchHistory[2].eloDiff == 0
         result.matchHistory[2].elo == PlayerHistoryMapper.STARTING_ELO_POINTS
+    }
+
+    def "should map to empty list when history has no matches"() {
+        given:
+        def playerHistoryDto = new PlayerHistoryDto([])
+
+        when:
+        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+
+        then:
+        noExceptionThrown()
+        result.matchHistory == []
     }
 
     static generateMatchHistoryDto(Integer elo, int matches) {
