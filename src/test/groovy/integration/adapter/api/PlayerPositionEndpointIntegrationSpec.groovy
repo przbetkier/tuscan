@@ -3,6 +3,7 @@ package integration.adapter.api
 import com.github.tomakehurst.wiremock.client.WireMock
 import integration.BaseIntegrationSpec
 import integration.common.stubs.PlayerPositionStubs
+import spock.util.concurrent.PollingConditions
 
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
 import static com.github.tomakehurst.wiremock.client.WireMock.moreThan
@@ -10,6 +11,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
 import static integration.common.MockedPlayer.PLAYER_ID
 
 class PlayerPositionEndpointIntegrationSpec extends BaseIntegrationSpec {
+
+    PollingConditions pollingConditions = new PollingConditions()
 
     def "should return player position with ok status"() {
         given:
@@ -29,7 +32,7 @@ class PlayerPositionEndpointIntegrationSpec extends BaseIntegrationSpec {
         response.body.positionInCountry == position
     }
 
-    def "should retry when service unavailable and get player position"() {
+    def "should retry when service unavailable and get player position eventually"() {
         given:
         def playerId = PLAYER_ID
         def region = "EU"
@@ -42,6 +45,8 @@ class PlayerPositionEndpointIntegrationSpec extends BaseIntegrationSpec {
 
         then:
         response.statusCodeValue == 200
-        WireMock.verify(moreThan(2), getRequestedFor(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)")))
+        pollingConditions.within(5, {
+            WireMock.verify(moreThan(2), getRequestedFor(urlMatching("/rankings/games/csgo/regions/$region/players/$playerId?(.*?)")))
+        })
     }
 }

@@ -7,6 +7,7 @@ import io.github.przbetkier.tuscan.client.player.MatchHistoryDto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +24,10 @@ public class PlayerHistoryMapper {
     }
 
     public static PlayerHistoryResponse map(List<MatchHistoryDto> historyMatches) {
+
+        if (historyMatches.isEmpty()) {
+            return new PlayerHistoryResponse(Collections.emptyList());
+        }
 
         historyMatches = filterHistory(historyMatches);
 
@@ -80,6 +85,7 @@ public class PlayerHistoryMapper {
         }
         return new PlayerHistoryResponse(matchHistoryList);
     }
+
     private static Integer getEloAfterMatch(MatchHistoryDto currentMatch, MatchHistoryDto matchBefore) {
         return currentMatch.hasElo() ? convertToElo(currentMatch.getElo()) : getPreviousOrDefault(matchBefore);
     }

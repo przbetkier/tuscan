@@ -14,6 +14,10 @@ class SampleMatchStatsDto {
         return create(playerId, kills, kdRatio)
     }
 
+    static def forPlayerWhoLost(String playerId) {
+        return create("player-who-won", '14', '4.0')
+    }
+
     static def simple(String playerId) {
         return create(playerId, '14', '4.0')
     }
