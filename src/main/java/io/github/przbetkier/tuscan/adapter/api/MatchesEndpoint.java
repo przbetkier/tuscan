@@ -27,7 +27,7 @@ class MatchesEndpoint {
     }
 
     @GetMapping
-    public MatchFullDetailsResponse getMatchFullDetails(@RequestParam String matchId, @RequestParam String playerId) {
+    public Mono<MatchFullDetailsResponse> getMatchFullDetails(@RequestParam String matchId, @RequestParam String playerId) {
         return matchService.getMatch(matchId, playerId);
     }
 }
