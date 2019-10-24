@@ -8,7 +8,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 
-class LocalDateTimeSupplierTest extends Specification {
+class InstantSupplierTest extends Specification {
 
     @Subject
     InstantSupplier instantSupplier = new InstantSupplier()
