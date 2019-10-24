@@ -1,5 +1,6 @@
 package integration.common.stubs
 
+import groovy.transform.CompileStatic
 import integration.common.response.PlayerDetailsResponse
 import io.github.przbetkier.tuscan.client.player.PlayerDetails
 
@@ -10,6 +11,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
+@CompileStatic
 class PlayerDetailsStubs {
 
     static def stubSuccessfulResponse(PlayerDetails playerDetails) {

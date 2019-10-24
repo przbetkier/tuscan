@@ -1,5 +1,7 @@
 package integration.common.stubs
 
+import groovy.transform.CompileStatic
+
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
 import static com.github.tomakehurst.wiremock.client.WireMock.get
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor
@@ -7,6 +9,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
+@CompileStatic
 class MatchDetailsStubs {
 
     static void stubSuccessfulResponse(String matchId) {

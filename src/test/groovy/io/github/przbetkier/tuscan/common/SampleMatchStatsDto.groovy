@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.common
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.client.match.MatchFullDetailsDto
 import io.github.przbetkier.tuscan.client.match.MatchStatsDto
 import io.github.przbetkier.tuscan.client.match.PlayerDto
@@ -8,6 +9,7 @@ import io.github.przbetkier.tuscan.client.match.RoundStatsDto
 import io.github.przbetkier.tuscan.client.match.TeamDto
 import io.github.przbetkier.tuscan.client.match.TeamStatsDto
 
+@CompileStatic
 class SampleMatchStatsDto {
 
     static def zeroKdFirstPlayer(String playerId, String kills, String kdRatio) {
