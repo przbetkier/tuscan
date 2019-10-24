@@ -35,7 +35,8 @@ class SampleMatchFullDetailsResponse {
                                 [playerOne, playerTwo].toSet()),
                 ],
                 "team-1",
-                MatchResult.WIN
+                MatchResult.WIN,
+                "url-1"
         )
     }
 }

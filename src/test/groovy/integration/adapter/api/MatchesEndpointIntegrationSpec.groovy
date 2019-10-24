@@ -2,7 +2,9 @@ package integration.adapter.api
 
 import com.github.tomakehurst.wiremock.client.WireMock
 import integration.BaseIntegrationSpec
-import integration.common.stubs.MatchDetailedStubs
+import integration.common.stubs.MatchDemoStubs
+import integration.common.stubs.MatchDetailsStubs
+import integration.common.stubs.MatchSimpleStubs
 import integration.common.stubs.PlayerHistoryStubs
 
 import java.time.LocalDateTime
@@ -10,8 +12,6 @@ import java.time.LocalDateTime
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
 import static integration.common.MockedPlayer.PLAYER_ID
-import static integration.common.stubs.MatchSimpleStubs.stubFailedResponse
-import static integration.common.stubs.MatchSimpleStubs.stubSuccessfulResponse
 
 class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
@@ -21,7 +21,7 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         def matchId = UUID.randomUUID().toString()
         def startedAt = LocalDateTime.of(2018, 10, 1, 10, 0)
         def finishedAt = LocalDateTime.of(2018, 10, 1, 11, 0)
-        stubSuccessfulResponse(startedAt, finishedAt, matchId, playerId)
+        MatchSimpleStubs.stubSuccessfulResponse(startedAt, finishedAt, matchId, playerId)
 
         when:
         def response = restTemplate.getForEntity(localUrl("/faceit/matches/simple?playerId=$playerId&offset=0"), Map)
@@ -37,7 +37,7 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
     def "should return match list with ids and dates even if main api is down"() {
         given:
         def playerId = PLAYER_ID
-        stubFailedResponse(playerId)
+        MatchSimpleStubs.stubFailedResponse(playerId)
         PlayerHistoryStubs.successful(playerId)
 
         when:
@@ -53,7 +53,8 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         def matchId = "1-0e3a1d1d-f0f4-467a-a6bf-87edcb344b04"
         def playerId = "ac71ba3c-d3d4-45e7-8be2-26aa3986867d"
 
-        MatchDetailedStubs.stubSuccessfulResponse(matchId)
+        MatchDetailsStubs.stubSuccessfulResponse(matchId)
+        MatchDemoStubs.stubSuccessfulResponse(matchId)
 
         when:
         def response = restTemplate.getForEntity(localUrl("/faceit/matches?playerId=$playerId&matchId=$matchId"), Map)
@@ -61,6 +62,7 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         then:
         response.statusCodeValue == 200
         response.body.result == 'WIN'
+        response.body.demoUrl == 'https://demos-europe-west2.faceit-cdn.net/csgo/2cf3c2b7-255e-458c-9a41-0ea1d5bdeede.dem.gz'
     }
 
     def "should return 404 when match could not be found on Faceit"() {
@@ -68,7 +70,8 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         def matchId = "1-0e3a1d1d-f0f4-467a-a6bf-87edcb344b04"
         def playerId = "ac71ba3c-d3d4-45e7-8be2-26aa3986867d"
 
-        MatchDetailedStubs.stubNotFoundResponse(matchId)
+        MatchDetailsStubs.stubNotFoundResponse(matchId)
+        MatchDemoStubs.stubSuccessfulResponse(matchId)
 
         when:
         def response = restTemplate.getForEntity(localUrl("/faceit/matches?playerId=$playerId&matchId=$matchId"), Map)
@@ -82,12 +85,64 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         def matchId = "1-0e3a1d1d-f0f4-467a-a6bf-87edcb344b04"
         def playerId = "ac71ba3c-d3d4-45e7-8be2-26aa3986867d"
 
-        MatchDetailedStubs.stubFailedResponse(matchId)
+        MatchDetailsStubs.stubFailedResponse(matchId)
+        MatchDemoStubs.stubSuccessfulResponse(matchId)
 
         when:
         def response = restTemplate.getForEntity(localUrl("/faceit/matches?playerId=$playerId&matchId=$matchId"), Map)
 
         then:
         response.statusCodeValue == 500
+    }
+
+    def "should return match details on successful Faceit response even if demo was not found"() {
+        given:
+        def matchId = "1-0e3a1d1d-f0f4-467a-a6bf-87edcb344b04"
+        def playerId = "ac71ba3c-d3d4-45e7-8be2-26aa3986867d"
+
+        MatchDetailsStubs.stubSuccessfulResponse(matchId)
+        MatchDemoStubs.stubNotFoundResponse(matchId)
+
+        when:
+        def response = restTemplate.getForEntity(localUrl("/faceit/matches?playerId=$playerId&matchId=$matchId"), Map)
+
+        then:
+        response.statusCodeValue == 200
+        response.body.result == 'WIN'
+        response.body.demoUrl == null
+    }
+
+    def "should return match details on successful Faceit response even if demo fetching threw an error"() {
+        given:
+        def matchId = "1-0e3a1d1d-f0f4-467a-a6bf-87edcb344b04"
+        def playerId = "ac71ba3c-d3d4-45e7-8be2-26aa3986867d"
+
+        MatchDetailsStubs.stubSuccessfulResponse(matchId)
+        MatchDemoStubs.stubFailedResponse(matchId)
+
+        when:
+        def response = restTemplate.getForEntity(localUrl("/faceit/matches?playerId=$playerId&matchId=$matchId"), Map)
+
+        then:
+        response.statusCodeValue == 200
+        response.body.result == 'WIN'
+        response.body.demoUrl == null
+    }
+
+    def "should return match details on successful Faceit response even if demo fetching returned no urls"() {
+        given:
+        def matchId = "1-0e3a1d1d-f0f4-467a-a6bf-87edcb344b04"
+        def playerId = "ac71ba3c-d3d4-45e7-8be2-26aa3986867d"
+
+        MatchDetailsStubs.stubSuccessfulResponse(matchId)
+        MatchDemoStubs.stubFailedResponse(matchId)
+
+        when:
+        def response = restTemplate.getForEntity(localUrl("/faceit/matches?playerId=$playerId&matchId=$matchId"), Map)
+
+        then:
+        response.statusCodeValue == 200
+        response.body.result == 'WIN'
+        response.body.demoUrl == null
     }
 }

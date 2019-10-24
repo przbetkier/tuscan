@@ -10,7 +10,7 @@ import static org.springframework.http.HttpHeaders.CONTENT_TYPE
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
 @CompileStatic
-class MatchDetailedStubs {
+class MatchDetailsStubs {
 
     static void stubSuccessfulResponse(String matchId) {
         stubFor(get(urlMatching("/matches/$matchId/stats"))

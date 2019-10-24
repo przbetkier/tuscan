@@ -1,6 +1,7 @@
 package io.github.przbetkier.tuscan.domain.match
 
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult
+import io.github.przbetkier.tuscan.common.SampleMatchDemoDto
 import io.github.przbetkier.tuscan.common.SampleMatchStatsDto
 import spock.lang.Specification
 
@@ -10,10 +11,11 @@ class MatchFullDetailsMapperTest extends Specification {
         given:
         def playerId = "playerId"
         def stubDto = SampleMatchStatsDto.simple(playerId)
+        def demoDto = SampleMatchDemoDto.simple()
         def firstPlayerStats = stubDto.matchFullDetails.first().teams.first().players.first().playerStats
 
         when:
-        def result = MatchFullDetailsMapper.@Companion.map(stubDto, playerId)
+        def result = MatchFullDetailsMapper.@Companion.map(stubDto, playerId, demoDto)
 
         then:
         noExceptionThrown()
@@ -24,6 +26,8 @@ class MatchFullDetailsMapperTest extends Specification {
         result.roundsCount == stubDto.matchFullDetails[0].roundStatsDto.roundsCount.toInteger()
         result.winnerTeam == stubDto.matchFullDetails[0].roundStatsDto.winnerTeamId
         result.teams[0].players[0].nickname == stubDto.matchFullDetails[0].teams[0].players[0].nickname
+        result.demoUrl == demoDto.urls.first()
+
         with(result.teams[0].players[0].playerStats) {
             kills == firstPlayerStats.kills.toInteger()
             assists == firstPlayerStats.assists.toInteger()
@@ -48,9 +52,10 @@ class MatchFullDetailsMapperTest extends Specification {
         given:
         def playerId = "playerId"
         def stubDto = SampleMatchStatsDto.forPlayerWhoLost(playerId)
+        def demoDto = SampleMatchDemoDto.simple()
 
         when:
-        def response = MatchFullDetailsMapper.@Companion.map(stubDto, playerId)
+        def response = MatchFullDetailsMapper.@Companion.map(stubDto, playerId, demoDto)
 
         then:
         response.result == MatchResult.LOSS
@@ -62,9 +67,10 @@ class MatchFullDetailsMapperTest extends Specification {
         def inputKills = '5'
         def inputKdRatio = '0.0'
         def stubDto = SampleMatchStatsDto.zeroKdFirstPlayer(playerId, inputKills, inputKdRatio)
+        def demoDto = SampleMatchDemoDto.simple()
 
         when:
-        def result = MatchFullDetailsMapper.@Companion.map(stubDto, playerId)
+        def result = MatchFullDetailsMapper.@Companion.map(stubDto, playerId, demoDto)
 
         then:
         with(result.teams[0].players[0].playerStats) {

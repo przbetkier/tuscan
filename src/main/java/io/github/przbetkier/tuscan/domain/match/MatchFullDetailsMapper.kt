@@ -6,6 +6,7 @@ import io.github.przbetkier.tuscan.adapter.api.response.dto.Player
 import io.github.przbetkier.tuscan.adapter.api.response.dto.PlayerStats
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team
 import io.github.przbetkier.tuscan.adapter.api.response.dto.TeamStats
+import io.github.przbetkier.tuscan.client.match.MatchDemoDto
 import io.github.przbetkier.tuscan.client.match.MatchStatsDto
 import io.github.przbetkier.tuscan.client.match.PlayerDto
 import java.math.BigDecimal
@@ -14,7 +15,7 @@ import java.math.BigDecimal.ZERO
 class MatchFullDetailsMapper {
 
     companion object {
-        fun map(matchStatsDto: MatchStatsDto, playerId: String): MatchFullDetailsResponse {
+        fun map(matchStatsDto: MatchStatsDto, playerId: String, matchDemoDto: MatchDemoDto): MatchFullDetailsResponse {
             val matchFullDetails = matchStatsDto.matchFullDetails.first()
 
             val teamOne = getTeam(matchStatsDto, 0, getPlayers(matchStatsDto, 0))
@@ -28,8 +29,13 @@ class MatchFullDetailsMapper {
                         it.roundsCount.toInt(),
                         listOf(teamOne, teamTwo),
                         it.winnerTeamId,
-                        getResult(playerId, listOf(teamOne, teamTwo), it.winnerTeamId))
+                        getResult(playerId, listOf(teamOne, teamTwo), it.winnerTeamId),
+                        getDemo(matchDemoDto))
             }
+        }
+
+        private fun getDemo(matchDemoDto: MatchDemoDto?): String? {
+            return matchDemoDto?.urls?.let { if (it.isNotEmpty()) it.first() else null }
         }
 
         private fun getPlayerFromPlayerDto(playerDto: PlayerDto): Player {

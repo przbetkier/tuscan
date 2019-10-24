@@ -14,9 +14,10 @@ public class MatchFullDetailsResponse {
     private final List<Team> teams;
     private final String winnerTeam;
     private final MatchResult result;
+    private final String demoUrl;
 
-    public MatchFullDetailsResponse(String matchId, String map, String score, Integer roundsCount, List<Team> teams,
-                                    String winnerTeam, MatchResult result) {
+    public MatchFullDetailsResponse(String matchId, String map, String score, Integer roundsCount, List<Team> teams, String winnerTeam,
+                                    MatchResult result, String demoUrl) {
         this.matchId = matchId;
         this.map = map;
         this.score = score;
@@ -24,6 +25,7 @@ public class MatchFullDetailsResponse {
         this.teams = teams;
         this.winnerTeam = winnerTeam;
         this.result = result;
+        this.demoUrl = demoUrl;
     }
 
     public String getMatchId() {
@@ -52,5 +54,9 @@ public class MatchFullDetailsResponse {
 
     public MatchResult getResult() {
         return result;
+    }
+
+    public String getDemoUrl() {
+        return demoUrl;
     }
 }
