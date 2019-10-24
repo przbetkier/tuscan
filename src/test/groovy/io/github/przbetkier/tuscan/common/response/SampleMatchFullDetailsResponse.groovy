@@ -8,7 +8,7 @@ import io.github.przbetkier.tuscan.common.SamplePlayer
 
 class SampleMatchFullDetailsResponse {
 
-    static def simple() {
+    static MatchFullDetailsResponse simple() {
         return new MatchFullDetailsResponse(
                 "matchId-1",
                 "de_inferno",
@@ -29,7 +29,8 @@ class SampleMatchFullDetailsResponse {
                                 [SamplePlayer.simple(), SamplePlayer.simple()].toSet()),
                 ],
                 "team-1",
-                MatchResult.WIN
+                MatchResult.WIN,
+                "url-1"
         )
     }
 }

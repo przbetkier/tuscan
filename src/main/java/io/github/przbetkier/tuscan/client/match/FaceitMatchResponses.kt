@@ -72,3 +72,7 @@ data class TeamStatsDto(
     @JsonProperty("Team Headshot") val headshotAvg: String
 )
 
+data class MatchDemoDto(
+    @JsonProperty("demo_url") val urls: Collection<String>
+)
+
