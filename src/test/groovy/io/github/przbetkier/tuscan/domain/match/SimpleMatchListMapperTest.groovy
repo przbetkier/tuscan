@@ -26,8 +26,8 @@ class SimpleMatchListMapperTest extends Specification {
         result.matchesCount == dto.matchesCount
         result.simpleMatchList.size() == dto.matchesCount
         result.simpleMatchList.get(0).matchId == dto.simpleMatchList.get(0).matchId
-        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00'
-        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00'
+        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00:00Z'
+        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00:00Z'
     }
 
     def "should map dto to response for open faceit api"() {
@@ -48,7 +48,7 @@ class SimpleMatchListMapperTest extends Specification {
         result.matchesCount == matches.size()
         result.simpleMatchList.size() == matches.size()
         result.simpleMatchList.get(0).matchId == matches.get(0).id
-        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00'
-        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00'
+        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00:00Z'
+        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00:00Z'
     }
 }

@@ -1,12 +1,10 @@
 package integration.common.response
 
-import java.time.LocalDateTime
-
-import static java.util.TimeZone.getTimeZone
+import java.time.Instant
 
 class MatchSimpleDetailsResponse {
 
-    def static successfulResponse(LocalDateTime startedAt, LocalDateTime finishedAt, String matchId) {
+    def static successfulResponse(Instant startedAt, Instant finishedAt, String matchId) {
         def startedAtTimestamp = convertToTimestamp(startedAt)
         def finishedAtTimestamp = convertToTimestamp(finishedAt)
         return """
@@ -148,7 +146,7 @@ class MatchSimpleDetailsResponse {
             """
     }
 
-    def static convertToTimestamp(LocalDateTime localDateTime) {
-        return localDateTime.atZone(getTimeZone("UTC").toZoneId()).toEpochSecond()
+    def static convertToTimestamp(Instant instant) {
+        return instant.toEpochMilli()
     }
 }

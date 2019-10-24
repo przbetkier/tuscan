@@ -2,6 +2,7 @@ package integration.common.stubs
 
 import integration.common.response.MatchSimpleDetailsResponse
 
+import java.time.Instant
 import java.time.LocalDateTime
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
@@ -13,7 +14,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
 class MatchSimpleStubs {
 
-    static void stubSuccessfulResponse(LocalDateTime startedAt, LocalDateTime finishedAt, String matchId, String playerId) {
+    static void stubSuccessfulResponse(Instant startedAt, Instant finishedAt, String matchId, String playerId) {
 
         stubFor(get(urlMatching("/players/$playerId/history(.*?)"))
                 .willReturn(aResponse()

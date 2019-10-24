@@ -2,14 +2,14 @@ package io.github.przbetkier.tuscan.supplier;
 
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.function.Supplier;
 
 @Component
-public class LocalDateTimeSupplier implements Supplier<LocalDateTime> {
+public class InstantSupplier implements Supplier<Instant> {
 
     @Override
-    public LocalDateTime get() {
-        return LocalDateTime.now();
+    public Instant get() {
+        return Instant.now();
     }
 }

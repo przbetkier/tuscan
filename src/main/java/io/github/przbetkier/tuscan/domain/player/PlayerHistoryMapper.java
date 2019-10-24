@@ -5,15 +5,11 @@ import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchHistory;
 import io.github.przbetkier.tuscan.client.player.MatchHistoryDto;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static java.time.Instant.ofEpochMilli;
-import static java.time.LocalDateTime.ofInstant;
-import static java.util.TimeZone.getDefault;
 
 public class PlayerHistoryMapper {
 
@@ -52,7 +48,7 @@ public class PlayerHistoryMapper {
             Integer eloAfterMatch = getEloAfterMatch(currentMatch, matchBefore);
 
             MatchHistory matchHistoryToAdd = new MatchHistory(currentMatch.getMatchId(),
-                                                              getLocalDateTimeFromTimestamp(currentMatch.getDate()),
+                                                              instantOf(currentMatch.getDate()),
                                                               eloAfterMatch,
                                                               eloAfterMatch - eloBeforeMatch,
                                                               new BigDecimal(currentMatch.getKdRatio()),
@@ -77,7 +73,7 @@ public class PlayerHistoryMapper {
             }
 
             matchHistoryList.add(new MatchHistory(firstMatch.getMatchId(),
-                                                  getLocalDateTimeFromTimestamp(firstMatch.getDate()),
+                                                  instantOf(firstMatch.getDate()),
                                                   eloAfter,
                                                   (eloAfter - eloBefore),
                                                   new BigDecimal(firstMatch.getKdRatio()),
@@ -109,7 +105,7 @@ public class PlayerHistoryMapper {
         return Integer.valueOf(eloString.replace(",", ""));
     }
 
-    private static LocalDateTime getLocalDateTimeFromTimestamp(long timestamp) {
-        return ofInstant(ofEpochMilli(timestamp), getDefault().toZoneId());
+    private static Instant instantOf(long timestamp) {
+        return Instant.ofEpochMilli(timestamp);
     }
 }

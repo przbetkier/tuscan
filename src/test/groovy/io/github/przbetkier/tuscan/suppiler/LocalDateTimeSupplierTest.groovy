@@ -1,24 +1,26 @@
 package io.github.przbetkier.tuscan.suppiler
 
-import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier
+import io.github.przbetkier.tuscan.supplier.InstantSupplier
 import spock.lang.Specification
 import spock.lang.Subject
 
+import java.time.Instant
 import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 class LocalDateTimeSupplierTest extends Specification {
 
     @Subject
-    LocalDateTimeSupplier localDateTimeSupplier = new LocalDateTimeSupplier()
+    InstantSupplier instantSupplier = new InstantSupplier()
 
     def "should return now value"() {
         when:
-        def result = localDateTimeSupplier.get()
+        def result = instantSupplier.get()
 
         then:
-        assert result instanceof LocalDateTime
-        result.year == LocalDateTime.now().year
-        result.month == LocalDateTime.now().month
-        result.dayOfMonth == LocalDateTime.now().dayOfMonth
+        assert result instanceof Instant
+        LocalDateTime.ofInstant(result, ZoneOffset.UTC).year == LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).year
+        LocalDateTime.ofInstant(result, ZoneOffset.UTC).month == LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).month
+        LocalDateTime.ofInstant(result, ZoneOffset.UTC).dayOfMonth == LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).dayOfMonth
     }
 }

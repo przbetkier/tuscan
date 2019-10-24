@@ -1,7 +1,7 @@
 package io.github.przbetkier.tuscan.domain.profiles;
 
 import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
-import io.github.przbetkier.tuscan.supplier.LocalDateTimeSupplier;
+import io.github.przbetkier.tuscan.supplier.InstantSupplier;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -10,13 +10,13 @@ import reactor.core.publisher.Mono;
 public class LatestProfileService {
 
     private final FaceitPlayerClient client;
-    private final LocalDateTimeSupplier localDateTimeSupplier;
+    private final InstantSupplier instantSupplier;
     private final LatestProfileRepository latestProfileRepository;
 
-    public LatestProfileService(FaceitPlayerClient client, LocalDateTimeSupplier localDateTimeSupplier,
+    public LatestProfileService(FaceitPlayerClient client, InstantSupplier instantSupplier,
                                 LatestProfileRepository latestProfileRepository) {
         this.client = client;
-        this.localDateTimeSupplier = localDateTimeSupplier;
+        this.instantSupplier = instantSupplier;
         this.latestProfileRepository = latestProfileRepository;
     }
 
@@ -29,7 +29,7 @@ public class LatestProfileService {
     }
 
     public Mono<LatestProfile> save(String nickname) {
-        return getLatestProfile(nickname).map(p -> LatestProfileMapper.Companion.mapAndUpdate(p, localDateTimeSupplier.get()))
+        return getLatestProfile(nickname).map(p -> LatestProfileMapper.Companion.mapAndUpdate(p, instantSupplier.get()))
                 .flatMap(latestProfileRepository::save);
     }
 
@@ -37,7 +37,7 @@ public class LatestProfileService {
         return client.getPlayerDetails(nickname)
                 .flatMap(response -> client.getPlayerCsgoStats(response.getPlayerId())
                         .map(statsResponse -> LatestProfileMapper.Companion.mapToNewFromResponses(response,
-                                                                    statsResponse,
-                                                                    localDateTimeSupplier.get())));
+                                                                                                  statsResponse,
+                                                                                                  instantSupplier.get())));
     }
 }

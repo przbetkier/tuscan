@@ -1,14 +1,14 @@
 package io.github.przbetkier.tuscan.adapter.api.response.dto;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 public class SimpleMatch {
 
     private final String matchId;
-    private final LocalDateTime startedAt;
-    private final LocalDateTime finishedAt;
+    private final Instant startedAt;
+    private final Instant finishedAt;
 
-    public SimpleMatch(String matchId, LocalDateTime startedAt, LocalDateTime finishedAt) {
+    public SimpleMatch(String matchId, Instant startedAt, Instant finishedAt) {
         this.matchId = matchId;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
@@ -18,11 +18,11 @@ public class SimpleMatch {
         return matchId;
     }
 
-    public LocalDateTime getStartedAt() {
+    public Instant getStartedAt() {
         return startedAt;
     }
 
-    public LocalDateTime getFinishedAt() {
+    public Instant getFinishedAt() {
         return finishedAt;
     }
 }

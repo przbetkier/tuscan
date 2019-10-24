@@ -19,7 +19,7 @@ class PlayerHistoryMapperTest extends Specification {
 
         then:
         result.matchHistory.size() == 100
-        result.matchHistory[0].date == LocalDateTime.ofInstant(Instant.ofEpochMilli(listOf50MatchesHistory[0].date), TimeZone.getDefault().toZoneId())
+        result.matchHistory[0].date == Instant.ofEpochMilli(listOf50MatchesHistory[0].date)
         result.matchHistory[0].eloDiff == result.matchHistory[0].elo - result.matchHistory[1].elo
         result.matchHistory[1].eloDiff == result.matchHistory[1].elo - result.matchHistory[2].elo
         result.matchHistory[19].eloDiff == result.matchHistory[19].elo - Integer.valueOf(listOf50MatchesHistory.get(20).elo)
