@@ -54,10 +54,10 @@ class MatchServiceTest extends Specification {
         def playerId = PLAYER_ID
         def matchId = "matchId-1"
         def response = SampleMatchFullDetailsResponse.simple()
-        faceitMatchClient.getMatchDetails(matchId, playerId) >> response
+        faceitMatchClient.getMatchDetails(matchId, playerId) >> Mono.just(response)
 
         when:
-        def details = matchService.getMatch(matchId, playerId)
+        def details = matchService.getMatch(matchId, playerId).block()
 
         then:
         details.result == response.result
