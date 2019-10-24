@@ -1,7 +1,7 @@
 package integration.adapter.api
 
 import integration.BaseIntegrationSpec
-import integration.common.LatestProfileSample
+import integration.common.SampleLatestProfile
 import integration.common.stubs.PlayerCsgoStatsStubs
 import integration.common.stubs.PlayerDetailsStubs
 import io.github.przbetkier.tuscan.common.SamplePlayerDetails
@@ -80,7 +80,7 @@ class LatestProfilesEndpointIntegrationSpec extends BaseIntegrationSpec {
     static def generateLatestProfiles(int count) {
         def latestProfiles = []
         count.times {
-            latestProfiles.add(LatestProfileSample.simple("nickname-$it"))
+            latestProfiles.add(SampleLatestProfile.simple("nickname-$it"))
         }
         return latestProfiles
     }

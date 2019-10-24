@@ -1,14 +1,16 @@
 package io.github.przbetkier.tuscan.common
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
 
 import java.time.LocalDateTime
 
 import static integration.common.MockedPlayer.NICKNAME
 
+@CompileStatic
 class SampleLatestProfile {
 
-    def static simple(String nickname = NICKNAME, date = LocalDateTime.now()) {
+    def static simple(String nickname = NICKNAME, LocalDateTime date = LocalDateTime.now()) {
         return new LatestProfile(
                 nickname,
                 "https://avatar.url",

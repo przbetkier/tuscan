@@ -1,12 +1,15 @@
 package integration.common.response
 
+import groovy.transform.CompileStatic
+
 import java.time.LocalDateTime
 
 import static java.util.TimeZone.getTimeZone
 
+@CompileStatic
 class MatchSimpleDetailsResponse {
 
-    def static successfulResponse(LocalDateTime startedAt, LocalDateTime finishedAt, String matchId) {
+    def static String successfulResponse(LocalDateTime startedAt, LocalDateTime finishedAt, String matchId) {
         def startedAtTimestamp = convertToTimestamp(startedAt)
         def finishedAtTimestamp = convertToTimestamp(finishedAt)
         return """

@@ -1,16 +1,18 @@
 package io.github.przbetkier.tuscan.common
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.client.player.Lifetime
 import io.github.przbetkier.tuscan.client.player.MapStatistics
 import io.github.przbetkier.tuscan.client.player.PlayerStats
 import io.github.przbetkier.tuscan.client.player.Segment
 
+@CompileStatic
 class SamplePlayerStats {
 
-    static BEST_SOLO = "de_train"
-    static BEST_TEAM = "de_mirage"
-    static WORST_SOLO = "de_mirage"
-    static WORST_TEAM = "de_train"
+    static String BEST_SOLO = "de_train"
+    static String BEST_TEAM = "de_mirage"
+    static String WORST_SOLO = "de_mirage"
+    static String WORST_TEAM = "de_train"
 
     static def simple(String kdRatio, String matches) {
 

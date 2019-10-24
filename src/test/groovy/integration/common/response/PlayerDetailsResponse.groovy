@@ -1,15 +1,17 @@
 package integration.common.response
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.client.player.Ban
 import io.github.przbetkier.tuscan.client.player.PlayerDetails
 
 import java.time.format.DateTimeFormatter
 
+@CompileStatic
 class PlayerDetailsResponse {
 
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy")
 
-    static def simple(PlayerDetails playerDetails) {
+    static def String simple(PlayerDetails playerDetails) {
         def bans = getBans(playerDetails.getBans())
         """{
             "player_id": "$playerDetails.playerId",

@@ -1,12 +1,14 @@
 package integration.common
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
 
 import java.time.LocalDateTime
 
 import static integration.common.MockedPlayer.NICKNAME
 
-class LatestProfileSample {
+@CompileStatic
+class SampleLatestProfile {
 
     static def simple(String nickname = NICKNAME) {
         return new LatestProfile(

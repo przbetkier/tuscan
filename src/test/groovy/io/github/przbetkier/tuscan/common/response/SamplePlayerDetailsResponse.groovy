@@ -1,17 +1,19 @@
 package io.github.przbetkier.tuscan.common.response
 
+import groovy.transform.CompileStatic
 import integration.common.MockedPlayer
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.BanInfo
 import io.github.przbetkier.tuscan.adapter.api.response.dto.GameDetails
 import io.github.przbetkier.tuscan.client.player.Membership
 
+@CompileStatic
 class SamplePlayerDetailsResponse {
 
-    public static ELO = 1251
-    public static LEVEL = 4
+    public static int ELO = 1251
+    public static int LEVEL = 4
 
-    static def simple(String nickname = MockedPlayer.NICKNAME) {
+    static PlayerDetailsResponse simple(String nickname = MockedPlayer.NICKNAME) {
         return new PlayerDetailsResponse(
                 MockedPlayer.NICKNAME,
                 nickname,

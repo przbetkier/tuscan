@@ -5,6 +5,6 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class MockedPlayer {
 
-    static final def PLAYER_ID = "playerId-1"
-    static final def NICKNAME = "nickname-1"
+    static final def String PLAYER_ID = "playerId-1"
+    static final def String NICKNAME = "nickname-1"
 }
