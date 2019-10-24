@@ -1,5 +1,6 @@
 package integration.common.stubs
 
+import groovy.transform.CompileStatic
 import integration.common.response.MatchSimpleDetailsResponse
 
 import java.time.Instant
@@ -12,6 +13,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
+@CompileStatic
 class MatchSimpleStubs {
 
     static void stubSuccessfulResponse(Instant startedAt, Instant finishedAt, String matchId, String playerId) {

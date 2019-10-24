@@ -1,10 +1,13 @@
 package integration.common.response
 
+import groovy.transform.CompileStatic
+
 import java.time.Instant
 
+@CompileStatic
 class MatchSimpleDetailsResponse {
 
-    def static successfulResponse(Instant startedAt, Instant finishedAt, String matchId) {
+    def static String successfulResponse(Instant startedAt, Instant finishedAt, String matchId) {
         def startedAtTimestamp = convertToTimestamp(startedAt)
         def finishedAtTimestamp = convertToTimestamp(finishedAt)
         return """

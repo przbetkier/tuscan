@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.common
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.client.player.Ban
 import io.github.przbetkier.tuscan.client.player.Csgo
 import io.github.przbetkier.tuscan.client.player.Games
@@ -10,6 +11,7 @@ import java.time.ZonedDateTime
 import static integration.common.MockedPlayer.NICKNAME
 import static integration.common.MockedPlayer.PLAYER_ID
 
+@CompileStatic
 class SamplePlayerDetails {
 
     public static Integer ELO = 1250

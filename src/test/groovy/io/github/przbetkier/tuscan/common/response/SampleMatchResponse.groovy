@@ -1,11 +1,13 @@
 package io.github.przbetkier.tuscan.common.response
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.SimpleMatch
 
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 
+@CompileStatic
 class SampleMatchResponse {
 
     static def simple() {

@@ -22,7 +22,7 @@ public class MatchService {
     }
 
     @Cacheable(value = "playerMatch", key = "{#playerId, #matchId}")
-    public MatchFullDetailsResponse getMatch(String matchId, String playerId) {
+    public Mono<MatchFullDetailsResponse> getMatch(String matchId, String playerId) {
         return faceitMatchClient.getMatchDetails(matchId, playerId);
     }
 }

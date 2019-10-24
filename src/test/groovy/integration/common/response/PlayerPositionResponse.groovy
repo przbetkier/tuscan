@@ -1,8 +1,11 @@
 package integration.common.response
 
+import groovy.transform.CompileStatic
+
+@CompileStatic
 class PlayerPositionResponse {
 
-    static def simplePosition(int position) {
+    static def String simplePosition(int position) {
         def positionUp = position + 1
 
         """ {

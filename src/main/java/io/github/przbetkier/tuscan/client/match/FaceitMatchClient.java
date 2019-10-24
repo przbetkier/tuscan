@@ -78,13 +78,11 @@ public class FaceitMatchClient {
                 .map(SimpleMatchListMapper::mapForOpenApi);
     }
 
-    public MatchFullDetailsResponse getMatchDetails(String matchId, String playerId) {
+    public Mono<MatchFullDetailsResponse> getMatchDetails(String matchId, String playerId) {
         return getMatchStats(matchId, playerId)
                 .zipWith(getDemoUrl(matchId))
-                .map(result -> MatchFullDetailsMapper.Companion.map(result.getT1(), playerId, result.getT2()))
-                .block();
+                .map(result -> MatchFullDetailsMapper.Companion.map(result.getT1(), playerId, result.getT2()));
     }
-
 
     private Mono<MatchStatsDto> getMatchStats(String matchId, String playerId) {
         return faceitClient.method(GET)

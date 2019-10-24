@@ -1,5 +1,6 @@
 package integration.common.stubs
 
+import groovy.transform.CompileStatic
 import integration.common.response.PlayerPositionResponse
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
@@ -12,6 +13,7 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR
 import static org.springframework.http.HttpStatus.OK
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
+@CompileStatic
 class PlayerPositionStubs {
 
     static def stubSuccessfulApiResponse(String playerId, int position, String region) {

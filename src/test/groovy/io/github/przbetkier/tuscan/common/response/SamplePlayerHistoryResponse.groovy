@@ -1,11 +1,13 @@
 package io.github.przbetkier.tuscan.common.response
 
+import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerHistoryResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchHistory
 
 import java.time.Instant
 import java.time.LocalDateTime
 
+@CompileStatic
 class SamplePlayerHistoryResponse {
 
     static def simple() {
