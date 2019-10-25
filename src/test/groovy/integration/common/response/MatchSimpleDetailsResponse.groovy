@@ -7,7 +7,7 @@ import java.time.Instant
 @CompileStatic
 class MatchSimpleDetailsResponse {
 
-    def static String successfulResponse(Instant startedAt, Instant finishedAt, String matchId) {
+    static String successfulResponse(Instant startedAt, Instant finishedAt, String matchId) {
         def startedAtTimestamp = convertToTimestamp(startedAt)
         def finishedAtTimestamp = convertToTimestamp(finishedAt)
         return """
@@ -150,6 +150,6 @@ class MatchSimpleDetailsResponse {
     }
 
     def static convertToTimestamp(Instant instant) {
-        return instant.toEpochMilli()
+        return instant.epochSecond
     }
 }

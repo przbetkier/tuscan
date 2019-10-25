@@ -42,6 +42,6 @@ public class SimpleMatchListMapper {
     }
 
     private static Instant mapToInstant(long timestamp) {
-        return Instant.ofEpochMilli(timestamp);
+        return Instant.ofEpochSecond(timestamp);
     }
 }
