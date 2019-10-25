@@ -2,14 +2,12 @@ package integration.common.response
 
 import groovy.transform.CompileStatic
 
-import java.time.LocalDateTime
-
-import static java.util.TimeZone.getTimeZone
+import java.time.Instant
 
 @CompileStatic
 class MatchSimpleDetailsResponse {
 
-    def static String successfulResponse(LocalDateTime startedAt, LocalDateTime finishedAt, String matchId) {
+    def static String successfulResponse(Instant startedAt, Instant finishedAt, String matchId) {
         def startedAtTimestamp = convertToTimestamp(startedAt)
         def finishedAtTimestamp = convertToTimestamp(finishedAt)
         return """
@@ -151,7 +149,7 @@ class MatchSimpleDetailsResponse {
             """
     }
 
-    def static convertToTimestamp(LocalDateTime localDateTime) {
-        return localDateTime.atZone(getTimeZone("UTC").toZoneId()).toEpochSecond()
+    def static convertToTimestamp(Instant instant) {
+        return instant.toEpochMilli()
     }
 }

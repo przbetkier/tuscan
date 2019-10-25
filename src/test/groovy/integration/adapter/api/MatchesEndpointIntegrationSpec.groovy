@@ -8,6 +8,7 @@ import integration.common.stubs.MatchSimpleStubs
 import integration.common.stubs.PlayerHistoryStubs
 
 import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
@@ -19,8 +20,8 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         given:
         def playerId = PLAYER_ID
         def matchId = UUID.randomUUID().toString()
-        def startedAt = LocalDateTime.of(2018, 10, 1, 10, 0)
-        def finishedAt = LocalDateTime.of(2018, 10, 1, 11, 0)
+        def startedAt = LocalDateTime.of(2018, 10, 1, 10, 0).toInstant(ZoneOffset.UTC)
+        def finishedAt = LocalDateTime.of(2018, 10, 1, 11, 0).toInstant(ZoneOffset.UTC)
         MatchSimpleStubs.stubSuccessfulResponse(startedAt, finishedAt, matchId, playerId)
 
         when:
@@ -29,8 +30,8 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         then:
         response.statusCodeValue == 200
         response.body.simpleMatchList[0].matchId == matchId
-        response.body.simpleMatchList[0].startedAt == '2018-10-01T10:00:00'
-        response.body.simpleMatchList[0].finishedAt == '2018-10-01T11:00:00'
+        response.body.simpleMatchList[0].startedAt == '2018-10-01T10:00:00Z'
+        response.body.simpleMatchList[0].finishedAt == '2018-10-01T11:00:00Z'
         response.body.matchesCount == 1
     }
 

@@ -3,7 +3,7 @@ package integration.common
 import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
 
-import java.time.LocalDateTime
+import java.time.Instant
 
 import static integration.common.MockedPlayer.NICKNAME
 
@@ -17,7 +17,7 @@ class SampleLatestProfile {
                 3,
                 1001,
                 1.2,
-                LocalDateTime.now()
+                Instant.now()
         )
     }
 }

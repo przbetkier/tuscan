@@ -5,6 +5,7 @@ import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.SimpleMatch
 
 import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 @CompileStatic
 class SampleMatchResponse {
@@ -14,16 +15,16 @@ class SampleMatchResponse {
                 [
                         new SimpleMatch(
                                 "matchId-1",
-                                LocalDateTime.of(2018, 10, 1, 12, 30),
-                                LocalDateTime.of(2018, 10, 1, 13, 30)),
+                                LocalDateTime.of(2018, 10, 1, 12, 30).toInstant(ZoneOffset.UTC),
+                                LocalDateTime.of(2018, 10, 1, 13, 30).toInstant(ZoneOffset.UTC)),
                         new SimpleMatch(
                                 "matchId-2",
-                                LocalDateTime.of(2018, 10, 2, 12, 30),
-                                LocalDateTime.of(2018, 10, 2, 13, 30)),
+                                LocalDateTime.of(2018, 10, 2, 12, 30).toInstant(ZoneOffset.UTC),
+                                LocalDateTime.of(2018, 10, 2, 13, 30).toInstant(ZoneOffset.UTC)),
                         new SimpleMatch(
                                 "matchId-3",
-                                LocalDateTime.of(2018, 10, 3, 12, 30),
-                                LocalDateTime.of(2018, 10, 3, 13, 30))
+                                LocalDateTime.of(2018, 10, 3, 12, 30).toInstant(ZoneOffset.UTC),
+                                LocalDateTime.of(2018, 10, 3, 13, 30).toInstant(ZoneOffset.UTC))
                 ],
                 3
         )

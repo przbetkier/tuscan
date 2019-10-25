@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Document(collection = "latestProfiles")
 public class LatestProfile {
@@ -16,10 +16,10 @@ public class LatestProfile {
     private Integer level;
     private Integer elo;
     private BigDecimal kdRatio;
-    private LocalDateTime createdOn;
+    private Instant createdOn;
 
     public LatestProfile(String nickname, String avatarUrl, Integer level, Integer elo, BigDecimal kdRatio,
-                         LocalDateTime createdOn) {
+                         Instant createdOn) {
         this.nickname = nickname;
         this.avatarUrl = avatarUrl;
         this.level = level;
@@ -48,7 +48,7 @@ public class LatestProfile {
         return kdRatio;
     }
 
-    public LocalDateTime getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 }

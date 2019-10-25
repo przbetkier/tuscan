@@ -1,10 +1,8 @@
 package io.github.przbetkier.tuscan.domain.match;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TimeZone;
 
 import io.github.przbetkier.tuscan.adapter.api.response.SimpleMatchesResponse;
 import io.github.przbetkier.tuscan.adapter.api.response.dto.SimpleMatch;
@@ -29,8 +27,8 @@ public class SimpleMatchListMapper {
         List<SimpleMatch> matches = new ArrayList<>();
         matchesSimpleDetailsDto.getSimpleMatchList()
                 .forEach(match -> matches.add(new SimpleMatch(match.getMatchId(),
-                                                              mapToLocalDate(match.getStartedAt()),
-                                                              mapToLocalDate(match.getFinishedAt()))));
+                                                              mapToInstant(match.getStartedAt()),
+                                                              mapToInstant(match.getFinishedAt()))));
         return matches;
     }
 
@@ -38,12 +36,12 @@ public class SimpleMatchListMapper {
         List<SimpleMatch> matches = new ArrayList<>();
         // Timestamp returned from Open Faceit API is incorrect and has too many digits.
         matchesSimpleDetailsDto.forEach(match -> matches.add(new SimpleMatch(match.getId(),
-                                                                             mapToLocalDate(match.getStartedAt() / 1000),
-                                                                             mapToLocalDate(match.getFinishedAt() / 1000))));
+                                                                             mapToInstant(match.getStartedAt() / 1000),
+                                                                             mapToInstant(match.getFinishedAt() / 1000))));
         return matches;
     }
 
-    private static LocalDateTime mapToLocalDate(long timestamp) {
-        return LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp), TimeZone.getTimeZone("UTC").toZoneId());
+    private static Instant mapToInstant(long timestamp) {
+        return Instant.ofEpochMilli(timestamp);
     }
 }

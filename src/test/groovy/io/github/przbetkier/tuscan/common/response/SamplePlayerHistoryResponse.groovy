@@ -4,7 +4,7 @@ import groovy.transform.CompileStatic
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerHistoryResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchHistory
 
-import java.time.LocalDateTime
+import java.time.Instant
 
 @CompileStatic
 class SamplePlayerHistoryResponse {
@@ -13,7 +13,7 @@ class SamplePlayerHistoryResponse {
         return new PlayerHistoryResponse(
                 [new MatchHistory(
                         "match-1",
-                        LocalDateTime.now(),
+                        Instant.now(),
                         2000,
                         20,
                         1.34,
@@ -21,7 +21,7 @@ class SamplePlayerHistoryResponse {
                 ),
                  new MatchHistory(
                          "match-2",
-                         LocalDateTime.now(),
+                         Instant.now(),
                          1080,
                          17,
                          1.12,
@@ -29,7 +29,7 @@ class SamplePlayerHistoryResponse {
                  ),
                  new MatchHistory(
                          "match-3",
-                         LocalDateTime.now(),
+                         Instant.now(),
                          1063,
                          10,
                          0.22,

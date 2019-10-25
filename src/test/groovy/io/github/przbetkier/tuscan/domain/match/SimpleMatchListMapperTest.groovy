@@ -9,8 +9,8 @@ class SimpleMatchListMapperTest extends Specification {
 
     def "should map dto to response"() {
         given:
-        def startedAt = 1557057600 // 2019 may 05 12:00 UTC in s
-        def finishedAt = 1557061200 // // 2019 may 05 13:00 UTC in s
+        def startedAt = 1557057600000 // 2019 may 05 12:00 UTC in ms
+        def finishedAt = 1557061200000 // // 2019 may 05 13:00 UTC in ms
         MatchesSimpleDetailsDto dto = new MatchesSimpleDetailsDto(
                 [
                         new SimpleMatchDto("matchId-1", startedAt, finishedAt),
@@ -26,14 +26,14 @@ class SimpleMatchListMapperTest extends Specification {
         result.matchesCount == dto.matchesCount
         result.simpleMatchList.size() == dto.matchesCount
         result.simpleMatchList.get(0).matchId == dto.simpleMatchList.get(0).matchId
-        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00'
-        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00'
+        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00:00Z'
+        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00:00Z'
     }
 
     def "should map dto to response for open faceit api"() {
         given:
-        def startedAt = 1557057600999 // 2019 may 05 12:00 UTC in ms
-        def finishedAt = 1557061200999 // // 2019 may 05 13:00 UTC in ms
+        def startedAt = 1557057600000000 // 2019 may 05 12:00 UTC in ns
+        def finishedAt = 1557061200000000 // // 2019 may 05 13:00 UTC in ns
         List<OpenMatchSimpleDetailsDto> matches =
                 [
                         new OpenMatchSimpleDetailsDto("matchId-1", startedAt, finishedAt),
@@ -48,7 +48,7 @@ class SimpleMatchListMapperTest extends Specification {
         result.matchesCount == matches.size()
         result.simpleMatchList.size() == matches.size()
         result.simpleMatchList.get(0).matchId == matches.get(0).id
-        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00'
-        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00'
+        result.simpleMatchList.get(0).startedAt.toString() == '2019-05-05T12:00:00Z'
+        result.simpleMatchList.get(0).finishedAt.toString() == '2019-05-05T13:00:00Z'
     }
 }
