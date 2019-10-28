@@ -51,7 +51,7 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
         PlayerCsgoStatsStubs.stubSuccessfulResponse(playerId)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/players/details/csgo/$playerId"), PlayerCsgoStatsResponse)
+        def response = restTemplate.getForEntity(localUrl("/faceit/players/details/csgo/$playerId"), Map)
 
         then:
         response.statusCodeValue == 200
@@ -65,7 +65,7 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
         PlayerCsgoStatsStubs.stubNotFound(playerId)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/players/details/csgo/$playerId"), PlayerCsgoStatsResponse)
+        def response = restTemplate.getForEntity(localUrl("/faceit/players/details/csgo/$playerId"), Map)
 
         then:
         response.statusCodeValue == 404

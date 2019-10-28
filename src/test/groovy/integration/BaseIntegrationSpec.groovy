@@ -1,5 +1,6 @@
 package integration
 
+
 import integration.common.WireMockRunner
 import io.github.przbetkier.tuscan.TuscanApplication
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfileRepository
@@ -30,7 +31,7 @@ class BaseIntegrationSpec extends Specification {
     LatestProfileRepository latestProfileRepository
 
     @Autowired
-    CacheManager cacheManager;
+    CacheManager cacheManager
 
     @LocalServerPort
     protected int port

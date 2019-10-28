@@ -18,7 +18,7 @@ class PlayerDetailsPluginEndpointIntegrationSpec extends BaseIntegrationSpec {
         PlayerCsgoStatsStubs.stubSuccessfulResponse(player2.playerId)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/tuscan-api/plugin/players/details/csgo?nickname=${player1.nickname},${player2.nickname}"), DetailedPlayerCsgoStatsResponse[].class)
+        def response = restTemplate.getForEntity(localUrl("/tuscan-api/plugin/players/details/csgo?nickname=${player1.nickname},${player2.nickname}"), Map[].class)
 
         then:
         response.statusCodeValue == 200
@@ -38,7 +38,7 @@ class PlayerDetailsPluginEndpointIntegrationSpec extends BaseIntegrationSpec {
         PlayerCsgoStatsStubs.stubNotFound(player2.playerId)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/tuscan-api/plugin/players/details/csgo?nickname=${player1.nickname},${player2.nickname}"), DetailedPlayerCsgoStatsResponse[].class)
+        def response = restTemplate.getForEntity(localUrl("/tuscan-api/plugin/players/details/csgo?nickname=${player1.nickname},${player2.nickname}"), Map[].class)
 
         then:
         response.statusCodeValue == 200
@@ -57,7 +57,7 @@ class PlayerDetailsPluginEndpointIntegrationSpec extends BaseIntegrationSpec {
         PlayerCsgoStatsStubs.stubNotFound(player2.playerId)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/tuscan-api/plugin/players/details/csgo?nickname=${player1.nickname},${player2.nickname}"), DetailedPlayerCsgoStatsResponse[].class)
+        def response = restTemplate.getForEntity(localUrl("/tuscan-api/plugin/players/details/csgo?nickname=${player1.nickname},${player2.nickname}"), Map[].class)
 
         then:
         response.statusCodeValue == 200
