@@ -150,6 +150,6 @@ class MatchSimpleDetailsResponse {
     }
 
     def static convertToTimestamp(Instant instant) {
-        return instant.epochSecond
+        return instant.getEpochSecond()
     }
 }
