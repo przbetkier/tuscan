@@ -35,8 +35,8 @@ ext {
 
 group = 'io.github.przbetkier'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 8
-targetCompatibility = 8
+sourceCompatibility = 11
+targetCompatibility = 11
 
 repositories {
     mavenCentral()
