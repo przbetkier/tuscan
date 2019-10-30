@@ -32,7 +32,6 @@ public class PlayerService {
 
     @Cacheable(value = "playerDetails", key = "{#nickname}")
     public Mono<PlayerDetailsResponse> getPlayerDetails(String nickname) {
-        logger.info("Started FACEIT API request for {}", nickname);
         return faceitPlayerClient.getPlayerDetails(nickname);
     }
 
@@ -60,7 +59,8 @@ public class PlayerService {
                 // Combine id with nickname
                 .map(details -> new Pair<>(details.getPlayerId(), details.getNickname()))
                 // Fetch CSGO stats using ID and pass the nickname further
-                .flatMap(p -> Mono.zip(getCsgoStats(p.component1()).onErrorResume(e -> Mono.empty()), Mono.just(p.component2()))
+                .flatMap(p -> Mono.zip(getCsgoStats(p.component1()).onErrorResume(e -> Mono.empty()),
+                                       Mono.just(p.component2()))
                         // map to extended response - plugin HAS to know relation STATS<=>nickname!
                         .map(t -> DetailedPlayerCsgoStatsResponse.fromPlayerCsgoStatsResponse(t.getT1(), t.getT2())));
     }
