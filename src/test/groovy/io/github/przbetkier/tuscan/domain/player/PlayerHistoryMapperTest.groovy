@@ -5,30 +5,29 @@ import io.github.przbetkier.tuscan.client.player.PlayerHistoryDto
 import spock.lang.Specification
 
 import java.time.Instant
-import java.time.LocalDateTime
 
 class PlayerHistoryMapperTest extends Specification {
 
-    def "should map dto with 120 matches to last 100 matches player history response"() {
+    def "should map dto with 100 matches to last 100 matches player history response"() {
         given:
-        def listOf50MatchesHistory = generateMatchHistoryDto(1200, 120)
-        def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
+        def listOf100matchesHistory = generateMatchHistoryDto(1200, 100)
+        def playerHistoryDto = new PlayerHistoryDto(listOf100matchesHistory)
 
         when:
         def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
 
         then:
         result.matchHistory.size() == 100
-        result.matchHistory[0].date == Instant.ofEpochMilli(listOf50MatchesHistory[0].date)
+        result.matchHistory[0].date == Instant.ofEpochMilli(listOf100matchesHistory[0].date)
         result.matchHistory[0].eloDiff == result.matchHistory[0].elo - result.matchHistory[1].elo
         result.matchHistory[1].eloDiff == result.matchHistory[1].elo - result.matchHistory[2].elo
-        result.matchHistory[19].eloDiff == result.matchHistory[19].elo - Integer.valueOf(listOf50MatchesHistory.get(20).elo)
+        result.matchHistory[19].eloDiff == result.matchHistory[19].elo - Integer.valueOf(listOf100matchesHistory.get(20).elo)
     }
 
-    def "should map dto with 120 matches to last 100 without elo"() {
+    def "should map dto with 100 matches to last 100 without elo"() {
         given:
-        def listOf50MatchesHistory = generateMatchHistoryDto(null, 120)
-        def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
+        def listOf100matchesHistory = generateMatchHistoryDto(null, 100)
+        def playerHistoryDto = new PlayerHistoryDto(listOf100matchesHistory)
 
         when:
         def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
@@ -105,6 +104,22 @@ class PlayerHistoryMapperTest extends Specification {
         then:
         noExceptionThrown()
         result.matchHistory == []
+    }
+
+    def "should map last 100 matches without elo to correct player history response"() {
+        given:
+        def listOf50MatchesHistory = generateMatchHistoryDto(null, 100)
+        def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
+
+        when:
+        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+
+        then:
+        result.matchHistory.size() == 100
+        result.matchHistory.forEach {
+            assert it.elo == 0
+            assert it.eloDiff == 0
+        }
     }
 
     static generateMatchHistoryDto(Integer elo, int matches) {

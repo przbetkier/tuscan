@@ -44,7 +44,12 @@ public class PlayerHistoryMapper {
                 index++;
             }
 
-            Integer eloBeforeMatch = matchBefore.hasElo() ? convertToElo(matchBefore.getElo()) : STARTING_ELO_POINTS;
+            Integer eloBeforeMatch;
+            if (index < MAX_MATCHES_COUNT) {
+                 eloBeforeMatch = matchBefore.hasElo() ? convertToElo(matchBefore.getElo()) : STARTING_ELO_POINTS;
+            } else {
+                eloBeforeMatch = matchBefore.hasElo() ? convertToElo(matchBefore.getElo()) : 0;
+            }
             Integer eloAfterMatch = getEloAfterMatch(currentMatch, matchBefore);
 
             MatchHistory matchHistoryToAdd = new MatchHistory(currentMatch.getMatchId(),
@@ -58,11 +63,11 @@ public class PlayerHistoryMapper {
 
         // If matches list has less matches than MAX_MATCHES_COUNT it indicates that
         // the last match is his first ever played
-        if (lastMatches.size() <= MAX_MATCHES_COUNT) {
-            MatchHistoryDto firstMatch = historyMatches.get(historySize - 1);
+        Integer eloAfter;
+        Integer eloBefore;
+        MatchHistoryDto firstMatch = historyMatches.get(historySize - 1);
 
-            Integer eloAfter;
-            Integer eloBefore;
+        if (lastMatches.size() != MAX_MATCHES_COUNT) {
 
             if (firstMatch.hasElo()) {
                 eloAfter = convertToElo(firstMatch.getElo());
@@ -72,13 +77,17 @@ public class PlayerHistoryMapper {
                 eloBefore = STARTING_ELO_POINTS;
             }
 
+        } else {
+            eloAfter = 0;
+            eloBefore = 0;
+        }
+
             matchHistoryList.add(new MatchHistory(firstMatch.getMatchId(),
                                                   instantOf(firstMatch.getDate()),
                                                   eloAfter,
                                                   (eloAfter - eloBefore),
                                                   new BigDecimal(firstMatch.getKdRatio()),
                                                   Integer.parseInt(firstMatch.getHsPercentage())));
-        }
         return new PlayerHistoryResponse(matchHistoryList);
     }
 
