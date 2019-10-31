@@ -26,7 +26,7 @@ class LatestProfilesEndpoint {
     private final LatestProfileService latestProfileService;
 
     LatestProfilesEndpoint(LatestProfileService latestProfileService) {
-        this.emitter = EmitterProcessor.create();
+        this.emitter = EmitterProcessor.create(false);
         this.latestProfileService = latestProfileService;
     }
 
