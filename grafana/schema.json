@@ -59,43 +59,57 @@
       "targets": [
         {
           "refCount": 0,
-          "refId": "A",
-          "target": "alias(endpointLatestProfiles.exception.None.method.GET.outcome.SUCCESS.status.200.uri._tuscan-api_latest-profiles.p99, 'latest-endpoints')"
+          "refId": "J",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_matches.p99, 'faceit-matches')",
+          "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "B",
-          "target": "alias(endpointMatchesEndpoint.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_matches.p99, 'faceit-matches')"
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_matches_simple.p99, 'faceit-matches-simple')",
+          "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "C",
-          "target": "alias(endpointMatchesEndpoint.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_matches_simple.p99, 'faceit-matches-simple')"
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._tuscan-api_plugin_players_details_csgo.p99, 'plugin')",
+          "textEditor": false
         },
         {
           "refCount": 0,
-          "refId": "D",
-          "target": "alias(endpointPlayerDetails.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_players_details.p99, 'player-details')"
-        },
-        {
-          "refCount": 0,
-          "refId": "E",
-          "target": "alias(endpointPlayerDetails.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_players_details_csgo__playerId_.p99, 'player-csgo-details')"
-        },
-        {
-          "refCount": 0,
-          "refId": "F",
-          "target": "alias(endpointPlayerHistory.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_player-history__playerId_.p99, 'player-history')"
-        },
-        {
-          "refCount": 0,
-          "refId": "G",
-          "target": "alias(endpointPlayerPosition.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_player_position.p99, 'player-position')"
+          "refId": "I",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_search_players.p99, 'search')",
+          "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "H",
-          "target": "alias(endpointPlayerSearch.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_search_players.p99, 'search')"
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_player_position.p99, 'player-position')",
+          "textEditor": false
+        },
+        {
+          "refCount": 0,
+          "refId": "G",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_player-history__playerId_.p99, 'player-history')",
+          "textEditor": false
+        },
+        {
+          "refCount": 0,
+          "refId": "F",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_players_details_csgo__playerId_.p99, 'player-csgo-details')",
+          "textEditor": false
+        },
+        {
+          "refCount": 0,
+          "refId": "E",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._tuscan-api_latest-profiles.p99, 'latest-profiles')",
+          "textEditor": false
+        },
+        {
+          "refCount": 0,
+          "refId": "A",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_players_details.p99, 'player-details')",
+          "textEditor": false
         }
       ],
       "thresholds": [],
@@ -120,7 +134,7 @@
       "yaxes": [
         {
           "decimals": 0,
-          "format": "short",
+          "format": "ms",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -783,7 +797,7 @@
     "list": []
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {
@@ -803,5 +817,5 @@
   "timezone": "",
   "title": "Tuscan App",
   "uid": "SjSgC_TWz",
-  "version": 8
+  "version": 12
 }
