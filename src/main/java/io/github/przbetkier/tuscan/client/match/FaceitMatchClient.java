@@ -79,12 +79,12 @@ public class FaceitMatchClient {
     }
 
     public Mono<MatchFullDetailsResponse> getMatchDetails(String matchId, String playerId) {
-        return getMatchStats(matchId, playerId)
+        return getMatchStats(matchId)
                 .zipWith(getDemoUrl(matchId))
                 .map(result -> MatchFullDetailsMapper.Companion.map(result.getT1(), playerId, result.getT2()));
     }
 
-    private Mono<MatchStatsDto> getMatchStats(String matchId, String playerId) {
+    private Mono<MatchStatsDto> getMatchStats(String matchId) {
         return faceitClient.method(GET)
                 .uri("/matches/{matchId}/stats", matchId)
                 .retrieve()

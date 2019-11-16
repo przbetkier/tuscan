@@ -7,7 +7,7 @@ faceit-matches:
 
 faceit:
   timeout:
-    read: 1000
+    read: 3500
     connect: 1000
   retry:
     min-backoff: 300

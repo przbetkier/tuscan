@@ -2,7 +2,7 @@ package io.github.przbetkier.tuscan.config.properties;
 
 import javax.validation.constraints.Min;
 
-class Timeout {
+public class Timeout {
 
     @Min(1)
     private int read;
