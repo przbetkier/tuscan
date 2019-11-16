@@ -6,7 +6,12 @@ faceit:
 spring:
   data:
     mongodb:
-      uri: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@cluster0-shard-00-00-9mebi.mongodb.net:27017,cluster0-shard-00-01-9mebi.mongodb.net:27017,cluster0-shard-00-02-9mebi.mongodb.net:27017/${DATABASE}?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin
+      host: ${MONGO_HOST}
+      port: 27017
+      username: ${MONGO_USER}
+      password: ${MONGO_PASSWORD}
+      authentication-database: ${DATABASE}
+      database: ${DATABASE}
 
 management:
   metrics:
