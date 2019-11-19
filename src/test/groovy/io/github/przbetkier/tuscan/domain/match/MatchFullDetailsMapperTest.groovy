@@ -26,6 +26,7 @@ class MatchFullDetailsMapperTest extends Specification {
         result.roundsCount == stubDto.matchFullDetails[0].roundStatsDto.roundsCount.toInteger()
         result.winnerTeam == stubDto.matchFullDetails[0].roundStatsDto.winnerTeamId
         result.teams[0].players[0].nickname == stubDto.matchFullDetails[0].teams[0].players[0].nickname
+        result.teams.first().teamName == stubDto.matchFullDetails.first().teams.first().teamStats.teamName
         result.demoUrl == demoDto.urls.first()
 
         with(result.teams[0].players[0].playerStats) {
@@ -40,11 +41,6 @@ class MatchFullDetailsMapperTest extends Specification {
             tripleKills == firstPlayerStats.tripleKills.toInteger()
             quadroKills == firstPlayerStats.quadroKills.toInteger()
             pentaKills == firstPlayerStats.pentaKills.toInteger()
-        }
-
-        with(result.teams[0].teamStats) {
-            headshotAvg == stubDto.matchFullDetails[0].teams[0].teamStats.headshotAvg.toBigDecimal()
-            teamName == stubDto.matchFullDetails[0].teams[0].teamStats.teamName
         }
     }
 

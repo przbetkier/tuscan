@@ -5,7 +5,6 @@ import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Player
 import io.github.przbetkier.tuscan.adapter.api.response.dto.PlayerStats
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team
-import io.github.przbetkier.tuscan.adapter.api.response.dto.TeamStats
 import io.github.przbetkier.tuscan.client.match.MatchDemoDto
 import io.github.przbetkier.tuscan.client.match.MatchStatsDto
 import io.github.przbetkier.tuscan.client.match.PlayerDto
@@ -64,7 +63,7 @@ class MatchFullDetailsMapper {
 
         private fun getTeam(matchStatsDto: MatchStatsDto, teamNumber: Int, players: Set<Player>): Team {
             return matchStatsDto.matchFullDetails.first().teams[teamNumber].let {
-                Team(it.teamId, TeamStats(it.teamStats.teamName, it.teamStats.headshotAvg.toDouble()), players)
+                Team(it.teamId, it.teamStats.teamName, players)
             }
         }
 

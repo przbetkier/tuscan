@@ -1,8 +1,8 @@
 package integration
 
-
 import integration.common.WireMockRunner
 import io.github.przbetkier.tuscan.TuscanApplication
+import io.github.przbetkier.tuscan.domain.match.MatchRepository
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfileRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -11,7 +11,6 @@ import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.cache.CacheManager
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.ContextConfiguration
-import spock.lang.AutoCleanup
 import spock.lang.Specification
 
 @ContextConfiguration
@@ -26,12 +25,14 @@ class BaseIntegrationSpec extends Specification {
     @Autowired
     TestRestTemplate restTemplate
 
-    @AutoCleanup("deleteAll")
+    @Autowired
+    CacheManager cacheManager
+
     @Autowired
     LatestProfileRepository latestProfileRepository
 
     @Autowired
-    CacheManager cacheManager
+    MatchRepository matchRepository
 
     @LocalServerPort
     protected int port
@@ -44,10 +45,16 @@ class BaseIntegrationSpec extends Specification {
         WireMockRunner.start()
     }
 
-    void cleanup() {
+    def cleanup() {
         for (String name : cacheManager.getCacheNames()) {
             cacheManager.getCache(name).clear()
         }
         WireMockRunner.cleanupAll()
+        clearRepositories()
+    }
+
+    def clearRepositories() {
+        latestProfileRepository.deleteAll().subscribe()
+        matchRepository.deleteAll().subscribe()
     }
 }
