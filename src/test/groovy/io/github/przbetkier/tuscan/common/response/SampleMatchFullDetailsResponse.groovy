@@ -5,15 +5,15 @@ import io.github.przbetkier.tuscan.adapter.api.response.MatchFullDetailsResponse
 import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Player
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team
-import io.github.przbetkier.tuscan.adapter.api.response.dto.TeamStats
+
 import io.github.przbetkier.tuscan.common.SamplePlayer
 
 @CompileStatic
 class SampleMatchFullDetailsResponse {
 
     static def simple() {
-        Player playerOne = SamplePlayer.simple()
-        Player playerTwo = SamplePlayer.simple()
+        Set<Player> teamOnePlayers = [SamplePlayer.simple("playerId-2"), SamplePlayer.simple("playerId-2")].toSet()
+        Set<Player> teamTwoPlayers = [SamplePlayer.simple("playerId-3"), SamplePlayer.simple("playerId-4")].toSet()
 
         return new MatchFullDetailsResponse(
                 "matchId-1",
@@ -22,17 +22,14 @@ class SampleMatchFullDetailsResponse {
                 23,
                 [
                         new Team(
-                                "team-1",
-                                new TeamStats(
-                                        "team-One",
-                                        3.33d),
-                                [playerOne, playerTwo].toSet()),
+                                "teamId-1",
+                                "Team-One",
+                                teamOnePlayers),
                         new Team(
-                                "team-1",
-                                new TeamStats(
-                                        "team-One",
-                                        3.33d),
-                                [playerOne, playerTwo].toSet()),
+                                "teamId-2",
+                                "Team-Two",
+                                teamTwoPlayers,
+                        )
                 ],
                 "team-1",
                 MatchResult.WIN,

@@ -5,12 +5,12 @@ import java.util.Set;
 public class Team {
 
     private final String teamId;
-    private final TeamStats teamStats;
+    private final String teamName;
     private final Set<Player> players;
 
-    public Team(String teamId, TeamStats teamStats, Set<Player> players) {
+    public Team(String teamId, String teamName, Set<Player> players) {
         this.teamId = teamId;
-        this.teamStats = teamStats;
+        this.teamName = teamName;
         this.players = players;
     }
 
@@ -18,12 +18,11 @@ public class Team {
         return teamId;
     }
 
-    public TeamStats getTeamStats() {
-        return teamStats;
+    public String getTeamName() {
+        return teamName;
     }
 
     public Set<Player> getPlayers() {
         return players;
     }
-
 }

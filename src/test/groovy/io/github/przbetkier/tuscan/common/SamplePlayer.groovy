@@ -10,10 +10,10 @@ import static integration.common.MockedPlayer.PLAYER_ID
 @CompileStatic
 class SamplePlayer {
 
-    static Player simple() {
+    static Player simple(String playerId = PLAYER_ID, String nickname = NICKNAME) {
         return new Player(
-                PLAYER_ID,
-                NICKNAME,
+                playerId,
+                nickname,
                 new PlayerStats(20, 3, 10, 5, 25, 2.0,
                         1.12, 4, 0, 1, 0
                 )

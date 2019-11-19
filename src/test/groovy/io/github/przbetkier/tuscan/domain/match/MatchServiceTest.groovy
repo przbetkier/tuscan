@@ -1,6 +1,7 @@
 package io.github.przbetkier.tuscan.domain.match
 
 import io.github.przbetkier.tuscan.client.match.FaceitMatchClient
+import io.github.przbetkier.tuscan.common.SampleMatch
 import io.github.przbetkier.tuscan.common.response.SampleMatchFullDetailsResponse
 import io.github.przbetkier.tuscan.common.response.SampleMatchResponse
 import reactor.core.publisher.Mono
@@ -8,13 +9,15 @@ import spock.lang.Specification
 import spock.lang.Subject
 
 import static integration.common.MockedPlayer.PLAYER_ID
+import static io.github.przbetkier.tuscan.common.SampleMatch.MATCH_ID
 
 class MatchServiceTest extends Specification {
 
     FaceitMatchClient faceitMatchClient = Mock(FaceitMatchClient)
+    MatchRepository matchRepository = Mock(MatchRepository)
 
     @Subject
-    MatchService matchService = new MatchService(faceitMatchClient)
+    MatchService matchService = new MatchService(faceitMatchClient, matchRepository)
 
     def "should return a response with simple match list"() {
         given:
@@ -49,18 +52,34 @@ class MatchServiceTest extends Specification {
         matchesResponse.matchesCount == response.matchesCount
     }
 
-    def "should return a response with match details"() {
+    def "should not call Faceit API when match is saved in database"() {
         given:
-        def playerId = PLAYER_ID
-        def matchId = "matchId-1"
-        def response = SampleMatchFullDetailsResponse.simple()
-        faceitMatchClient.getMatchDetails(matchId, playerId) >> Mono.just(response)
+        def matchId = MATCH_ID
+        def match = SampleMatch.simple(matchId)
+        def playerInMatchId = match.teams.first().players.first().playerId
 
         when:
-        def details = matchService.getMatch(matchId, playerId).block()
+        def matchResponse = matchService.getMatch(matchId, playerInMatchId).block()
 
         then:
-        details.result == response.result
-        details.matchId == response.matchId
+        1 * matchRepository.findById(matchId) >> Mono.just(match)
+        0 * faceitMatchClient.getMatchDetails(matchId, playerInMatchId)
+        matchResponse.matchId == match.matchId
+    }
+
+    def "should call Faceit API when match is not saved in database and save it"() {
+        given:
+        def match = SampleMatchFullDetailsResponse.simple()
+        def matchId = match.matchId
+        def playerId = match.teams.first().players.first().playerId
+
+        when:
+        def matchResponse = matchService.getMatch(matchId, playerId).block()
+
+        then:
+        1 * matchRepository.findById(matchId) >> Mono.empty()
+        1 * faceitMatchClient.getMatchDetails(matchId, playerId) >> Mono.just(match)
+        1 * matchRepository.save(_ as Match) >> Mono.just(DomainMatchMapper.@Companion.fromResponse(match))
+        matchResponse.matchId == match.matchId
     }
 }
