@@ -11,7 +11,6 @@ public class LatestProfile {
 
     @Id
     private String nickname;
-
     private String avatarUrl;
     private Integer level;
     private Integer elo;

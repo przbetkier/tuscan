@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.adapter.api;
 
+import io.github.przbetkier.tuscan.adapter.api.request.LatestProfileRequest;
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfile;
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfileService;
 import io.micrometer.core.annotation.Timed;
@@ -37,9 +38,9 @@ class LatestProfilesEndpoint {
 
     @ResponseStatus(CREATED)
     @PostMapping
-    public Mono<LatestProfile> saveProfile(@RequestBody String nickname) {
+    public Mono<LatestProfile> saveProfile(@RequestBody LatestProfileRequest request) {
 
-        return latestProfileService.save(nickname).doOnSuccess(profile -> {
+        return latestProfileService.save(request).doOnSuccess(profile -> {
             try {
                 emitter.onNext(ServerSentEvent.builder(profile).build());
             } catch (Exception e) {

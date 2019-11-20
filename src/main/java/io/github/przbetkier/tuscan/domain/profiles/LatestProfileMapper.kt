@@ -1,5 +1,6 @@
 package io.github.przbetkier.tuscan.domain.profiles
 
+import io.github.przbetkier.tuscan.adapter.api.request.LatestProfileRequest
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerCsgoStatsResponse
 import io.github.przbetkier.tuscan.adapter.api.response.PlayerDetailsResponse
 import java.time.Instant
@@ -7,8 +8,8 @@ import java.time.Instant
 class LatestProfileMapper {
 
     companion object {
-        fun mapAndUpdate(profile: LatestProfile, instant: Instant): LatestProfile {
-            return profile.let {
+        fun mapAndUpdate(request: LatestProfileRequest, instant: Instant): LatestProfile {
+            return request.let {
                 LatestProfile(it.nickname,
                         it.avatarUrl,
                         it.level,
@@ -17,6 +18,7 @@ class LatestProfileMapper {
                         instant)
             }
         }
+
         fun mapToNewFromResponses(response: PlayerDetailsResponse, statsResponse: PlayerCsgoStatsResponse,
                                   instant: Instant): LatestProfile {
             return response.let {

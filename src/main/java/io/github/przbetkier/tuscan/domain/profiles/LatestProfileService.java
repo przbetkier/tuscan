@@ -1,8 +1,11 @@
 package io.github.przbetkier.tuscan.domain.profiles;
 
+import io.github.przbetkier.tuscan.adapter.api.request.LatestProfileRequest;
 import io.github.przbetkier.tuscan.client.player.FaceitPlayerClient;
 import io.github.przbetkier.tuscan.supplier.InstantSupplier;
+
 import org.springframework.stereotype.Service;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -25,19 +28,20 @@ public class LatestProfileService {
     }
 
     private Mono<LatestProfile> getLatestProfile(String nickname) {
-        return latestProfileRepository.findById(nickname).switchIfEmpty(Mono.defer(() -> fetch(nickname)));
+        return latestProfileRepository.findById(nickname)
+                .switchIfEmpty(Mono.defer(() -> fetch(nickname)));
     }
 
-    public Mono<LatestProfile> save(String nickname) {
-        return getLatestProfile(nickname).map(p -> LatestProfileMapper.Companion.mapAndUpdate(p, instantSupplier.get()))
+    public Mono<LatestProfile> save(LatestProfileRequest request) {
+        return getLatestProfile(request.getNickname())
+                .map(p -> LatestProfileMapper.Companion.mapAndUpdate(request, instantSupplier.get()))
                 .flatMap(latestProfileRepository::save);
     }
 
     private Mono<LatestProfile> fetch(String nickname) {
         return client.getPlayerDetails(nickname)
                 .flatMap(response -> client.getPlayerCsgoStats(response.getPlayerId())
-                        .map(statsResponse -> LatestProfileMapper.Companion.mapToNewFromResponses(response,
-                                                                                                  statsResponse,
-                                                                                                  instantSupplier.get())));
+                        .map(statsResponse -> LatestProfileMapper.Companion.mapToNewFromResponses(response, statsResponse,
+                                instantSupplier.get())));
     }
 }
