@@ -2,13 +2,17 @@ package integration.adapter.api
 
 import integration.BaseIntegrationSpec
 import integration.common.SampleLatestProfile
+import integration.common.request.LatestProfileSampleRequest
 import integration.common.stubs.PlayerCsgoStatsStubs
 import integration.common.stubs.PlayerDetailsStubs
 import io.github.przbetkier.tuscan.common.SamplePlayerDetails
+import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.test.StepVerifier
+
+import java.time.Instant
 
 import static integration.common.MockedPlayer.NICKNAME
 import static integration.common.MockedPlayer.PLAYER_ID
@@ -32,16 +36,50 @@ class LatestProfilesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should save new profile"() {
         given:
-        def player = SamplePlayerDetails.simple()
-        def entity = new HttpEntity(player.nickname, null)
-        PlayerDetailsStubs.stubSuccessfulResponse(player)
-        PlayerCsgoStatsStubs.stubSuccessfulResponse(player.playerId)
+        def request = LatestProfileSampleRequest.simple()
+        def entity = new HttpEntity(request, null)
+
+        assert latestProfileRepository.count().block() == 0L
 
         when:
-        def request = restTemplate.exchange(localUrl("/tuscan-api/latest-profiles"), HttpMethod.POST, entity, Map)
+        def response = restTemplate.exchange(localUrl("/tuscan-api/latest-profiles"), HttpMethod.POST, entity, Map)
 
         then:
-        request.statusCodeValue == 201
+        response.statusCodeValue == 201
+        with(response.body) {
+            nickname == request.nickname
+            level == request.level
+            kdRatio == request.kdRatio
+            avatarUrl == request.avatarUrl
+            elo == request.elo
+        }
+        latestProfileRepository.count().block() == 1L
+    }
+
+    def "should update existing profile"() {
+        given:
+        def nickname = "nickname"
+        def latestProfile = new LatestProfile(nickname, "http://avatar.url", 10, 2200, 1.31, Instant.now())
+        latestProfileRepository.save(latestProfile).block()
+
+        def request = LatestProfileSampleRequest.simple(nickname)
+        def entity = new HttpEntity(request, null)
+
+        assert latestProfileRepository.count().block() == 1L
+
+        when:
+        def response = restTemplate.exchange(localUrl("/tuscan-api/latest-profiles"), HttpMethod.POST, entity, Map)
+
+        then:
+        response.statusCodeValue == 201
+        with(response.body) {
+            nickname == request.nickname
+            level == request.level
+            kdRatio == request.kdRatio
+            avatarUrl == request.avatarUrl
+            elo == request.elo
+        }
+        latestProfileRepository.count().block() == 1L
     }
 
     def "should receive 2 SSE with new latest searched profiles"() {
