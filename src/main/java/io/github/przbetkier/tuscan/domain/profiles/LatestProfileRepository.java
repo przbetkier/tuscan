@@ -7,6 +7,6 @@ import reactor.core.publisher.Flux;
 @Repository
 interface LatestProfileRepository extends ReactiveMongoRepository<LatestProfile, String> {
 
-    Flux<LatestProfile> findTop4ByOrderByCreatedOnDesc();
+    Flux<LatestProfile> findTop6ByOrderByCreatedOnDesc();
 
 }

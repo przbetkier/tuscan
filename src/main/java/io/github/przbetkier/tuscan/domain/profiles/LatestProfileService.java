@@ -20,7 +20,7 @@ public class LatestProfileService {
     }
 
     public Flux<LatestProfile> findLatestProfiles() {
-        return latestProfileRepository.findTop4ByOrderByCreatedOnDesc();
+        return latestProfileRepository.findTop6ByOrderByCreatedOnDesc();
     }
 
     public Mono<LatestProfile> save(LatestProfileRequest request) {

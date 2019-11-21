@@ -23,7 +23,7 @@ class LatestProfilesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return four latest profiles ordered by date"() {
         given:
-        def latestProfiles = generateLatestProfiles(4)
+        def latestProfiles = generateLatestProfiles(6)
         latestProfileRepository.saveAll(latestProfiles).blockLast()
 
         when:
@@ -31,7 +31,7 @@ class LatestProfilesEndpointIntegrationSpec extends BaseIntegrationSpec {
 
         then:
         response.statusCodeValue == 200
-        response.body.size() == 4
+        response.body.size() == 6
     }
 
     def "should save new profile"() {
