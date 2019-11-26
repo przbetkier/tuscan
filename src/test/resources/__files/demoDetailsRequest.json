@@ -1,0 +1,5325 @@
+{
+  "matchId": "1-e8b11096-390a-4006-8835-d15cef4b17bf",
+  "data": [
+    {
+      "nickname": "HesloCZ",
+      "bombPlants": 1,
+      "defusals": 1,
+      "playersFlashed": 1,
+      "kills": [
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 686.6844144780584,
+            "Y": 586.2584150598404
+          },
+          "victimPosition": {
+            "X": 617.2221926425366,
+            "Y": 444.6832470183677
+          },
+          "wallbang": true,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 711.5820831948138,
+            "Y": 428.3118519884475
+          },
+          "victimPosition": {
+            "X": 489.4654586467337,
+            "Y": 442.92927194148933
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A1"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 430.29368948429186,
+            "Y": 385.1295114070811
+          },
+          "victimPosition": {
+            "X": 410.11639534158905,
+            "Y": 402.18875316863364
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 460.1127137529089,
+            "Y": 749.2535530252659
+          },
+          "victimPosition": {
+            "X": 410.918111598238,
+            "Y": 688.8082041638962
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 520.5479143020955,
+            "Y": 420.59954054812164
+          },
+          "victimPosition": {
+            "X": 447.4747288480718,
+            "Y": 495.64859025021815
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 810.7062676612367,
+            "Y": 238.6274102393617
+          },
+          "victimPosition": {
+            "X": 799.4871228806516,
+            "Y": 394.10654920212767
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 727.1201665350732,
+            "Y": 497.04760693489237
+          },
+          "victimPosition": {
+            "X": 695.6531670752992,
+            "Y": 517.8410712708818
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 453.82976775473736,
+            "Y": 589.4228801321476
+          },
+          "victimPosition": {
+            "X": 367.0250296085439,
+            "Y": 588.255160717254
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 288.0333693484042,
+            "Y": 729.3237824135638
+          },
+          "victimPosition": {
+            "X": 347.1727866314827,
+            "Y": 686.521307762633
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 318.8465913813165,
+            "Y": 454.4333664914395
+          },
+          "victimPosition": {
+            "X": 326.16648572556517,
+            "Y": 326.8118870511968
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 379.594414893617,
+            "Y": 626.30998327377
+          },
+          "victimPosition": {
+            "X": 390.5776133435838,
+            "Y": 613.6610445063164
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 326.249545482879,
+            "Y": 704.6396718126662
+          },
+          "victimPosition": {
+            "X": 318.87861535904256,
+            "Y": 677.1738255277593
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "Glock-18"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 429.3341518970246,
+            "Y": 421.16562863613694
+          },
+          "victimPosition": {
+            "X": 469.25349458735036,
+            "Y": 553.0718961675116
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 728.7161969124003,
+            "Y": 405.3369140625
+          },
+          "victimPosition": {
+            "X": 670.563796023105,
+            "Y": 587.7628991958943
+          },
+          "wallbang": true,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 513.7281198704496,
+            "Y": 459.282440834857
+          },
+          "victimPosition": {
+            "X": 417.330322265625,
+            "Y": 594.6613263069315
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 447.30745356133644,
+            "Y": 527.9997659236826
+          },
+          "victimPosition": {
+            "X": 657.892157372008,
+            "Y": 566.7533257667054
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 373.8954974235372,
+            "Y": 583.7826083568816
+          },
+          "victimPosition": {
+            "X": 412.62079766456117,
+            "Y": 585.506903465758
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 431.5523772544049,
+            "Y": 566.8698185048205
+          },
+          "victimPosition": {
+            "X": 551.0171930840675,
+            "Y": 520.8180196234521
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 580.8120337952959,
+            "Y": 391.9765910696476
+          },
+          "victimPosition": {
+            "X": 679.4917719414893,
+            "Y": 353.19813829787233
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 636.2418316780253,
+            "Y": 176.63880693151594
+          },
+          "victimPosition": {
+            "X": 361.26321995511967,
+            "Y": 214.77411797706117
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 327.03904172207444,
+            "Y": 345.5336810172872
+          },
+          "victimPosition": {
+            "X": 357.98095703125,
+            "Y": 405.6020598715924
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 434.19564754404917,
+            "Y": 570.2343814931018
+          },
+          "victimPosition": {
+            "X": 653.5773743974402,
+            "Y": 480.03919560858543
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "ReaL_Paw",
+          "killerPosition": {
+            "X": 466.5787846991356,
+            "Y": 365.12239496758644
+          },
+          "victimPosition": {
+            "X": 578.291015625,
+            "Y": 391.39531561668883
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "SG 553"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 693.6511100606715,
+            "Y": 375.44505017869017
+          },
+          "victimPosition": {
+            "X": 429.24774169921875,
+            "Y": 387.05144354637633
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 537.8188932702897,
+            "Y": 441.30829506732044
+          },
+          "victimPosition": {
+            "X": 423.26403678731714,
+            "Y": 417.210907631732
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 432.43793244057514,
+            "Y": 599.9508082613032
+          },
+          "victimPosition": {
+            "X": 431.326975720994,
+            "Y": 399.06220131732044
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 302.76886635638294,
+            "Y": 884.2508518949468
+          },
+          "victimPosition": {
+            "X": 305.33945935837767,
+            "Y": 808.6015676944813
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 427.02594513588764,
+            "Y": 517.8751543734936
+          },
+          "victimPosition": {
+            "X": 724.5741694024268,
+            "Y": 564.5556251038896
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 708.2665366314827,
+            "Y": 547.4237547529505
+          },
+          "victimPosition": {
+            "X": 468.09833283120014,
+            "Y": 557.9116918685588
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 429.12264560131314,
+            "Y": 599.9999415620845
+          },
+          "victimPosition": {
+            "X": 434.5796885388963,
+            "Y": 383.5615831740359
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 805.8726988447473,
+            "Y": 264.6552162982048
+          },
+          "victimPosition": {
+            "X": 794.5208870096409,
+            "Y": 169.4039332613032
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        }
+      ]
+    },
+    {
+      "nickname": "FOZZY__",
+      "bombPlants": 1,
+      "defusals": 0,
+      "playersFlashed": 12,
+      "kills": [
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 425.8377010264295,
+            "Y": 743.1309736535904
+          },
+          "victimPosition": {
+            "X": 815.2007407330452,
+            "Y": 749.9650930851063
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 446.5871153486536,
+            "Y": 447.86939255734706
+          },
+          "victimPosition": {
+            "X": 722.8150063372673,
+            "Y": 418.8376958319481
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 800.68359375,
+            "Y": 373.2432523686835
+          },
+          "victimPosition": {
+            "X": 939.0638505651596,
+            "Y": 430.8504989299368
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 728.7161969124003,
+            "Y": 405.3369140625
+          },
+          "victimPosition": {
+            "X": 670.563796023105,
+            "Y": 587.7628991958943
+          },
+          "wallbang": true,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 503.3067338010098,
+            "Y": 368.7479741522606
+          },
+          "victimPosition": {
+            "X": 569.5075566717919,
+            "Y": 397.7691260804521
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 513.7281198704496,
+            "Y": 459.282440834857
+          },
+          "victimPosition": {
+            "X": 417.330322265625,
+            "Y": 594.6613263069315
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 434.70523915392283,
+            "Y": 571.6594420088098
+          },
+          "victimPosition": {
+            "X": 768.2708350648271,
+            "Y": 387.41269375415555
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 447.30745356133644,
+            "Y": 527.9997659236826
+          },
+          "victimPosition": {
+            "X": 657.892157372008,
+            "Y": 566.7533257667054
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 567.8244018554688,
+            "Y": 852.7658795295878
+          },
+          "victimPosition": {
+            "X": 598.9410400390625,
+            "Y": 780.9952626329787
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 704.7177188954455,
+            "Y": 854.8578530169548
+          },
+          "victimPosition": {
+            "X": 804.4725783327792,
+            "Y": 746.4231320644947
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 754.7702221160239,
+            "Y": 856.950657621343
+          },
+          "victimPosition": {
+            "X": 822.3520611702128,
+            "Y": 696.3946533203125
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 431.5523772544049,
+            "Y": 566.8698185048205
+          },
+          "victimPosition": {
+            "X": 551.0171930840675,
+            "Y": 520.8180196234521
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 557.8762297934674,
+            "Y": 398.9398972531582
+          },
+          "victimPosition": {
+            "X": 714.7748452044548,
+            "Y": 493.8216286517204
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 580.8120337952959,
+            "Y": 391.9765910696476
+          },
+          "victimPosition": {
+            "X": 679.4917719414893,
+            "Y": 353.19813829787233
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 795.1727684507979,
+            "Y": 421.27483611411236
+          },
+          "victimPosition": {
+            "X": 546.8668057056183,
+            "Y": 413.72815720578456
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 583.0796391913232,
+            "Y": 501.29011925230634
+          },
+          "victimPosition": {
+            "X": 634.6955709254488,
+            "Y": 449.3954597635472
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 505.1236611224235,
+            "Y": 366.06019365026594
+          },
+          "victimPosition": {
+            "X": 570.2675190377743,
+            "Y": 399.60507656665555
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 327.03904172207444,
+            "Y": 345.5336810172872
+          },
+          "victimPosition": {
+            "X": 357.98095703125,
+            "Y": 405.6020598715924
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 534.1831231624521,
+            "Y": 381.68212890625
+          },
+          "victimPosition": {
+            "X": 635.9356040142952,
+            "Y": 389.5052646068816
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 547.014325730344,
+            "Y": 480.09766598965257
+          },
+          "victimPosition": {
+            "X": 405.52682430186167,
+            "Y": 599.7838251641456
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 434.19564754404917,
+            "Y": 570.2343814931018
+          },
+          "victimPosition": {
+            "X": 653.5773743974402,
+            "Y": 480.03919560858543
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 487.4350300241024,
+            "Y": 564.6320618974402
+          },
+          "victimPosition": {
+            "X": 623.60002233627,
+            "Y": 552.7502960854388
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 434.7553918716755,
+            "Y": 568.9984130859375
+          },
+          "victimPosition": {
+            "X": 587.936031260389,
+            "Y": 457.2324517432679
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 352.0724811959774,
+            "Y": 882.4482110206117
+          },
+          "victimPosition": {
+            "X": 307.09532392785906,
+            "Y": 848.9711290724733
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 432.43793244057514,
+            "Y": 599.9508082613032
+          },
+          "victimPosition": {
+            "X": 431.326975720994,
+            "Y": 399.06220131732044
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 440.15815247880647,
+            "Y": 559.3180425116357
+          },
+          "victimPosition": {
+            "X": 877.9087797124334,
+            "Y": 510.9335737025484
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 302.76886635638294,
+            "Y": 884.2508518949468
+          },
+          "victimPosition": {
+            "X": 305.33945935837767,
+            "Y": 808.6015676944813
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 573.5595378469914,
+            "Y": 849.691759474734
+          },
+          "victimPosition": {
+            "X": 482.01501724567817,
+            "Y": 795.7497194980053
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 422.27685806599067,
+            "Y": 591.0908865421376
+          },
+          "victimPosition": {
+            "X": 378.50813196060506,
+            "Y": 587.9114418841423
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 428.29919693317817,
+            "Y": 475.5162795046542
+          },
+          "victimPosition": {
+            "X": 587.2872470287566,
+            "Y": 401.32699520029917
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 421.2916207820811,
+            "Y": 597.8158569335938
+          },
+          "victimPosition": {
+            "X": 489.1306483491938,
+            "Y": 460.3335960875166
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 429.12264560131314,
+            "Y": 599.9999415620845
+          },
+          "victimPosition": {
+            "X": 434.5796885388963,
+            "Y": 383.5615831740359
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 428.9678175905917,
+            "Y": 424.17190227102725
+          },
+          "victimPosition": {
+            "X": 724.6349188622007,
+            "Y": 430.9033787504155
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 597.9283109624334,
+            "Y": 714.8327766580784
+          },
+          "victimPosition": {
+            "X": 448.8462991917387,
+            "Y": 691.0517006732048
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 690.2536205535239,
+            "Y": 575.4499200049867
+          },
+          "victimPosition": {
+            "X": 511.79415276710023,
+            "Y": 507.18601064479094
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 724.1838430851063,
+            "Y": 575.6204872942985
+          },
+          "victimPosition": {
+            "X": 452.21864091589094,
+            "Y": 512.978761551228
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 598.5822572099402,
+            "Y": 407.2203486016456
+          },
+          "victimPosition": {
+            "X": 407.7144152052859,
+            "Y": 599.1061271505152
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 903.8458381815159,
+            "Y": 511.74797118978296
+          },
+          "victimPosition": {
+            "X": 914.9822348736702,
+            "Y": 404.6931165329953
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 624.0603767557346,
+            "Y": 870.0218427942154
+          },
+          "victimPosition": {
+            "X": 442.5428025265957,
+            "Y": 789.5254841256649
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 934.9719757729388,
+            "Y": 509.08977095116956
+          },
+          "victimPosition": {
+            "X": 515.7689163532663,
+            "Y": 566.451461467337
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 762.1638391373006,
+            "Y": 387.8018513131649
+          },
+          "victimPosition": {
+            "X": 529.8906872120309,
+            "Y": 385.744317237367
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 520.5479143020955,
+            "Y": 420.59954054812164
+          },
+          "victimPosition": {
+            "X": 447.4747288480718,
+            "Y": 495.64859025021815
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 377.06852040392283,
+            "Y": 578.1659779650099
+          },
+          "victimPosition": {
+            "X": 435.3574452501662,
+            "Y": 591.5142627472572
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 493.017266456117,
+            "Y": 744.0568899601063
+          },
+          "victimPosition": {
+            "X": 587.7766580784574,
+            "Y": 766.2355333693483
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 703.0985600897607,
+            "Y": 539.7246275556848
+          },
+          "victimPosition": {
+            "X": 435.088559414478,
+            "Y": 562.1968013682264
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 453.82976775473736,
+            "Y": 589.4228801321476
+          },
+          "victimPosition": {
+            "X": 367.0250296085439,
+            "Y": 588.255160717254
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 379.594414893617,
+            "Y": 626.30998327377
+          },
+          "victimPosition": {
+            "X": 390.5776133435838,
+            "Y": 613.6610445063164
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        }
+      ]
+    },
+    {
+      "nickname": "Crony35",
+      "bombPlants": 2,
+      "defusals": 0,
+      "playersFlashed": 16,
+      "kills": [
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 326.249545482879,
+            "Y": 704.6396718126662
+          },
+          "victimPosition": {
+            "X": 318.87861535904256,
+            "Y": 677.1738255277593
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "Glock-18"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 470.0716448844747,
+            "Y": 777.5036880817819
+          },
+          "victimPosition": {
+            "X": 604.2828109416556,
+            "Y": 864.3786880817819
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 428.68626371343083,
+            "Y": 560.6272466131982
+          },
+          "victimPosition": {
+            "X": 555.7971386199301,
+            "Y": 513.755651839236
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "MAC-10"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 453.80580820935836,
+            "Y": 586.7372163813164
+          },
+          "victimPosition": {
+            "X": 374.9149403673537,
+            "Y": 583.4642061274102
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 421.51933385970744,
+            "Y": 599.9139014710771
+          },
+          "victimPosition": {
+            "X": 545.1449942081532,
+            "Y": 403.61704724900267
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 463.69876293425864,
+            "Y": 555.7550341017702
+          },
+          "victimPosition": {
+            "X": 889.6714490525266,
+            "Y": 564.2246652156748
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 480.4250384391622,
+            "Y": 566.7945699488863
+          },
+          "victimPosition": {
+            "X": 724.3354959690824,
+            "Y": 549.9717777333361
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 519.2195356653092,
+            "Y": 562.6081945541057
+          },
+          "victimPosition": {
+            "X": 927.8721845910904,
+            "Y": 559.3520111733294
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 477.2658425189079,
+            "Y": 520.2404281940866
+          },
+          "victimPosition": {
+            "X": 729.5565341381316,
+            "Y": 581.0713487990358
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 373.8954974235372,
+            "Y": 583.7826083568816
+          },
+          "victimPosition": {
+            "X": 412.62079766456117,
+            "Y": 585.506903465758
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 466.648546584109,
+            "Y": 423.8018084586935
+          },
+          "victimPosition": {
+            "X": 724.979559715758,
+            "Y": 455.3830735226895
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 613.4535054957613,
+            "Y": 579.791740255153
+          },
+          "victimPosition": {
+            "X": 689.5464178856382,
+            "Y": 530.9152254145196
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 444.4614426633145,
+            "Y": 818.6164758560506
+          },
+          "victimPosition": {
+            "X": 719.2150749044215,
+            "Y": 791.949462890625
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 636.2418316780253,
+            "Y": 176.63880693151594
+          },
+          "victimPosition": {
+            "X": 361.26321995511967,
+            "Y": 214.77411797706117
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 472.97145762342086,
+            "Y": 782.5418675199468
+          },
+          "victimPosition": {
+            "X": 624.3508586477726,
+            "Y": 870.6574135638298
+          },
+          "wallbang": true,
+          "headshot": false,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 475.2717070883893,
+            "Y": 791.397705078125
+          },
+          "victimPosition": {
+            "X": 575.7769807856133,
+            "Y": 853.6161901595744
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 787.7639056266622,
+            "Y": 145.19871488530583
+          },
+          "victimPosition": {
+            "X": 800.2792553191489,
+            "Y": 403.8861148915392
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 732.3218163023604,
+            "Y": 408.52155969498006
+          },
+          "victimPosition": {
+            "X": 717.5408156374667,
+            "Y": 590.637687520778
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 331.30533421293217,
+            "Y": 384.5745460023271
+          },
+          "victimPosition": {
+            "X": 756.93115234375,
+            "Y": 388.3937364943484
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 813.9152364527926,
+            "Y": 414.551930529006
+          },
+          "victimPosition": {
+            "X": 690.9638230344082,
+            "Y": 389.2668768700133
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 923.5906073387632,
+            "Y": 427.74076421210106
+          },
+          "victimPosition": {
+            "X": 928.2672768450798,
+            "Y": 500.05624649372504
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 645.177287649601,
+            "Y": 588.1163901471077
+          },
+          "victimPosition": {
+            "X": 478.02341867000496,
+            "Y": 462.2374384453956
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 537.8188932702897,
+            "Y": 441.30829506732044
+          },
+          "victimPosition": {
+            "X": 423.26403678731714,
+            "Y": 417.210907631732
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 378.80232141373006,
+            "Y": 516.4121043428462
+          },
+          "victimPosition": {
+            "X": 371.98716183926194,
+            "Y": 519.5288775829558
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Knife"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 437.1033169360871,
+            "Y": 581.7993488717586
+          },
+          "victimPosition": {
+            "X": 411.5914202750997,
+            "Y": 598.2184162545711
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 427.17015043218083,
+            "Y": 512.7532350256088
+          },
+          "victimPosition": {
+            "X": 432.5180832883145,
+            "Y": 366.04109094498006
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 454.2525011427859,
+            "Y": 367.42962776346405
+          },
+          "victimPosition": {
+            "X": 400.06382718999333,
+            "Y": 423.67149190699797
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 454.6194847593916,
+            "Y": 367.79942289311833
+          },
+          "victimPosition": {
+            "X": 378.7938284366689,
+            "Y": 438.42768892328786
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 710.4446605925864,
+            "Y": 491.24918024590676
+          },
+          "victimPosition": {
+            "X": 548.3082288376828,
+            "Y": 382.0951031624003
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 708.2665366314827,
+            "Y": 547.4237547529505
+          },
+          "victimPosition": {
+            "X": 468.09833283120014,
+            "Y": 557.9116918685588
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 422.9334729783078,
+            "Y": 402.2641575590093
+          },
+          "victimPosition": {
+            "X": 347.5945135887633,
+            "Y": 389.0047893118351
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 433.1665298786569,
+            "Y": 440.04472448470744
+          },
+          "victimPosition": {
+            "X": 508.673801827938,
+            "Y": 490.8143907912234
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 396.79494005568483,
+            "Y": 620.7303440824468
+          },
+          "victimPosition": {
+            "X": 349.00706189744017,
+            "Y": 616.5156782434342
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 489.1088899653008,
+            "Y": 473.8306930217337
+          },
+          "victimPosition": {
+            "X": 485.3433876849235,
+            "Y": 447.8203436668883
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 677.0885581158577,
+            "Y": 862.7974619763962
+          },
+          "victimPosition": {
+            "X": 445.7453366543384,
+            "Y": 810.7679781000664
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 938.9560131316489,
+            "Y": 447.37475456075464
+          },
+          "victimPosition": {
+            "X": 804.4320094331781,
+            "Y": 368.6238650058178
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 592.1713711353058,
+            "Y": 818.6590965757979
+          },
+          "victimPosition": {
+            "X": 471.0879451670545,
+            "Y": 794.0992769281914
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 747.9169090757979,
+            "Y": 416.1513957571476
+          },
+          "victimPosition": {
+            "X": 709.8784751080452,
+            "Y": 359.8312962308843
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 657.0443011344747,
+            "Y": 585.9018853370179
+          },
+          "victimPosition": {
+            "X": 480.7625660997756,
+            "Y": 510.65891225287254
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 388.23186346825133,
+            "Y": 456.8566862065741
+          },
+          "victimPosition": {
+            "X": 392.82842108543883,
+            "Y": 378.45788833942817
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 407.86569148936167,
+            "Y": 376.1702257521609
+          },
+          "victimPosition": {
+            "X": 424.9766508061835,
+            "Y": 438.0896061024767
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 393.43698055186167,
+            "Y": 600.7984047747673
+          },
+          "victimPosition": {
+            "X": 381.1383056640625,
+            "Y": 588.2753412774268
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 342.66083412982044,
+            "Y": 409.4417425926695
+          },
+          "victimPosition": {
+            "X": 464.8879550365691,
+            "Y": 374.4122574177194
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 438.0022414187167,
+            "Y": 540.3323364257812
+          },
+          "victimPosition": {
+            "X": 708.1223638006982,
+            "Y": 542.9638704340508
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 318.8465913813165,
+            "Y": 454.4333664914395
+          },
+          "victimPosition": {
+            "X": 326.16648572556517,
+            "Y": 326.8118870511968
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 338.91549617686167,
+            "Y": 395.5437842835771
+          },
+          "victimPosition": {
+            "X": 614.7547425615027,
+            "Y": 460.98856175199467
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 372.6499516913231,
+            "Y": 418.88877706324797
+          },
+          "victimPosition": {
+            "X": 430.86239429230386,
+            "Y": 406.30431479596075
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Galil AR"
+        }
+      ]
+    },
+    {
+      "nickname": "Stjuu92",
+      "bombPlants": 2,
+      "defusals": 0,
+      "playersFlashed": 7,
+      "kills": [
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 731.9213607463431,
+            "Y": 875.720526512633
+          },
+          "victimPosition": {
+            "X": 636.2256638547207,
+            "Y": 882.5185442985372
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 941.3654213763298,
+            "Y": 439.47274715342417
+          },
+          "victimPosition": {
+            "X": 897.1356590757979,
+            "Y": 411.4568702210771
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "P90"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 690.2536205535239,
+            "Y": 575.4499200049867
+          },
+          "victimPosition": {
+            "X": 511.79415276710023,
+            "Y": 507.18601064479094
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 724.1838430851063,
+            "Y": 575.6204872942985
+          },
+          "victimPosition": {
+            "X": 452.21864091589094,
+            "Y": 512.978761551228
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 702.5127394655917,
+            "Y": 577.9283109624334
+          },
+          "victimPosition": {
+            "X": 703.3938923287899,
+            "Y": 484.5368064718043
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 587.7847030314994,
+            "Y": 738.6641352227393
+          },
+          "victimPosition": {
+            "X": 424.6341072244847,
+            "Y": 757.1455805352393
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 687.6891700257646,
+            "Y": 853.6149175116356
+          },
+          "victimPosition": {
+            "X": 591.6006404795545,
+            "Y": 851.9747340425531
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 503.60161639274435,
+            "Y": 491.0052084415517
+          },
+          "victimPosition": {
+            "X": 409.2415537732713,
+            "Y": 408.5935746862533
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 508.2949780403299,
+            "Y": 442.02310765043217
+          },
+          "victimPosition": {
+            "X": 826.5812261053856,
+            "Y": 401.6639027696975
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 342.66083412982044,
+            "Y": 409.4417425926695
+          },
+          "victimPosition": {
+            "X": 464.8879550365691,
+            "Y": 374.4122574177194
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 703.0985600897607,
+            "Y": 539.7246275556848
+          },
+          "victimPosition": {
+            "X": 435.088559414478,
+            "Y": 562.1968013682264
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 628.0304149871176,
+            "Y": 379.3285483502327
+          },
+          "victimPosition": {
+            "X": 511.00916111722904,
+            "Y": 390.03430954953456
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 379.93554947224067,
+            "Y": 444.255299669631
+          },
+          "victimPosition": {
+            "X": 410.2474261344747,
+            "Y": 399.01261999251994
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Galil AR"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 372.6499516913231,
+            "Y": 418.88877706324797
+          },
+          "victimPosition": {
+            "X": 430.86239429230386,
+            "Y": 406.30431479596075
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Galil AR"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 470.0716448844747,
+            "Y": 777.5036880817819
+          },
+          "victimPosition": {
+            "X": 604.2828109416556,
+            "Y": 864.3786880817819
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 428.68626371343083,
+            "Y": 560.6272466131982
+          },
+          "victimPosition": {
+            "X": 555.7971386199301,
+            "Y": 513.755651839236
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "MAC-10"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 800.68359375,
+            "Y": 373.2432523686835
+          },
+          "victimPosition": {
+            "X": 939.0638505651596,
+            "Y": 430.8504989299368
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 688.7753880277593,
+            "Y": 546.5999457176695
+          },
+          "victimPosition": {
+            "X": 725.1508607255652,
+            "Y": 584.4434827439328
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 477.2658425189079,
+            "Y": 520.2404281940866
+          },
+          "victimPosition": {
+            "X": 729.5565341381316,
+            "Y": 581.0713487990358
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 754.7702221160239,
+            "Y": 856.950657621343
+          },
+          "victimPosition": {
+            "X": 822.3520611702128,
+            "Y": 696.3946533203125
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 613.4535054957613,
+            "Y": 579.791740255153
+          },
+          "victimPosition": {
+            "X": 689.5464178856382,
+            "Y": 530.9152254145196
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 557.8762297934674,
+            "Y": 398.9398972531582
+          },
+          "victimPosition": {
+            "X": 714.7748452044548,
+            "Y": 493.8216286517204
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 475.2717070883893,
+            "Y": 791.397705078125
+          },
+          "victimPosition": {
+            "X": 575.7769807856133,
+            "Y": 853.6161901595744
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 732.3218163023604,
+            "Y": 408.52155969498006
+          },
+          "victimPosition": {
+            "X": 717.5408156374667,
+            "Y": 590.637687520778
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 487.4350300241024,
+            "Y": 564.6320618974402
+          },
+          "victimPosition": {
+            "X": 623.60002233627,
+            "Y": 552.7502960854388
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 645.177287649601,
+            "Y": 588.1163901471077
+          },
+          "victimPosition": {
+            "X": 478.02341867000496,
+            "Y": 462.2374384453956
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 598.8202683469083,
+            "Y": 453.6063336311502
+          },
+          "victimPosition": {
+            "X": 667.0646115566822,
+            "Y": 564.5997197577294
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 352.0724811959774,
+            "Y": 882.4482110206117
+          },
+          "victimPosition": {
+            "X": 307.09532392785906,
+            "Y": 848.9711290724733
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 427.17015043218083,
+            "Y": 512.7532350256088
+          },
+          "victimPosition": {
+            "X": 432.5180832883145,
+            "Y": 366.04109094498006
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 573.5595378469914,
+            "Y": 849.691759474734
+          },
+          "victimPosition": {
+            "X": 482.01501724567817,
+            "Y": 795.7497194980053
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 553.7811311762383,
+            "Y": 419.8509378636137
+          },
+          "victimPosition": {
+            "X": 723.680562770113,
+            "Y": 477.9529165714345
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 422.27685806599067,
+            "Y": 591.0908865421376
+          },
+          "victimPosition": {
+            "X": 378.50813196060506,
+            "Y": 587.9114418841423
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 428.9678175905917,
+            "Y": 424.17190227102725
+          },
+          "victimPosition": {
+            "X": 724.6349188622007,
+            "Y": 430.9033787504155
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "ReaL_Paw",
+          "killerPosition": {
+            "X": 439.5515149704953,
+            "Y": 564.8344453852227
+          },
+          "victimPosition": {
+            "X": 424.89537015874333,
+            "Y": 366.1615639544548
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        }
+      ]
+    },
+    {
+      "nickname": "bgEnc",
+      "bombPlants": 5,
+      "defusals": 1,
+      "playersFlashed": 22,
+      "kills": [
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 447.02407512258975,
+            "Y": 373.1082477975399
+          },
+          "victimPosition": {
+            "X": 694.691759474734,
+            "Y": 395.56645819481383
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Galil AR"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 943.1170784158909,
+            "Y": 580.3948000644116
+          },
+          "victimPosition": {
+            "X": 948.3994504238697,
+            "Y": 690.569587869847
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 802.190253075133,
+            "Y": 310.86466038480717
+          },
+          "victimPosition": {
+            "X": 793.3998140375664,
+            "Y": 401.2903026824302
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 708.5931656208444,
+            "Y": 580.4945665724733
+          },
+          "victimPosition": {
+            "X": 450.2237587786735,
+            "Y": 387.9379986702128
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 690.8432980801197,
+            "Y": 163.4477591007314
+          },
+          "victimPosition": {
+            "X": 810.7052027925531,
+            "Y": 213.95344186336436
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 693.6511100606715,
+            "Y": 375.44505017869017
+          },
+          "victimPosition": {
+            "X": 429.24774169921875,
+            "Y": 387.05144354637633
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 766.1107619265292,
+            "Y": 385.60457270196144
+          },
+          "victimPosition": {
+            "X": 338.86552526595744,
+            "Y": 384.1387030418883
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 747.2039924783909,
+            "Y": 699.4214646359707
+          },
+          "victimPosition": {
+            "X": 741.3724339261968,
+            "Y": 654.3166400016622
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 812.6276543799867,
+            "Y": 392.332452002992
+          },
+          "victimPosition": {
+            "X": 801.9596181017287,
+            "Y": 158.1065336186835
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 805.8726988447473,
+            "Y": 264.6552162982048
+          },
+          "victimPosition": {
+            "X": 794.5208870096409,
+            "Y": 169.4039332613032
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 810.2713597074468,
+            "Y": 170.3569907330452
+          },
+          "victimPosition": {
+            "X": 407.9265967835771,
+            "Y": 172.35811274102392
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 731.9213607463431,
+            "Y": 875.720526512633
+          },
+          "victimPosition": {
+            "X": 636.2256638547207,
+            "Y": 882.5185442985372
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 686.6844144780584,
+            "Y": 586.2584150598404
+          },
+          "victimPosition": {
+            "X": 617.2221926425366,
+            "Y": 444.6832470183677
+          },
+          "wallbang": true,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 736.4098341921542,
+            "Y": 470.82912688559674
+          },
+          "victimPosition": {
+            "X": 360.2126750540226,
+            "Y": 403.9844918758311
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 434.5604689577792,
+            "Y": 444.736087880236
+          },
+          "victimPosition": {
+            "X": 764.5243932845744,
+            "Y": 412.898092066988
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 702.5127394655917,
+            "Y": 577.9283109624334
+          },
+          "victimPosition": {
+            "X": 703.3938923287899,
+            "Y": 484.5368064718043
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 711.5820831948138,
+            "Y": 428.3118519884475
+          },
+          "victimPosition": {
+            "X": 489.4654586467337,
+            "Y": 442.92927194148933
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A1"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 430.29368948429186,
+            "Y": 385.1295114070811
+          },
+          "victimPosition": {
+            "X": 410.11639534158905,
+            "Y": 402.18875316863364
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 705.7721986161902,
+            "Y": 391.0692969788896
+          },
+          "victimPosition": {
+            "X": 335.11743423786567,
+            "Y": 386.21369057513294
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 652.5877607629654,
+            "Y": 875.3626786901596
+          },
+          "victimPosition": {
+            "X": 474.67721817341254,
+            "Y": 788.6170732214096
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 741.225897606383,
+            "Y": 398.30270320811167
+          },
+          "victimPosition": {
+            "X": 666.4959197348736,
+            "Y": 586.095808313248
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 932.26806640625,
+            "Y": 429.7160891269115
+          },
+          "victimPosition": {
+            "X": 748.9991532995346,
+            "Y": 387.07172799617683
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 726.1417470079787,
+            "Y": 398.2045534823803
+          },
+          "victimPosition": {
+            "X": 744.9356923204787,
+            "Y": 402.0230621987201
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 810.7062676612367,
+            "Y": 238.6274102393617
+          },
+          "victimPosition": {
+            "X": 799.4871228806516,
+            "Y": 394.10654920212767
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 787.943426903258,
+            "Y": 151.44749418218083
+          },
+          "victimPosition": {
+            "X": 818.1128708859707,
+            "Y": 396.54535821143617
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 432.1515866543384,
+            "Y": 569.5151730801197
+          },
+          "victimPosition": {
+            "X": 755.240478515625,
+            "Y": 413.512105738863
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 288.0333693484042,
+            "Y": 729.3237824135638
+          },
+          "victimPosition": {
+            "X": 347.1727866314827,
+            "Y": 686.521307762633
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 628.0304149871176,
+            "Y": 379.3285483502327
+          },
+          "victimPosition": {
+            "X": 511.00916111722904,
+            "Y": 390.03430954953456
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        }
+      ]
+    },
+    {
+      "nickname": "GRELL_TV",
+      "bombPlants": 0,
+      "defusals": 1,
+      "playersFlashed": 17,
+      "kills": [
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 421.4893941676363,
+            "Y": 713.1920737408577
+          },
+          "victimPosition": {
+            "X": 720.631103515625,
+            "Y": 709.9933510638298
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 429.3341518970246,
+            "Y": 421.16562863613694
+          },
+          "victimPosition": {
+            "X": 469.25349458735036,
+            "Y": 553.0718961675116
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 796.2579735289229,
+            "Y": 296.2468183801529
+          },
+          "victimPosition": {
+            "X": 842.545166015625,
+            "Y": 407.8587503636137
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 688.7753880277593,
+            "Y": 546.5999457176695
+          },
+          "victimPosition": {
+            "X": 725.1508607255652,
+            "Y": 584.4434827439328
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 812.5653206033909,
+            "Y": 381.8003163439162
+          },
+          "victimPosition": {
+            "X": 906.7776034740691,
+            "Y": 412.0114460397274
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 801.6420534823803,
+            "Y": 160.5179417386968
+          },
+          "victimPosition": {
+            "X": 798.7747517037899,
+            "Y": 407.6987278715093
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 781.8165620844414,
+            "Y": 157.65843168218083
+          },
+          "victimPosition": {
+            "X": 834.1575849817154,
+            "Y": 402.9655683801529
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 445.91389108211433,
+            "Y": 550.2410141965177
+          },
+          "victimPosition": {
+            "X": 771.8013162815824,
+            "Y": 396.2216770902593
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 598.8202683469083,
+            "Y": 453.6063336311502
+          },
+          "victimPosition": {
+            "X": 667.0646115566822,
+            "Y": 564.5997197577294
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 423.047543789478,
+            "Y": 589.913187229887
+          },
+          "victimPosition": {
+            "X": 377.1281660364029,
+            "Y": 581.2362670898438
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "MP9"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 444.69025307513294,
+            "Y": 591.0314616751164
+          },
+          "victimPosition": {
+            "X": 379.23303482380317,
+            "Y": 584.1852845536902
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 427.02594513588764,
+            "Y": 517.8751543734936
+          },
+          "victimPosition": {
+            "X": 724.5741694024268,
+            "Y": 564.5556251038896
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 553.7811311762383,
+            "Y": 419.8509378636137
+          },
+          "victimPosition": {
+            "X": 723.680562770113,
+            "Y": 477.9529165714345
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 690.152730738863,
+            "Y": 555.2975528798205
+          },
+          "victimPosition": {
+            "X": 727.7181292594747,
+            "Y": 446.2329685941655
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 816.6334566156914,
+            "Y": 138.3417657081117
+          },
+          "victimPosition": {
+            "X": 656.2031198055186,
+            "Y": 182.54298433344414
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 453.77167397357044,
+            "Y": 587.288675511137
+          },
+          "victimPosition": {
+            "X": 378.6008794256981,
+            "Y": 581.7691169901096
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "M4A4"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 814.3312364943483,
+            "Y": 802.7487637134308
+          },
+          "victimPosition": {
+            "X": 444.51826379654256,
+            "Y": 809.3990764212101
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 781.5192819148936,
+            "Y": 416.1701803004488
+          },
+          "victimPosition": {
+            "X": 429.8071873441655,
+            "Y": 421.0146770071476
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 941.3654213763298,
+            "Y": 439.47274715342417
+          },
+          "victimPosition": {
+            "X": 897.1356590757979,
+            "Y": 411.4568702210771
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "P90"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 435.27917740192817,
+            "Y": 438.6626288231383
+          },
+          "victimPosition": {
+            "X": 463.2457911714594,
+            "Y": 538.8450525162068
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 421.55243569232044,
+            "Y": 704.1806225066489
+          },
+          "victimPosition": {
+            "X": 310.1400432180851,
+            "Y": 693.0656270777926
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 798.5182741855053,
+            "Y": 415.7913857317985
+          },
+          "victimPosition": {
+            "X": 814.4253864694149,
+            "Y": 195.49033307014628
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 587.7847030314994,
+            "Y": 738.6641352227393
+          },
+          "victimPosition": {
+            "X": 424.6341072244847,
+            "Y": 757.1455805352393
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 663.818047706117,
+            "Y": 390.21527229471405
+          },
+          "victimPosition": {
+            "X": 338.0466022897274,
+            "Y": 380.28737169630983
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 460.1127137529089,
+            "Y": 749.2535530252659
+          },
+          "victimPosition": {
+            "X": 410.918111598238,
+            "Y": 688.8082041638962
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 830.1991823886303,
+            "Y": 390.7469923952792
+          },
+          "victimPosition": {
+            "X": 786.8004072473404,
+            "Y": 157.02223757480053
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 508.2949780403299,
+            "Y": 442.02310765043217
+          },
+          "victimPosition": {
+            "X": 826.5812261053856,
+            "Y": 401.6639027696975
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 371.4929458942819,
+            "Y": 567.6979097406914
+          },
+          "victimPosition": {
+            "X": 381.51350305435506,
+            "Y": 585.0335303773271
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 778.3197670794548,
+            "Y": 146.5911475648271
+          },
+          "victimPosition": {
+            "X": 836.4060681931516,
+            "Y": 417.92251262258975
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 373.4195660530253,
+            "Y": 580.0385755173703
+          },
+          "victimPosition": {
+            "X": 424.4012256378823,
+            "Y": 582.9793792075299
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 515.4120668451836,
+            "Y": 383.61947566904917
+          },
+          "victimPosition": {
+            "X": 731.0142874210438,
+            "Y": 372.3419449177194
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 714.5163418384308,
+            "Y": 376.0045607546542
+          },
+          "victimPosition": {
+            "X": 711.0993600398936,
+            "Y": 549.3787010679854
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 564.5407007095662,
+            "Y": 199.52769178025264
+          },
+          "victimPosition": {
+            "X": 816.8141206781914,
+            "Y": 141.47260949966756
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Galil AR"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 379.93554947224067,
+            "Y": 444.255299669631
+          },
+          "victimPosition": {
+            "X": 410.2474261344747,
+            "Y": 399.01261999251994
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Galil AR"
+        }
+      ]
+    },
+    {
+      "nickname": "Bloodyq",
+      "bombPlants": 0,
+      "defusals": 1,
+      "playersFlashed": 3,
+      "kills": [
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 814.3312364943483,
+            "Y": 802.7487637134308
+          },
+          "victimPosition": {
+            "X": 444.51826379654256,
+            "Y": 809.3990764212101
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 597.9283109624334,
+            "Y": 714.8327766580784
+          },
+          "victimPosition": {
+            "X": 448.8462991917387,
+            "Y": 691.0517006732048
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 781.5192819148936,
+            "Y": 416.1701803004488
+          },
+          "victimPosition": {
+            "X": 429.8071873441655,
+            "Y": 421.0146770071476
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 736.4098341921542,
+            "Y": 470.82912688559674
+          },
+          "victimPosition": {
+            "X": 360.2126750540226,
+            "Y": 403.9844918758311
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 435.27917740192817,
+            "Y": 438.6626288231383
+          },
+          "victimPosition": {
+            "X": 463.2457911714594,
+            "Y": 538.8450525162068
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 433.1665298786569,
+            "Y": 440.04472448470744
+          },
+          "victimPosition": {
+            "X": 508.673801827938,
+            "Y": 490.8143907912234
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 434.5604689577792,
+            "Y": 444.736087880236
+          },
+          "victimPosition": {
+            "X": 764.5243932845744,
+            "Y": 412.898092066988
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 434.01439260929186,
+            "Y": 527.9796454247008
+          },
+          "victimPosition": {
+            "X": 639.1632859250332,
+            "Y": 570.1095645985705
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 933.7897897273936,
+            "Y": 562.2212771151928
+          },
+          "victimPosition": {
+            "X": 432.43736104762297,
+            "Y": 563.1807660041972
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 489.1088899653008,
+            "Y": 473.8306930217337
+          },
+          "victimPosition": {
+            "X": 485.3433876849235,
+            "Y": 447.8203436668883
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 677.0885581158577,
+            "Y": 862.7974619763962
+          },
+          "victimPosition": {
+            "X": 445.7453366543384,
+            "Y": 810.7679781000664
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 701.9776299659242,
+            "Y": 858.3653226811834
+          },
+          "victimPosition": {
+            "X": 376.2749594830452,
+            "Y": 871.4150027011303
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 652.5877607629654,
+            "Y": 875.3626786901596
+          },
+          "victimPosition": {
+            "X": 474.67721817341254,
+            "Y": 788.6170732214096
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 624.0603767557346,
+            "Y": 870.0218427942154
+          },
+          "victimPosition": {
+            "X": 442.5428025265957,
+            "Y": 789.5254841256649
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 934.9719757729388,
+            "Y": 509.08977095116956
+          },
+          "victimPosition": {
+            "X": 515.7689163532663,
+            "Y": 566.451461467337
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 747.9169090757979,
+            "Y": 416.1513957571476
+          },
+          "victimPosition": {
+            "X": 709.8784751080452,
+            "Y": 359.8312962308843
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 741.225897606383,
+            "Y": 398.30270320811167
+          },
+          "victimPosition": {
+            "X": 666.4959197348736,
+            "Y": 586.095808313248
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 657.0443011344747,
+            "Y": 585.9018853370179
+          },
+          "victimPosition": {
+            "X": 480.7625660997756,
+            "Y": 510.65891225287254
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 647.4307835355718,
+            "Y": 588.786478245512
+          },
+          "victimPosition": {
+            "X": 423.2799903382646,
+            "Y": 423.80297721700464
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 932.26806640625,
+            "Y": 429.7160891269115
+          },
+          "victimPosition": {
+            "X": 748.9991532995346,
+            "Y": 387.07172799617683
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 371.4929458942819,
+            "Y": 567.6979097406914
+          },
+          "victimPosition": {
+            "X": 381.51350305435506,
+            "Y": 585.0335303773271
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 726.1417470079787,
+            "Y": 398.2045534823803
+          },
+          "victimPosition": {
+            "X": 744.9356923204787,
+            "Y": 402.0230621987201
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 388.23186346825133,
+            "Y": 456.8566862065741
+          },
+          "victimPosition": {
+            "X": 392.82842108543883,
+            "Y": 378.45788833942817
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 778.3197670794548,
+            "Y": 146.5911475648271
+          },
+          "victimPosition": {
+            "X": 836.4060681931516,
+            "Y": 417.92251262258975
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 407.86569148936167,
+            "Y": 376.1702257521609
+          },
+          "victimPosition": {
+            "X": 424.9766508061835,
+            "Y": 438.0896061024767
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 733.0310448179854,
+            "Y": 404.93909470578456
+          },
+          "victimPosition": {
+            "X": 567.4660378314079,
+            "Y": 523.879274408868
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 787.943426903258,
+            "Y": 151.44749418218083
+          },
+          "victimPosition": {
+            "X": 818.1128708859707,
+            "Y": 396.54535821143617
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 432.1515866543384,
+            "Y": 569.5151730801197
+          },
+          "victimPosition": {
+            "X": 755.240478515625,
+            "Y": 413.512105738863
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 433.69273084275267,
+            "Y": 544.0068865836935
+          },
+          "victimPosition": {
+            "X": 730.0090773562167,
+            "Y": 464.92166722074467
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 515.4120668451836,
+            "Y": 383.61947566904917
+          },
+          "victimPosition": {
+            "X": 731.0142874210438,
+            "Y": 372.3419449177194
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 714.5163418384308,
+            "Y": 376.0045607546542
+          },
+          "victimPosition": {
+            "X": 711.0993600398936,
+            "Y": 549.3787010679854
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "ReaL_Paw",
+          "killerPosition": {
+            "X": 453.0670360808677,
+            "Y": 688.7933089885306
+          },
+          "victimPosition": {
+            "X": 610.693216526762,
+            "Y": 716.7560074177194
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 447.02407512258975,
+            "Y": 373.1082477975399
+          },
+          "victimPosition": {
+            "X": 694.691759474734,
+            "Y": 395.56645819481383
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Galil AR"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 796.2579735289229,
+            "Y": 296.2468183801529
+          },
+          "victimPosition": {
+            "X": 842.545166015625,
+            "Y": 407.8587503636137
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 480.4250384391622,
+            "Y": 566.7945699488863
+          },
+          "victimPosition": {
+            "X": 724.3354959690824,
+            "Y": 549.9717777333361
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 704.7177188954455,
+            "Y": 854.8578530169548
+          },
+          "victimPosition": {
+            "X": 804.4725783327792,
+            "Y": 746.4231320644947
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 466.648546584109,
+            "Y": 423.8018084586935
+          },
+          "victimPosition": {
+            "X": 724.979559715758,
+            "Y": 455.3830735226895
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 795.1727684507979,
+            "Y": 421.27483611411236
+          },
+          "victimPosition": {
+            "X": 546.8668057056183,
+            "Y": 413.72815720578456
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 472.97145762342086,
+            "Y": 782.5418675199468
+          },
+          "victimPosition": {
+            "X": 624.3508586477726,
+            "Y": 870.6574135638298
+          },
+          "wallbang": true,
+          "headshot": false,
+          "entry": false,
+          "weapon": "p250"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 547.014325730344,
+            "Y": 480.09766598965257
+          },
+          "victimPosition": {
+            "X": 405.52682430186167,
+            "Y": 599.7838251641456
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 923.5906073387632,
+            "Y": 427.74076421210106
+          },
+          "victimPosition": {
+            "X": 928.2672768450798,
+            "Y": 500.05624649372504
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 445.91389108211433,
+            "Y": 550.2410141965177
+          },
+          "victimPosition": {
+            "X": 771.8013162815824,
+            "Y": 396.2216770902593
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 440.15815247880647,
+            "Y": 559.3180425116357
+          },
+          "victimPosition": {
+            "X": 877.9087797124334,
+            "Y": 510.9335737025484
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 423.047543789478,
+            "Y": 589.913187229887
+          },
+          "victimPosition": {
+            "X": 377.1281660364029,
+            "Y": 581.2362670898438
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "MP9"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 454.6194847593916,
+            "Y": 367.79942289311833
+          },
+          "victimPosition": {
+            "X": 378.7938284366689,
+            "Y": 438.42768892328786
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 710.4446605925864,
+            "Y": 491.24918024590676
+          },
+          "victimPosition": {
+            "X": 548.3082288376828,
+            "Y": 382.0951031624003
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 428.29919693317817,
+            "Y": 475.5162795046542
+          },
+          "victimPosition": {
+            "X": 587.2872470287566,
+            "Y": 401.32699520029917
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 816.6334566156914,
+            "Y": 138.3417657081117
+          },
+          "victimPosition": {
+            "X": 656.2031198055186,
+            "Y": 182.54298433344414
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 812.6276543799867,
+            "Y": 392.332452002992
+          },
+          "victimPosition": {
+            "X": 801.9596181017287,
+            "Y": 158.1065336186835
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "M4A4"
+        }
+      ]
+    },
+    {
+      "nickname": "rethon7",
+      "bombPlants": 0,
+      "defusals": 0,
+      "playersFlashed": 0,
+      "kills": [
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 396.79494005568483,
+            "Y": 620.7303440824468
+          },
+          "victimPosition": {
+            "X": 349.00706189744017,
+            "Y": 616.5156782434342
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 598.5822572099402,
+            "Y": 407.2203486016456
+          },
+          "victimPosition": {
+            "X": 407.7144152052859,
+            "Y": 599.1061271505152
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "bgEnc",
+          "killerPosition": {
+            "X": 705.7721986161902,
+            "Y": 391.0692969788896
+          },
+          "victimPosition": {
+            "X": 335.11743423786567,
+            "Y": 386.21369057513294
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 663.818047706117,
+            "Y": 390.21527229471405
+          },
+          "victimPosition": {
+            "X": 338.0466022897274,
+            "Y": 380.28737169630983
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 573.6514379623088,
+            "Y": 388.46726437832444
+          },
+          "victimPosition": {
+            "X": 342.66835314162233,
+            "Y": 381.71817860704783
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 417.38328000332444,
+            "Y": 404.7144139066655
+          },
+          "victimPosition": {
+            "X": 482.03618151076296,
+            "Y": 511.29835250529834
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 762.1638391373006,
+            "Y": 387.8018513131649
+          },
+          "victimPosition": {
+            "X": 529.8906872120309,
+            "Y": 385.744317237367
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 377.06852040392283,
+            "Y": 578.1659779650099
+          },
+          "victimPosition": {
+            "X": 435.3574452501662,
+            "Y": 591.5142627472572
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 373.4195660530253,
+            "Y": 580.0385755173703
+          },
+          "victimPosition": {
+            "X": 424.4012256378823,
+            "Y": 582.9793792075299
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 493.017266456117,
+            "Y": 744.0568899601063
+          },
+          "victimPosition": {
+            "X": 587.7766580784574,
+            "Y": 766.2355333693483
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 338.91549617686167,
+            "Y": 395.5437842835771
+          },
+          "victimPosition": {
+            "X": 614.7547425615027,
+            "Y": 460.98856175199467
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 421.4893941676363,
+            "Y": 713.1920737408577
+          },
+          "victimPosition": {
+            "X": 720.631103515625,
+            "Y": 709.9933510638298
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 446.5871153486536,
+            "Y": 447.86939255734706
+          },
+          "victimPosition": {
+            "X": 722.8150063372673,
+            "Y": 418.8376958319481
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 421.51933385970744,
+            "Y": 599.9139014710771
+          },
+          "victimPosition": {
+            "X": 545.1449942081532,
+            "Y": 403.61704724900267
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 503.3067338010098,
+            "Y": 368.7479741522606
+          },
+          "victimPosition": {
+            "X": 569.5075566717919,
+            "Y": 397.7691260804521
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 434.70523915392283,
+            "Y": 571.6594420088098
+          },
+          "victimPosition": {
+            "X": 768.2708350648271,
+            "Y": 387.41269375415555
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 802.190253075133,
+            "Y": 310.86466038480717
+          },
+          "victimPosition": {
+            "X": 793.3998140375664,
+            "Y": 401.2903026824302
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 801.6420534823803,
+            "Y": 160.5179417386968
+          },
+          "victimPosition": {
+            "X": 798.7747517037899,
+            "Y": 407.6987278715093
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 505.1236611224235,
+            "Y": 366.06019365026594
+          },
+          "victimPosition": {
+            "X": 570.2675190377743,
+            "Y": 399.60507656665555
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 534.1831231624521,
+            "Y": 381.68212890625
+          },
+          "victimPosition": {
+            "X": 635.9356040142952,
+            "Y": 389.5052646068816
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 708.5931656208444,
+            "Y": 580.4945665724733
+          },
+          "victimPosition": {
+            "X": 450.2237587786735,
+            "Y": 387.9379986702128
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 813.9152364527926,
+            "Y": 414.551930529006
+          },
+          "victimPosition": {
+            "X": 690.9638230344082,
+            "Y": 389.2668768700133
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 434.7553918716755,
+            "Y": 568.9984130859375
+          },
+          "victimPosition": {
+            "X": 587.936031260389,
+            "Y": 457.2324517432679
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 378.80232141373006,
+            "Y": 516.4121043428462
+          },
+          "victimPosition": {
+            "X": 371.98716183926194,
+            "Y": 519.5288775829558
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Knife"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 437.1033169360871,
+            "Y": 581.7993488717586
+          },
+          "victimPosition": {
+            "X": 411.5914202750997,
+            "Y": 598.2184162545711
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "ReaL_Paw",
+          "killerPosition": {
+            "X": 651.1972760139628,
+            "Y": 882.6997278091754
+          },
+          "victimPosition": {
+            "X": 468.1230520694814,
+            "Y": 783.389580909242
+          },
+          "wallbang": true,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 454.2525011427859,
+            "Y": 367.42962776346405
+          },
+          "victimPosition": {
+            "X": 400.06382718999333,
+            "Y": 423.67149190699797
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 422.9334729783078,
+            "Y": 402.2641575590093
+          },
+          "victimPosition": {
+            "X": 347.5945135887633,
+            "Y": 389.0047893118351
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Five-SeveN"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 421.2916207820811,
+            "Y": 597.8158569335938
+          },
+          "victimPosition": {
+            "X": 489.1306483491938,
+            "Y": 460.3335960875166
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 453.77167397357044,
+            "Y": 587.288675511137
+          },
+          "victimPosition": {
+            "X": 378.6008794256981,
+            "Y": 581.7691169901096
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": true,
+          "weapon": "M4A4"
+        }
+      ]
+    },
+    {
+      "nickname": "Vint4gesesh",
+      "bombPlants": 0,
+      "defusals": 0,
+      "playersFlashed": 4,
+      "kills": [
+        {
+          "victim": "ReaL_Paw",
+          "killerPosition": {
+            "X": 949.1357421875,
+            "Y": 629.0389689993351
+          },
+          "victimPosition": {
+            "X": 911.6356642702792,
+            "Y": 422.48099469124
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 421.55243569232044,
+            "Y": 704.1806225066489
+          },
+          "victimPosition": {
+            "X": 310.1400432180851,
+            "Y": 693.0656270777926
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "M4A4"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 798.5182741855053,
+            "Y": 415.7913857317985
+          },
+          "victimPosition": {
+            "X": 814.4253864694149,
+            "Y": 195.49033307014628
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 938.9560131316489,
+            "Y": 447.37475456075464
+          },
+          "victimPosition": {
+            "X": 804.4320094331781,
+            "Y": 368.6238650058178
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "FOZZY__",
+          "killerPosition": {
+            "X": 903.8458381815159,
+            "Y": 511.74797118978296
+          },
+          "victimPosition": {
+            "X": 914.9822348736702,
+            "Y": 404.6931165329953
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 592.1713711353058,
+            "Y": 818.6590965757979
+          },
+          "victimPosition": {
+            "X": 471.0879451670545,
+            "Y": 794.0992769281914
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 830.1991823886303,
+            "Y": 390.7469923952792
+          },
+          "victimPosition": {
+            "X": 786.8004072473404,
+            "Y": 157.02223757480053
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AWP"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 393.43698055186167,
+            "Y": 600.7984047747673
+          },
+          "victimPosition": {
+            "X": 381.1383056640625,
+            "Y": 588.2753412774268
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "Crony35",
+          "killerPosition": {
+            "X": 438.0022414187167,
+            "Y": 540.3323364257812
+          },
+          "victimPosition": {
+            "X": 708.1223638006982,
+            "Y": 542.9638704340508
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "victim": "GRELL_TV",
+          "killerPosition": {
+            "X": 564.5407007095662,
+            "Y": 199.52769178025264
+          },
+          "victimPosition": {
+            "X": 816.8141206781914,
+            "Y": 141.47260949966756
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Galil AR"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 425.8377010264295,
+            "Y": 743.1309736535904
+          },
+          "victimPosition": {
+            "X": 815.2007407330452,
+            "Y": 749.9650930851063
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 453.80580820935836,
+            "Y": 586.7372163813164
+          },
+          "victimPosition": {
+            "X": 374.9149403673537,
+            "Y": 583.4642061274102
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 463.69876293425864,
+            "Y": 555.7550341017702
+          },
+          "victimPosition": {
+            "X": 889.6714490525266,
+            "Y": 564.2246652156748
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 519.2195356653092,
+            "Y": 562.6081945541057
+          },
+          "victimPosition": {
+            "X": 927.8721845910904,
+            "Y": 559.3520111733294
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 943.1170784158909,
+            "Y": 580.3948000644116
+          },
+          "victimPosition": {
+            "X": 948.3994504238697,
+            "Y": 690.569587869847
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 567.8244018554688,
+            "Y": 852.7658795295878
+          },
+          "victimPosition": {
+            "X": 598.9410400390625,
+            "Y": 780.9952626329787
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 812.5653206033909,
+            "Y": 381.8003163439162
+          },
+          "victimPosition": {
+            "X": 906.7776034740691,
+            "Y": 412.0114460397274
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "FOZZY__",
+          "killerPosition": {
+            "X": 583.0796391913232,
+            "Y": 501.29011925230634
+          },
+          "victimPosition": {
+            "X": 634.6955709254488,
+            "Y": 449.3954597635472
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 444.4614426633145,
+            "Y": 818.6164758560506
+          },
+          "victimPosition": {
+            "X": 719.2150749044215,
+            "Y": 791.949462890625
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 787.7639056266622,
+            "Y": 145.19871488530583
+          },
+          "victimPosition": {
+            "X": 800.2792553191489,
+            "Y": 403.8861148915392
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Crony35",
+          "killerPosition": {
+            "X": 331.30533421293217,
+            "Y": 384.5745460023271
+          },
+          "victimPosition": {
+            "X": 756.93115234375,
+            "Y": 388.3937364943484
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 781.8165620844414,
+            "Y": 157.65843168218083
+          },
+          "victimPosition": {
+            "X": 834.1575849817154,
+            "Y": 402.9655683801529
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 690.8432980801197,
+            "Y": 163.4477591007314
+          },
+          "victimPosition": {
+            "X": 810.7052027925531,
+            "Y": 213.95344186336436
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "ReaL_Paw",
+          "killerPosition": {
+            "X": 818.379217918883,
+            "Y": 787.1122839095744
+          },
+          "victimPosition": {
+            "X": 378.6983798412566,
+            "Y": 878.778076171875
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 766.1107619265292,
+            "Y": 385.60457270196144
+          },
+          "victimPosition": {
+            "X": 338.86552526595744,
+            "Y": 384.1387030418883
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 747.2039924783909,
+            "Y": 699.4214646359707
+          },
+          "victimPosition": {
+            "X": 741.3724339261968,
+            "Y": 654.3166400016622
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 444.69025307513294,
+            "Y": 591.0314616751164
+          },
+          "victimPosition": {
+            "X": 379.23303482380317,
+            "Y": 584.1852845536902
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": true,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "GRELL_TV",
+          "killerPosition": {
+            "X": 690.152730738863,
+            "Y": 555.2975528798205
+          },
+          "victimPosition": {
+            "X": 727.7181292594747,
+            "Y": 446.2329685941655
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "ReaL_Paw",
+          "killerPosition": {
+            "X": 622.6083763609541,
+            "Y": 540.9252312842835
+          },
+          "victimPosition": {
+            "X": 480.5342102050781,
+            "Y": 523.2804383622839
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "bgEnc",
+          "killerPosition": {
+            "X": 810.2713597074468,
+            "Y": 170.3569907330452
+          },
+          "victimPosition": {
+            "X": 407.9265967835771,
+            "Y": 172.35811274102392
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        }
+      ]
+    },
+    {
+      "nickname": "ReaL_Paw",
+      "bombPlants": 2,
+      "defusals": 0,
+      "playersFlashed": 7,
+      "kills": [
+        {
+          "victim": "Bloodyq",
+          "killerPosition": {
+            "X": 453.0670360808677,
+            "Y": 688.7933089885306
+          },
+          "victimPosition": {
+            "X": 610.693216526762,
+            "Y": 716.7560074177194
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "Glock-18"
+        },
+        {
+          "victim": "HesloCZ",
+          "killerPosition": {
+            "X": 466.5787846991356,
+            "Y": 365.12239496758644
+          },
+          "victimPosition": {
+            "X": 578.291015625,
+            "Y": 391.39531561668883
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "SG 553"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 818.379217918883,
+            "Y": 787.1122839095744
+          },
+          "victimPosition": {
+            "X": 378.6983798412566,
+            "Y": 878.778076171875
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "USP-S"
+        },
+        {
+          "victim": "rethon7",
+          "killerPosition": {
+            "X": 651.1972760139628,
+            "Y": 882.6997278091754
+          },
+          "victimPosition": {
+            "X": 468.1230520694814,
+            "Y": 783.389580909242
+          },
+          "wallbang": true,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "victim": "Vint4gesesh",
+          "killerPosition": {
+            "X": 622.6083763609541,
+            "Y": 540.9252312842835
+          },
+          "victimPosition": {
+            "X": 480.5342102050781,
+            "Y": 523.2804383622839
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "victim": "Stjuu92",
+          "killerPosition": {
+            "X": 439.5515149704953,
+            "Y": 564.8344453852227
+          },
+          "victimPosition": {
+            "X": 424.89537015874333,
+            "Y": 366.1615639544548
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        }
+      ],
+      "deaths": [
+        {
+          "killer": "Vint4gesesh",
+          "killerPosition": {
+            "X": 949.1357421875,
+            "Y": 629.0389689993351
+          },
+          "victimPosition": {
+            "X": 911.6356642702792,
+            "Y": 422.48099469124
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "FAMAS"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 434.01439260929186,
+            "Y": 527.9796454247008
+          },
+          "victimPosition": {
+            "X": 639.1632859250332,
+            "Y": 570.1095645985705
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 933.7897897273936,
+            "Y": 562.2212771151928
+          },
+          "victimPosition": {
+            "X": 432.43736104762297,
+            "Y": 563.1807660041972
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 701.9776299659242,
+            "Y": 858.3653226811834
+          },
+          "victimPosition": {
+            "X": 376.2749594830452,
+            "Y": 871.4150027011303
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AUG"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 573.6514379623088,
+            "Y": 388.46726437832444
+          },
+          "victimPosition": {
+            "X": 342.66835314162233,
+            "Y": 381.71817860704783
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AWP"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 687.6891700257646,
+            "Y": 853.6149175116356
+          },
+          "victimPosition": {
+            "X": 591.6006404795545,
+            "Y": 851.9747340425531
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "rethon7",
+          "killerPosition": {
+            "X": 417.38328000332444,
+            "Y": 404.7144139066655
+          },
+          "victimPosition": {
+            "X": 482.03618151076296,
+            "Y": 511.29835250529834
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Stjuu92",
+          "killerPosition": {
+            "X": 503.60161639274435,
+            "Y": 491.0052084415517
+          },
+          "victimPosition": {
+            "X": 409.2415537732713,
+            "Y": 408.5935746862533
+          },
+          "wallbang": false,
+          "headshot": false,
+          "entry": false,
+          "weapon": "M4A4"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 647.4307835355718,
+            "Y": 588.786478245512
+          },
+          "victimPosition": {
+            "X": 423.2799903382646,
+            "Y": 423.80297721700464
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 733.0310448179854,
+            "Y": 404.93909470578456
+          },
+          "victimPosition": {
+            "X": 567.4660378314079,
+            "Y": 523.879274408868
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "Desert Eagle"
+        },
+        {
+          "killer": "HesloCZ",
+          "killerPosition": {
+            "X": 727.1201665350732,
+            "Y": 497.04760693489237
+          },
+          "victimPosition": {
+            "X": 695.6531670752992,
+            "Y": 517.8410712708818
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        },
+        {
+          "killer": "Bloodyq",
+          "killerPosition": {
+            "X": 433.69273084275267,
+            "Y": 544.0068865836935
+          },
+          "victimPosition": {
+            "X": 730.0090773562167,
+            "Y": 464.92166722074467
+          },
+          "wallbang": false,
+          "headshot": true,
+          "entry": false,
+          "weapon": "AK-47"
+        }
+      ]
+    }
+  ]
+}
