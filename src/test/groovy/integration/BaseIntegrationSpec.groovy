@@ -4,6 +4,7 @@ import integration.common.WireMockRunner
 import io.github.przbetkier.tuscan.TuscanApplication
 import io.github.przbetkier.tuscan.domain.match.MatchRepository
 import io.github.przbetkier.tuscan.domain.profiles.LatestProfileRepository
+import io.github.przbetkier.tuscan.domain.stats.DemoStatsRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -34,6 +35,9 @@ class BaseIntegrationSpec extends Specification {
     @Autowired
     MatchRepository matchRepository
 
+    @Autowired
+    DemoStatsRepository demoStatsRepository
+
     @LocalServerPort
     protected int port
 
@@ -56,5 +60,6 @@ class BaseIntegrationSpec extends Specification {
     def clearRepositories() {
         latestProfileRepository.deleteAll().subscribe()
         matchRepository.deleteAll().subscribe()
+        demoStatsRepository.deleteAll().subscribe()
     }
 }
