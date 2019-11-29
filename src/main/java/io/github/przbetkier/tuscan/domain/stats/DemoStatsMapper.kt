@@ -37,7 +37,7 @@ class DemoStatsMapper {
                                         stats.nickname,
                                         stats.bombPlants.toInt(),
                                         stats.defusals.toInt(),
-                                        stats.playersFlashed.toInt(),
+                                        stats.enemiesFlashed.toInt(),
                                         mapToKills(stats.kills),
                                         mapToDeaths(stats.deaths)
                                 )

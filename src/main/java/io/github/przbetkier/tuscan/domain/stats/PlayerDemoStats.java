@@ -7,16 +7,16 @@ class PlayerDemoStats {
     private final String nickname;
     private final Integer bombPlants;
     private final Integer defusals;
-    private final Integer playersFlashed;
+    private final Integer enemiesFlashed;
     private final List<DemoKill> kills;
     private final List<DemoDeath> deaths;
 
-    public PlayerDemoStats(String nickname, Integer bombPlants, Integer defusals, Integer playersFlashed,
+    public PlayerDemoStats(String nickname, Integer bombPlants, Integer defusals, Integer enemiesFlashed,
                            List<DemoKill> kills, List<DemoDeath> deaths) {
         this.nickname = nickname;
         this.bombPlants = bombPlants;
         this.defusals = defusals;
-        this.playersFlashed = playersFlashed;
+        this.enemiesFlashed = enemiesFlashed;
         this.kills = kills;
         this.deaths = deaths;
     }
@@ -33,8 +33,8 @@ class PlayerDemoStats {
         return defusals;
     }
 
-    public Integer getPlayersFlashed() {
-        return playersFlashed;
+    public Integer getEnemiesFlashed() {
+        return enemiesFlashed;
     }
 
     public List<DemoKill> getKills() {
