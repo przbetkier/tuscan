@@ -15,6 +15,8 @@ import static integration.common.MockedPlayer.PLAYER_ID
 
 class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
+    PollingConditions conditions = new PollingConditions()
+
     def "should return player details"() {
         given:
         def playerId = PLAYER_ID
@@ -80,7 +82,6 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
         when:
         def response = restTemplate.getForEntity(localUrl("/faceit/players/details?nickname=${player.nickname}"), Map)
-        def conditions = new PollingConditions()
 
         then:
         conditions.eventually {

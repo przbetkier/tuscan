@@ -8,6 +8,7 @@ import io.github.przbetkier.tuscan.adapter.api.response.dto.Team
 import io.github.przbetkier.tuscan.client.match.MatchDemoDto
 import io.github.przbetkier.tuscan.client.match.MatchStatsDto
 import io.github.przbetkier.tuscan.client.match.PlayerDto
+import io.github.przbetkier.tuscan.domain.stats.DemoStats
 import java.math.BigDecimal
 import java.math.BigDecimal.ZERO
 
@@ -29,7 +30,8 @@ class MatchFullDetailsMapper {
                         listOf(teamOne, teamTwo),
                         it.winnerTeamId,
                         getResult(playerId, listOf(teamOne, teamTwo), it.winnerTeamId),
-                        getDemo(matchDemoDto))
+                        getDemo(matchDemoDto),
+                        DemoStatus.NO_ACTION.name)
             }
         }
 

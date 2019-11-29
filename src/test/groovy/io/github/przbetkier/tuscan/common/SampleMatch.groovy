@@ -1,6 +1,7 @@
 package io.github.przbetkier.tuscan.common
 
 import groovy.transform.CompileStatic
+import io.github.przbetkier.tuscan.domain.match.DemoStatus
 import io.github.przbetkier.tuscan.domain.match.Match
 import io.github.przbetkier.tuscan.domain.match.MatchPlayer
 import io.github.przbetkier.tuscan.domain.match.MatchTeam
@@ -34,7 +35,8 @@ class SampleMatch {
                         )
                 ],
                 "teamId-1",
-                "demoUrl-1"
+                "demoUrl-1",
+                DemoStatus.NO_ACTION
         )
     }
 }
