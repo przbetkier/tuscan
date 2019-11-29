@@ -32,6 +32,12 @@ public class MatchService {
                 .switchIfEmpty(Mono.defer(() -> getMatchFromFaceitApi(matchId, playerId)));
     }
 
+    public Mono<Match> updateMatchDemoDetailsStatus(String matchId, DemoStatus demoStatus) {
+        return matchRepository.findById(matchId)
+                .map(match -> DomainMatchMapper.Companion.updateWithDemoStatus(match, demoStatus))
+                .flatMap(matchRepository::save);
+    }
+
     private Mono<MatchFullDetailsResponse> getMatchFromFaceitApi(String matchId, String playerId) {
         logger.info("Match {} not found in database, fallback to Faceit API", matchId);
         return faceitMatchClient.getMatchDetails(matchId, playerId)

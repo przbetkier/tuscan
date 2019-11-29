@@ -13,7 +13,8 @@ data class Match @PersistenceConstructor constructor(
         val roundsCount: Int,
         val teams: List<MatchTeam>,
         val winnerTeam: String,
-        val demoUrl: String?
+        val demoUrl: String?,
+        val demoStatus: DemoStatus
 )
 
 data class MatchTeam(
@@ -41,4 +42,8 @@ data class MatchPlayerStats(
         val quadroKills: Int,
         val pentaKills: Int
 )
+
+enum class DemoStatus {
+    NO_ACTION, COMPUTING, PARSED
+}
 

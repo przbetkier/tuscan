@@ -5,6 +5,7 @@ import io.github.przbetkier.tuscan.adapter.api.response.dto.MatchResult
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Player
 import io.github.przbetkier.tuscan.adapter.api.response.dto.PlayerStats
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team
+import io.github.przbetkier.tuscan.domain.match.DemoStatus.NO_ACTION
 
 class DomainMatchMapper {
 
@@ -18,7 +19,8 @@ class DomainMatchMapper {
                             roundsCount = it.roundsCount,
                             teams = mapTeams(it.teams),
                             winnerTeam = it.winnerTeam,
-                            demoUrl = it.demoUrl
+                            demoUrl = it.demoUrl,
+                            demoStatus = NO_ACTION
                     )
                 }
 
@@ -59,9 +61,14 @@ class DomainMatchMapper {
                             mapToResponseTeams(it.teams),
                             it.winnerTeam,
                             getResult(playerId, it.teams, it.winnerTeam),
-                            it.demoUrl
+                            it.demoUrl,
+                            it.demoStatus.name
                     )
                 }
+
+        fun updateWithDemoStatus(match: Match, demoStatus: DemoStatus): Match = match.copy(
+                demoStatus = demoStatus
+        )
 
         private fun mapToResponseTeams(teams: List<MatchTeam>): List<Team> =
                 teams.map { team ->

@@ -7,6 +7,7 @@ import io.github.przbetkier.tuscan.adapter.api.response.dto.Player
 import io.github.przbetkier.tuscan.adapter.api.response.dto.Team
 
 import io.github.przbetkier.tuscan.common.SamplePlayer
+import io.github.przbetkier.tuscan.domain.match.DemoStatus
 
 @CompileStatic
 class SampleMatchFullDetailsResponse {
@@ -33,7 +34,8 @@ class SampleMatchFullDetailsResponse {
                 ],
                 "team-1",
                 MatchResult.WIN,
-                "url-1"
+                "url-1",
+                DemoStatus.NO_ACTION.name()
         )
     }
 }
