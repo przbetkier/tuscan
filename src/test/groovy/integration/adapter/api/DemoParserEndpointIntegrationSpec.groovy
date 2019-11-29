@@ -35,6 +35,17 @@ class DemoParserEndpointIntegrationSpec extends BaseIntegrationSpec {
         demoStats.body.matchId == id
     }
 
+    def "should return 404 not found when there is no stats for given matchId"() {
+        given:
+        def matchId = UUID.randomUUID().toString()
+
+        when:
+        def response = restTemplate.getForEntity(localUrl("/tuscan-api/demo-stats/$matchId"), Map)
+
+        then:
+        response.statusCodeValue == 404
+    }
+
     private def sampleDemoDetailsRequest() {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource('__files/demoDetailsRequest.json').getFile())

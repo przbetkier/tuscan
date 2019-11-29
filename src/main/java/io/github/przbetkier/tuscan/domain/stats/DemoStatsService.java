@@ -24,6 +24,10 @@ public class DemoStatsService {
     }
 
     public Mono<DemoStatsDto> getByMatchId(String matchId) {
-        return demoStatsRepository.findById(matchId).map(DemoStatsMapper.Companion::mapToDto);
+        return demoStatsRepository.findById(matchId)
+                .map(DemoStatsMapper.Companion::mapToDto)
+                .switchIfEmpty(Mono.error(new DemoStatsNotFoundException(String.format(
+                        "Not found demo stats for match [%s].",
+                        matchId))));
     }
 }

@@ -3,6 +3,7 @@ package io.github.przbetkier.tuscan.adapter.api;
 import io.github.przbetkier.tuscan.adapter.api.request.DemoStatsDto;
 import io.github.przbetkier.tuscan.domain.stats.DemoStats;
 import io.github.przbetkier.tuscan.domain.stats.DemoStatsService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
