@@ -61,4 +61,8 @@ public class MatchFullDetailsResponse {
     public String getDemoUrl() {
         return demoUrl;
     }
+
+    public String getDemoStatus() {
+        return demoStatus;
+    }
 }
