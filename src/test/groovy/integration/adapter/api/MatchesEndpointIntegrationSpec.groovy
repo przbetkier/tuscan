@@ -64,6 +64,7 @@ class MatchesEndpointIntegrationSpec extends BaseIntegrationSpec {
         response.statusCodeValue == 200
         response.body.result == 'WIN'
         response.body.demoUrl == 'https://demos-europe-west2.faceit-cdn.net/csgo/2cf3c2b7-255e-458c-9a41-0ea1d5bdeede.dem.gz'
+        response.body.demoStatus == 'NO_ACTION'
     }
 
     def "should return 404 when match could not be found on Faceit"() {
