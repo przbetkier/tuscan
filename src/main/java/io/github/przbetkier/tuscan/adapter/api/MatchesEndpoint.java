@@ -28,6 +28,6 @@ class MatchesEndpoint {
 
     @GetMapping
     public Mono<MatchFullDetailsResponse> getMatchFullDetails(@RequestParam String matchId, @RequestParam String playerId) {
-        return matchService.getMatch(matchId, playerId);
+        return matchService.getMatchByPlayer(matchId, playerId);
     }
 }

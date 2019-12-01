@@ -11,7 +11,7 @@ class SampleMatch {
 
     public static final String MATCH_ID = "matchId-1"
 
-    static Match simple(String matchId = MATCH_ID) {
+    static Match simple(String matchId = MATCH_ID, DemoStatus status = DemoStatus.NO_ACTION) {
 
         Set<MatchPlayer> teamOnePlayers = [SampleMatchPlayer.simple("playerId-1"),
                                            SampleMatchPlayer.simple("playerId-2")].toSet()
@@ -36,7 +36,7 @@ class SampleMatch {
                 ],
                 "teamId-1",
                 "demoUrl-1",
-                DemoStatus.NO_ACTION
+                status
         )
     }
 }

@@ -21,12 +21,17 @@ public class MatchService {
         this.matchRepository = matchRepository;
     }
 
+    public Mono<Match> getMatch(String matchId) {
+        return matchRepository.findById(matchId)
+                .switchIfEmpty(Mono.error(new MatchNotFoundException("Match not found")));
+    }
+
     public Mono<SimpleMatchesResponse> getMatches(String playerId, Integer offset) {
         return faceitMatchClient.getMatches(playerId, offset)
                 .onErrorResume(e -> faceitMatchClient.fallbackToV1Matches(playerId));
     }
 
-    public Mono<MatchFullDetailsResponse> getMatch(String matchId, String playerId) {
+    public Mono<MatchFullDetailsResponse> getMatchByPlayer(String matchId, String playerId) {
         return matchRepository.findById(matchId)
                 .map(match -> DomainMatchMapper.Companion.toResponse(match, playerId))
                 .switchIfEmpty(Mono.defer(() -> getMatchFromFaceitApi(matchId, playerId)));
