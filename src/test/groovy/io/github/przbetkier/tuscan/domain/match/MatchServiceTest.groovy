@@ -59,7 +59,7 @@ class MatchServiceTest extends Specification {
         def playerInMatchId = match.teams.first().players.first().playerId
 
         when:
-        def matchResponse = matchService.getMatch(matchId, playerInMatchId).block()
+        def matchResponse = matchService.getMatchByPlayer(matchId, playerInMatchId).block()
 
         then:
         1 * matchRepository.findById(matchId) >> Mono.just(match)
@@ -74,7 +74,7 @@ class MatchServiceTest extends Specification {
         def playerId = match.teams.first().players.first().playerId
 
         when:
-        def matchResponse = matchService.getMatch(matchId, playerId).block()
+        def matchResponse = matchService.getMatchByPlayer(matchId, playerId).block()
 
         then:
         1 * matchRepository.findById(matchId) >> Mono.empty()

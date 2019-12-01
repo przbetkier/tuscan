@@ -4,3 +4,6 @@ faceit:
   api-key: 'api-key'
 
 spring.data.mongodb.port: 0
+
+lambda-parser:
+  endpoint: 'http://localhost:10200'

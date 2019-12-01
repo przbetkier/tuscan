@@ -26,3 +26,6 @@ management:
         request:
           autotime:
             enabled: true
+
+lambda-parser:
+  endpoint: ${LAMBDA_ENDPOINT}
