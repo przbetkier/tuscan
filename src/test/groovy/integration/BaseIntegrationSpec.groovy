@@ -1,10 +1,10 @@
 package integration
 
 import integration.common.WireMockRunner
-import io.github.przbetkier.tuscan.TuscanApplication
-import io.github.przbetkier.tuscan.domain.match.MatchRepository
-import io.github.przbetkier.tuscan.domain.profiles.LatestProfileRepository
-import io.github.przbetkier.tuscan.domain.stats.DemoStatsRepository
+import pro.tuscan.TuscanApplication
+import pro.tuscan.domain.match.MatchRepository
+import pro.tuscan.domain.profiles.LatestProfileRepository
+import pro.tuscan.domain.stats.DemoStatsRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate

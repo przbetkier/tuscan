@@ -4,9 +4,9 @@ import com.github.tomakehurst.wiremock.client.WireMock
 import groovy.json.JsonSlurper
 import integration.BaseIntegrationSpec
 import integration.common.stubs.LambdaStubs
-import io.github.przbetkier.tuscan.adapter.api.request.LambdaInvokerRequest
-import io.github.przbetkier.tuscan.common.SampleMatch
-import io.github.przbetkier.tuscan.domain.match.DemoStatus
+import pro.tuscan.adapter.api.request.LambdaInvokerRequest
+import pro.tuscan.common.SampleMatch
+import pro.tuscan.domain.match.DemoStatus
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
@@ -14,12 +14,8 @@ import spock.lang.Unroll
 import spock.util.concurrent.PollingConditions
 
 import static com.github.tomakehurst.wiremock.client.WireMock.exactly
-import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
-import static com.github.tomakehurst.wiremock.client.WireMock.moreThan
 import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching
-import static com.github.tomakehurst.wiremock.client.WireMock.urlPathMatching
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 

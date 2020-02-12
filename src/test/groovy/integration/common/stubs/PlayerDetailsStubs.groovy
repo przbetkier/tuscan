@@ -2,7 +2,7 @@ package integration.common.stubs
 
 import groovy.transform.CompileStatic
 import integration.common.response.PlayerDetailsResponse
-import io.github.przbetkier.tuscan.client.player.PlayerDetails
+import pro.tuscan.client.player.PlayerDetails
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
 import static com.github.tomakehurst.wiremock.client.WireMock.get
