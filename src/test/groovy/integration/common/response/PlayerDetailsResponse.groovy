@@ -1,8 +1,8 @@
 package integration.common.response
 
 import groovy.transform.CompileStatic
-import io.github.przbetkier.tuscan.client.player.Ban
-import io.github.przbetkier.tuscan.client.player.PlayerDetails
+import pro.tuscan.client.player.Ban
+import pro.tuscan.client.player.PlayerDetails
 
 import java.time.format.DateTimeFormatter
 

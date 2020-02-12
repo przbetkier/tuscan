@@ -5,8 +5,8 @@ import integration.common.SampleLatestProfile
 import integration.common.request.LatestProfileSampleRequest
 import integration.common.stubs.PlayerCsgoStatsStubs
 import integration.common.stubs.PlayerDetailsStubs
-import io.github.przbetkier.tuscan.common.SamplePlayerDetails
-import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
+import pro.tuscan.common.SamplePlayerDetails
+import pro.tuscan.domain.profiles.LatestProfile
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.web.reactive.function.client.WebClient

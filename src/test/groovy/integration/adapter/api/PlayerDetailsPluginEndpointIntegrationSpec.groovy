@@ -3,8 +3,7 @@ package integration.adapter.api
 import integration.BaseIntegrationSpec
 import integration.common.stubs.PlayerCsgoStatsStubs
 import integration.common.stubs.PlayerDetailsStubs
-import io.github.przbetkier.tuscan.adapter.api.response.DetailedPlayerCsgoStatsResponse
-import io.github.przbetkier.tuscan.common.SamplePlayerDetails
+import pro.tuscan.common.SamplePlayerDetails
 
 class PlayerDetailsPluginEndpointIntegrationSpec extends BaseIntegrationSpec {
 

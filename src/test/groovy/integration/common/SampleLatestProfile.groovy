@@ -1,7 +1,7 @@
 package integration.common
 
 import groovy.transform.CompileStatic
-import io.github.przbetkier.tuscan.domain.profiles.LatestProfile
+import pro.tuscan.domain.profiles.LatestProfile
 
 import java.time.Instant
 
