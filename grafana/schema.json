@@ -60,56 +60,61 @@
         {
           "refCount": 0,
           "refId": "J",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_matches.p99, 'faceit-matches')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_matches.p99, 'faceit-matches')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "B",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_matches_simple.p99, 'faceit-matches-simple')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_matches_simple.p99, 'faceit-matches-simple')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "C",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._tuscan-api_plugin_players_details_csgo.p99, 'plugin')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._tuscan-api_plugin_players_details_csgo.p99, 'plugin')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "I",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_search_players.p99, 'search')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_search_players.p99, 'search')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "H",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_player_position.p99, 'player-position')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_player_position.p99, 'player-position')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "G",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_player-history__playerId_.p99, 'player-history')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_player-history__playerId_.p99, 'player-history')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "F",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_players_details_csgo__playerId_.p99, 'player-csgo-details')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_players_details_csgo__playerId_.p99, 'player-csgo-details')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "E",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._tuscan-api_latest-profiles.p99, 'latest-profiles')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._tuscan-api_latest-profiles.p99, 'latest-profiles')",
           "textEditor": false
         },
         {
           "refCount": 0,
           "refId": "A",
-          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.UNKNOWN.status.200.uri._faceit_players_details.p99, 'player-details')",
+          "target": "alias(httpServerRequests.exception.None.method.GET.outcome.SUCCESS.status.200.uri._faceit_players_details.p99, 'player-details')",
           "textEditor": false
+        },
+        {
+          "refCount": 0,
+          "refId": "D",
+          "target": "alias(httpServerRequests.exception.None.method.POST.outcome.SUCCESS.status.201.uri._tuscan-api_demo-parser.p99, 'demo-parser')"
         }
       ],
       "thresholds": [],
@@ -296,6 +301,174 @@
         "x": 0,
         "y": 8
       },
+      "id": 18,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refCount": 0,
+          "refId": "A",
+          "target": "alias(sumSeries(httpServerRequests.*.None.method.*.*.*.status.2**.uri.*.m1_rate), '2xx')",
+          "textEditor": true
+        },
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "alias(sumSeries(httpServerRequests.*.None.method.*.*.*.status.4**.uri.*.m1_rate), '4xx')",
+          "textEditor": true
+        },
+        {
+          "refCount": 0,
+          "refId": "C",
+          "target": "alias(sumSeries(httpServerRequests.*.None.method.*.*.*.status.5**.uri.*.m1_rate), '5xx')",
+          "textEditor": true
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Cumulated Traffic (m1_rate)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": null,
+      "description": "Calls to API by key",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 16,
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "delta"
+          ],
+          "defaults": {
+            "mappings": [
+              {
+                "from": "",
+                "id": 1,
+                "operator": "",
+                "text": "",
+                "to": "",
+                "type": 2,
+                "value": "Call"
+              }
+            ],
+            "max": 10000,
+            "min": 0,
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 6000
+              },
+              {
+                "color": "red",
+                "value": 10000
+              }
+            ],
+            "title": "Faceit Api Calls",
+            "unit": "none"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.4.1",
+      "targets": [
+        {
+          "hide": false,
+          "refId": "A",
+          "target": "sumSeries(reactorSubscribed.*.*.type.Mono.count)",
+          "textEditor": false
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Faceit API Calls",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
       "id": 4,
       "legend": {
         "avg": false,
@@ -402,7 +575,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 16
       },
       "id": 8,
       "legend": {
@@ -488,7 +661,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 24
       },
       "id": 10,
       "legend": {
@@ -605,7 +778,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 24
       },
       "id": 12,
       "legend": {
@@ -703,7 +876,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 32
       },
       "id": 14,
       "legend": {
@@ -797,7 +970,7 @@
     "list": []
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -817,5 +990,5 @@
   "timezone": "",
   "title": "Tuscan App",
   "uid": "SjSgC_TWz",
-  "version": 12
+  "version": 14
 }
