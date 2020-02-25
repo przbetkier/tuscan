@@ -25,4 +25,5 @@ management:
 
 mongoClientProperties:
   socketTimeout: 1000
-  connectionsPerHost: 100
+  connectionsPerHost: 10
+  maxConnectionIdleTime: 600000 #10 minutes
