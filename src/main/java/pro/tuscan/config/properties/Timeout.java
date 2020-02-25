@@ -25,4 +25,5 @@ public class Timeout {
     public void setConnect(int connect) {
         this.connect = connect;
     }
+
 }

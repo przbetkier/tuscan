@@ -63,8 +63,8 @@ public class PlayerHistoryMapper {
 
         // If matches list has less matches than MAX_MATCHES_COUNT it indicates that
         // the last match is his first ever played
-        Integer eloAfter;
-        Integer eloBefore;
+        int eloAfter;
+        int eloBefore;
         MatchHistoryDto firstMatch = historyMatches.get(historySize - 1);
 
         if (lastMatches.size() != MAX_MATCHES_COUNT) {

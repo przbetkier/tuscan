@@ -3,13 +3,13 @@ package pro.tuscan.client.match
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class SimpleMatchDto(
-    @JsonProperty("match_id") val matchId: String,
-    @JsonProperty("started_at") val startedAt: Long,
-    @JsonProperty("finished_at") val finishedAt: Long
+        @JsonProperty("match_id") val matchId: String,
+        @JsonProperty("started_at") val startedAt: Long,
+        @JsonProperty("finished_at") val finishedAt: Long
 )
 
 data class MatchesSimpleDetailsDto(
-    @JsonProperty("items") val simpleMatchList: List<SimpleMatchDto>
+        @JsonProperty("items") val simpleMatchList: List<SimpleMatchDto>
 ) {
     val matchesCount: Int?
 
@@ -31,34 +31,34 @@ data class MatchFullDetailsDto(
 )
 
 data class MatchStatsDto(
-    @JsonProperty("rounds") val matchFullDetails: List<MatchFullDetailsDto>
+        @JsonProperty("rounds") val matchFullDetails: List<MatchFullDetailsDto>
 )
 
 data class PlayerDto(
-    @JsonProperty("player_id") val playerId: String,
-    @JsonProperty("nickname") val nickname: String,
-    @JsonProperty("player_stats") val playerStats: PlayerStatsDto
+        @JsonProperty("player_id") val playerId: String,
+        @JsonProperty("nickname") val nickname: String,
+        @JsonProperty("player_stats") val playerStats: PlayerStatsDto
 )
 
 data class PlayerStatsDto(
-    @JsonProperty("Kills") val kills: String,
-    @JsonProperty("Assists") val assists: String,
-    @JsonProperty("Deaths") val deaths: String,
-    @JsonProperty("Headshot") val headshots: String,
-    @JsonProperty("Headshots %") val headshotPercentage: String,
-    @JsonProperty("K/D Ratio") val kdRatio: String,
-    @JsonProperty("K/R Ratio") val krRatio: String,
-    @JsonProperty("MVPs") val mvps: String,
-    @JsonProperty("Penta Kills") val pentaKills: String,
-    @JsonProperty("Quadro Kills") val quadroKills: String,
-    @JsonProperty("Triple Kills") val tripleKills: String
+        @JsonProperty("Kills") val kills: String,
+        @JsonProperty("Assists") val assists: String,
+        @JsonProperty("Deaths") val deaths: String,
+        @JsonProperty("Headshot") val headshots: String,
+        @JsonProperty("Headshots %") val headshotPercentage: String,
+        @JsonProperty("K/D Ratio") val kdRatio: String,
+        @JsonProperty("K/R Ratio") val krRatio: String,
+        @JsonProperty("MVPs") val mvps: String,
+        @JsonProperty("Penta Kills") val pentaKills: String,
+        @JsonProperty("Quadro Kills") val quadroKills: String,
+        @JsonProperty("Triple Kills") val tripleKills: String
 )
 
 data class RoundStatsDto(
-    @JsonProperty("Map") var map: String?,
-    @JsonProperty("Rounds") val roundsCount: String,
-    @JsonProperty("Score") val score: String,
-    @JsonProperty("Winner") val winnerTeamId: String
+        @JsonProperty("Map") var map: String?,
+        @JsonProperty("Rounds") val roundsCount: String,
+        @JsonProperty("Score") val score: String,
+        @JsonProperty("Winner") val winnerTeamId: String
 )
 
 data class TeamDto(
@@ -68,11 +68,11 @@ data class TeamDto(
 )
 
 data class TeamStatsDto(
-    @JsonProperty("Team") val teamName: String,
-    @JsonProperty("Team Headshot") val headshotAvg: String
+        @JsonProperty("Team") val teamName: String,
+        @JsonProperty("Team Headshot") val headshotAvg: String
 )
 
 data class MatchDemoDto(
-    @JsonProperty("demo_url") val urls: Collection<String>
+        @JsonProperty("demo_url") val urls: Collection<String>
 )
 

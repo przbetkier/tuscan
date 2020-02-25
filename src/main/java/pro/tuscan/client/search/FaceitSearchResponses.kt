@@ -1,4 +1,4 @@
-package pro.tuscan.client.player.search
+package pro.tuscan.client.search
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

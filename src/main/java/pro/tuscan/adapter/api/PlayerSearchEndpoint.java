@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.tuscan.adapter.api.response.PlayerSearchResponse;
-import pro.tuscan.client.player.search.FaceitSearchClient;
+
+import pro.tuscan.client.search.FaceitSearchClient;
 import reactor.core.publisher.Mono;
 
 @RestController

@@ -1,28 +1,31 @@
-package pro.tuscan.client.player.search;
+package pro.tuscan.client.search;
 
-import pro.tuscan.adapter.api.response.PlayerSearchResponse;
-import pro.tuscan.domain.player.exception.PlayerNotFoundException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import pro.tuscan.adapter.api.response.PlayerSearchResponse;
+import pro.tuscan.client.FaceitClient;
+import pro.tuscan.client.RetryInvoker;
+import pro.tuscan.domain.player.exception.PlayerNotFoundException;
 import reactor.core.publisher.Mono;
 
 import java.util.Collections;
 
-@Component
-public class FaceitSearchClient {
+import static java.lang.String.format;
 
-    private static final Logger logger = LoggerFactory.getLogger(FaceitSearchClient.class);
+@Component
+public class FaceitSearchClient extends FaceitClient {
+
     private static final int QUERY_RESULT_LIMIT = 20;
 
     private final WebClient openFaceitClient;
+    private final RetryInvoker retryInvoker;
 
-    public FaceitSearchClient(@Qualifier("openFaceitClient") WebClient openFaceitClient) {
+    public FaceitSearchClient(@Qualifier("openFaceitClient") WebClient openFaceitClient, RetryInvoker retryInvoker) {
         this.openFaceitClient = openFaceitClient;
+        this.retryInvoker = retryInvoker;
     }
 
     public Mono<PlayerSearchResponse> getPlayers(String nickname) {
@@ -33,17 +36,19 @@ public class FaceitSearchClient {
                             .queryParam("query", nickname)
                             .build())
                     .retrieve()
-                    .onStatus(HttpStatus::is4xxClientError, clientResponse -> {
-                        logger.warn("Error while searching for players with nickname: {}", nickname);
-                        throw new PlayerNotFoundException("Player not found on Faceit!");
-                    })
+                    .onStatus(HttpStatus::is4xxClientError, clientResponse -> throwClientException(nickname))
+                    .onStatus(HttpStatus::is5xxServerError, response -> throwServerException(response.rawStatusCode()))
                     .bodyToMono(FaceitSearchDTO.class)
                     .name("searchPlayer")
                     .metrics()
                     .map(PlayerSearchMapper::map)
-                    .doOnError(e -> logger.error("Could not map searched players to response"));
+                    .retryWhen(retryInvoker.defaultFaceitPolicy("searchPlayer"));
         } else {
             return Mono.just(new PlayerSearchResponse(Collections.emptyList()));
         }
+    }
+
+    private Mono<PlayerNotFoundException> throwClientException(String nickname) {
+        throw new PlayerNotFoundException(format("Error while searching for players [%s]", nickname));
     }
 }

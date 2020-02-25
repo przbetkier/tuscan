@@ -1,35 +1,29 @@
 package pro.tuscan.client.player;
 
-import pro.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
-import pro.tuscan.adapter.api.response.PlayerDetailsResponse;
-import pro.tuscan.config.properties.FaceitWebClientProperties;
-import pro.tuscan.domain.player.PlayerDetailsMapper;
-import pro.tuscan.domain.player.PlayerStatsMapper;
-import pro.tuscan.domain.player.exception.PlayerNotFoundException;
-import pro.tuscan.exception.FaceitServerException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import pro.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
+import pro.tuscan.adapter.api.response.PlayerDetailsResponse;
+import pro.tuscan.client.FaceitClient;
+import pro.tuscan.client.RetryInvoker;
+import pro.tuscan.domain.player.PlayerDetailsMapper;
+import pro.tuscan.domain.player.PlayerStatsMapper;
+import pro.tuscan.domain.player.exception.PlayerNotFoundException;
 import reactor.core.publisher.Mono;
-import reactor.retry.Retry;
 
 import static org.springframework.http.HttpMethod.GET;
-import static reactor.retry.Retry.anyOf;
 
 @Component
-public class FaceitPlayerClient {
-
-    private static final Logger logger = LoggerFactory.getLogger(FaceitPlayerClient.class);
+public class FaceitPlayerClient extends FaceitClient {
 
     private final WebClient faceitClient;
-    private final FaceitWebClientProperties properties;
+    private final RetryInvoker retryInvoker;
 
-    public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient, FaceitWebClientProperties properties) {
+    public FaceitPlayerClient(@Qualifier("faceitClient") WebClient faceitClient, RetryInvoker retryInvoker) {
         this.faceitClient = faceitClient;
-        this.properties = properties;
+        this.retryInvoker = retryInvoker;
     }
 
     public Mono<PlayerDetailsResponse> getPlayerDetails(String nickname) {
@@ -41,7 +35,8 @@ public class FaceitPlayerClient {
                 .bodyToMono(PlayerDetails.class)
                 .name("playerDetails")
                 .metrics()
-                .map(PlayerDetailsMapper::mapToPlayerDetailsResponse);
+                .map(PlayerDetailsMapper::mapToPlayerDetailsResponse)
+                .retryWhen(retryInvoker.defaultFaceitPolicy("playerDetails"));
     }
 
     public Mono<PlayerCsgoStatsResponse> getPlayerCsgoStats(String playerId) {
@@ -53,7 +48,8 @@ public class FaceitPlayerClient {
                 .bodyToMono(PlayerStats.class)
                 .name("csgoStats")
                 .metrics()
-                .map(PlayerStatsMapper.Companion::map);
+                .map(PlayerStatsMapper.Companion::map)
+                .retryWhen(retryInvoker.defaultFaceitPolicy("csgoStats"));
     }
 
     public Mono<Position> getPlayerPositionInRegion(String playerId, String region) {
@@ -65,9 +61,7 @@ public class FaceitPlayerClient {
                 .bodyToMono(Position.class)
                 .name("positionInRegion")
                 .metrics()
-                .retryWhen(Retry.anyOf(FaceitServerException.class)
-                                   .retryMax(properties.getRetry().getMaxRetries())
-                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()));
+                .retryWhen(retryInvoker.defaultFaceitPolicy("positionInRegion"));
     }
 
     public Mono<Position> getPlayerPositionInCountry(String playerId, String region, String country) {
@@ -82,16 +76,10 @@ public class FaceitPlayerClient {
                 .bodyToMono(Position.class)
                 .name("positionInCountry")
                 .metrics()
-                .retryWhen(anyOf(FaceitServerException.class).retryMax(properties.getRetry().getMaxRetries())
-                                   .randomBackoff(properties.getRetry().getMin(), properties.getRetry().getMax()));
+                .retryWhen(retryInvoker.defaultFaceitPolicy("positionInCountry"));
     }
 
-    private Mono<PlayerNotFoundException> throwClientException(String playerId) {
+    private static Mono<PlayerNotFoundException> throwClientException(String playerId) {
         throw new PlayerNotFoundException(String.format("Player %s could not be found on Faceit.", playerId));
-    }
-
-    private Mono<FaceitServerException> throwServerException(int statusCode) {
-        logger.warn("Faceit request failed [{}} error].", statusCode);
-        throw new FaceitServerException("Faceit server error occurred.");
     }
 }

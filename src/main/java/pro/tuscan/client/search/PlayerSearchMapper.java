@@ -1,4 +1,4 @@
-package pro.tuscan.client.player.search;
+package pro.tuscan.client.search;
 
 import pro.tuscan.adapter.api.response.PlayerSearchResponse;
 import pro.tuscan.adapter.api.response.dto.PlayerSimple;
