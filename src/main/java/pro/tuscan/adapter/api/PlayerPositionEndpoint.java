@@ -1,17 +1,15 @@
 package pro.tuscan.adapter.api;
 
-import pro.tuscan.adapter.api.response.PlayerPositionResponse;
-import pro.tuscan.domain.player.PlayerService;
-import io.micrometer.core.annotation.Timed;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pro.tuscan.adapter.api.response.PlayerPositionResponse;
+import pro.tuscan.domain.player.PlayerService;
 import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/faceit/player")
-@Timed("endpoint.playerPosition")
 class PlayerPositionEndpoint {
 
     private final PlayerService playerService;

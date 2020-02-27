@@ -7,11 +7,10 @@ faceit-matches:
 
 faceit:
   timeout:
-    read: 3500
+    read: 1500
     connect: 1000
   retry:
-    min-backoff: 300
-    max-backoff: 600
+    backoff: 300
     max-retries: 2
 
 server:
@@ -25,4 +24,5 @@ management:
 
 mongoClientProperties:
   socketTimeout: 1000
-  connectionsPerHost: 100
+  connectionsPerHost: 10
+  maxConnectionIdleTime: 600000 #10 minutes

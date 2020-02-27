@@ -6,28 +6,17 @@ import java.time.Duration;
 public class Retry {
 
     @Min(1)
-    private long maxBackoff;
-
-    @Min(1)
-    private long minBackoff;
+    private long backoff;
 
     @Min(1)
     private long maxRetries;
 
-    public Duration getMax() {
-        return Duration.ofMillis(maxBackoff);
+    public long getBackoff() {
+        return backoff;
     }
 
-    public void setMaxBackoff(int maxBackoff) {
-        this.maxBackoff = maxBackoff;
-    }
-
-    public Duration getMin() {
-        return Duration.ofMillis(minBackoff);
-    }
-
-    public void setMinBackoff(int minBackoff) {
-        this.minBackoff = minBackoff;
+    public void setBackoff(long backoff) {
+        this.backoff = backoff;
     }
 
     public long getMaxRetries() {

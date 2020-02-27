@@ -7,7 +7,6 @@ public class GameDetails {
     private final String region;
     private final String steamId;
 
-
     public GameDetails(Integer faceitElo, Integer level, String region, String steamId) {
         this.faceitElo = faceitElo;
         this.level = level;

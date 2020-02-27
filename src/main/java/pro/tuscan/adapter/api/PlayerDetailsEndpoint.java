@@ -1,9 +1,5 @@
 package pro.tuscan.adapter.api;
 
-import pro.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
-import pro.tuscan.adapter.api.response.PlayerDetailsResponse;
-import pro.tuscan.domain.player.PlayerService;
-import io.micrometer.core.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +7,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pro.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
+import pro.tuscan.adapter.api.response.PlayerDetailsResponse;
+import pro.tuscan.domain.player.PlayerService;
 import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/faceit/players/details")
-@Timed("endpoint.playerDetails")
 class PlayerDetailsEndpoint {
 
     private static final Logger logger = LoggerFactory.getLogger(PlayerDetailsEndpoint.class);

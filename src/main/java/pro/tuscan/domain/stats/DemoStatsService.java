@@ -1,5 +1,8 @@
 package pro.tuscan.domain.stats;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import pro.tuscan.adapter.api.request.DemoStatsDto;
 import pro.tuscan.client.lambda.LambdaDemoParserClient;
 import pro.tuscan.client.lambda.LambdaRequest;
@@ -7,10 +10,11 @@ import pro.tuscan.client.lambda.LambdaResponse;
 import pro.tuscan.domain.match.DemoStatus;
 import pro.tuscan.domain.match.Match;
 import pro.tuscan.domain.match.MatchService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+
+import static pro.tuscan.domain.match.DemoStatus.COMPUTING;
+import static pro.tuscan.domain.match.DemoStatus.NO_ACTION;
+import static pro.tuscan.domain.match.DemoStatus.PARSED;
 
 @Service
 public class DemoStatsService {
@@ -32,7 +36,7 @@ public class DemoStatsService {
         DemoStats stats = DemoStatsMapper.Companion.mapFromDto(request);
         return demoStatsRepository.save(stats).doOnSuccess(s -> {
             logger.info("Saved new demo stats for match {}.", request.getMatchId());
-            updateMatchWithStatus(s.getMatchId(), DemoStatus.PARSED).subscribe();
+            updateMatchWithStatus(s.getMatchId(), PARSED).subscribe();
         });
     }
 
@@ -46,15 +50,15 @@ public class DemoStatsService {
 
     public Mono<LambdaResponse> invokeLambda(String matchId) {
         return matchService.getMatch(matchId)
-                .filter(match -> match.getDemoStatus() != DemoStatus.COMPUTING
-                        && match.getDemoStatus() != DemoStatus.PARSED)
+                .filter(match -> match.getDemoStatus() != COMPUTING
+                        && match.getDemoStatus() != PARSED)
                 .switchIfEmpty(Mono.error(new DemoStatsException("Match is parsed or parsing has been already requested")))
-                .then(updateMatchWithStatus(matchId, DemoStatus.COMPUTING))
+                .then(updateMatchWithStatus(matchId, COMPUTING))
                 .map(match -> new LambdaRequest(match.getMatchId(), match.getDemoUrl()))
                 .flatMap(lambdaClient::invokeLambda)
                 .doOnSuccess(resp -> logger.info("Successfully invoked lambda and received success message: {}",
                                                  resp.getMessage()))
-                .doOnError(err -> updateMatchWithStatus(matchId, DemoStatus.NO_ACTION).subscribe());
+                .doOnError(err -> updateMatchWithStatus(matchId, NO_ACTION).subscribe());
     }
 
     private Mono<Match> updateMatchWithStatus(String matchId, DemoStatus demoStatus) {
