@@ -29,8 +29,7 @@ class SamplePlayerDetails {
                 )),
                 "http://avatar-avatar.com/avatar",
                 "PL",
-                ["FREE"],
-                []
+                ["FREE"]
         )
     }
 
@@ -41,20 +40,7 @@ class SamplePlayerDetails {
                 new Games(null),
                 "http://avatar-avatar.com/avatar",
                 "PL",
-                ["FREE"],
-                []
-        )
-    }
-
-    static banned(String playerId = PLAYER_ID, ZonedDateTime dateTime) {
-        new PlayerDetails(
-                playerId,
-                NICKNAME,
-                new Games(new Csgo(1, 1, "", "")),
-                "http://avatar-avatar.com/avatar",
-                "PL",
-                ["FREE"],
-                [new Ban(ZonedDateTime.now(), dateTime, "cheater")]
+                ["FREE"]
         )
     }
 }

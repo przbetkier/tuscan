@@ -35,7 +35,7 @@ public class FaceitPlayerClient extends FaceitClient {
                 .bodyToMono(PlayerDetails.class)
                 .name("playerDetails")
                 .metrics()
-                .map(PlayerDetailsMapper::mapToPlayerDetailsResponse)
+                .map(PlayerDetailsMapper.Companion::mapToPlayerDetailsResponse)
                 .retryWhen(retryInvoker.defaultFaceitPolicy("playerDetails"));
     }
 

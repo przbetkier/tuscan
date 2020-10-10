@@ -1,18 +1,12 @@
 package integration.common.response
 
 import groovy.transform.CompileStatic
-import pro.tuscan.client.player.Ban
 import pro.tuscan.client.player.PlayerDetails
-
-import java.time.format.DateTimeFormatter
 
 @CompileStatic
 class PlayerDetailsResponse {
 
-    static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy")
-
-    static def String simple(PlayerDetails playerDetails) {
-        def bans = getBans(playerDetails.getBans())
+    static String simple(PlayerDetails playerDetails) {
         """{
             "player_id": "$playerDetails.playerId",
             "nickname": "$playerDetails.nickname",
@@ -53,7 +47,6 @@ class PlayerDetailsResponse {
                 "425a97f6-2a9b-426d-a81e-0cd63ba2f343",
                 "8854e907-2f15-40c3-ac40-2eb84bb03a71"
         ],
-            "bans": $bans,
             "new_steam_id": "[U:1:460206]",
             "steam_id_64": "3242343242",
             "steam_nickname": "playerId",
@@ -63,19 +56,5 @@ class PlayerDetailsResponse {
         ],
             "faceit_url": "https://www.faceit.com/{lang}/players/$playerDetails.nickname"
         }"""
-    }
-
-    static String getBans(List<Ban> bans) {
-        if (bans.isEmpty()) return "[]"
-        return """[{
-                "created_at": "${bans[0].createdAt.format(formatter)}",
-                "guid": "8886172e-bb57-40d3-8b9a-15f3e065ee49",
-                "nickname": "Shra1k",
-                "reason": "${bans.first().reason}",
-                "reason_type": "cheating",
-                "starts_at": "${bans[0].startsAt.format(formatter)}",
-                "type": "login"
-            }]"""
-
     }
 }

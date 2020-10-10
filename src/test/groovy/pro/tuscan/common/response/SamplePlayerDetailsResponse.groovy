@@ -3,7 +3,7 @@ package pro.tuscan.common.response
 import groovy.transform.CompileStatic
 import integration.common.MockedPlayer
 import pro.tuscan.adapter.api.response.PlayerDetailsResponse
-import pro.tuscan.adapter.api.response.dto.BanInfo
+
 import pro.tuscan.adapter.api.response.dto.GameDetails
 import pro.tuscan.client.player.Membership
 
@@ -25,8 +25,7 @@ class SamplePlayerDetailsResponse {
                 ),
                 "avatar-url",
                 "PL",
-                Membership.FREE,
-                new BanInfo(false)
+                Membership.FREE
         )
     }
 }

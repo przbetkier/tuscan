@@ -1,6 +1,7 @@
 package pro.tuscan.domain.player
 
 import pro.tuscan.client.player.FaceitPlayerClient
+import pro.tuscan.client.player.PlayerBanClient
 import pro.tuscan.client.player.PlayerHistoryClient
 import pro.tuscan.common.response.SamplePlayerCsgoStats
 import pro.tuscan.common.response.SamplePlayerDetailsResponse
@@ -16,9 +17,10 @@ class PlayerServiceTest extends Specification {
 
     FaceitPlayerClient faceitPlayerClient = Mock(FaceitPlayerClient)
     PlayerHistoryClient playerHistoryClient = Mock(PlayerHistoryClient)
+    PlayerBanClient playerBanClient = Mock(PlayerBanClient)
 
     @Subject
-    PlayerService playerService = new PlayerService(faceitPlayerClient, playerHistoryClient)
+    PlayerService playerService = new PlayerService(faceitPlayerClient, playerHistoryClient, playerBanClient)
 
     def "should return player details response"() {
         given:

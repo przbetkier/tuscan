@@ -6,7 +6,6 @@ import static integration.common.MockedPlayer.PLAYER_ID
 import static pro.tuscan.client.player.Membership.FREE
 import static pro.tuscan.common.SamplePlayerDetails.simple
 import static pro.tuscan.common.SamplePlayerDetails.withoutCsGoGame
-import static PlayerDetailsMapper.mapToPlayerDetailsResponse
 
 class PlayerDetailsMapperTest extends Specification {
 
@@ -16,7 +15,7 @@ class PlayerDetailsMapperTest extends Specification {
         def playerDetails = simple(playerId)
 
         when:
-        def result = mapToPlayerDetailsResponse(playerDetails)
+        def result = PlayerDetailsMapper.@Companion.mapToPlayerDetailsResponse(playerDetails)
 
         then:
         with(result) {
@@ -28,7 +27,6 @@ class PlayerDetailsMapperTest extends Specification {
             gameDetails.faceitElo == playerDetails.games.csgo.faceitElo
             gameDetails.region == playerDetails.games.csgo.region
             membership == FREE
-            !ban.active
         }
     }
 
@@ -37,7 +35,7 @@ class PlayerDetailsMapperTest extends Specification {
         def playerDetails = withoutCsGoGame()
 
         when:
-        def result = mapToPlayerDetailsResponse(playerDetails)
+        def result = PlayerDetailsMapper.@Companion.mapToPlayerDetailsResponse(playerDetails)
 
         then:
         result.gameDetails == null
