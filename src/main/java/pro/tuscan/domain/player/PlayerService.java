@@ -5,7 +5,9 @@ import pro.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
 import pro.tuscan.adapter.api.response.PlayerDetailsResponse;
 import pro.tuscan.adapter.api.response.PlayerHistoryResponse;
 import pro.tuscan.adapter.api.response.PlayerPositionResponse;
+import pro.tuscan.client.player.BanInfoResponse;
 import pro.tuscan.client.player.FaceitPlayerClient;
+import pro.tuscan.client.player.PlayerBanClient;
 import pro.tuscan.client.player.PlayerHistoryClient;
 import kotlin.Pair;
 import org.slf4j.Logger;
@@ -24,10 +26,13 @@ public class PlayerService {
 
     private final FaceitPlayerClient faceitPlayerClient;
     private final PlayerHistoryClient playerHistoryClient;
+    private final PlayerBanClient playerBanClient;
 
-    public PlayerService(FaceitPlayerClient faceitPlayerClient, PlayerHistoryClient playerHistoryClient) {
+    public PlayerService(FaceitPlayerClient faceitPlayerClient, PlayerHistoryClient playerHistoryClient,
+                         PlayerBanClient playerBanClient) {
         this.faceitPlayerClient = faceitPlayerClient;
         this.playerHistoryClient = playerHistoryClient;
+        this.playerBanClient = playerBanClient;
     }
 
     @Cacheable(value = "playerDetails", key = "{#nickname}")
@@ -51,6 +56,10 @@ public class PlayerService {
                         faceitPlayerClient.getPlayerPositionInCountry(playerId, region, country))
                 .map(t -> PlayerPositionMapper.map(playerId, t))
                 .doOnError(e -> logger.warn("Error occurred during fetching player position", e));
+    }
+
+    public Mono<BanInfoResponse> getPlayerBanInfo(String playerId) {
+        return playerBanClient.getPlayerBanInfo(playerId);
     }
 
     public Flux<DetailedPlayerCsgoStatsResponse> getMultiPlayerDetails(List<String> nicknamesList) {

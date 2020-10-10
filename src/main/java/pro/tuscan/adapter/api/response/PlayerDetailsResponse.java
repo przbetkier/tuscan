@@ -1,6 +1,5 @@
 package pro.tuscan.adapter.api.response;
 
-import pro.tuscan.adapter.api.response.dto.BanInfo;
 import pro.tuscan.adapter.api.response.dto.GameDetails;
 import pro.tuscan.client.player.Membership;
 
@@ -12,17 +11,15 @@ public class PlayerDetailsResponse {
     private final String avatarUrl;
     private final String country;
     private final Membership membership;
-    private final BanInfo ban;
 
     public PlayerDetailsResponse(String playerId, String nickname, GameDetails gameDetails, String avatarUrl,
-                                 String country, Membership membership, BanInfo ban) {
+                                 String country, Membership membership) {
         this.playerId = playerId;
         this.nickname = nickname;
         this.gameDetails = gameDetails;
         this.avatarUrl = avatarUrl;
         this.country = country;
         this.membership = membership;
-        this.ban = ban;
     }
 
     public String getPlayerId() {
@@ -47,9 +44,5 @@ public class PlayerDetailsResponse {
 
     public Membership getMembership() {
         return membership;
-    }
-
-    public BanInfo getBan() {
-        return ban;
     }
 }

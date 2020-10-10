@@ -14,8 +14,6 @@ import static integration.common.MockedPlayer.PLAYER_ID
 
 class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
-    PollingConditions conditions = new PollingConditions()
-
     def "should return player details"() {
         given:
         def playerId = PLAYER_ID
@@ -70,26 +68,5 @@ class PlayerDetailsEndpointIntegrationSpec extends BaseIntegrationSpec {
 
         then:
         response.statusCodeValue == 404
-    }
-
-    @Unroll
-    def "should return active ban flag"() {
-        given:
-        def playerId = PLAYER_ID
-        def player = SamplePlayerDetails.banned(playerId, banStartsAt)
-        PlayerDetailsStubs.stubSuccessfulResponse(player)
-
-        when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/players/details?nickname=${player.nickname}"), Map)
-
-        then:
-        conditions.eventually {
-            response.body.ban.active == activeBan
-        }
-
-        where:
-        banStartsAt                       || activeBan
-        ZonedDateTime.now().minusHours(1) || true
-        ZonedDateTime.now().plusHours(1)  || false
     }
 }

@@ -22,9 +22,9 @@ class PlayerDetailsPluginEndpointIntegrationSpec extends BaseIntegrationSpec {
         then:
         response.statusCodeValue == 200
         response.body.size() == 2
-        response.body.find({it.nickname == player1.nickname}) != null
-        response.body.find({it.nickname == player2.nickname}) != null
-        response.body.each {it.mapStats != null && it.overallStats != null}
+        response.body.find({ it.nickname == player1.nickname }) != null
+        response.body.find({ it.nickname == player2.nickname }) != null
+        response.body.each { it.mapStats != null && it.overallStats != null }
     }
 
     def "should get CSGO details only for players that still exist"() {
@@ -42,8 +42,8 @@ class PlayerDetailsPluginEndpointIntegrationSpec extends BaseIntegrationSpec {
         then:
         response.statusCodeValue == 200
         response.body.size() == 1
-        response.body.find({it.nickname == player1.nickname}) != null
-        response.body.find({it.nickname == player2.nickname}) == null
+        response.body.find({ it.nickname == player1.nickname }) != null
+        response.body.find({ it.nickname == player2.nickname }) == null
     }
 
     def "should get CSGO details only for players players with csgo stats"() {
@@ -61,7 +61,7 @@ class PlayerDetailsPluginEndpointIntegrationSpec extends BaseIntegrationSpec {
         then:
         response.statusCodeValue == 200
         response.body.size() == 1
-        response.body.find({it.nickname == player1.nickname}) != null
-        response.body.find({it.nickname == player2.nickname}) == null
+        response.body.find({ it.nickname == player1.nickname }) != null
+        response.body.find({ it.nickname == player2.nickname }) == null
     }
 }

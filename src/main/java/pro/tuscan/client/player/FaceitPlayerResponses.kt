@@ -58,22 +58,7 @@ data class PlayerDetails(
         @JsonProperty("games") val games: Games,
         @JsonProperty("avatar") val avatarUrl: String,
         @JsonProperty("country") val country: String,
-        @JsonProperty("memberships") val memberships: List<String>,
-        @JsonProperty("bans") val bans: List<Ban>
-) {
-
-    fun hasCsgoGame(): Boolean {
-        return this.games.csgo != null
-    }
-}
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-data class Ban(
-        @JsonDeserialize(using = ZonedDateTimeDeserializer::class)
-        @JsonProperty("created_at") val createdAt: ZonedDateTime,
-        @JsonDeserialize(using = ZonedDateTimeDeserializer::class)
-        @JsonProperty("starts_at") val startsAt: ZonedDateTime,
-        @JsonProperty("reason") val reason: String
+        @JsonProperty("memberships") val memberships: List<String>
 )
 
 
