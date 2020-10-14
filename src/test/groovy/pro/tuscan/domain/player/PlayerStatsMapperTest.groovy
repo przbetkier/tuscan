@@ -1,10 +1,14 @@
 package pro.tuscan.domain.player
 
-import pro.tuscan.common.SamplePlayerStats
-import pro.tuscan.domain.CsgoMap
+
 import spock.lang.Specification
 
+import static pro.tuscan.common.SamplePlayerStats.BEST_SOLO
+import static pro.tuscan.common.SamplePlayerStats.BEST_TEAM
+import static pro.tuscan.common.SamplePlayerStats.WORST_SOLO
+import static pro.tuscan.common.SamplePlayerStats.WORST_TEAM
 import static pro.tuscan.common.SamplePlayerStats.simple
+import static pro.tuscan.domain.CsgoMap.DE_MIRAGE
 
 class PlayerStatsMapperTest extends Specification {
 
@@ -19,13 +23,15 @@ class PlayerStatsMapperTest extends Specification {
 
         then:
         with(result) {
-            overallStats.performance.bestTeamPerformance.map.name == SamplePlayerStats.BEST_TEAM
-            overallStats.performance.bestSoloPerformance.map.name == SamplePlayerStats.BEST_SOLO
-            overallStats.performance.worstSoloPerformance.map.name == SamplePlayerStats.WORST_SOLO
-            overallStats.performance.worstTeamPerformance.map.name == SamplePlayerStats.WORST_TEAM
+            with(overallStats.performance) {
+                bestTeamPerformance.map.name == BEST_TEAM
+                bestSoloPerformance.map.name == BEST_SOLO
+                worstSoloPerformance.map.name == WORST_SOLO
+                worstTeamPerformance.map.name == WORST_TEAM
+            }
             overallStats.kdRatio == 1.40
             overallStats.matches == 1999
-            mapStats.find({ it.csgoMap == CsgoMap.DE_MIRAGE }).kdRatio == playerStats.segments.find({
+            mapStats.find { it.csgoMap == DE_MIRAGE }.kdRatio == playerStats.segments.find({
                 it.name == "de_mirage"
             }).mapStatistics.kdRatio.toDouble()
         }

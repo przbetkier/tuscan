@@ -1,7 +1,7 @@
 package pro.tuscan.client.search;
 
 import pro.tuscan.adapter.api.response.PlayerSearchResponse;
-import pro.tuscan.adapter.api.response.dto.PlayerSimple;
+import pro.tuscan.adapter.api.response.PlayerSimple;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,6 +1,7 @@
 package integration.adapter.api
 
 import integration.BaseIntegrationSpec
+import pro.tuscan.adapter.api.response.PlayerSearchResponse
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo
@@ -27,10 +28,15 @@ class PlayerSearchEndpointIntegrationSpec extends BaseIntegrationSpec {
         )
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/search/players?nickname=$nickname"), Map)
+        def response = restTemplate.getForEntity(localUrl("/faceit/search/players?nickname=$nickname"), PlayerSearchResponse)
 
         then:
         response.statusCodeValue == 200
-        response.body.players.size() == 3
+        with(response.body) {
+            players.size() == 3
+            players.each {
+                assert it.nickname.contains(nickname)
+            }
+        }
     }
 }
