@@ -4,12 +4,12 @@ import com.github.tomakehurst.wiremock.client.WireMock
 import groovy.json.JsonSlurper
 import integration.BaseIntegrationSpec
 import integration.common.stubs.LambdaStubs
-import pro.tuscan.adapter.api.request.LambdaInvokerRequest
-import pro.tuscan.common.SampleMatch
-import pro.tuscan.domain.match.DemoStatus
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
+import pro.tuscan.adapter.api.LambdaInvokerRequest
+import pro.tuscan.common.SampleMatch
+import pro.tuscan.domain.match.DemoStatus
 import spock.lang.Unroll
 import spock.util.concurrent.PollingConditions
 

@@ -1,8 +1,8 @@
 package pro.tuscan.domain.player
 
-import pro.tuscan.adapter.api.response.PlayerDetailsResponse
-import pro.tuscan.adapter.api.response.dto.GameDetails
-import pro.tuscan.client.player.Membership
+import pro.tuscan.adapter.api.GameDetails
+import pro.tuscan.adapter.api.Membership
+import pro.tuscan.adapter.api.PlayerDetailsResponse
 import pro.tuscan.client.player.PlayerDetails
 
 class PlayerDetailsMapper {
@@ -19,9 +19,8 @@ class PlayerDetailsMapper {
                             it.memberships.first().let { Membership.valueOf(it.toUpperCase()) })
                 }
 
-        private fun mapToCsgoGameDetails(details: PlayerDetails): GameDetails? {
-            return details.games.csgo
-                    ?.let { GameDetails(it.faceitElo, it.level, it.region, it.steamId) }
-        }
+        private fun mapToCsgoGameDetails(details: PlayerDetails): GameDetails? =
+                details.games.csgo
+                        ?.let { GameDetails(it.faceitElo, it.level, it.region, it.steamId) }
     }
 }

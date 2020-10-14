@@ -1,19 +1,19 @@
 package pro.tuscan.domain.player;
 
+import kotlin.Pair;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import pro.tuscan.adapter.api.PlayerDetailsResponse;
 import pro.tuscan.adapter.api.response.DetailedPlayerCsgoStatsResponse;
 import pro.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
-import pro.tuscan.adapter.api.response.PlayerDetailsResponse;
 import pro.tuscan.adapter.api.response.PlayerHistoryResponse;
 import pro.tuscan.adapter.api.response.PlayerPositionResponse;
 import pro.tuscan.client.player.BanInfoResponse;
 import pro.tuscan.client.player.FaceitPlayerClient;
 import pro.tuscan.client.player.PlayerBanClient;
 import pro.tuscan.client.player.PlayerHistoryClient;
-import kotlin.Pair;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -54,7 +54,7 @@ public class PlayerService {
     public Mono<PlayerPositionResponse> getPlayerPosition(String playerId, String region, String country) {
         return Mono.zip(faceitPlayerClient.getPlayerPositionInRegion(playerId, region),
                         faceitPlayerClient.getPlayerPositionInCountry(playerId, region, country))
-                .map(t -> PlayerPositionMapper.map(playerId, t))
+                .map(t -> PlayerPositionMapper.Companion.map(playerId, t))
                 .doOnError(e -> logger.warn("Error occurred during fetching player position", e));
     }
 

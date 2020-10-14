@@ -71,11 +71,10 @@ public class PlayerHistoryMapper {
 
             if (firstMatch.hasElo()) {
                 eloAfter = convertToElo(firstMatch.getElo());
-                eloBefore = STARTING_ELO_POINTS;
             } else {
                 eloAfter = STARTING_ELO_POINTS;
-                eloBefore = STARTING_ELO_POINTS;
             }
+            eloBefore = STARTING_ELO_POINTS;
 
         } else {
             eloAfter = 0;

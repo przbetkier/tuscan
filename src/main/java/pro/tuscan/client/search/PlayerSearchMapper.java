@@ -1,7 +1,7 @@
 package pro.tuscan.client.search;
 
 import pro.tuscan.adapter.api.response.PlayerSearchResponse;
-import pro.tuscan.adapter.api.response.dto.PlayerSimple;
+import pro.tuscan.adapter.api.response.PlayerSimple;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +16,7 @@ public class PlayerSearchMapper {
                 .getPlayers()
                 .getResults()
                 .stream()
+                // TakeIf from kt
                 .filter(PlayerSearch::hasCsgoGame)
                 .map(p -> new PlayerSimple(p.getNickname(),
                                            p.getCsgoGame().getLvl(),
