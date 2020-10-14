@@ -17,6 +17,10 @@ class PlayerSearchMapperSpec extends Specification {
 
         then:
         result.players.size() == expectedResults
+        if (players.size() == expectedResults)
+            players.each {
+                assert it.hasCsgoGame()
+            }
 
         where:
         players                                              || expectedResults
