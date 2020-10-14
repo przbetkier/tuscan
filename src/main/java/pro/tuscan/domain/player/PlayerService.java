@@ -54,7 +54,7 @@ public class PlayerService {
     public Mono<PlayerPositionResponse> getPlayerPosition(String playerId, String region, String country) {
         return Mono.zip(faceitPlayerClient.getPlayerPositionInRegion(playerId, region),
                         faceitPlayerClient.getPlayerPositionInCountry(playerId, region, country))
-                .map(t -> PlayerPositionMapper.map(playerId, t))
+                .map(t -> PlayerPositionMapper.Companion.map(playerId, t))
                 .doOnError(e -> logger.warn("Error occurred during fetching player position", e));
     }
 

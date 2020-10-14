@@ -5,12 +5,13 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.http.HttpMethod.GET
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
+import reactor.core.publisher.Mono
 import java.time.Instant
 
 @Component
 class PlayerBanClient(@Qualifier("openFaceitClient") private val openFaceitClient: WebClient) {
 
-    fun getPlayerBanInfo(playerId: String) =
+    fun getPlayerBanInfo(playerId: String): Mono<BanInfoResponse> =
             openFaceitClient.method(GET)
                     .uri { uriBuilder -> uriBuilder.path("/sheriff/v1/bans/{playerId}").build(playerId) }
                     .retrieve()

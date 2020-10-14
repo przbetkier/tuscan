@@ -19,9 +19,8 @@ class PlayerDetailsMapper {
                             it.memberships.first().let { Membership.valueOf(it.toUpperCase()) })
                 }
 
-        private fun mapToCsgoGameDetails(details: PlayerDetails): GameDetails? {
-            return details.games.csgo
-                    ?.let { GameDetails(it.faceitElo, it.level, it.region, it.steamId) }
-        }
+        private fun mapToCsgoGameDetails(details: PlayerDetails): GameDetails? =
+                details.games.csgo
+                        ?.let { GameDetails(it.faceitElo, it.level, it.region, it.steamId) }
     }
 }

@@ -20,7 +20,7 @@ class PlayerPerformanceMapper {
                             .let { TeamPerformance(it.csgoMap, it.winPercentage) })
         }
 
-        fun getExtremeByKdRatio(mapStats: List<MapStats>, reversed: Boolean) =
+        private fun getExtremeByKdRatio(mapStats: List<MapStats>, reversed: Boolean) =
                 mapStats.sortedBy { it.kdRatio }
                         .let { if (reversed) it.reversed() else it }
                         .first()

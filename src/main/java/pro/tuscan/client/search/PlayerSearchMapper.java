@@ -16,6 +16,7 @@ public class PlayerSearchMapper {
                 .getPlayers()
                 .getResults()
                 .stream()
+                // TakeIf from kt
                 .filter(PlayerSearch::hasCsgoGame)
                 .map(p -> new PlayerSimple(p.getNickname(),
                                            p.getCsgoGame().getLvl(),
