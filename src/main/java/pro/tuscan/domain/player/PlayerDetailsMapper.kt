@@ -1,8 +1,8 @@
 package pro.tuscan.domain.player
 
-import pro.tuscan.adapter.api.response.PlayerDetailsResponse
-import pro.tuscan.adapter.api.response.dto.GameDetails
-import pro.tuscan.client.player.Membership
+import pro.tuscan.adapter.api.GameDetails
+import pro.tuscan.adapter.api.Membership
+import pro.tuscan.adapter.api.PlayerDetailsResponse
 import pro.tuscan.client.player.PlayerDetails
 
 class PlayerDetailsMapper {

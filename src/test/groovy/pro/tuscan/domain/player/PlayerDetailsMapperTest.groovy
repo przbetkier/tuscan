@@ -3,7 +3,7 @@ package pro.tuscan.domain.player
 import spock.lang.Specification
 
 import static integration.common.MockedPlayer.PLAYER_ID
-import static pro.tuscan.client.player.Membership.FREE
+import static pro.tuscan.adapter.api.Membership.FREE
 import static pro.tuscan.common.SamplePlayerDetails.simple
 import static pro.tuscan.common.SamplePlayerDetails.withoutCsGoGame
 

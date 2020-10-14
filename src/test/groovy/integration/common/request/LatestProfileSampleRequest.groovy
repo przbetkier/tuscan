@@ -1,7 +1,7 @@
 package integration.common.request
 
 import integration.common.MockedPlayer
-import pro.tuscan.adapter.api.request.LatestProfileRequest
+import pro.tuscan.adapter.api.LatestProfileRequest
 
 class LatestProfileSampleRequest {
 

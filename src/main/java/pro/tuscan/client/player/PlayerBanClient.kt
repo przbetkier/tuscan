@@ -2,8 +2,7 @@ package pro.tuscan.client.player
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.http.HttpMethod
-import org.springframework.http.HttpMethod.*
+import org.springframework.http.HttpMethod.GET
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import java.time.Instant

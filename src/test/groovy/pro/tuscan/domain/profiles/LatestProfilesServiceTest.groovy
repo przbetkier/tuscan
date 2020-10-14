@@ -8,7 +8,8 @@ import spock.lang.Specification
 import spock.lang.Subject
 
 import java.time.LocalDateTime
-import java.time.ZoneOffset
+
+import static java.time.ZoneOffset.UTC
 
 class LatestProfilesServiceTest extends Specification {
 
@@ -23,8 +24,7 @@ class LatestProfilesServiceTest extends Specification {
         def request = LatestProfileSampleRequest.simple()
         latestProfileRepository.findById(request.nickname) >> Mono.empty()
 
-
-        def now = LocalDateTime.of(2018, 9, 26, 23, 30).toInstant(ZoneOffset.UTC)
+        def now = LocalDateTime.of(2018, 9, 26, 23, 30).toInstant(UTC)
         instantSupplier.get() >> now
 
         when:
@@ -37,7 +37,7 @@ class LatestProfilesServiceTest extends Specification {
     def "should update player if is saved in database"() {
         given:
         def nickname = "player-1"
-        def date = LocalDateTime.of(2018, 9, 26, 23, 30).toInstant(ZoneOffset.UTC)
+        def date = LocalDateTime.of(2018, 9, 26, 23, 30).toInstant(UTC)
         def request = LatestProfileSampleRequest.simple(nickname)
         def savedProfile = SampleLatestProfile.simple(nickname, date)
 

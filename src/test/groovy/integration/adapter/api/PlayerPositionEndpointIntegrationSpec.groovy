@@ -3,6 +3,7 @@ package integration.adapter.api
 import com.github.tomakehurst.wiremock.client.WireMock
 import integration.BaseIntegrationSpec
 import integration.common.stubs.PlayerPositionStubs
+import pro.tuscan.adapter.api.response.PlayerPositionResponse
 import spock.util.concurrent.PollingConditions
 
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor
@@ -16,20 +17,22 @@ class PlayerPositionEndpointIntegrationSpec extends BaseIntegrationSpec {
 
     def "should return player position with ok status"() {
         given:
-        def playerId = PLAYER_ID
+        def givenPlayerId = PLAYER_ID
         def region = "EU"
         def country = "pl"
         def position = 101
-        PlayerPositionStubs.stubSuccessfulApiResponse(playerId, position, region)
+        PlayerPositionStubs.stubSuccessfulApiResponse(givenPlayerId, position, region)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/player/position?playerId=$playerId&region=$region&country=$country"), Map)
+        def response = restTemplate.getForEntity(localUrl("/faceit/player/position?playerId=$givenPlayerId&region=$region&country=$country"), PlayerPositionResponse)
 
         then:
         response.statusCodeValue == 200
-        response.body.playerId == playerId
-        response.body.positionInRegion == position
-        response.body.positionInCountry == position
+        with(response.body) {
+            playerId == givenPlayerId
+            positionInRegion == position
+            positionInCountry == position
+        }
     }
 
     def "should retry when service unavailable and get player position eventually"() {
@@ -41,7 +44,7 @@ class PlayerPositionEndpointIntegrationSpec extends BaseIntegrationSpec {
         PlayerPositionStubs.exceptionalThenSuccessful(playerId, position, region)
 
         when:
-        def response = restTemplate.getForEntity(localUrl("/faceit/player/position?playerId=$playerId&region=$region&country=$country"), Map)
+        def response = restTemplate.getForEntity(localUrl("/faceit/player/position?playerId=$playerId&region=$region&country=$country"), PlayerPositionResponse)
 
         then:
         response.statusCodeValue == 200

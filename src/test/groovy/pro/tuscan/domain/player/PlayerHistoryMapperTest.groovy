@@ -1,7 +1,6 @@
 package pro.tuscan.domain.player
 
 import pro.tuscan.client.player.MatchHistoryDto
-import pro.tuscan.client.player.PlayerHistoryDto
 import spock.lang.Specification
 
 import java.time.Instant
@@ -11,10 +10,9 @@ class PlayerHistoryMapperTest extends Specification {
     def "should map dto with 100 matches to last 100 matches player history response"() {
         given:
         def listOf100matchesHistory = generateMatchHistoryDto(1200, 100)
-        def playerHistoryDto = new PlayerHistoryDto(listOf100matchesHistory)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+        def result = PlayerHistoryMapper.map(listOf100matchesHistory)
 
         then:
         result.matchHistory.size() == 100
@@ -27,10 +25,9 @@ class PlayerHistoryMapperTest extends Specification {
     def "should map dto with 100 matches to last 100 without elo"() {
         given:
         def listOf100matchesHistory = generateMatchHistoryDto(null, 100)
-        def playerHistoryDto = new PlayerHistoryDto(listOf100matchesHistory)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+        def result = PlayerHistoryMapper.map(listOf100matchesHistory)
 
         then:
         result.matchHistory.size() == 100
@@ -42,10 +39,9 @@ class PlayerHistoryMapperTest extends Specification {
     def "should map dto with less than 100 matches to last matches history"() {
         given:
         def matchesList = generateMatchHistoryDto(1025, 99)
-        def playerHistoryDto = new PlayerHistoryDto(matchesList)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+        def result = PlayerHistoryMapper.map(matchesList)
 
         then:
         result.matchHistory.size() == 99
@@ -58,10 +54,9 @@ class PlayerHistoryMapperTest extends Specification {
         def match2 = matchWithElo(null, 2)
         def match3 = matchWithElo("1000", 3)
         def matchesList = [match1, match2, match3]
-        def playerHistoryDto = new PlayerHistoryDto(matchesList)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+        def result = PlayerHistoryMapper.map(matchesList)
 
         then:
         result.matchHistory.size() == 3
@@ -79,10 +74,9 @@ class PlayerHistoryMapperTest extends Specification {
         def match2 = matchWithElo("1050", 2)
         def match3 = matchWithElo(null, 3)
         def matchesList = [match1, match2, match3]
-        def playerHistoryDto = new PlayerHistoryDto(matchesList)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+        def result = PlayerHistoryMapper.map(matchesList)
 
         then:
         result.matchHistory.size() == 3
@@ -95,11 +89,8 @@ class PlayerHistoryMapperTest extends Specification {
     }
 
     def "should map to empty list when history has no matches"() {
-        given:
-        def playerHistoryDto = new PlayerHistoryDto([])
-
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+        def result = PlayerHistoryMapper.map([])
 
         then:
         noExceptionThrown()
@@ -109,10 +100,9 @@ class PlayerHistoryMapperTest extends Specification {
     def "should map last 100 matches without elo to correct player history response"() {
         given:
         def listOf50MatchesHistory = generateMatchHistoryDto(null, 100)
-        def playerHistoryDto = new PlayerHistoryDto(listOf50MatchesHistory)
 
         when:
-        def result = PlayerHistoryMapper.map(playerHistoryDto.matchHistoryDtoList)
+        def result = PlayerHistoryMapper.map(listOf50MatchesHistory)
 
         then:
         result.matchHistory.size() == 100
