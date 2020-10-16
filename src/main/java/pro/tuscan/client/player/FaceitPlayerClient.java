@@ -35,7 +35,7 @@ public class FaceitPlayerClient extends FaceitClient {
                 .bodyToMono(PlayerDetails.class)
                 .name("playerDetails")
                 .metrics()
-                .map(PlayerDetailsMapper.Companion::mapToPlayerDetailsResponse)
+                .map(PlayerDetailsMapper::mapToPlayerDetailsResponse)
                 .retryWhen(retryInvoker.defaultFaceitPolicy("playerDetails"));
     }
 
@@ -48,7 +48,7 @@ public class FaceitPlayerClient extends FaceitClient {
                 .bodyToMono(PlayerStats.class)
                 .name("csgoStats")
                 .metrics()
-                .map(PlayerStatsMapper.Companion::map)
+                .map(PlayerStatsMapper::map)
                 .retryWhen(retryInvoker.defaultFaceitPolicy("csgoStats"));
     }
 

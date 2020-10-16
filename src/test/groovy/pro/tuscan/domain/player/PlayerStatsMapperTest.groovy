@@ -19,7 +19,7 @@ class PlayerStatsMapperTest extends Specification {
         def playerStats = simple(kdRatio, matches)
 
         when:
-        def result = PlayerStatsMapper.@Companion.map(playerStats)
+        def result = PlayerStatsMapper.map(playerStats)
 
         then:
         with(result) {

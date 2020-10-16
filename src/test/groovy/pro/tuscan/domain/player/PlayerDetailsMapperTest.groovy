@@ -15,7 +15,7 @@ class PlayerDetailsMapperTest extends Specification {
         def playerDetails = simple(playerId)
 
         when:
-        def result = PlayerDetailsMapper.@Companion.mapToPlayerDetailsResponse(playerDetails)
+        def result = PlayerDetailsMapper.mapToPlayerDetailsResponse(playerDetails)
 
         then:
         with(result) {
@@ -35,7 +35,7 @@ class PlayerDetailsMapperTest extends Specification {
         def playerDetails = withoutCsGoGame()
 
         when:
-        def result = PlayerDetailsMapper.@Companion.mapToPlayerDetailsResponse(playerDetails)
+        def result = PlayerDetailsMapper.mapToPlayerDetailsResponse(playerDetails)
 
         then:
         result.gameDetails == null

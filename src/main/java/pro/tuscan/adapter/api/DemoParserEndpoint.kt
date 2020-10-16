@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import pro.tuscan.adapter.api.request.DemoStatsDto
-import pro.tuscan.client.lambda.LambdaResponse
 import pro.tuscan.domain.stats.DemoStats
 import pro.tuscan.domain.stats.DemoStatsService
 import reactor.core.publisher.Mono
@@ -39,3 +38,7 @@ class DemoParserEndpoint(private val demoStatsService: DemoStatsService) {
 }
 
 data class LambdaInvokerRequest(val matchId: String)
+
+data class LambdaResponse(val message: String)
+
+data class LambdaRequest(val matchId: String, val demoUrl: String?)

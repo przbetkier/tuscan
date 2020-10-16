@@ -1,8 +1,8 @@
 package pro.tuscan.domain.player;
 
-import pro.tuscan.adapter.api.response.PlayerHistoryResponse;
-import pro.tuscan.adapter.api.response.dto.MatchHistory;
+import pro.tuscan.client.player.MatchHistory;
 import pro.tuscan.client.player.MatchHistoryDto;
+import pro.tuscan.client.player.PlayerHistoryResponse;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -46,7 +46,7 @@ public class PlayerHistoryMapper {
 
             Integer eloBeforeMatch;
             if (index < MAX_MATCHES_COUNT) {
-                 eloBeforeMatch = matchBefore.hasElo() ? convertToElo(matchBefore.getElo()) : STARTING_ELO_POINTS;
+                eloBeforeMatch = matchBefore.hasElo() ? convertToElo(matchBefore.getElo()) : STARTING_ELO_POINTS;
             } else {
                 eloBeforeMatch = matchBefore.hasElo() ? convertToElo(matchBefore.getElo()) : 0;
             }
@@ -81,12 +81,12 @@ public class PlayerHistoryMapper {
             eloBefore = 0;
         }
 
-            matchHistoryList.add(new MatchHistory(firstMatch.getMatchId(),
-                                                  instantOf(firstMatch.getDate()),
-                                                  eloAfter,
-                                                  (eloAfter - eloBefore),
-                                                  new BigDecimal(firstMatch.getKdRatio()),
-                                                  Integer.parseInt(firstMatch.getHsPercentage())));
+        matchHistoryList.add(new MatchHistory(firstMatch.getMatchId(),
+                                              instantOf(firstMatch.getDate()),
+                                              eloAfter,
+                                              (eloAfter - eloBefore),
+                                              new BigDecimal(firstMatch.getKdRatio()),
+                                              Integer.parseInt(firstMatch.getHsPercentage())));
         return new PlayerHistoryResponse(matchHistoryList);
     }
 

@@ -1,8 +1,8 @@
 package pro.tuscan.common.response
 
 import groovy.transform.CompileStatic
-import pro.tuscan.adapter.api.response.PlayerHistoryResponse
-import pro.tuscan.adapter.api.response.dto.MatchHistory
+import pro.tuscan.client.player.MatchHistory
+import pro.tuscan.client.player.PlayerHistoryResponse
 
 import java.time.Instant
 

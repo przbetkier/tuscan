@@ -13,7 +13,7 @@ class PlayerPositionMapperTest extends Specification {
         def countryPosition = new Position("3999")
 
         when:
-        def response = PlayerPositionMapper.@Companion.map(playerId, new Tuple2<Position, Position>(regionPosition, countryPosition))
+        def response = PlayerPositionMapper.map(playerId, new Tuple2<Position, Position>(regionPosition, countryPosition))
 
         then:
         response.playerId == playerId
