@@ -55,6 +55,3 @@ internal class FaceitWebClientConfiguration(private val faceitWebClientPropertie
                         .let { HttpClient.from(it) }
     }
 }
-
-
-

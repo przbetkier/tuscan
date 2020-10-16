@@ -7,4 +7,4 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConfigurationProperties("mongo-client-properties")
 data class MongoClientProperties(val socketTimeout: Int,
                                  val connectionsPerHost: Int,
-                                 val maxConnectionIdleTime: Int)
+                                 val maxConnectionIdleTime: Long)
