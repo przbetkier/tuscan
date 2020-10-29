@@ -1,0 +1,28 @@
+faceit:
+  api-key: '{{API_KEY}}' #obtainable at developers.faceit.com
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: tuscan
+      password: password
+      authentication-database: admin
+      database: tuscandb
+
+management:
+  metrics:
+    export:
+      graphite:
+        enabled: false
+        host: localhost
+        port: 2004
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+
+lambda-parser:
+  endpoint: 'http://localhost:9191' #could be replaced with your own demo-parser AWS function endpoint if needed
