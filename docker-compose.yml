@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  database-mongo:
+    image: mongo:4.0.13
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tuscan
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - 27017:27017
+    command: mongod --auth
+    networks:
+      - internal-net
+
+networks:
+  internal-net:
+    driver: bridge

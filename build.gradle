@@ -91,6 +91,13 @@ dependencies {
     testCompile group: 'io.projectreactor', name: 'reactor-test', version: "${reactorVersion}"
 }
 
+
+task runDocker(type: Exec) {
+    commandLine './run-docker-services.sh'
+}
+
+tasks.bootRun.dependsOn(tasks.runDocker)
+
 jacocoTestReport {
     reports {
         xml.enabled true
