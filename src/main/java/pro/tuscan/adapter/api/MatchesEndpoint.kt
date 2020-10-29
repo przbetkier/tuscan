@@ -18,7 +18,6 @@ class MatchesEndpoint(private val matchService: MatchService) {
                             @RequestParam playerId: String): Mono<MatchFullDetailsResponse> =
             matchService.getMatchByPlayer(matchId, playerId)
 
-
     @GetMapping("/simple")
     fun getSimpleMatches(@RequestParam playerId: String,
                          @RequestParam offset: Int): Mono<SimpleMatchesResponse> =

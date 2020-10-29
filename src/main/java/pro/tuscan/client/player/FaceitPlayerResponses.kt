@@ -1,10 +1,6 @@
 package pro.tuscan.client.player
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize
-import pro.tuscan.infrastructure.ZonedDateTimeDeserializer
-import java.time.ZonedDateTime
 
 data class Csgo(
         @JsonProperty("faceit_elo") val faceitElo: Int?,

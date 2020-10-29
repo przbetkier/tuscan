@@ -13,7 +13,7 @@ class PlayerBanClient(@Qualifier("openFaceitClient") private val openFaceitClien
 
     fun getPlayerBanInfo(playerId: String): Mono<BanInfoResponse> =
             openFaceitClient.method(GET)
-                    .uri { uriBuilder -> uriBuilder.path("/sheriff/v1/bans/{playerId}").build(playerId) }
+                    .uri("/sheriff/v1/bans/{playerId}", playerId)
                     .retrieve()
                     .bodyToMono(BanInfo::class.java)
                     .name("bans")

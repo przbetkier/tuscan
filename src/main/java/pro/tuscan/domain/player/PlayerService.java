@@ -3,17 +3,16 @@ package pro.tuscan.domain.player;
 import kotlin.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import pro.tuscan.adapter.api.PlayerDetailsResponse;
 import pro.tuscan.adapter.api.response.DetailedPlayerCsgoStatsResponse;
 import pro.tuscan.adapter.api.response.PlayerCsgoStatsResponse;
-import pro.tuscan.adapter.api.response.PlayerHistoryResponse;
 import pro.tuscan.adapter.api.response.PlayerPositionResponse;
 import pro.tuscan.client.player.BanInfoResponse;
 import pro.tuscan.client.player.FaceitPlayerClient;
 import pro.tuscan.client.player.PlayerBanClient;
 import pro.tuscan.client.player.PlayerHistoryClient;
+import pro.tuscan.client.player.PlayerHistoryResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -35,26 +34,22 @@ public class PlayerService {
         this.playerBanClient = playerBanClient;
     }
 
-    @Cacheable(value = "playerDetails", key = "{#nickname}")
     public Mono<PlayerDetailsResponse> getPlayerDetails(String nickname) {
         return faceitPlayerClient.getPlayerDetails(nickname);
     }
 
-    @Cacheable(value = "playerCsgoStats", key = "{#playerId}")
     public Mono<PlayerCsgoStatsResponse> getCsgoStats(String playerId) {
         return faceitPlayerClient.getPlayerCsgoStats(playerId);
     }
 
-    @Cacheable(value = "playerHistory", key = "{#playerId}")
     public Mono<PlayerHistoryResponse> getPlayerHistory(String playerId) {
         return playerHistoryClient.getPlayerHistory(playerId);
     }
 
-    @Cacheable(value = "playerPosition", key = "{#playerId, #region, #country}")
     public Mono<PlayerPositionResponse> getPlayerPosition(String playerId, String region, String country) {
         return Mono.zip(faceitPlayerClient.getPlayerPositionInRegion(playerId, region),
                         faceitPlayerClient.getPlayerPositionInCountry(playerId, region, country))
-                .map(t -> PlayerPositionMapper.Companion.map(playerId, t))
+                .map(t -> PlayerPositionMapper.map(playerId, t))
                 .doOnError(e -> logger.warn("Error occurred during fetching player position", e));
     }
 
