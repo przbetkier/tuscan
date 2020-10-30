@@ -1,6 +1,12 @@
 package integration
 
 import integration.common.WireMockRunner
+import org.junit.ClassRule
+import org.springframework.test.context.DynamicPropertyRegistry
+import org.springframework.test.context.DynamicPropertySource
+import org.testcontainers.containers.MongoDBContainer
+import org.testcontainers.spock.Testcontainers
+import org.testcontainers.utility.DockerImageName
 import pro.tuscan.TuscanApplication
 import pro.tuscan.domain.match.MatchRepository
 import pro.tuscan.domain.profiles.LatestProfileRepository
@@ -11,8 +17,10 @@ import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.ContextConfiguration
+import spock.lang.Shared
 import spock.lang.Specification
 
+@Testcontainers
 @ContextConfiguration
 @SpringBootTest(
         classes = TuscanApplication,
@@ -37,9 +45,13 @@ class BaseIntegrationSpec extends Specification {
     @LocalServerPort
     protected int port
 
-    protected String localUrl(String endpoint) {
-        return "http://localhost:$port$endpoint"
-    }
+    @Shared
+    @ClassRule
+    static MongoDBContainer mongoDBContainer = getMongoContainer()
+
+    private static final String MONGO_DB_DOCKER_IMAGE_NAME = "mongo:4.0.13"
+
+    private static final int MONGO_DB_EXPOSED_CONTAINER_PORT = 27017
 
     def setupSpec() {
         WireMockRunner.start()
@@ -48,6 +60,23 @@ class BaseIntegrationSpec extends Specification {
     def cleanup() {
         WireMockRunner.cleanupAll()
         clearRepositories()
+    }
+
+    private static MongoDBContainer getMongoContainer() {
+        MongoDBContainer container = new MongoDBContainer(DockerImageName.parse(MONGO_DB_DOCKER_IMAGE_NAME))
+        container.addExposedPort(MONGO_DB_EXPOSED_CONTAINER_PORT)
+        container.start()
+        return container
+    }
+
+    @DynamicPropertySource
+    static void mongoProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.data.mongodb.host", { mongoDBContainer.getContainerIpAddress() })
+        registry.add("spring.data.mongodb.port", { mongoDBContainer.getMappedPort(MONGO_DB_EXPOSED_CONTAINER_PORT) })
+    }
+
+    protected String localUrl(String endpoint) {
+        return "http://localhost:$port$endpoint"
     }
 
     def clearRepositories() {
