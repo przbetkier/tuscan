@@ -3,6 +3,9 @@ language: java
 jdk:
   - openjdk11
 
+services:
+  - docker
+
 script:
   - ./gradlew test
 
