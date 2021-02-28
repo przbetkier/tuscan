@@ -44,7 +44,7 @@ data class PlayerStatsDto(
         @JsonProperty("Kills") val kills: String,
         @JsonProperty("Assists") val assists: String,
         @JsonProperty("Deaths") val deaths: String,
-        @JsonProperty("Headshot") val headshots: String,
+        @JsonProperty("Headshots") val headshots: String,
         @JsonProperty("Headshots %") val headshotPercentage: String,
         @JsonProperty("K/D Ratio") val kdRatio: String,
         @JsonProperty("K/R Ratio") val krRatio: String,
@@ -68,8 +68,7 @@ data class TeamDto(
 )
 
 data class TeamStatsDto(
-        @JsonProperty("Team") val teamName: String,
-        @JsonProperty("Team Headshot") val headshotAvg: String
+        @JsonProperty("Team") val teamName: String
 )
 
 data class MatchDemoDto(

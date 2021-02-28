@@ -39,8 +39,7 @@ class SampleMatchStatsDto {
                                         new TeamDto(
                                                 "team-one",
                                                 new TeamStatsDto(
-                                                        "TEAM-ONE",
-                                                        "3.4"
+                                                        "TEAM-ONE"
                                                 ),
                                                 [new PlayerDto(
                                                         "$playerId",
@@ -64,8 +63,7 @@ class SampleMatchStatsDto {
                                         new TeamDto(
                                                 "team-two",
                                                 new TeamStatsDto(
-                                                        "TEAM-TWO",
-                                                        "3.1"
+                                                        "TEAM-TWO"
                                                 ),
                                                 [new PlayerDto(
                                                         "playerId",

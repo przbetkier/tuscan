@@ -25,7 +25,7 @@
             "Overtime score": "0",
             "Second Half Score": "6",
             "Team": "team_jR",
-            "Team Headshot": "9.8",
+            "Team Headshots": "9.8",
             "Team Win": "1"
           },
           "players": [
@@ -35,7 +35,7 @@
               "player_stats": {
                 "Assists": "7",
                 "Deaths": "15",
-                "Headshot": "7",
+                "Headshots": "7",
                 "Headshots %": "30",
                 "K/D Ratio": "1.53",
                 "K/R Ratio": "1",
@@ -53,7 +53,7 @@
               "player_stats": {
                 "Assists": "1",
                 "Deaths": "13",
-                "Headshot": "8",
+                "Headshots": "8",
                 "Headshots %": "47",
                 "K/D Ratio": "1.31",
                 "K/R Ratio": "0.74",
@@ -71,7 +71,7 @@
               "player_stats": {
                 "Assists": "3",
                 "Deaths": "14",
-                "Headshot": "9",
+                "Headshots": "9",
                 "Headshots %": "69",
                 "K/D Ratio": "0.93",
                 "K/R Ratio": "0.57",
@@ -89,7 +89,7 @@
               "player_stats": {
                 "Assists": "4",
                 "Deaths": "14",
-                "Headshot": "11",
+                "Headshots": "11",
                 "Headshots %": "69",
                 "K/D Ratio": "1.14",
                 "K/R Ratio": "0.7",
@@ -107,7 +107,7 @@
               "player_stats": {
                 "Assists": "2",
                 "Deaths": "10",
-                "Headshot": "14",
+                "Headshots": "14",
                 "Headshots %": "61",
                 "K/D Ratio": "2.3",
                 "K/R Ratio": "1",
@@ -130,7 +130,7 @@
             "Overtime score": "0",
             "Second Half Score": "2",
             "Team": "team_olofmeister",
-            "Team Headshot": "7.2",
+            "Team Headshots": "7.2",
             "Team Win": "0"
           },
           "players": [
@@ -140,7 +140,7 @@
               "player_stats": {
                 "Assists": "2",
                 "Deaths": "19",
-                "Headshot": "10",
+                "Headshots": "10",
                 "Headshots %": "48",
                 "K/D Ratio": "1.11",
                 "K/R Ratio": "0.91",
@@ -158,7 +158,7 @@
               "player_stats": {
                 "Assists": "3",
                 "Deaths": "18",
-                "Headshot": "8",
+                "Headshots": "8",
                 "Headshots %": "57",
                 "K/D Ratio": "0.78",
                 "K/R Ratio": "0.61",
@@ -176,7 +176,7 @@
               "player_stats": {
                 "Assists": "2",
                 "Deaths": "20",
-                "Headshot": "3",
+                "Headshots": "3",
                 "Headshots %": "38",
                 "K/D Ratio": "0.4",
                 "K/R Ratio": "0.35",
@@ -194,7 +194,7 @@
               "player_stats": {
                 "Assists": "4",
                 "Deaths": "16",
-                "Headshot": "7",
+                "Headshots": "7",
                 "Headshots %": "64",
                 "K/D Ratio": "0.69",
                 "K/R Ratio": "0.48",
@@ -212,7 +212,7 @@
               "player_stats": {
                 "Assists": "4",
                 "Deaths": "20",
-                "Headshot": "8",
+                "Headshots": "8",
                 "Headshots %": "73",
                 "K/D Ratio": "0.55",
                 "K/R Ratio": "0.48",
