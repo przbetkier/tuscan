@@ -2,6 +2,7 @@ package pro.tuscan.config
 
 import com.mongodb.MongoClientSettings
 import com.mongodb.WriteConcern.ACKNOWLEDGED
+import com.mongodb.WriteConcern.W1
 import com.mongodb.connection.ConnectionPoolSettings
 import com.mongodb.connection.SocketSettings
 import org.springframework.context.annotation.Bean
@@ -27,6 +28,6 @@ class MongoConfiguration(private val properties: MongoClientProperties) {
                                 .maxSize(properties.connectionsPerHost)
                                 .build()
                     }
-                    .writeConcern(ACKNOWLEDGED)
+                    .writeConcern(W1)
                     .build()
 }

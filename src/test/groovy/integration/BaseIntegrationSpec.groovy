@@ -45,28 +45,23 @@ class BaseIntegrationSpec extends Specification {
     @LocalServerPort
     protected int port
 
+    private static final String MONGO_DB_DOCKER_IMAGE_NAME = "mongo:4.0.13"
+    private static final int MONGO_DB_EXPOSED_CONTAINER_PORT = 27017
+
     @Shared
     @ClassRule
-    static MongoDBContainer mongoDBContainer = getMongoContainer()
-
-    private static final String MONGO_DB_DOCKER_IMAGE_NAME = "mongo:4.0.13"
-
-    private static final int MONGO_DB_EXPOSED_CONTAINER_PORT = 27017
+    public static MongoDBContainer mongoDBContainer =
+            new MongoDBContainer(DockerImageName.parse(MONGO_DB_DOCKER_IMAGE_NAME)
+                    .asCompatibleSubstituteFor("mongo"))
 
     def setupSpec() {
         WireMockRunner.start()
+        mongoDBContainer.start()
     }
 
     def cleanup() {
         WireMockRunner.cleanupAll()
         clearRepositories()
-    }
-
-    private static MongoDBContainer getMongoContainer() {
-        MongoDBContainer container = new MongoDBContainer(DockerImageName.parse(MONGO_DB_DOCKER_IMAGE_NAME))
-        container.addExposedPort(MONGO_DB_EXPOSED_CONTAINER_PORT)
-        container.start()
-        return container
     }
 
     @DynamicPropertySource
@@ -80,8 +75,8 @@ class BaseIntegrationSpec extends Specification {
     }
 
     def clearRepositories() {
-        latestProfileRepository.deleteAll().subscribe()
-        matchRepository.deleteAll().subscribe()
-        demoStatsRepository.deleteAll().subscribe()
+        latestProfileRepository.deleteAll().block()
+        matchRepository.deleteAll().block()
+        demoStatsRepository.deleteAll().block()
     }
 }
