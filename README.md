@@ -25,7 +25,7 @@
 ./gradlew bootRun --args='--spring.profiles.active=local'
 ```
 4. Optional: If you need frontend during your development you can clone [tuscan-frontend](https://github.com/przbetkier/tuscan-frontend) repo and run it separately
-5. When the development will be finished all docker services can be shut down with command:
+5. When the development will be finished, all docker services can be shut down with command:
 ```
 docker-compose down
 ```
